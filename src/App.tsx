@@ -1,4 +1,6 @@
-import './App.css'
+import './App.scss'
+import Button from "./components/Button";
+import ButtonsGroup from "./components/ButtonsGroup";
 
 function App() {
     return (
@@ -8,15 +10,19 @@ function App() {
             <div className="card">
                 <div>
                     <div>
-                        <button type="button">Weekday</button>
-                        <button type="button">Weekend</button>
+                        <ButtonsGroup>
+                            <Button onClick={() => console.log('Pressed')}>Weekday</Button>
+                            <Button onClick={() => console.log('Pressed')}>Weekend</Button>
+                        </ButtonsGroup>
                     </div>
                 </div>
                 <div>
                     <h3>Start point</h3>
                     <div>
-                        <button type="button">Pridniprovsk City</button>
-                        <button type="button">Cathedral Square</button>
+                        <ButtonsGroup>
+                            <Button onClick={() => console.log('Pressed')}>Pridniprovsk City</Button>
+                            <Button onClick={() => console.log('Pressed')}>Cathedral Square</Button>
+                        </ButtonsGroup>
                     </div>
                 </div>
             </div>
