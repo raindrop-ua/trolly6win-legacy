@@ -5,3 +5,44 @@
   padding: 2rem;
   text-align: center;
 }
+
+@keyframes busBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes wheelBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+}
+
+.bus-container {
+  margin: 0 auto;
+  position: relative;
+  width: 118px;
+  height: 88px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bus {
+  width: 118px;
+  height: 88px;
+  position: absolute;
+  animation: busBounce 500ms infinite ease-in-out;
+}
+
+.wheels {
+  width: 118px;
+  height: 88px;
+  position: absolute;
+  animation: wheelBounce 500ms infinite ease-in-out;
+}
