@@ -1,12 +1,23 @@
 .page {
-  font-family: var(--font-dniproCity-regular), sans-serif;
+  font-family: var(--font-dniproCity), sans-serif;
+  font-weight: 400;
 
   h1 {
     text-align: center;
+
+    span {
+      color: #FBD914;
+      font-weight: 700;
+    }
   }
 
   h2 {
     text-align: center;
+
+    span {
+      color: #FBD914;
+      font-weight: 700;
+    }
   }
 }
 

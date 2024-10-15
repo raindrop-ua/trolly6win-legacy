@@ -3,16 +3,20 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.scss";
 
-const dniproCityRegular = localFont({
-  src: "./fonts/dniprocity-regular-webfont.woff",
-  variable: "--font-dniproCity-regular",
-  weight: "400",
-});
-
-const dniproCityBold = localFont({
-  src: "./fonts/dniprocity-bold-webfont.woff",
-  variable: "--font-dniproCity-bold",
-  weight: "800",
+const dniproCity = localFont({
+  src: [
+    {
+      path: "./fonts/dniprocity-regular-webfont.woff",
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: "./fonts/dniprocity-bold-webfont.woff2",
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: "--font-dniproCity",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dniproCityRegular.variable} ${dniproCityBold.variable}`}>
+      <body className={`${dniproCity.variable}`}>
         {children}
       </body>
     </html>
