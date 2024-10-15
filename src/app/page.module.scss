@@ -1,9 +1,24 @@
-#root {
-  max-width: 400px;
-  width: 100%;
+.page {
+  font-family: var(--font-dniproCity-regular), sans-serif;
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.main {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  max-width: 412px;
+  padding: 2rem 0;
+}
+
+.footer {
+
 }
 
 @keyframes busBounce {
@@ -24,8 +39,8 @@
   }
 }
 
-.bus-container {
-  margin: 0 auto;
+.busContainer {
+  margin: 25px auto;
   position: relative;
   width: 118px;
   height: 88px;
