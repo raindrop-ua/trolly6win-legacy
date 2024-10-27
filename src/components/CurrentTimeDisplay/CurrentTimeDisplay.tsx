@@ -1,0 +1,14 @@
+import React from 'react';
+import { formatInTimeZone } from "date-fns-tz";
+import styles from './ScheduleList.module.scss';
+
+type CurrentTimeDisplayProps = {
+    currentTime: Date;
+};
+
+const CurrentTimeDisplay: React.FC<CurrentTimeDisplayProps> = ({ currentTime }) => {
+    const formattedTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm');
+    return <span className={styles.badge}>Current time: {formattedTime}</span>;
+};
+
+export default CurrentTimeDisplay;
