@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import scheduleData from '@/data/scheduleData';
+import { formatInTimeZone } from "date-fns-tz";
 import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils';
+import scheduleData from '@/data/scheduleData';
 import styles from './ScheduleList.module.scss';
 
 const ScheduleList: React.FC = () => {
@@ -40,7 +41,7 @@ const ScheduleList: React.FC = () => {
         return styles.upcomingLater;
     };
 
-    const formattedCurrentTime = currentTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    const formattedCurrentTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm');
 
     return (
         <div>
@@ -59,7 +60,7 @@ const ScheduleList: React.FC = () => {
 
             <h2 className={styles.caption}>
                 <strong>{selectedStop}</strong>
-                <span className={styles.badge}>(Current time: {formattedCurrentTime})</span>
+                <span className={styles.badge}>Current time: {formattedCurrentTime}</span>
             </h2>
             <ul className={styles.timeItems}>
                 {getTodaysSchedule().map(({time, diff}, index) => (

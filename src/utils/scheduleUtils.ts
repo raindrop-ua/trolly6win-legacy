@@ -1,3 +1,5 @@
+import { formatInTimeZone } from 'date-fns-tz';
+
 export type TimeSchedule = string[];
 export type TimestampSchedule = number[];
 
@@ -61,9 +63,14 @@ export const isWeekend = (): boolean => {
 
 export const getTimeDifference = (scheduledTime: string, currentTime: Date, timezone: string = 'Europe/Kyiv'): number => {
     const [hours, minutes] = scheduledTime.split(':').map(Number);
-    const date = new Date(currentTime);
+    // Создаем объект Date для запланированного времени в заданном часовом поясе
+    const localScheduledDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), hours, minutes);
+    // Форматируем оба времени в строку в заданном часовом поясе для сравнения
+    const formattedScheduledTime = formatInTimeZone(localScheduledDate, timezone, 'yyyy-MM-dd HH:mm:ss');
+    const formattedCurrentTime = formatInTimeZone(currentTime, timezone, 'yyyy-MM-dd HH:mm:ss');
 
-    date.setHours(hours, minutes, 0, 0);
+    const scheduledDate = new Date(formattedScheduledTime);
+    const currentDate = new Date(formattedCurrentTime);
 
-    return (date.getTime() - currentTime.getTime()) / 60000;
+    return (scheduledDate.getTime() - currentDate.getTime()) / 60000; // Разница в минутах
 };
