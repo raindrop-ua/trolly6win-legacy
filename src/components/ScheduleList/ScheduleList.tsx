@@ -46,18 +46,21 @@ const ScheduleList: React.FC = () => {
         <div>
             <h2 className={styles.caption}>Schedule for: </h2>
             <div>
-                <button className={styles.button} onClick={() => setDayType('Auto')}>Auto</button>
-                <button className={styles.button} onClick={() => setDayType('Weekdays')}>Weekdays</button>
-                <button className={styles.button} onClick={() => setDayType('Weekend')}>Weekend</button>
+                <button className={`${styles.button} ${dayType === 'Auto' ? `${styles.active}` : ''}`} onClick={() => setDayType('Auto')}>Auto</button>
+                <button className={`${styles.button} ${dayType === 'Weekdays' ? `${styles.active}` : ''}`} onClick={() => setDayType('Weekdays')}>Weekdays</button>
+                <button className={`${styles.button} ${dayType === 'Weekend' ? `${styles.active}` : ''}`} onClick={() => setDayType('Weekend')}>Weekend</button>
             </div>
 
             <h2 className={styles.caption}>Start point:</h2>
             <div>
-                <button className={styles.button} onClick={() => setSelectedStop('Pridniprovsk')}>Pridniprovsk</button>
-                <button className={styles.button} onClick={() => setSelectedStop('Museum')}>Museum</button>
+                <button className={`${styles.button} ${selectedStop === 'Pridniprovsk' ? `${styles.active}` : ''}`} onClick={() => setSelectedStop('Pridniprovsk')}>Pridniprovsk</button>
+                <button className={`${styles.button} ${selectedStop === 'Museum' ? `${styles.active}` : ''}`} onClick={() => setSelectedStop('Museum')}>Museum</button>
             </div>
 
-            <h2 className={styles.caption}><strong>{selectedStop}</strong> (Current time: {formattedCurrentTime})</h2>
+            <h2 className={styles.caption}>
+                <strong>{selectedStop}</strong>
+                <span className={styles.badge}>(Current time: {formattedCurrentTime})</span>
+            </h2>
             <ul className={styles.timeItems}>
                 {getTodaysSchedule().map(({time, diff}, index) => (
                     <li key={index} className={`${styles.timeItem} ${getTimeClass(diff)}`}>
