@@ -1,6 +1,7 @@
 .timeItems {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -4px;
 }
 
 .timeItem {
@@ -13,7 +14,7 @@
   margin: 0 4px 4px 0;
   background-color: rgba(255, 255, 255, 0.27);
   border-radius: 4px;
-  width: 60px;
+  width: 68px;
   font-size: 1.25rem;
 }
 
@@ -22,15 +23,15 @@
 }
 
 .verySoon {
-  background-color: #ee0f0f;
+  background-color: #c71010;
 }
 
 .soon {
-  background-color: #f5a211;
+  background-color: #e59812;
 }
 
 .upcoming {
-  background-color: #038f03;
+  background-color: #0d7db9;
 }
 
 .button {
@@ -38,10 +39,11 @@
   outline: none;
   border: none;
   color: #0058a3;
+  font-size: 1.125rem;
   font-weight: 700;
   background-color: #fbd914;
   border-radius: 4px;
-  padding: 12px;
+  padding: 12px 20px;
   margin: 0 4px 4px 0;
 }
 

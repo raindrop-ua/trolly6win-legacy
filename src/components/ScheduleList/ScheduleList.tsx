@@ -1,8 +1,8 @@
 'use client';
 
-import React, {useEffect, useMemo, useState} from 'react';
-import scheduleData from '../../data/scheduleData';
-import {getTimeDifference, isWeekend} from '@/utils/scheduleUtils';
+import React, { useEffect, useState } from 'react';
+import scheduleData from '@/data/scheduleData';
+import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils';
 import styles from './ScheduleList.module.scss';
 
 type DayType = 'Auto' | 'Weekdays' | 'Weekend';
@@ -16,7 +16,7 @@ const ScheduleList: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTime(new Date());
-        }, 60000);
+        }, 30000);
 
         return () => clearInterval(interval);
     }, []);
@@ -33,10 +33,12 @@ const ScheduleList: React.FC = () => {
             diff: getTimeDifference(time, currentTime)
         }));
     };
+
     const getTimeClass = (diff: number) => {
         if (diff < 0) return styles.past;
-        if (diff <= 15) return styles.verySoon;
-        if (diff <= 30) return styles.soon;
+        if (diff <= 5) return styles.verySoon;
+        if (diff <= 25) return styles.soon;
+
         return styles.upcoming;
     };
 
@@ -57,7 +59,7 @@ const ScheduleList: React.FC = () => {
                 <button className={styles.button} onClick={() => setSelectedStop('Museum')}>Museum</button>
             </div>
 
-            <h2 className={styles.caption}>{selectedStop} (Current time: {formattedCurrentTime})</h2>
+            <h2 className={styles.caption}><strong>{selectedStop}</strong> (Current time: {formattedCurrentTime})</h2>
             <ul className={styles.timeItems}>
                 {getTodaysSchedule().map(({time, diff}, index) => (
                     <li key={index} className={`${styles.timeItem} ${getTimeClass(diff)}`}>
