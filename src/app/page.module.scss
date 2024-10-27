@@ -36,6 +36,17 @@
   margin-bottom: 40px;
 }
 
+.headerImage {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+}
+
+.headerText {
+
+}
+
 @keyframes busBounce {
   0%, 100% {
     transform: translateY(0);

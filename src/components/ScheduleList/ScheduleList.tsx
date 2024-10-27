@@ -2,11 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import scheduleData from '@/data/scheduleData';
-import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils';
+import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils';
 import styles from './ScheduleList.module.scss';
-
-type DayType = 'Auto' | 'Weekdays' | 'Weekend';
-type StopType = 'Pridniprovsk' | 'Museum';
 
 const ScheduleList: React.FC = () => {
     const [dayType, setDayType] = useState<DayType>('Auto');
@@ -37,9 +34,10 @@ const ScheduleList: React.FC = () => {
     const getTimeClass = (diff: number) => {
         if (diff < 0) return styles.past;
         if (diff <= 5) return styles.verySoon;
-        if (diff <= 25) return styles.soon;
+        if (diff <= 28) return styles.soon;
+        if (diff <= 58) return styles.upcoming;
 
-        return styles.upcoming;
+        return styles.upcomingLater;
     };
 
     const formattedCurrentTime = currentTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });

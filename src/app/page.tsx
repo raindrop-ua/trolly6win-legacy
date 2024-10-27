@@ -8,10 +8,10 @@ export default function Home() {
             <main className={styles.main}>
                 <>
                     <div className={styles.header}>
-                        <div>
+                        <div className={styles.headerImage}>
                             <TrolleybusIcon/>
                         </div>
-                        <div>
+                        <div className={styles.headerText}>
                             <h1>Trolly<span>Six</span></h1>
                             <h2>Timetable for trolleybus route number <span>6</span> in the city of Dnipro.</h2>
                         </div>

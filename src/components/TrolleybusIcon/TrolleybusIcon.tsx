@@ -1,7 +1,8 @@
 import { FC } from "react";
+import styles from "./TrolleybusIcon.module.scss";
 
 const TrolleybusIcon: FC = () => {
-    return <div>
+    return <div className={styles.trolleybusIcon}>
         <svg xmlns="http://www.w3.org/2000/svg" width="56" height="84" fill="none">
             <path fill="#0075C9" d="M7.1 76h8.2v7H7v-7ZM40.7 76H49v7h-8.2v-7Z"/>
             <path fill="#0075C9" fillRule="evenodd"

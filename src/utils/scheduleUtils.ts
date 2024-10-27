@@ -1,6 +1,9 @@
 export type TimeSchedule = string[];
 export type TimestampSchedule = number[];
 
+export type DayType = 'Auto' | 'Weekdays' | 'Weekend';
+export type StopType = 'Pridniprovsk' | 'Museum';
+
 export type ScheduleForDayType = {
     weekDay: TimeSchedule;
     weekEnd: TimeSchedule;

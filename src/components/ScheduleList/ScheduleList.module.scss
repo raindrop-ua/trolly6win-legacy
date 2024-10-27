@@ -16,6 +16,7 @@
   border-radius: 4px;
   width: 68px;
   font-size: 1.25rem;
+  user-select: none;
 }
 
 .past {
@@ -31,6 +32,10 @@
 }
 
 .upcoming {
+  background-color: #069d0e;
+}
+
+.upcomingLater {
   background-color: #0d7db9;
 }
 
