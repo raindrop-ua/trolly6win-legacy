@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils';
+import scheduleData from '@/data/scheduleData';
 import SelectButtons from '@/components/SelectButtons/SelectButtons';
 import TimeList from '@/components/TimeList/TimeList';
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay/CurrentTimeDisplay';
-import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils';
-import scheduleData from '@/data/scheduleData';
 import styles from './ScheduleList.module.scss';
 
 const ScheduleList: React.FC = () => {
