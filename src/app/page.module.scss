@@ -3,8 +3,6 @@
   font-weight: 400;
 
   h1 {
-    text-align: center;
-
     span {
       color: #FBD914;
       font-weight: 700;
@@ -12,8 +10,6 @@
   }
 
   h2 {
-    text-align: center;
-
     span {
       color: #FBD914;
       font-weight: 700;
@@ -30,6 +26,14 @@
 
 .footer {
 
+}
+
+.header {
+  display: flex;
+  gap: 32px;
+  flex-direction: row;
+  justify-items: center;
+  margin-bottom: 50px;
 }
 
 @keyframes busBounce {

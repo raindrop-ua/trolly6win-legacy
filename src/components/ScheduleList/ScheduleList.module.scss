@@ -1,0 +1,35 @@
+.timeItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.timeItem {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 0 4px 4px 0;
+  background-color: rgba(255, 255, 255, 0.27);
+  border-radius: 4px;
+  width: 60px;
+  font-size: 1.25rem;
+}
+
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #0058a3;
+  font-weight: 700;
+  background-color: #fbd914;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 0 4px 4px 0;
+}
+
+.caption {
+  text-align: left;
+  margin: 12px 0;
+}
