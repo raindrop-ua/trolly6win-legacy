@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { formatInTimeZone } from "date-fns-tz";
 import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils';
 import scheduleData from '@/data/scheduleData';
+import SelectButtons from '@/components/SelectButtons/SelectButtons';
+import TimeList from '@/components/TimeList/TimeList';
+import CurrentTimeDisplay from '@/components/CurrentTimeDisplay/CurrentTimeDisplay';
 import styles from './ScheduleList.module.scss';
 
 const ScheduleList: React.FC = () => {
@@ -15,7 +17,6 @@ const ScheduleList: React.FC = () => {
         const interval = setInterval(() => {
             setCurrentTime(new Date());
         }, 30000);
-
         return () => clearInterval(interval);
     }, []);
 
@@ -32,43 +33,25 @@ const ScheduleList: React.FC = () => {
         }));
     };
 
-    const getTimeClass = (diff: number) => {
-        if (diff < 0) return styles.past;
-        if (diff <= 5) return styles.verySoon;
-        if (diff <= 28) return styles.soon;
-        if (diff <= 58) return styles.upcoming;
-
-        return styles.upcomingLater;
-    };
-
-    const formattedCurrentTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm');
-
     return (
         <div>
-            <h2 className={styles.caption}>Schedule for: </h2>
-            <div>
-                <button className={`${styles.button} ${dayType === 'Auto' ? `${styles.active}` : ''}`} onClick={() => setDayType('Auto')}>Auto</button>
-                <button className={`${styles.button} ${dayType === 'Weekdays' ? `${styles.active}` : ''}`} onClick={() => setDayType('Weekdays')}>Weekdays</button>
-                <button className={`${styles.button} ${dayType === 'Weekend' ? `${styles.active}` : ''}`} onClick={() => setDayType('Weekend')}>Weekend</button>
-            </div>
-
-            <h2 className={styles.caption}>Start point:</h2>
-            <div>
-                <button className={`${styles.button} ${selectedStop === 'Pridniprovsk' ? `${styles.active}` : ''}`} onClick={() => setSelectedStop('Pridniprovsk')}>Pridniprovsk</button>
-                <button className={`${styles.button} ${selectedStop === 'Museum' ? `${styles.active}` : ''}`} onClick={() => setSelectedStop('Museum')}>Museum</button>
-            </div>
-
-            <h2 className={styles.caption}>
+            <SelectButtons
+                label="Schedule for"
+                options={['Auto', 'Weekdays', 'Weekend']}
+                selectedOption={dayType}
+                setSelectedOption={setDayType as (option: string) => void}
+            />
+            <SelectButtons
+                label="Start point"
+                options={['Pridniprovsk', 'Museum']}
+                selectedOption={selectedStop}
+                setSelectedOption={setSelectedStop as (option: string) => void}
+            />
+            <h3 className={styles.captionStartPoint}>
                 <strong>{selectedStop}</strong>
-                <span className={styles.badge}>Current time: {formattedCurrentTime}</span>
-            </h2>
-            <ul className={styles.timeItems}>
-                {getTodaysSchedule().map(({time, diff}, index) => (
-                    <li key={index} className={`${styles.timeItem} ${getTimeClass(diff)}`}>
-                        <span>{time}</span>
-                    </li>
-                ))}
-            </ul>
+                <CurrentTimeDisplay currentTime={currentTime} />
+            </h3>
+            <TimeList scheduleTimes={getTodaysSchedule()} />
         </div>
     );
 };

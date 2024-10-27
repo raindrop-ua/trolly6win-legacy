@@ -63,14 +63,23 @@ export const isWeekend = (): boolean => {
 
 export const getTimeDifference = (scheduledTime: string, currentTime: Date, timezone: string = 'Europe/Kyiv'): number => {
     const [hours, minutes] = scheduledTime.split(':').map(Number);
-    // Создаем объект Date для запланированного времени в заданном часовом поясе
-    const localScheduledDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), hours, minutes);
-    // Форматируем оба времени в строку в заданном часовом поясе для сравнения
-    const formattedScheduledTime = formatInTimeZone(localScheduledDate, timezone, 'yyyy-MM-dd HH:mm:ss');
+    const scheduledDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), hours, minutes);
+    const formattedScheduledTime = formatInTimeZone(scheduledDate, timezone, 'yyyy-MM-dd HH:mm:ss');
     const formattedCurrentTime = formatInTimeZone(currentTime, timezone, 'yyyy-MM-dd HH:mm:ss');
+    const dateScheduled = new Date(formattedScheduledTime);
+    const dateCurrent = new Date(formattedCurrentTime);
 
-    const scheduledDate = new Date(formattedScheduledTime);
-    const currentDate = new Date(formattedCurrentTime);
-
-    return (scheduledDate.getTime() - currentDate.getTime()) / 60000; // Разница в минутах
+    return (dateScheduled.getTime() - dateCurrent.getTime()) / 60000;
 };
+
+// export const getTimeDifference = (scheduledTime: string, currentTime: Date, timezone: string = 'Europe/Kyiv'): number => {
+//     const [hours, minutes] = scheduledTime.split(':').map(Number);
+//     const localScheduledDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), hours, minutes);
+//     const formattedScheduledTime = formatInTimeZone(localScheduledDate, timezone, 'yyyy-MM-dd HH:mm:ss');
+//     const formattedCurrentTime = formatInTimeZone(currentTime, timezone, 'yyyy-MM-dd HH:mm:ss');
+//
+//     const scheduledDate = new Date(formattedScheduledTime);
+//     const currentDate = new Date(formattedCurrentTime);
+//
+//     return (scheduledDate.getTime() - currentDate.getTime()) / 60000;
+// };
