@@ -13,8 +13,6 @@ const ScheduleList: React.FC = () => {
     const [selectedStop, setSelectedStop] = useState<StopType>('Pridniprovsk');
     const [currentTime, setCurrentTime] = useState(new Date());
 
-    //const currentTime = useMemo(() => new Date(), []);
-
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTime(new Date());
