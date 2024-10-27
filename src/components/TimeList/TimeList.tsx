@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ScheduleList.module.scss';
+import styles from './TimeList.module.scss';
 
 type ScheduleTime = {
     time: string;

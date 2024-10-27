@@ -1,0 +1,41 @@
+.timeItems {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -4px;
+}
+
+.timeItem {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 0 4px 4px 0;
+  border-radius: 4px;
+  width: 68px;
+  font-size: 1.25rem;
+  background-color: #0d7db9;
+  user-select: none;
+  transition: all .2s ease;
+}
+
+.past {
+  background-color: #8c8c8c;
+}
+
+.verySoon {
+  background-color: #c71010;
+}
+
+.soon {
+  background-color: #e59812;
+}
+
+.upcoming {
+  background-color: #069d0e;
+}
+
+.upcomingLater {
+  background-color: #0d7db9;
+}

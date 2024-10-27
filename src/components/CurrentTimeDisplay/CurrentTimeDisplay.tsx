@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatInTimeZone } from "date-fns-tz";
-import styles from './ScheduleList.module.scss';
+import styles from './CurrentTimeDisplay.module.scss';
 
 type CurrentTimeDisplayProps = {
     currentTime: Date;

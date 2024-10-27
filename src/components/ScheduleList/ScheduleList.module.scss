@@ -1,65 +1,6 @@
-.timeItems {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -4px;
-}
-
-.timeItem {
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  margin: 0 4px 4px 0;
-  background-color: rgba(255, 255, 255, 0.27);
-  border-radius: 4px;
-  width: 68px;
-  font-size: 1.25rem;
-  user-select: none;
-}
-
-.past {
-  background-color: #8c8c8c;
-}
-
-.verySoon {
-  background-color: #c71010;
-}
-
-.soon {
-  background-color: #e59812;
-}
-
-.upcoming {
-  background-color: #069d0e;
-}
-
-.upcomingLater {
-  background-color: #0d7db9;
-}
-
-.button {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  color: #fffef8;
-  font-size: 1.125rem;
-  font-weight: 700;
-  background-color: rgb(4, 116, 196);
-  border-radius: 4px;
-  padding: 12px 20px;
-  margin: 0 4px 4px 0;
-}
-
-.button.active {
-  background-color: #fbd914;
-  color: #0058a3;
-}
-
-.caption {
+.captionStartPoint {
   text-align: left;
-  margin: 20px 0 10px 0;
+  margin: 30px 0 20px 0;
   font-size: 1.5rem;
   font-weight: normal;
   line-height: 1.125;
@@ -72,16 +13,5 @@
 
   strong {
     font-weight: bold;
-  }
-
-  .badge {
-    background-color: #fbd914;
-    color: #0058a3;
-    font-size: 1.125rem;
-    line-height: 1.25rem;
-    display: inline-block;
-    margin: 0 5px;
-    padding: 5px 10px 3px 10px;
-    border-radius: 3px;
   }
 }
