@@ -1,6 +1,5 @@
-import { ScheduleData } from '../utils/scheduleUtils';
+import { ScheduleData } from '@/utils/scheduleUtils';
 
-// Данные
 const scheduleData: ScheduleData = {
     museum: {
         weekDay: [

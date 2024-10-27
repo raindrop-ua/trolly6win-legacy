@@ -51,5 +51,13 @@ export const convertScheduleToTimestamps = (schedule: ScheduleData): TimestampSc
 export const isWeekend = (): boolean => {
     const today = new Date();
     const dayOfWeek = today.getDay();
-    return dayOfWeek === 0 || dayOfWeek === 6; // Воскресенье (0) и Суббота (6)
+    return dayOfWeek === 0 || dayOfWeek === 6; // Sunday (0) и Saturday (6)
+};
+
+export const getTimeDifference = (scheduledTime: string, currentTime: Date, timezone: string = 'Europe/Kyiv'): number => {
+    const [hours, minutes] = scheduledTime.split(':').map(Number);
+    const date = new Date(currentTime);
+    date.setHours(hours, minutes, 0, 0);
+
+    return (date.getTime() - currentTime.getTime()) / 60000;
 };
