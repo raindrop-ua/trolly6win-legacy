@@ -17,6 +17,10 @@ export default function Home() {
                         </div>
                     </div>
                     <ScheduleList/>
+                    <p className={styles.note}>
+                        <span>Schedule changes may occur due to unforeseen situations along the route.</span>
+                        <span>Thank you for riding the trolleybus!</span>
+                    </p>
                     <div className={styles.busContainer}>
                         <div className={styles.bus}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="118" height="88" fill="none">
@@ -36,9 +40,12 @@ export default function Home() {
                         </div>
                     </div>
                 </>
+                <p className={styles.note}>
+                    <span>V1.02 &copy; 2024. </span>
+                    <span>Coded with love for the Web and trolleybuses.</span>
+                </p>
             </main>
             <footer className={styles.footer}>
-
             </footer>
         </div>
     );

@@ -87,3 +87,16 @@
   position: absolute;
   animation: wheelBounce 500ms infinite ease-in-out;
 }
+
+.note {
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+
+  span {
+    display: block;
+  }
+}
