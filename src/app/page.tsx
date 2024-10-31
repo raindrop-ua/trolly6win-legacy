@@ -41,7 +41,7 @@ export default function Home() {
                     </div>
                 </>
                 <p className={styles.note}>
-                    <span>V1.02 &copy; 2024. </span>
+                    <span>V1.03 &copy; 2024. </span>
                     <span>Coded with love for the Web and trolleybuses.</span>
                 </p>
             </main>
