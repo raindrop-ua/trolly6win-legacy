@@ -12,7 +12,8 @@
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "unit-test": "jest"
+    "unit-test": "jest",
+    "prepare": "husky"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -47,14 +48,15 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "babel-jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.15",
+    "eslint-plugin-storybook": "^0.11.0",
+    "husky": "^9.1.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.5",
-    "eslint": "^8.57.0",
-    "eslint-plugin-storybook": "^0.11.0",
-    "eslint-config-next": "14.2.15",
     "sass": "^1.79.5",
     "storybook": "^8.4.4",
     "stylelint": "^15.11.0",

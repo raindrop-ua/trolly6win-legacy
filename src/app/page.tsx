@@ -38,7 +38,7 @@ export default function Home() {
 								<path fill='#ffffff' d='M86.3 3h-7.8L62 23h7.8L86.3 3Z' />
 							</svg>
 						</div>
-						<div className={styles.wheels}>
+						<div className={styles.Wheels}>
 							<svg xmlns='http://www.w3.org/2000/svg' width='118' height='88' fill='none'>
 								<path
 									fill='#ffffff'
