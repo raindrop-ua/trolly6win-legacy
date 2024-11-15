@@ -1,39 +1,39 @@
-.buttonGroupBlock {
+.ButtonGroupBlock {
   display: flex;
   flex-direction: column;
-  margin: 0 0 25px 0;
+  margin: 0 0 25px;
   gap: 12px;
 }
 
-.buttonsGroup {
+.ButtonsGroup {
   display: flex;
   gap: 10px;
 }
 
-.button {
+.Button {
   cursor: pointer;
   outline: none;
   border: none;
   color: #fffef8;
   font-size: 1.125rem;
   font-weight: 700;
-  background-color: rgb(4, 116, 196);
+  background-color: rgb(4 116 196);
   border-radius: 4px;
   padding: 12px 20px;
   display: block;
   transition: all 0.1s ease-in-out;
+
+  &:active {
+    transform: scale(1.1);
+  }
+
+  &.Active {
+    background-color: #fbd914;
+    color: #0058a3;
+  }
 }
 
-.button:active {
-  transform: scale(1.1);
-}
-
-.button.active {
-  background-color: #fbd914;
-  color: #0058a3;
-}
-
-.groupCaption {
+.GroupCaption {
   text-align: left;
   font-size: 1.5rem;
   font-weight: normal;

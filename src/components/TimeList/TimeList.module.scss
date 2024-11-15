@@ -1,10 +1,10 @@
-.timeItems {
+.TimeItems {
   display: flex;
   flex-wrap: wrap;
   margin-right: -4px;
 }
 
-.timeItem {
+.TimeItem {
   cursor: default;
   display: flex;
   flex-direction: column;
@@ -18,24 +18,24 @@
   background-color: #0d7db9;
   user-select: none;
   transition: all .2s ease;
-}
 
-.past {
-  background-color: #8c8c8c;
-}
+  &.Past {
+    background-color: #8c8c8c;
+  }
 
-.verySoon {
-  background-color: #c71010;
-}
+  &.VerySoon {
+    background-color: #c71010;
+  }
 
-.soon {
-  background-color: #e59812;
-}
+  &.Soon {
+    background-color: #e59812;
+  }
 
-.upcoming {
-  background-color: #069d0e;
-}
+  &.Upcoming {
+    background-color: #069d0e;
+  }
 
-.upcomingLater {
-  background-color: #0d7db9;
+  &.UpcomingLater {
+    background-color: #0d7db9;
+  }
 }

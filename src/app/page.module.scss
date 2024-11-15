@@ -1,5 +1,5 @@
-.page {
-  font-family: var(--font-dniproCity), sans-serif;
+.Page {
+  font-family: var(--font-dnipro-city), sans-serif;
   font-weight: 400;
 
   h1 {
@@ -17,18 +17,18 @@
   }
 }
 
-.main {
+.Main {
   margin: 0 auto;
   width: 100%;
   max-width: 390px;
   padding: 2rem 1rem;
 }
 
-.footer {
-
+.Footer {
+  position: relative;
 }
 
-.header {
+.Header {
   display: flex;
   gap: 32px;
   flex-direction: row;
@@ -36,36 +36,37 @@
   margin-bottom: 40px;
 }
 
-.headerImage {
+.HeaderImage {
   display: flex;
   flex-direction: row;
-  justify-items: center;
-  align-items: center;
+  place-items: center center;
 }
 
-.headerText {
-
+.HeaderText {
+  position: relative;
 }
 
-@keyframes busBounce {
+@keyframes bus-bounce {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-1px);
   }
 }
 
-@keyframes wheelBounce {
+@keyframes wheel-bounce {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(1px);
   }
 }
 
-.busContainer {
+.BusContainer {
   margin: 25px auto;
   position: relative;
   width: 118px;
@@ -74,29 +75,25 @@
   align-items: flex-end;
 }
 
-.bus {
+.Bus {
   width: 118px;
   height: 88px;
   position: absolute;
-  animation: busBounce 500ms infinite ease-in-out;
+  animation: bus-bounce 500ms infinite ease-in-out;
 }
 
-.wheels {
+.Wheels {
   width: 118px;
   height: 88px;
   position: absolute;
-  animation: wheelBounce 500ms infinite ease-in-out;
+  animation: wheel-bounce 500ms infinite ease-in-out;
 }
 
-.note {
+.Note {
   margin: 15px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 12px;
-
-  span {
-    display: block;
-  }
 }
