@@ -1,24 +1,23 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { getTimeDifference, isWeekend, DayType, StopType } from '@/utils/scheduleUtils'
+import React, { useEffect } from 'react'
+import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils'
 import scheduleData from '@/data/scheduleData'
 import SelectButtons from '@/components/SelectButtons/SelectButtons'
 import TimeList from '@/components/TimeList/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay/CurrentTimeDisplay'
 import styles from './ScheduleList.module.scss'
+import useScheduleStore from '@/store/scheduleStore'
 
 const ScheduleList: React.FC = () => {
-	const [dayType, setDayType] = useState<DayType>('Auto')
-	const [selectedStop, setSelectedStop] = useState<StopType>('Pridniprovsk')
-	const [currentTime, setCurrentTime] = useState(new Date())
+	const { dayType, selectedStop, currentTime, setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setCurrentTime(new Date())
-		}, 30000)
+			updateCurrentTime()
+		}, 10e3)
 		return () => clearInterval(interval)
-	}, [])
+	}, [updateCurrentTime])
 
 	const getTodaysSchedule = () => {
 		const isAutoWeekend = isWeekend()
