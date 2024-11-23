@@ -14,7 +14,7 @@
   position: relative;
   cursor: pointer;
   outline: none;
-  color: #fffef8;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 400;
   background-color: #28293E;
@@ -24,6 +24,12 @@
   transition: all 0.1s ease-in-out;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   border: 1px solid rgba(255, 255, 255, 0.30);
+
+  &:focus-visible {
+    outline: 2px solid #EF6D58;
+    outline-offset: 2px;
+    border-radius: 8px 8px 8px 0;
+  }
 
   &:hover {
     transform: translateY(-2px);
