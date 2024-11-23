@@ -1,8 +1,24 @@
 .TimeItems {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 4px;
   visibility: hidden;
+
+  @media (min-width: 440px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (min-width: 512px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @media (min-width: 767px) {
+    grid-template-columns: repeat(9, 1fr);
+  }
 
   &:hover > :not(:hover) {
     opacity: 0.5;
@@ -20,7 +36,7 @@
   border-radius: 6px;
   width: 100%;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: #fff;
   background-color: #0d7db9;
   user-select: none;
   transition: all .2s ease;

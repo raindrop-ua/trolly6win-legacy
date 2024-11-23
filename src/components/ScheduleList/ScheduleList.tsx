@@ -36,18 +36,20 @@ const ScheduleList: React.FC = () => {
 
 	return (
 		<div>
-			<SelectButtons
-				label={'Schedule for'}
-				options={['Auto', 'Weekdays', 'Weekend']}
-				selectedOption={dayType}
-				setSelectedOption={setDayType as (option: string) => void}
-			/>
-			<SelectButtons
-				label={'Start point'}
-				options={['Pridniprovsk', 'Museum']}
-				selectedOption={selectedStop}
-				setSelectedOption={setSelectedStop as (option: string) => void}
-			/>
+			<div className={styles.ControlsBlock}>
+				<SelectButtons
+					label={'Schedule for'}
+					options={['Auto', 'Weekdays', 'Weekend']}
+					selectedOption={dayType}
+					setSelectedOption={setDayType as (option: string) => void}
+				/>
+				<SelectButtons
+					label={'Start point'}
+					options={['Pridniprovsk', 'Museum']}
+					selectedOption={selectedStop}
+					setSelectedOption={setSelectedStop as (option: string) => void}
+				/>
+			</div>
 			<h3 className={styles.CaptionStartPoint}>
 				<div>
 					<MapPinCheckInside />

@@ -2,11 +2,12 @@ import styles from './page.module.scss'
 import ScheduleList from '@/components/ScheduleList/ScheduleList'
 import Header from '@/components/Header/Header'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated/TrolleybusAnimated'
+import Wrapper from '@/components/Wrapper/Wrapper'
 
 export default function Home() {
 	return (
-		<div className={styles.Page}>
-			<main className={styles.Main}>
+		<main className={styles.Main}>
+			<Wrapper>
 				<>
 					<Header />
 					<ScheduleList />
@@ -20,8 +21,7 @@ export default function Home() {
 					<div>V1.07 &copy; 2024. </div>
 					<div>Coded with love for the Web and trolleybuses.</div>
 				</div>
-			</main>
-			<footer className={styles.Footer}></footer>
-		</div>
+			</Wrapper>
+		</main>
 	)
 }
