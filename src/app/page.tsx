@@ -1,8 +1,8 @@
+import ScheduleList from '@/components/ScheduleList'
+import Header from '@/components/Header'
+import TrolleybusAnimated from '@/components/TrolleybusAnimated'
+import Wrapper from '@/components/Wrapper'
 import styles from './page.module.scss'
-import ScheduleList from '@/components/ScheduleList/ScheduleList'
-import Header from '@/components/Header/Header'
-import TrolleybusAnimated from '@/components/TrolleybusAnimated/TrolleybusAnimated'
-import Wrapper from '@/components/Wrapper/Wrapper'
 
 export default function Home() {
 	return (

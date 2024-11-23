@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './Header.module.scss'
-import TrolleybusIcon from '@/components/TrolleybusIcon/TrolleybusIcon'
 import Link from 'next/link'
+import TrolleybusIcon from '@/components/TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
+import styles from './Header.module.scss'
 
 const Header: React.FC = () => {
 	return (
