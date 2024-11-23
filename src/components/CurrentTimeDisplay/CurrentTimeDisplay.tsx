@@ -8,7 +8,11 @@ type CurrentTimeDisplayProps = {
 
 const CurrentTimeDisplay: React.FC<CurrentTimeDisplayProps> = ({ currentTime }) => {
 	const formattedTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm')
-	return <span className={styles.Badge}>Current time: {formattedTime}</span>
+	return (
+		<span className={styles.Badge} role='text' aria-label={`Current time is ${formattedTime}`}>
+			Current time: {formattedTime}
+		</span>
+	)
 }
 
 export default CurrentTimeDisplay

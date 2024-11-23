@@ -1,4 +1,5 @@
 import React from 'react'
+import { useId } from 'react'
 import styles from './SelectButtons.module.scss'
 
 type SelectButtonsProps = {
@@ -14,17 +15,26 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 	selectedOption,
 	setSelectedOption
 }) => {
+	const groupId = useId()
+
 	return (
-		<div className={styles.ButtonGroupBlock}>
-			<h3 className={styles.GroupCaption}>{label}:</h3>
+		<div className={styles.ButtonGroupBlock} role='group' aria-labelledby={`${groupId}-label`}>
+			<h3 className={styles.GroupCaption} id={`${groupId}-label`}>
+				{label}:
+			</h3>
 			<div className={styles.ButtonsGroup}>
 				{options.map((option) => (
 					<button
 						key={option}
 						className={`${styles.Button} ${selectedOption === option ? styles.Active : ''}`}
 						onClick={() => setSelectedOption(option)}
+						aria-pressed={selectedOption === option}
+						aria-label={`Select ${option}`}
 					>
-						<span>{option}</span>
+						<span className={styles.SpaceHolder} aria-hidden={true}>
+							{option}
+						</span>
+						<span className={styles.Caption}>{option}</span>
 					</button>
 				))}
 			</div>
