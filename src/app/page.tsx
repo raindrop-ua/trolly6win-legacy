@@ -51,7 +51,7 @@ export default function Home() {
 					</div>
 				</>
 				<div className={styles.Note}>
-					<div>V1.04 &copy; 2024. </div>
+					<div>V1.05 &copy; 2024. </div>
 					<div>Coded with love for the Web and trolleybuses.</div>
 				</div>
 			</main>
