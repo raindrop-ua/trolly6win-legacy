@@ -2,19 +2,6 @@
   font-family: var(--font-dnipro-city), sans-serif;
   font-weight: 400;
 
-  h1 {
-    span {
-      color: #F7CC47;
-      font-weight: 700;
-    }
-  }
-
-  h2 {
-    span {
-      color: #F7CC47;
-      font-weight: 700;
-    }
-  }
 }
 
 .Main {
@@ -26,67 +13,6 @@
 
 .Footer {
   position: relative;
-}
-
-.Header {
-  display: flex;
-  gap: 32px;
-  flex-direction: row;
-  justify-items: center;
-  margin-bottom: 40px;
-}
-
-.HeaderImage {
-  display: flex;
-  flex-direction: row;
-  place-items: center center;
-}
-
-.HeaderText {
-  position: relative;
-}
-
-@keyframes bus-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-1px);
-  }
-}
-
-@keyframes wheel-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(1px);
-  }
-}
-
-.BusContainer {
-  margin: 25px auto;
-  position: relative;
-  width: 118px;
-  height: 88px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.Bus {
-  width: 118px;
-  height: 88px;
-  position: absolute;
-  animation: bus-bounce 500ms infinite ease-in-out;
-}
-
-.Wheels {
-  width: 118px;
-  height: 88px;
-  position: absolute;
-  animation: wheel-bounce 500ms infinite ease-in-out;
 }
 
 .Note {

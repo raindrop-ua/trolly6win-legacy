@@ -3,14 +3,16 @@
 import React, { useEffect } from 'react'
 import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils'
 import scheduleData from '@/data/scheduleData'
+import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '@/components/SelectButtons/SelectButtons'
 import TimeList from '@/components/TimeList/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay/CurrentTimeDisplay'
+import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
-import useScheduleStore from '@/store/scheduleStore'
 
 const ScheduleList: React.FC = () => {
-	const { dayType, selectedStop, currentTime, setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
+	const { dayType, selectedStop, currentTime, setDayType, setSelectedStop, updateCurrentTime } =
+		useScheduleStore()
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -35,19 +37,22 @@ const ScheduleList: React.FC = () => {
 	return (
 		<div>
 			<SelectButtons
-				label='Schedule for'
+				label={'Schedule for'}
 				options={['Auto', 'Weekdays', 'Weekend']}
 				selectedOption={dayType}
 				setSelectedOption={setDayType as (option: string) => void}
 			/>
 			<SelectButtons
-				label='Start point'
+				label={'Start point'}
 				options={['Pridniprovsk', 'Museum']}
 				selectedOption={selectedStop}
 				setSelectedOption={setSelectedStop as (option: string) => void}
 			/>
 			<h3 className={styles.CaptionStartPoint}>
-				<strong>{selectedStop}</strong>
+				<div>
+					<MapPinCheckInside />
+					<strong>{selectedStop}</strong>
+				</div>
 				<CurrentTimeDisplay currentTime={currentTime} />
 			</h3>
 			<TimeList scheduleTimes={getTodaysSchedule()} />
