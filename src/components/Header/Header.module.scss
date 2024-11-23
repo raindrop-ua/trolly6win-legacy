@@ -1,0 +1,41 @@
+.Header {
+  display: flex;
+  gap: 25px;
+  flex-direction: row;
+  justify-items: center;
+  margin-bottom: 40px;
+
+  h1 {
+    display: flex;
+    gap: 0.5rem;
+    span {
+      color: #F7CC47;
+      font-weight: 700;
+      border: 1px solid #3A3C56;
+      border-radius: 6px;
+      display: inline-block;
+      padding: 0 5px;
+    }
+  }
+
+  h2 {
+    span {
+      color: #F7CC47;
+      font-weight: 700;
+      border: 1px solid #3A3C56;
+      border-radius: 6px;
+      display: inline-block;
+      padding: 0 3px;
+    }
+  }
+}
+
+.HeaderImage {
+  display: flex;
+  flex-direction: row;
+  place-items: center center;
+}
+
+.HeaderText {
+  position: relative;
+}

@@ -5,7 +5,14 @@
   color: #fffef8;
   font-size: 1.125rem;
   line-height: 1.25rem;
-  display: inline-block;
-  margin: 0 5px;
-  padding: 5px 10px 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 5px 10px;
+  gap: 10px;
+
+  span {
+    line-height: 1.5rem;
+  }
 } 

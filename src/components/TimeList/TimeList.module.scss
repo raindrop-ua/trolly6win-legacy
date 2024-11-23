@@ -2,6 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 4px;
+  visibility: hidden;
+
+  &:hover > :not(:hover) {
+    opacity: 0.5;
+  }
 }
 
 .TimeItem {
@@ -19,6 +24,7 @@
   user-select: none;
   transition: all .2s ease;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  visibility: visible;
 
   &.Past {
     background-color: #32334C;
