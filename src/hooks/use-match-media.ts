@@ -10,15 +10,28 @@ type ScreenType = 'isMobile' | 'isTablet' | 'isDesktop'
 type MatchMediaResult = Record<ScreenType, boolean>
 
 export const useMatchMedia = (): MatchMediaResult => {
-	const mediaQueryLists: MediaQueryList[] = queries.map((query) =>
-		matchMedia(query)
-	)
-
-	const getValues = (): boolean[] => mediaQueryLists.map((list) => list.matches)
+	const getValues = (): boolean[] => {
+		if (typeof window === 'undefined') {
+			// Returning false for all values on the server-side
+			return queries.map(() => false)
+		}
+		const mediaQueryLists: MediaQueryList[] = queries.map((query) =>
+			matchMedia(query)
+		)
+		return mediaQueryLists.map((list) => list.matches)
+	}
 
 	const [values, setValues] = useState<boolean[]>(getValues)
 
 	useLayoutEffect(() => {
+		if (typeof window === 'undefined') {
+			return
+		}
+
+		const mediaQueryLists: MediaQueryList[] = queries.map((query) =>
+			matchMedia(query)
+		)
+
 		const handler = (): void => setValues(getValues)
 
 		mediaQueryLists.forEach((list) => list.addEventListener('change', handler))
@@ -27,7 +40,7 @@ export const useMatchMedia = (): MatchMediaResult => {
 			mediaQueryLists.forEach((list) =>
 				list.removeEventListener('change', handler)
 			)
-	})
+	}, [])
 
 	return ['isMobile', 'isTablet', 'isDesktop'].reduce((acc, screen, index) => {
 		acc[screen as ScreenType] = values[index]

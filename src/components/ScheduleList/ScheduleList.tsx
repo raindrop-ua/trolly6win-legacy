@@ -8,7 +8,6 @@ import SelectButtons from '@/components/SelectButtons'
 import TimeList from '@/components/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import { MapPinCheckInside } from 'lucide-react'
-import { useMatchMedia } from '@/hooks'
 import styles from './ScheduleList.module.scss'
 
 const ScheduleList: React.FC = () => {
@@ -20,7 +19,6 @@ const ScheduleList: React.FC = () => {
 		setSelectedStop,
 		updateCurrentTime
 	} = useScheduleStore()
-	const { isMobile, isTablet, isDesktop } = useMatchMedia()
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -66,17 +64,8 @@ const ScheduleList: React.FC = () => {
 	return (
 		<div>
 			<div className={styles.ControlsBlock}>
-				{isMobile ? (
-					<>
-						<SelectSchedule />
-						<SelectStartStop />
-					</>
-				) : (
-					<>
-						<SelectStartStop />
-						<SelectSchedule />
-					</>
-				)}
+				<SelectSchedule />
+				<SelectStartStop />
 			</div>
 			<h3 className={styles.CaptionStartPoint}>
 				<div>
