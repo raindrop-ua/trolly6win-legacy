@@ -1,22 +1,26 @@
 import { create } from 'zustand'
-import { DayType, StopType } from '@/utils/scheduleUtils'
+import { DayType, StopType, FilterType } from '@/utils/scheduleUtils'
 
 interface ScheduleState {
 	dayType: DayType
 	selectedStop: StopType
 	currentTime: Date
+	filter: FilterType
 	setDayType: (dayType: DayType) => void
 	setSelectedStop: (stop: StopType) => void
 	updateCurrentTime: () => void
+	setFilter: (filter: FilterType) => void
 }
 
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
 	selectedStop: 'Pridniprovsk',
 	currentTime: new Date(),
+	filter: 'all',
 	setDayType: (dayType) => set(() => ({ dayType })),
 	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
 	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
+	setFilter: (filter) => set(() => ({ filter })),
 }))
 
 export default useScheduleStore

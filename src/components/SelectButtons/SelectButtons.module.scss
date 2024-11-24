@@ -21,7 +21,10 @@
   border-radius: 8px 8px 8px 0;
   padding: 10px 20px;
   min-height: 50px;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   transition: all 0.1s ease-in-out;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   border: 1px solid rgb(255 255 255 / 30%);
@@ -81,5 +84,46 @@
 
   strong {
     font-weight: bold;
+  }
+}
+
+.Tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  &Text {
+    visibility: hidden;
+    width: 100px;
+    background-color: #32334C;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 10px);
+    left: 50%;
+    margin-left: -50px;
+  }
+
+  &:hover &Text {
+    font-size: 0.85rem;
+    line-height: 1.125rem;
+    visibility: visible;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #32334C;
+    }
   }
 }

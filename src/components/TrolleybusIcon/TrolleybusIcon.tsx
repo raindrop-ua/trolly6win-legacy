@@ -26,4 +26,6 @@ const TrolleybusIcon: FC = () => {
 	)
 }
 
+TrolleybusIcon.displayName = 'TrolleybusIcon'
+
 export default TrolleybusIcon

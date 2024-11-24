@@ -5,7 +5,12 @@ const TrolleybusAnimated: React.FC = () => {
 	return (
 		<div className={styles.BusContainer}>
 			<div className={styles.Bus}>
-				<svg xmlns='http://www.w3.org/2000/svg' width='118' height='88' fill='none'>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					width='118'
+					height='88'
+					fill='none'
+				>
 					<path fill='#ffffff' d='M66.4 3h7.8L57.6 23h-7.8L66.4 3Z' />
 					<path
 						fill='#ffffff'
@@ -17,7 +22,12 @@ const TrolleybusAnimated: React.FC = () => {
 				</svg>
 			</div>
 			<div className={styles.Wheels}>
-				<svg xmlns='http://www.w3.org/2000/svg' width='118' height='88' fill='none'>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					width='118'
+					height='88'
+					fill='none'
+				>
 					<path
 						fill='#ffffff'
 						fillRule='evenodd'
@@ -29,5 +39,7 @@ const TrolleybusAnimated: React.FC = () => {
 		</div>
 	)
 }
+
+TrolleybusAnimated.displayName = 'TrolleybusAnimated'
 
 export default TrolleybusAnimated

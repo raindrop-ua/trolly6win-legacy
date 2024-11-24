@@ -1,4 +1,5 @@
 import React from 'react'
+import useScheduleStore from '@/store/scheduleStore'
 import styles from './TimeList.module.scss'
 
 type ScheduleTime = {
@@ -10,16 +11,6 @@ type TimeListProps = {
 	scheduleTimes: ScheduleTime[]
 }
 
-const TimeList: React.FC<TimeListProps> = ({ scheduleTimes }) => (
-	<ul className={styles.TimeItems}>
-		{scheduleTimes.map(({ time, diff }, index) => (
-			<li key={index} className={`${styles.TimeItem} ${getTimeClass(diff)}`}>
-				<span>{time}</span>
-			</li>
-		))}
-	</ul>
-)
-
 const getTimeClass = (diff: number) => {
 	if (diff < 0) return styles.Past
 	if (diff <= 5) return styles.VerySoon
@@ -28,5 +19,28 @@ const getTimeClass = (diff: number) => {
 
 	return styles.UpcomingLater
 }
+
+const TimeList: React.FC<TimeListProps> = ({ scheduleTimes }) => {
+	const { filter } = useScheduleStore()
+
+	return (
+		<ul className={styles.TimeItems}>
+			{scheduleTimes.map(({ time, diff }, index) => {
+				if (filter === 'upcoming' && diff <= 0) return null
+
+				return (
+					<li
+						key={index}
+						className={`${styles.TimeItem} ${getTimeClass(diff)}`}
+					>
+						<span>{time}</span>
+					</li>
+				)
+			})}
+		</ul>
+	)
+}
+
+TimeList.displayName = 'TimeList'
 
 export default TimeList

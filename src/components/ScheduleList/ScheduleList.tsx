@@ -9,8 +9,9 @@ import TimeList from '@/components/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
+import TimeListFilter from '@/components/TimeListFilter'
 
-const UPDATE_INTERVAL = 15000
+const UPDATE_INTERVAL = 150_000
 
 const ScheduleList: React.FC = () => {
 	const { setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
@@ -73,12 +74,17 @@ const ScheduleList: React.FC = () => {
 				<CurrentTimeDisplay currentTime={currentTime} />
 			</h3>
 			{getTodaysSchedule().length > 0 ? (
-				<TimeList scheduleTimes={getTodaysSchedule()} />
+				<>
+					<TimeListFilter />
+					<TimeList scheduleTimes={getTodaysSchedule()} />
+				</>
 			) : (
 				<p>Schedule not available.</p>
 			)}
 		</div>
 	)
 }
+
+ScheduleList.displayName = 'ScheduleList'
 
 export default ScheduleList
