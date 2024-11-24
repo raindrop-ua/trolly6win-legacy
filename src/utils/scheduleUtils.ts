@@ -4,7 +4,7 @@ export type TimeSchedule = string[]
 export type TimestampSchedule = number[]
 
 export type DayType = 'Auto' | 'Weekdays' | 'Weekend'
-export type StopType = 'Pridniprovsk' | 'Museum'
+export type StopType = 'Pridniprovsk' | 'Museum' | 'Hospital'
 
 export type ScheduleForDayType = {
 	weekDay: TimeSchedule
@@ -24,7 +24,10 @@ export type TimestampScheduleData = {
 	[stopName: string]: TimestampScheduleForDayType
 }
 
-export const convertToTimestamp = (time: string, timezone: string = 'Europe/Kyiv'): number => {
+export const convertToTimestamp = (
+	time: string,
+	timezone: string = 'Europe/Kyiv'
+): number => {
 	const [hours, minutes] = time.split(':').map(Number)
 	const date = new Date()
 	date.setHours(hours, minutes, 0, 0)
@@ -41,7 +44,9 @@ export const convertToTimestamp = (time: string, timezone: string = 'Europe/Kyiv
 	return new Date(formattedDate).getTime()
 }
 
-export const convertScheduleToTimestamps = (schedule: ScheduleData): TimestampScheduleData => {
+export const convertScheduleToTimestamps = (
+	schedule: ScheduleData
+): TimestampScheduleData => {
 	const convertedSchedule: TimestampScheduleData = {}
 
 	Object.entries(schedule).forEach(([stopName, daySchedule]) => {
@@ -74,8 +79,16 @@ export const getTimeDifference = (
 		hours,
 		minutes
 	)
-	const formattedScheduledTime = formatInTimeZone(scheduledDate, timezone, 'yyyy-MM-dd HH:mm:ss')
-	const formattedCurrentTime = formatInTimeZone(currentTime, timezone, 'yyyy-MM-dd HH:mm:ss')
+	const formattedScheduledTime = formatInTimeZone(
+		scheduledDate,
+		timezone,
+		'yyyy-MM-dd HH:mm:ss'
+	)
+	const formattedCurrentTime = formatInTimeZone(
+		currentTime,
+		timezone,
+		'yyyy-MM-dd HH:mm:ss'
+	)
 	const dateScheduled = new Date(formattedScheduledTime)
 	const dateCurrent = new Date(formattedCurrentTime)
 

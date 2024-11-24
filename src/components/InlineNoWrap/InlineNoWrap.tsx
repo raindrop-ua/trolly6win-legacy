@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './InlineNoWrap.module.scss'
 import classNames from 'classnames'
+import styles from './InlineNoWrap.module.scss'
 
 interface InlineNoWrapProps {
 	className?: string

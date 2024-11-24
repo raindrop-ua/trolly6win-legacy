@@ -1,27 +1,26 @@
+import ScheduleList from '@/components/ScheduleList'
+import TrolleybusAnimated from '@/components/TrolleybusAnimated'
+import SectionWrapper from '../components/SectionWrapper'
 import styles from './page.module.scss'
-import ScheduleList from '@/components/ScheduleList/ScheduleList'
-import Header from '@/components/Header/Header'
-import TrolleybusAnimated from '@/components/TrolleybusAnimated/TrolleybusAnimated'
-import Wrapper from '@/components/Wrapper/Wrapper'
 
 export default function Home() {
 	return (
 		<main className={styles.Main}>
-			<Wrapper>
-				<>
-					<Header />
-					<ScheduleList />
-					<p className={styles.Note}>
-						<span>Schedule changes may occur due to unforeseen situations along the route.</span>
-						<span>Thank you for riding the trolleybus!</span>
-					</p>
-					<TrolleybusAnimated />
-				</>
+			<SectionWrapper>
+				<ScheduleList />
+				<p className={styles.Note}>
+					<span>
+						Schedule changes may occur due to unforeseen situations along the
+						route.
+					</span>
+					<span>Thank you for riding the trolleybus!</span>
+				</p>
+				<TrolleybusAnimated />
 				<div className={styles.Note}>
-					<div>V1.07 &copy; 2024. </div>
+					<div>V1.08 &copy; 2024. </div>
 					<div>Coded with love for the Web and trolleybuses.</div>
 				</div>
-			</Wrapper>
+			</SectionWrapper>
 		</main>
 	)
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.scss'
+import Header from '@/components/Header'
+import SectionWrapper from '../components/SectionWrapper'
 
 const dniproCity = localFont({
 	src: [
@@ -31,7 +33,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${dniproCity.variable}`}>{children}</body>
+			<body className={`${dniproCity.variable}`}>
+				<SectionWrapper>
+					<Header />
+				</SectionWrapper>
+				{children}
+				<div id='modal-root'></div>
+			</body>
 		</html>
 	)
 }
