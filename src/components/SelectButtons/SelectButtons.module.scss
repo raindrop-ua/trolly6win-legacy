@@ -18,8 +18,8 @@
   font-size: 1rem;
   font-weight: 400;
   background-color: #28293E;
-  border-radius: 8px 8px 8px 0;
-  padding: 10px 20px;
+  border-radius: 15px 10px 10px 0;
+  padding: 10px 25px;
   min-height: 50px;
   display: flex;
   flex-direction: row;
@@ -108,6 +108,7 @@
     top: calc(100% + 10px);
     left: 50%;
     margin-left: -50px;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
   }
 
   &:hover &Text {

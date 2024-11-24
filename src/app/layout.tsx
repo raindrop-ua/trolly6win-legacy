@@ -25,6 +25,8 @@ const dniproCity = localFont({
 export const metadata: Metadata = {
 	title: 'TrollySix',
 	description: 'Timetable for trolleybus route number 6 in the city of Dnipro.',
+	creator: 'Anton Sizov',
+	publisher: 'Anton Sizov',
 }
 
 export default function RootLayout({

@@ -43,6 +43,12 @@
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   visibility: visible;
 
+  &:hover {
+    transform: scale(1.15);
+    z-index: 1;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
+  }
+
   &.Past {
     background-color: #32334C;
   }

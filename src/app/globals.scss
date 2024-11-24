@@ -12,6 +12,11 @@ body {
   overflow-x: hidden;
   font-family: var(--font-dnipro-city), sans-serif;
   font-weight: 400;
+  min-height: 101vh;
+}
+
+body * {
+  font-family: var(--font-dnipro-city), sans-serif;
 }
 
 body {
@@ -19,6 +24,7 @@ body {
   background-color: #28293E;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 a {

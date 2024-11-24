@@ -11,7 +11,7 @@ import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
 import TimeListFilter from '@/components/TimeListFilter'
 
-const UPDATE_INTERVAL = 150_000
+const UPDATE_INTERVAL = 15_000
 
 const ScheduleList: React.FC = () => {
 	const { setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
