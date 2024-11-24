@@ -10,20 +10,18 @@ import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
 
+const UPDATE_INTERVAL = 15000
+
 const ScheduleList: React.FC = () => {
-	const {
-		dayType,
-		selectedStop,
-		currentTime,
-		setDayType,
-		setSelectedStop,
-		updateCurrentTime,
-	} = useScheduleStore()
+	const { setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
+	const dayType = useScheduleStore((state) => state.dayType)
+	const selectedStop = useScheduleStore((state) => state.selectedStop)
+	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			updateCurrentTime()
-		}, 10e3)
+		}, UPDATE_INTERVAL)
 		return () => clearInterval(interval)
 	}, [updateCurrentTime])
 
@@ -74,7 +72,11 @@ const ScheduleList: React.FC = () => {
 				</div>
 				<CurrentTimeDisplay currentTime={currentTime} />
 			</h3>
-			<TimeList scheduleTimes={getTodaysSchedule()} />
+			{getTodaysSchedule().length > 0 ? (
+				<TimeList scheduleTimes={getTodaysSchedule()} />
+			) : (
+				<p>Schedule not available.</p>
+			)}
 		</div>
 	)
 }
