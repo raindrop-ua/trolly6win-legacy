@@ -7,7 +7,7 @@ type WrapperProps = {
 
 const SectionWrapper = ({ children }: WrapperProps) => {
 	return (
-		<section>
+		<section className={styles.Section}>
 			<div className={styles.SectionWrapper}>{children}</div>
 		</section>
 	)

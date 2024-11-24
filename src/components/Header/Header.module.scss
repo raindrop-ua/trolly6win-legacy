@@ -35,13 +35,26 @@
 .HeaderGeometry {
   position: absolute;
   top: 0;
-  left: 215px;
+  right: 0;
   width: 137px;
   height: 60px;
   z-index: -1;
 
   svg path {
     stroke: #1f79aa;
+  }
+}
+
+.HeaderWaves {
+  position: absolute;
+  top: 50px;
+  right: -200px;
+  width: 167px;
+  height: 213px;
+  z-index: 10;
+
+  svg path {
+    fill: #1f79aa;
   }
 }
 
