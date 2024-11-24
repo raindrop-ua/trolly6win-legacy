@@ -17,7 +17,7 @@ const ScheduleList: React.FC = () => {
 		currentTime,
 		setDayType,
 		setSelectedStop,
-		updateCurrentTime
+		updateCurrentTime,
 	} = useScheduleStore()
 
 	useEffect(() => {
@@ -39,7 +39,7 @@ const ScheduleList: React.FC = () => {
 
 		return scheduleTimes.map((time) => ({
 			time,
-			diff: getTimeDifference(time, currentTime)
+			diff: getTimeDifference(time, currentTime),
 		}))
 	}
 
@@ -55,7 +55,7 @@ const ScheduleList: React.FC = () => {
 	const SelectStartStop = () => (
 		<SelectButtons
 			label={'Start point'}
-			options={['Pridniprovsk', 'Museum']}
+			options={['Pridniprovsk', 'Hospital', 'Museum']}
 			selectedOption={selectedStop}
 			setSelectedOption={setSelectedStop as (option: string) => void}
 		/>
