@@ -13,4 +13,6 @@ const SectionWrapper = ({ children }: WrapperProps) => {
 	)
 }
 
+SectionWrapper.displayName = 'SectionWrapper'
+
 export default SectionWrapper

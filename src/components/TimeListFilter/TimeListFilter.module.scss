@@ -1,0 +1,68 @@
+.TimeListFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  .Items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .Item {
+    display: flex;
+  }
+
+  .Button {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #28293E;
+    border-radius: 8px 8px 8px 0;
+    padding: 5px 15px;
+    min-height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    border: 1px solid rgb(255 255 255 / 30%);
+
+    .Caption {
+      font-weight: 400;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #EF6D58;
+      outline-offset: 2px;
+      border-radius: 8px 8px 8px 0;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &.Active {
+      background-color: #1f79aa;
+      color: #fffef8;
+      border: 1px solid #1f79aa;
+
+      .Caption {
+        font-weight: 400;
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ export type TimestampSchedule = number[]
 
 export type DayType = 'Auto' | 'Weekdays' | 'Weekend'
 export type StopType = 'Pridniprovsk' | 'Museum' | 'Hospital'
+export type FilterType = 'all' | 'upcoming'
 
 export type ScheduleForDayType = {
 	weekDay: TimeSchedule
@@ -26,7 +27,7 @@ export type TimestampScheduleData = {
 
 export const convertToTimestamp = (
 	time: string,
-	timezone: string = 'Europe/Kyiv'
+	timezone: string = 'Europe/Kyiv',
 ): number => {
 	const [hours, minutes] = time.split(':').map(Number)
 	const date = new Date()
@@ -37,7 +38,7 @@ export const convertToTimestamp = (
 		hour: 'numeric',
 		minute: 'numeric',
 		second: 'numeric',
-		hour12: false
+		hour12: false,
 	})
 	const formattedDate = formatter.format(date)
 
@@ -45,14 +46,14 @@ export const convertToTimestamp = (
 }
 
 export const convertScheduleToTimestamps = (
-	schedule: ScheduleData
+	schedule: ScheduleData,
 ): TimestampScheduleData => {
 	const convertedSchedule: TimestampScheduleData = {}
 
 	Object.entries(schedule).forEach(([stopName, daySchedule]) => {
 		convertedSchedule[stopName] = {
 			weekDay: daySchedule.weekDay.map((time) => convertToTimestamp(time)),
-			weekEnd: daySchedule.weekEnd.map((time) => convertToTimestamp(time))
+			weekEnd: daySchedule.weekEnd.map((time) => convertToTimestamp(time)),
 		}
 	})
 
@@ -69,7 +70,7 @@ export const isWeekend = (): boolean => {
 export const getTimeDifference = (
 	scheduledTime: string,
 	currentTime: Date,
-	timezone: string = 'Europe/Kyiv'
+	timezone: string = 'Europe/Kyiv',
 ): number => {
 	const [hours, minutes] = scheduledTime.split(':').map(Number)
 	const scheduledDate = new Date(
@@ -77,17 +78,17 @@ export const getTimeDifference = (
 		currentTime.getMonth(),
 		currentTime.getDate(),
 		hours,
-		minutes
+		minutes,
 	)
 	const formattedScheduledTime = formatInTimeZone(
 		scheduledDate,
 		timezone,
-		'yyyy-MM-dd HH:mm:ss'
+		'yyyy-MM-dd HH:mm:ss',
 	)
 	const formattedCurrentTime = formatInTimeZone(
 		currentTime,
 		timezone,
-		'yyyy-MM-dd HH:mm:ss'
+		'yyyy-MM-dd HH:mm:ss',
 	)
 	const dateScheduled = new Date(formattedScheduledTime)
 	const dateCurrent = new Date(formattedCurrentTime)

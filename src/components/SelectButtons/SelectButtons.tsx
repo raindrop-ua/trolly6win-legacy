@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { useId } from 'react'
-import { House, Landmark, Hospital } from 'lucide-react'
+import { House, Landmark, Hospital, Hammer, TreePalm } from 'lucide-react'
 import styles from './SelectButtons.module.scss'
 
 type SelectButtonsProps = {
@@ -21,6 +21,8 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 		Pridniprovsk: <House size={24} />,
 		Museum: <Landmark size={24} />,
 		Hospital: <Hospital size={24} />,
+		Weekdays: <Hammer size={24} />,
+		Weekend: <TreePalm size={24} />,
 	}
 
 	return (
@@ -44,10 +46,14 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 							aria-label={`Select ${option}`}
 						>
 							{Icon ? (
-								(Icon as JSX.Element)
+								<>
+									{Icon as ReactElement}
+									<div className={styles.Tooltip}>
+										<div className={styles.TooltipText}>{option}</div>
+									</div>
+								</>
 							) : (
 								<>
-									{' '}
 									<span className={styles.SpaceHolder} aria-hidden={true}>
 										{option}
 									</span>
