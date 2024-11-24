@@ -16,7 +16,7 @@ const Header: React.FC = () => {
 						fill='none'
 					>
 						<path
-							stroke='#0075C9'
+							stroke='#FFFFFF'
 							strokeWidth='24'
 							d='M17-8.7 68.3-60l51.3 51.3-51.3 51.3z'
 						/>
