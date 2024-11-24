@@ -9,7 +9,6 @@ const TimeListFilter = () => {
 	return (
 		<div className={styles.TimeListFilter}>
 			<ListFilter />
-
 			<ul className={styles.Items}>
 				<li className={styles.Item}>
 					<button

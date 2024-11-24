@@ -1,6 +1,6 @@
 {
   "name": "trolly6win",
-  "version": "1.08.0",
+  "version": "1.09",
   "private": true,
   "scripts": {
     "dev": "next dev",

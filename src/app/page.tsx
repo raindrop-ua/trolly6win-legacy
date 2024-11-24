@@ -16,10 +16,6 @@ export default function Home() {
 					<span>Thank you for riding the trolleybus!</span>
 				</p>
 				<TrolleybusAnimated />
-				<div className={styles.Note}>
-					<div>V1.08 &copy; 2024. </div>
-					<div>Coded with love for the Web and trolleybuses.</div>
-				</div>
 			</SectionWrapper>
 		</main>
 	)
