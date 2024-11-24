@@ -14,7 +14,7 @@ export default function About() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<h2 className={styles.Title}>About</h2>
+				<h1 className={styles.Title}>About</h1>
 				<div className={styles.Paragraph}>
 					<strong>Route:</strong>{' '}
 					<ul>
