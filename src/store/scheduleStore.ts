@@ -14,9 +14,9 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
 	selectedStop: 'Pridniprovsk',
 	currentTime: new Date(),
-	setDayType: (dayType) => set({ dayType }),
-	setSelectedStop: (stop) => set({ selectedStop: stop }),
-	updateCurrentTime: () => set({ currentTime: new Date() }),
+	setDayType: (dayType) => set(() => ({ dayType })),
+	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
+	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
 }))
 
 export default useScheduleStore

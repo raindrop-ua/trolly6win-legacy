@@ -62,4 +62,6 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 	)
 }
 
-export default SelectButtons
+SelectButtons.displayName = 'SelectButtons'
+
+export default React.memo(SelectButtons)
