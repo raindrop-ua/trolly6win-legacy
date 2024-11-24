@@ -108,6 +108,7 @@
     top: calc(100% + 10px);
     left: 50%;
     margin-left: -50px;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
   }
 
   &:hover &Text {
