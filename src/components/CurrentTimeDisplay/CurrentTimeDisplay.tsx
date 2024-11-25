@@ -25,4 +25,4 @@ const CurrentTimeDisplay: React.FC<CurrentTimeDisplayProps> = ({
 
 CurrentTimeDisplay.displayName = 'CurrentTimeDisplay'
 
-export default CurrentTimeDisplay
+export default React.memo(CurrentTimeDisplay)

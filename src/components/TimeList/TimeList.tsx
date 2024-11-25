@@ -43,4 +43,4 @@ const TimeList: React.FC<TimeListProps> = ({ scheduleTimes }) => {
 
 TimeList.displayName = 'TimeList'
 
-export default TimeList
+export default React.memo(TimeList)

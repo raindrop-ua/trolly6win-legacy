@@ -1,15 +1,20 @@
 'use client'
 
-import React, { useEffect } from 'react'
-import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils'
+import React, { useCallback, useEffect, useMemo } from 'react'
+import {
+	DayType,
+	getTimeDifference,
+	isWeekend,
+	StopType,
+} from '@/utils/scheduleUtils'
 import scheduleData from '@/data/scheduleData'
 import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '@/components/SelectButtons'
 import TimeList from '@/components/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import { MapPinCheckInside } from 'lucide-react'
-import styles from './ScheduleList.module.scss'
 import TimeListFilter from '@/components/TimeListFilter'
+import styles from './ScheduleList.module.scss'
 
 const UPDATE_INTERVAL = 15_000
 
@@ -26,6 +31,7 @@ const ScheduleList: React.FC = () => {
 		return () => clearInterval(interval)
 	}, [updateCurrentTime])
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const getTodaysSchedule = () => {
 		const isAutoWeekend = isWeekend()
 		const isWeekendDay =
@@ -42,23 +48,37 @@ const ScheduleList: React.FC = () => {
 		}))
 	}
 
-	const SelectSchedule = () => (
+	const setDayTypeHandler = useCallback(
+		(option: string) => setDayType(option as DayType),
+		[setDayType],
+	)
+
+	const setSelectedStopHandler = useCallback(
+		(option: string) => setSelectedStop(option as StopType),
+		[setSelectedStop],
+	)
+
+	// eslint-disable-next-line react/display-name
+	const SelectSchedule = React.memo(() => (
 		<SelectButtons
 			label={'Schedule for'}
 			options={['Auto', 'Weekdays', 'Weekend']}
 			selectedOption={dayType}
-			setSelectedOption={setDayType as (option: string) => void}
+			setSelectedOption={setDayTypeHandler}
 		/>
-	)
+	))
 
-	const SelectStartStop = () => (
+	// eslint-disable-next-line react/display-name
+	const SelectStartStop = React.memo(() => (
 		<SelectButtons
 			label={'Start point'}
 			options={['Pridniprovsk', 'Hospital', 'Museum']}
 			selectedOption={selectedStop}
-			setSelectedOption={setSelectedStop as (option: string) => void}
+			setSelectedOption={setSelectedStopHandler}
 		/>
-	)
+	))
+
+	const todaysSchedule = useMemo(() => getTodaysSchedule(), [getTodaysSchedule])
 
 	return (
 		<div>
@@ -73,10 +93,10 @@ const ScheduleList: React.FC = () => {
 				</div>
 				<CurrentTimeDisplay currentTime={currentTime} />
 			</h3>
-			{getTodaysSchedule().length > 0 ? (
+			{todaysSchedule.length > 0 ? (
 				<>
 					<TimeListFilter />
-					<TimeList scheduleTimes={getTodaysSchedule()} />
+					<TimeList scheduleTimes={todaysSchedule} />
 				</>
 			) : (
 				<p>Schedule not available.</p>

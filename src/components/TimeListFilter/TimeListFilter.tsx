@@ -37,4 +37,4 @@ const TimeListFilter = () => {
 
 TimeListFilter.displayName = 'TimeListFilter'
 
-export default TimeListFilter
+export default React.memo(TimeListFilter)
