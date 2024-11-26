@@ -8,6 +8,11 @@
 .ButtonsGroup {
   display: flex;
   gap: 10px;
+  visibility: hidden;
+
+  &:hover > :not(:hover) {
+    opacity: 0.5;
+  }
 }
 
 .Button {
@@ -25,9 +30,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  transition: all 0.1s ease-in-out;
+  transition: all .2s ease;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   border: 1px solid rgb(255 255 255 / 30%);
+  visibility: visible;
 
   .Caption {
     position: absolute;

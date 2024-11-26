@@ -1,30 +1,32 @@
 'use client'
 
-import React, { useEffect } from 'react'
-import { getTimeDifference, isWeekend } from '@/utils/scheduleUtils'
+import React, { useCallback, useEffect } from 'react'
+import {
+	DayType,
+	getTimeDifference,
+	isWeekend,
+	StopType,
+} from '@/utils/scheduleUtils'
 import scheduleData from '@/data/scheduleData'
 import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '@/components/SelectButtons'
 import TimeList from '@/components/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
+import TimeListFilter from '@/components/TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
-import TimeListFilter from '@/components/TimeListFilter'
-
-const UPDATE_INTERVAL = 15_000
 
 const ScheduleList: React.FC = () => {
-	const { setDayType, setSelectedStop, updateCurrentTime } = useScheduleStore()
+	const { initializeTimeUpdates, clearTimeUpdates } = useScheduleStore()
+	const { setDayType, setSelectedStop } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
 	const selectedStop = useScheduleStore((state) => state.selectedStop)
 	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			updateCurrentTime()
-		}, UPDATE_INTERVAL)
-		return () => clearInterval(interval)
-	}, [updateCurrentTime])
+		initializeTimeUpdates()
+		return () => clearTimeUpdates()
+	}, [initializeTimeUpdates, clearTimeUpdates])
 
 	const getTodaysSchedule = () => {
 		const isAutoWeekend = isWeekend()
@@ -42,41 +44,45 @@ const ScheduleList: React.FC = () => {
 		}))
 	}
 
-	const SelectSchedule = () => (
-		<SelectButtons
-			label={'Schedule for'}
-			options={['Auto', 'Weekdays', 'Weekend']}
-			selectedOption={dayType}
-			setSelectedOption={setDayType as (option: string) => void}
-		/>
+	const setDayTypeHandler = useCallback(
+		(option: string) => setDayType(option as DayType),
+		[setDayType],
 	)
 
-	const SelectStartStop = () => (
-		<SelectButtons
-			label={'Start point'}
-			options={['Pridniprovsk', 'Hospital', 'Museum']}
-			selectedOption={selectedStop}
-			setSelectedOption={setSelectedStop as (option: string) => void}
-		/>
+	const setSelectedStopHandler = useCallback(
+		(option: string) => setSelectedStop(option as StopType),
+		[setSelectedStop],
 	)
+
+	const todaysSchedule = getTodaysSchedule()
 
 	return (
 		<div>
 			<div className={styles.ControlsBlock}>
-				<SelectSchedule />
-				<SelectStartStop />
+				<SelectButtons
+					label={'Schedule for'}
+					options={['Auto', 'Weekdays', 'Weekend']}
+					selectedOption={dayType}
+					setSelectedOption={setDayTypeHandler}
+				/>
+				<SelectButtons
+					label={'Start point'}
+					options={['Pridniprovsk', 'Hospital', 'Museum']}
+					selectedOption={selectedStop}
+					setSelectedOption={setSelectedStopHandler}
+				/>
 			</div>
 			<h3 className={styles.CaptionStartPoint}>
 				<div>
 					<MapPinCheckInside />
 					<strong>{selectedStop}</strong>
 				</div>
-				<CurrentTimeDisplay currentTime={currentTime} />
+				<CurrentTimeDisplay />
 			</h3>
-			{getTodaysSchedule().length > 0 ? (
+			{todaysSchedule.length > 0 ? (
 				<>
 					<TimeListFilter />
-					<TimeList scheduleTimes={getTodaysSchedule()} />
+					<TimeList scheduleTimes={todaysSchedule} />
 				</>
 			) : (
 				<p>Schedule not available.</p>

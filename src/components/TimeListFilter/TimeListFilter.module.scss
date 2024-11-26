@@ -12,10 +12,17 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    visibility: hidden;
+
+    &:hover > :not(:hover) {
+      opacity: 0.5;
+    }
   }
 
   .Item {
     display: flex;
+    visibility: visible;
+    transition: all .2s ease;
   }
 
   .Button {

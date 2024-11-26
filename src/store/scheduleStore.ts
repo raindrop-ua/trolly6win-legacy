@@ -10,7 +10,12 @@ interface ScheduleState {
 	setSelectedStop: (stop: StopType) => void
 	updateCurrentTime: () => void
 	setFilter: (filter: FilterType) => void
+	initializeTimeUpdates: () => void
+	clearTimeUpdates: () => void
 }
+
+const UPDATE_INTERVAL = 15_000
+let timeUpdateInterval: NodeJS.Timeout | null = null
 
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
@@ -21,6 +26,19 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
 	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
 	setFilter: (filter) => set(() => ({ filter })),
+	initializeTimeUpdates: () => {
+		if (!timeUpdateInterval) {
+			timeUpdateInterval = setInterval(() => {
+				set({ currentTime: new Date() })
+			}, UPDATE_INTERVAL)
+		}
+	},
+	clearTimeUpdates: () => {
+		if (timeUpdateInterval) {
+			clearInterval(timeUpdateInterval)
+			timeUpdateInterval = null
+		}
+	},
 }))
 
 export default useScheduleStore

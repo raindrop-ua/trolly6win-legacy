@@ -2,14 +2,10 @@ import React from 'react'
 import { formatInTimeZone } from 'date-fns-tz'
 import { Clock } from 'lucide-react'
 import styles from './CurrentTimeDisplay.module.scss'
+import useScheduleStore from '@/store/scheduleStore'
 
-type CurrentTimeDisplayProps = {
-	currentTime: Date
-}
-
-const CurrentTimeDisplay: React.FC<CurrentTimeDisplayProps> = ({
-	currentTime,
-}) => {
+const CurrentTimeDisplay: React.FC = () => {
+	const currentTime = useScheduleStore((state) => state.currentTime)
 	const formattedTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm')
 	return (
 		<span
@@ -25,4 +21,4 @@ const CurrentTimeDisplay: React.FC<CurrentTimeDisplayProps> = ({
 
 CurrentTimeDisplay.displayName = 'CurrentTimeDisplay'
 
-export default CurrentTimeDisplay
+export default React.memo(CurrentTimeDisplay)
