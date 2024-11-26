@@ -8,14 +8,14 @@ const CurrentTimeDisplay: React.FC = () => {
 	const currentTime = useScheduleStore((state) => state.currentTime)
 	const formattedTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm')
 	return (
-		<span
-			className={styles.Badge}
+		<div
+			className={styles.CurrentTime}
 			role='text'
 			aria-label={`Current time is ${formattedTime}`}
 		>
-			<Clock size={15} />
-			<span>Current time: {formattedTime}</span>
-		</span>
+			<Clock size={20} />
+			<span>{formattedTime}</span>
+		</div>
 	)
 }
 
