@@ -23,7 +23,7 @@ const Header: React.FC = () => {
 					</svg>
 				</div>
 				<div className={styles.HeaderImage}>
-					<Link href={'/'}>
+					<Link href={'/'} aria-label={'Home page'}>
 						<TrolleybusIcon />
 					</Link>
 				</div>
