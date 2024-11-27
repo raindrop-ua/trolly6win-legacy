@@ -17,15 +17,15 @@ export type ScheduleData = {
 
 export const isWeekend = (): boolean => {
 	const today = getCurrentTime()
-	const dayOfWeek = today.getDay()
+	const dayOfWeek = today?.getDay()
 
 	return dayOfWeek === 0 || dayOfWeek === 6
 }
 
-export const getCurrentTime = (): Date => {
+export const getCurrentTime = (): Date | null => {
 	const { currentTime } = useScheduleStore.getState()
 	if (!currentTime) {
-		throw new Error('Current time is not initialized yet')
+		return null
 	}
 	return new Date(currentTime)
 }
@@ -38,7 +38,6 @@ export const getTimeDifference = (scheduledTime: string): number => {
 		return 0
 	}
 
-	// Создаем локальную дату на основе времени текущего дня
 	const scheduledDate = new Date(
 		currentTime.getFullYear(),
 		currentTime.getMonth(),
@@ -47,8 +46,5 @@ export const getTimeDifference = (scheduledTime: string): number => {
 		minutes,
 	)
 
-	console.log(scheduledDate)
-
-	// Разница в минутах
 	return (scheduledDate.getTime() - currentTime.getTime()) / 60000
 }
