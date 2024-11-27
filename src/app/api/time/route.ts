@@ -8,6 +8,5 @@ export async function GET() {
 
 	return NextResponse.json({
 		timestamp: kyivTime.getTime(),
-		serverTimestamp: now.getTime(),
 	})
 }

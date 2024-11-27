@@ -12,10 +12,4 @@ export async function GET(
 	} else {
 		return NextResponse.json({ error: 'Route not found' }, { status: 404 })
 	}
-
-	// if (id in scheduleData) {
-	// 	return NextResponse.json(scheduleData[id]);
-	// } else {
-	// 	return NextResponse.json({ error: 'Route not found' }, { status: 404 });
-	// }
 }
