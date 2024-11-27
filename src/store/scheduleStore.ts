@@ -4,12 +4,11 @@ import { DayType, StopType, FilterType } from '@/utils/scheduleUtils'
 interface ScheduleState {
 	dayType: DayType
 	selectedStop: StopType
-	currentTime: Date
+	currentTime: string | null
 	filter: FilterType
 	scheduleData: Record<string, any> | null
 	setDayType: (dayType: DayType) => void
 	setSelectedStop: (stop: StopType) => void
-	updateCurrentTime: () => void
 	setFilter: (filter: FilterType) => void
 	initializeTimeUpdates: () => void
 	clearTimeUpdates: () => void
@@ -22,12 +21,11 @@ let timeUpdateInterval: NodeJS.Timeout | null = null
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
 	selectedStop: 'Pridniprovsk',
-	currentTime: new Date(),
+	currentTime: null,
 	filter: 'all',
 	scheduleData: null,
 	setDayType: (dayType) => set(() => ({ dayType })),
 	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
-	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
 	setFilter: (filter) => set(() => ({ filter })),
 	fetchScheduleData: async (routeId: string) => {
 		try {
@@ -42,14 +40,24 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 			console.error('Error fetching schedule data:', error)
 		}
 	},
-	initializeTimeUpdates: () => {
+	initializeTimeUpdates: async () => {
 		if (!timeUpdateInterval) {
+			try {
+				const response = await fetch('/api/time')
+				if (response.ok) {
+					const data = await response.json()
+					set(() => ({ currentTime: new Date(data.timestamp).toISOString() }))
+				}
+			} catch (error) {
+				console.error('Error fetching server time:', error)
+			}
+
 			timeUpdateInterval = setInterval(async () => {
 				try {
-					const response = await fetch('/api/time', { cache: 'no-store' })
+					const response = await fetch('/api/time')
 					if (response.ok) {
 						const data = await response.json()
-						set(() => ({ currentTime: new Date(data.timestamp) }))
+						set(() => ({ currentTime: new Date(data.timestamp).toISOString() }))
 					}
 				} catch (error) {
 					console.error('Error fetching server time:', error)
@@ -57,6 +65,7 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 			}, UPDATE_INTERVAL)
 		}
 	},
+
 	clearTimeUpdates: () => {
 		if (timeUpdateInterval) {
 			clearInterval(timeUpdateInterval)
