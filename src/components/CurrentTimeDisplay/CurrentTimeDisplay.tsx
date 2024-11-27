@@ -1,12 +1,17 @@
 import React from 'react'
-import { formatInTimeZone } from 'date-fns-tz'
+import { format } from 'date-fns'
 import { Clock } from 'lucide-react'
 import styles from './CurrentTimeDisplay.module.scss'
 import useScheduleStore from '@/store/scheduleStore'
 
 const CurrentTimeDisplay: React.FC = () => {
 	const currentTime = useScheduleStore((state) => state.currentTime)
-	const formattedTime = formatInTimeZone(currentTime, 'Europe/Kyiv', 'HH:mm')
+
+	if (!currentTime) {
+		return <div className={styles.CurrentTime}>Loading...</div>
+	}
+
+	const formattedTime = format(currentTime, 'HH:mm')
 	return (
 		<div
 			className={styles.CurrentTime}

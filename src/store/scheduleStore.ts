@@ -18,6 +18,20 @@ interface ScheduleState {
 const UPDATE_INTERVAL = 15_000
 let timeUpdateInterval: NodeJS.Timeout | null = null
 
+const fetchServerTime = async (
+	set: (state: Partial<ScheduleState>) => void,
+) => {
+	try {
+		const response = await fetch('/api/time')
+		if (response.ok) {
+			const data = await response.json()
+			set({ currentTime: new Date(data.timestamp).toISOString() })
+		}
+	} catch (error) {
+		console.error('Error fetching server time:', error)
+	}
+}
+
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
 	selectedStop: 'Pridniprovsk',
@@ -42,30 +56,12 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	},
 	initializeTimeUpdates: async () => {
 		if (!timeUpdateInterval) {
-			try {
-				const response = await fetch('/api/time')
-				if (response.ok) {
-					const data = await response.json()
-					set(() => ({ currentTime: new Date(data.timestamp).toISOString() }))
-				}
-			} catch (error) {
-				console.error('Error fetching server time:', error)
-			}
-
-			timeUpdateInterval = setInterval(async () => {
-				try {
-					const response = await fetch('/api/time')
-					if (response.ok) {
-						const data = await response.json()
-						set(() => ({ currentTime: new Date(data.timestamp).toISOString() }))
-					}
-				} catch (error) {
-					console.error('Error fetching server time:', error)
-				}
+			await fetchServerTime(set)
+			timeUpdateInterval = setInterval(() => {
+				fetchServerTime(set)
 			}, UPDATE_INTERVAL)
 		}
 	},
-
 	clearTimeUpdates: () => {
 		if (timeUpdateInterval) {
 			clearInterval(timeUpdateInterval)
