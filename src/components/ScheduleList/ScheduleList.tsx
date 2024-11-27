@@ -22,7 +22,6 @@ const ScheduleList: React.FC = () => {
 	const { setDayType, setSelectedStop } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
 	const selectedStop = useScheduleStore((state) => state.selectedStop)
-	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
 		fetchScheduleData('6')
@@ -47,7 +46,7 @@ const ScheduleList: React.FC = () => {
 
 		return scheduleTimes.map((time: string) => ({
 			time,
-			diff: getTimeDifference(time, currentTime),
+			diff: getTimeDifference(time),
 		}))
 	}
 
