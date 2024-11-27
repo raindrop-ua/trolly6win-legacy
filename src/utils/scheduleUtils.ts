@@ -27,7 +27,7 @@ export const getCurrentTime = (): Date => {
 	if (!currentTime) {
 		throw new Error('Current time is not initialized yet')
 	}
-	return currentTime
+	return new Date(currentTime)
 }
 
 export const getTimeDifference = (scheduledTime: string): number => {
