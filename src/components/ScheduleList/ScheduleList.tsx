@@ -84,11 +84,9 @@ const ScheduleList: React.FC = () => {
 				</div>
 				{scheduleData && <CurrentTimeDisplay />}
 			</h3>
+			<TimeListFilter />
 			{scheduleData ? (
-				<>
-					<TimeListFilter />
-					<TimeList scheduleTimes={getTodaysSchedule()} />
-				</>
+				<TimeList scheduleTimes={getTodaysSchedule()} />
 			) : (
 				<Spinner />
 			)}
