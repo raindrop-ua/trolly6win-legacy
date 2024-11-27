@@ -4,7 +4,7 @@ import { DayType, StopType, FilterType } from '@/utils/scheduleUtils'
 interface ScheduleState {
 	dayType: DayType
 	selectedStop: StopType
-	currentTime: string | null
+	currentTime: number | null
 	filter: FilterType
 	scheduleData: Record<string, any> | null
 	setDayType: (dayType: DayType) => void
@@ -25,7 +25,7 @@ const fetchServerTime = async (
 		const response = await fetch('/api/time')
 		if (response.ok) {
 			const data = await response.json()
-			set({ currentTime: new Date(data.timestamp).toISOString() })
+			set({ currentTime: data.timestamp })
 		}
 	} catch (error) {
 		console.error('Error fetching server time:', error)

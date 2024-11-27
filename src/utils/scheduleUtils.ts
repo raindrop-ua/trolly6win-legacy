@@ -38,17 +38,17 @@ export const getTimeDifference = (scheduledTime: string): number => {
 		return 0
 	}
 
+	// Создаем локальную дату на основе времени текущего дня
 	const scheduledDate = new Date(
-		Date.UTC(
-			currentTime.getUTCFullYear(),
-			currentTime.getUTCMonth(),
-			currentTime.getUTCDate(),
-			hours,
-			minutes,
-		),
+		currentTime.getFullYear(),
+		currentTime.getMonth(),
+		currentTime.getDate(),
+		hours,
+		minutes,
 	)
 
 	console.log(scheduledDate)
 
+	// Разница в минутах
 	return (scheduledDate.getTime() - currentTime.getTime()) / 60000
 }
