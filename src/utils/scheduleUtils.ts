@@ -33,12 +33,22 @@ export const getCurrentTime = (): Date => {
 export const getTimeDifference = (scheduledTime: string): number => {
 	const currentTime = getCurrentTime()
 	const [hours, minutes] = scheduledTime.split(':').map(Number)
+
+	if (!currentTime) {
+		return 0
+	}
+
 	const scheduledDate = new Date(
-		currentTime.getFullYear(),
-		currentTime.getMonth(),
-		currentTime.getDate(),
-		hours,
-		minutes,
+		Date.UTC(
+			currentTime.getUTCFullYear(),
+			currentTime.getUTCMonth(),
+			currentTime.getUTCDate(),
+			hours,
+			minutes,
+		),
 	)
+
+	console.log(scheduledDate)
+
 	return (scheduledDate.getTime() - currentTime.getTime()) / 60000
 }

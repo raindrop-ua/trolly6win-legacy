@@ -12,6 +12,7 @@ const CurrentTimeDisplay: React.FC = () => {
 	}
 
 	const formattedTime = format(currentTime, 'HH:mm')
+
 	return (
 		<div
 			className={styles.CurrentTime}
