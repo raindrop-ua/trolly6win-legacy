@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useId } from 'react'
-import { House, Landmark, Hospital, Hammer, TreePalm } from 'lucide-react'
+import { House, Landmark, Hospital } from 'lucide-react'
 import styles from './SelectButtons.module.scss'
 
 type SelectButtonsProps = {
@@ -21,8 +21,6 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 		Pridniprovsk: <House size={24} />,
 		Museum: <Landmark size={24} />,
 		Hospital: <Hospital size={24} />,
-		Weekdays: <Hammer size={24} />,
-		Weekend: <TreePalm size={24} />,
 	}
 
 	return (
