@@ -31,7 +31,9 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	setFilter: (filter) => set(() => ({ filter })),
 	fetchScheduleData: async (routeId: string) => {
 		try {
-			const response = await fetch(`/api/route/${routeId}`)
+			const response = await fetch(`/api/route/${routeId}`, {
+				cache: 'no-store',
+			})
 			if (response.ok) {
 				const data = await response.json()
 				set(() => ({ scheduleData: data }))
@@ -42,8 +44,16 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	},
 	initializeTimeUpdates: () => {
 		if (!timeUpdateInterval) {
-			timeUpdateInterval = setInterval(() => {
-				set({ currentTime: new Date() })
+			timeUpdateInterval = setInterval(async () => {
+				try {
+					const response = await fetch('/api/time', { cache: 'no-store' })
+					if (response.ok) {
+						const data = await response.json()
+						set(() => ({ currentTime: new Date(data.timestamp) }))
+					}
+				} catch (error) {
+					console.error('Error fetching server time:', error)
+				}
 			}, UPDATE_INTERVAL)
 		}
 	},
