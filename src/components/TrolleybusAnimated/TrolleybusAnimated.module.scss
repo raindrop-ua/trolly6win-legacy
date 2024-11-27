@@ -33,6 +33,10 @@
   height: 88px;
   position: absolute;
   animation: bus-bounce 500ms infinite ease-in-out;
+
+  svg path {
+    fill: #1f79aa;
+  }
 }
 
 .Wheels {
@@ -40,4 +44,8 @@
   height: 88px;
   position: absolute;
   animation: wheel-bounce 500ms infinite ease-in-out;
+
+  svg path {
+    fill: #1f79aa;
+  }
 }
