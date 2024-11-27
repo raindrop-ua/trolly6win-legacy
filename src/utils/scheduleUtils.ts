@@ -17,15 +17,15 @@ export type ScheduleData = {
 
 export const isWeekend = (): boolean => {
 	const today = getCurrentTime()
-	const dayOfWeek = today.getDay()
+	const dayOfWeek = today?.getDay()
 
 	return dayOfWeek === 0 || dayOfWeek === 6
 }
 
-export const getCurrentTime = (): Date => {
+export const getCurrentTime = (): Date | null => {
 	const { currentTime } = useScheduleStore.getState()
 	if (!currentTime) {
-		throw new Error('Current time is not initialized yet')
+		return null
 	}
 	return new Date(currentTime)
 }
@@ -39,16 +39,12 @@ export const getTimeDifference = (scheduledTime: string): number => {
 	}
 
 	const scheduledDate = new Date(
-		Date.UTC(
-			currentTime.getUTCFullYear(),
-			currentTime.getUTCMonth(),
-			currentTime.getUTCDate(),
-			hours,
-			minutes,
-		),
+		currentTime.getFullYear(),
+		currentTime.getMonth(),
+		currentTime.getDate(),
+		hours,
+		minutes,
 	)
-
-	console.log(scheduledDate)
 
 	return (scheduledDate.getTime() - currentTime.getTime()) / 60000
 }

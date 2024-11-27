@@ -230,6 +230,9 @@ const scheduleData: ScheduleData = {
 			'19:35',
 			'19:57',
 			'20:22',
+			'22:30',
+			'23:00',
+			'23:30',
 		],
 		weekEnd: [
 			'6:00',
