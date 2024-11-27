@@ -7,9 +7,6 @@ const Footer = () => {
 				<div>V1.12 &copy; 2024.</div>
 				<div>Coded with love for the Web and trolleybuses.</div>
 			</div>
-			<div className={styles.FooterDate}>
-				<div>{new Date().toString()}</div>
-			</div>
 		</footer>
 	)
 }

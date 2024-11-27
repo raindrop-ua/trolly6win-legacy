@@ -7,7 +7,6 @@ import {
 	isWeekend,
 	StopType,
 } from '@/utils/scheduleUtils'
-import scheduleData from '@/data/scheduleData'
 import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '@/components/SelectButtons'
 import TimeList from '@/components/TimeList'
@@ -15,8 +14,10 @@ import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import TimeListFilter from '@/components/TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
+import Spinner from '@/components/Spinner'
 
 const ScheduleList: React.FC = () => {
+	const { fetchScheduleData, scheduleData } = useScheduleStore()
 	const { initializeTimeUpdates, clearTimeUpdates } = useScheduleStore()
 	const { setDayType, setSelectedStop } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
@@ -24,11 +25,17 @@ const ScheduleList: React.FC = () => {
 	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
+		fetchScheduleData('6')
+	}, [fetchScheduleData])
+
+	useEffect(() => {
 		initializeTimeUpdates()
 		return () => clearTimeUpdates()
 	}, [initializeTimeUpdates, clearTimeUpdates])
 
 	const getTodaysSchedule = () => {
+		if (!scheduleData) return []
+
 		const isAutoWeekend = isWeekend()
 		const isWeekendDay =
 			dayType === 'Weekend' || (dayType === 'Auto' && isAutoWeekend)
@@ -38,7 +45,7 @@ const ScheduleList: React.FC = () => {
 			: scheduleData[selectedStop.toLowerCase() as keyof typeof scheduleData]
 					.weekDay
 
-		return scheduleTimes.map((time) => ({
+		return scheduleTimes.map((time: string) => ({
 			time,
 			diff: getTimeDifference(time, currentTime),
 		}))
@@ -53,8 +60,6 @@ const ScheduleList: React.FC = () => {
 		(option: string) => setSelectedStop(option as StopType),
 		[setSelectedStop],
 	)
-
-	const todaysSchedule = getTodaysSchedule()
 
 	return (
 		<div>
@@ -77,15 +82,15 @@ const ScheduleList: React.FC = () => {
 					<MapPinCheckInside />
 					<strong>{selectedStop}</strong>
 				</div>
-				<CurrentTimeDisplay />
+				{scheduleData && <CurrentTimeDisplay />}
 			</h3>
-			{todaysSchedule.length > 0 ? (
+			{scheduleData ? (
 				<>
 					<TimeListFilter />
-					<TimeList scheduleTimes={todaysSchedule} />
+					<TimeList scheduleTimes={getTodaysSchedule()} />
 				</>
 			) : (
-				<p>Schedule not available.</p>
+				<Spinner />
 			)}
 		</div>
 	)
