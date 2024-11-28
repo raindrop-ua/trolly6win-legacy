@@ -1,0 +1,23 @@
+.UnorderedList {
+  list-style: none;
+}
+
+.ListItem {
+  margin: 0.25rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.5rem;
+    background-color: #1f79aa;
+    border-radius: 50%;
+  }
+}

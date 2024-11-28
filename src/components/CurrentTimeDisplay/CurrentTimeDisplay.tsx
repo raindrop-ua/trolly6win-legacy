@@ -1,8 +1,8 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { Clock } from 'lucide-react'
-import styles from './CurrentTimeDisplay.module.scss'
 import useScheduleStore from '@/store/scheduleStore'
+import styles from './CurrentTimeDisplay.module.scss'
 
 const CurrentTimeDisplay: React.FC = () => {
 	const currentTime = useScheduleStore((state) => state.currentTime)
