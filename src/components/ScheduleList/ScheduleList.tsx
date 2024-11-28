@@ -25,13 +25,13 @@ const ScheduleList: React.FC = () => {
 	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
-		fetchScheduleData('6')
-	}, [fetchScheduleData])
-
-	useEffect(() => {
 		initializeTimeUpdates()
 		return () => clearTimeUpdates()
 	}, [initializeTimeUpdates, clearTimeUpdates])
+
+	useEffect(() => {
+		fetchScheduleData('6')
+	}, [fetchScheduleData])
 
 	const getTodaysSchedule = () => {
 		if (!scheduleData) return []
