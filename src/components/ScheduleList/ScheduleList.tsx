@@ -14,7 +14,7 @@ import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import TimeListFilter from '@/components/TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
 import styles from './ScheduleList.module.scss'
-import Spinner from '@/components/Spinner'
+import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 
 const ScheduleList: React.FC = () => {
 	const { fetchScheduleData, scheduleData } = useScheduleStore()
@@ -88,7 +88,7 @@ const ScheduleList: React.FC = () => {
 			{scheduleData ? (
 				<TimeList scheduleTimes={getTodaysSchedule()} />
 			) : (
-				<Spinner />
+				<TrolleybusAnimated />
 			)}
 		</div>
 	)

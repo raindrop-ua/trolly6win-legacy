@@ -1,6 +1,5 @@
 import SectionWrapper from '@/components/SectionWrapper'
 import { Metadata } from 'next'
-import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import UnorderedList from '@/components/UnorderedList'
 import Paragraph from '@/components/Paragraph'
 import styles from './page.module.scss'
@@ -76,8 +75,6 @@ export default function About() {
 						</UnorderedList.Item>
 					</UnorderedList>
 				</Paragraph>
-				<br />
-				<TrolleybusAnimated />
 			</SectionWrapper>
 		</main>
 	)

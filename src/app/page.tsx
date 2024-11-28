@@ -1,5 +1,4 @@
 import ScheduleList from '@/components/ScheduleList'
-import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import SectionWrapper from '../components/SectionWrapper'
 import ScheduleNote from '@/components/ScheduleNote'
 import styles from './page.module.scss'
@@ -18,7 +17,6 @@ export default function Home() {
 			<SectionWrapper>
 				<ScheduleList />
 				<ScheduleNote />
-				<TrolleybusAnimated />
 			</SectionWrapper>
 		</main>
 	)
