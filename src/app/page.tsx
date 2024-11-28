@@ -1,6 +1,7 @@
 import ScheduleList from '@/components/ScheduleList'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import SectionWrapper from '../components/SectionWrapper'
+import ScheduleNote from '@/components/ScheduleNote'
 import styles from './page.module.scss'
 import { Metadata } from 'next'
 
@@ -16,13 +17,7 @@ export default function Home() {
 		<main className={styles.Main}>
 			<SectionWrapper>
 				<ScheduleList />
-				<p className={styles.Note}>
-					<span>
-						Schedule changes may occur due to unforeseen situations along the
-						route.
-					</span>
-					<span>Thank you for riding the trolleybus!</span>
-				</p>
+				<ScheduleNote />
 				<TrolleybusAnimated />
 			</SectionWrapper>
 		</main>

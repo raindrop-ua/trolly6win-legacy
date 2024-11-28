@@ -1,0 +1,28 @@
+.NoteWrapper {
+  margin: 25px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: #32334C;
+  border-radius: 10px;
+  border: 1px solid #3A3C56;
+  color: #fffef8;
+  padding: 15px;
+
+  .Note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+
+  .Icon {
+    min-width: 32px;
+  }
+}
