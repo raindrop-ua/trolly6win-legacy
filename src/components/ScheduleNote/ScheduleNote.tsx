@@ -1,16 +1,16 @@
 import { MessageCircleWarning } from 'lucide-react'
 import styles from './ScheduleNote.module.scss'
+import React from 'react'
 
-const ScheduleNote = () => {
+interface ScheduleNoteProps {
+	className?: string
+	children: React.ReactNode
+}
+
+const ScheduleNote: React.FC<ScheduleNoteProps> = ({ children }) => {
 	return (
 		<div className={styles.NoteWrapper}>
-			<div className={styles.Note}>
-				<span>
-					Schedule changes may occur due to unforeseen situations along the
-					route.
-				</span>
-				<span>Thank you for riding the trolleybus!</span>
-			</div>
+			<div className={styles.Note}>{children}</div>
 			<div className={styles.Icon}>
 				<MessageCircleWarning size={32} />
 			</div>
