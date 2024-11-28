@@ -1,6 +1,6 @@
 import { MessageCircleWarning } from 'lucide-react'
-import styles from './ScheduleNote.module.scss'
 import React from 'react'
+import styles from './ScheduleNote.module.scss'
 
 interface ScheduleNoteProps {
 	className?: string
