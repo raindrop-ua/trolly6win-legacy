@@ -14,7 +14,7 @@ const WantToShare: React.FC = () => {
 					className={styles.Button}
 					onClick={() => setQrCodeVisible(true)}
 				>
-					<span>Want to share this site?</span>
+					<span>Want to share this app?</span>
 					<QrCode />
 				</button>
 			) : (
