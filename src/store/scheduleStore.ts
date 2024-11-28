@@ -4,11 +4,12 @@ import { DayType, StopType, FilterType } from '@/utils/scheduleUtils'
 interface ScheduleState {
 	dayType: DayType
 	selectedStop: StopType
-	currentTime: number | null
+	currentTime: Date
 	filter: FilterType
 	scheduleData: Record<string, any> | null
 	setDayType: (dayType: DayType) => void
 	setSelectedStop: (stop: StopType) => void
+	updateCurrentTime: () => void
 	setFilter: (filter: FilterType) => void
 	initializeTimeUpdates: () => void
 	clearTimeUpdates: () => void
@@ -18,28 +19,15 @@ interface ScheduleState {
 const UPDATE_INTERVAL = 15_000
 let timeUpdateInterval: NodeJS.Timeout | null = null
 
-const fetchServerTime = async (
-	set: (state: Partial<ScheduleState>) => void,
-) => {
-	try {
-		const response = await fetch('/api/time')
-		if (response.ok) {
-			const data = await response.json()
-			set({ currentTime: data.timestamp })
-		}
-	} catch (error) {
-		console.error('Error fetching server time:', error)
-	}
-}
-
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: 'Auto',
 	selectedStop: 'Pridniprovsk',
-	currentTime: null,
+	currentTime: new Date(),
 	filter: 'all',
 	scheduleData: null,
 	setDayType: (dayType) => set(() => ({ dayType })),
 	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
+	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
 	setFilter: (filter) => set(() => ({ filter })),
 	fetchScheduleData: async (routeId: string) => {
 		try {
@@ -54,11 +42,10 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 			console.error('Error fetching schedule data:', error)
 		}
 	},
-	initializeTimeUpdates: async () => {
+	initializeTimeUpdates: () => {
 		if (!timeUpdateInterval) {
-			await fetchServerTime(set)
 			timeUpdateInterval = setInterval(() => {
-				fetchServerTime(set)
+				set({ currentTime: new Date() })
 			}, UPDATE_INTERVAL)
 		}
 	},

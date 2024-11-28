@@ -22,15 +22,16 @@ const ScheduleList: React.FC = () => {
 	const { setDayType, setSelectedStop } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
 	const selectedStop = useScheduleStore((state) => state.selectedStop)
-
-	useEffect(() => {
-		fetchScheduleData('6')
-	}, [fetchScheduleData])
+	const currentTime = useScheduleStore((state) => state.currentTime)
 
 	useEffect(() => {
 		initializeTimeUpdates()
 		return () => clearTimeUpdates()
 	}, [initializeTimeUpdates, clearTimeUpdates])
+
+	useEffect(() => {
+		fetchScheduleData('6')
+	}, [fetchScheduleData])
 
 	const getTodaysSchedule = () => {
 		if (!scheduleData) return []
@@ -46,7 +47,7 @@ const ScheduleList: React.FC = () => {
 
 		return scheduleTimes.map((time: string) => ({
 			time,
-			diff: getTimeDifference(time),
+			diff: getTimeDifference(time, currentTime),
 		}))
 	}
 
