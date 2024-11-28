@@ -1,7 +1,7 @@
 import React from 'react'
+import './globals.scss'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import './globals.scss'
 import Header from '@/components/Header'
 import SectionWrapper from '@/components/SectionWrapper'
 import Footer from '@/components/Footer'
