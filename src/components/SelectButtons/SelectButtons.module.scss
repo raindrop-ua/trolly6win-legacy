@@ -1,4 +1,5 @@
 @use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
 
 .ButtonGroupBlock {
   display: flex;
@@ -18,24 +19,11 @@
 }
 
 .Button {
-  position: relative;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
+  @include button-style;
+
   font-size: 1rem;
   font-weight: 400;
-  background-color: #28293E;
-  border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-  padding: mixins.rem(10) mixins.rem(25);
   min-height: mixins.rem(50);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  transition: all .2s ease;
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
-  border: 1px solid rgb(255 255 255 / 30%);
-  visibility: visible;
 
   svg {
     width: mixins.rem(24);
@@ -52,20 +40,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-
-  &:focus-visible {
-    outline: #{mixins.rem(2)} solid #EF6D58;
-    outline-offset: mixins.rem(2);
-    border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
-  }
-
-  &:hover {
-    transform: translateY(-(mixins.rem(2)));
-  }
-
-  &:active {
-    transform: translateY(mixins.rem(1));
   }
 
   &.Active {
