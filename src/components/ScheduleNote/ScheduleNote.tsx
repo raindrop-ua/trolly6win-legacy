@@ -1,5 +1,5 @@
-import { MessageCircleWarning } from 'lucide-react'
 import React from 'react'
+import { MessageCircleWarning } from 'lucide-react'
 import styles from './ScheduleNote.module.scss'
 
 interface ScheduleNoteProps {
@@ -12,7 +12,7 @@ const ScheduleNote: React.FC<ScheduleNoteProps> = ({ children }) => {
 		<div className={styles.NoteWrapper}>
 			<div className={styles.Note}>{children}</div>
 			<div className={styles.Icon}>
-				<MessageCircleWarning size={32} />
+				<MessageCircleWarning />
 			</div>
 		</div>
 	)

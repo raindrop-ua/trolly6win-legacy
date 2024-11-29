@@ -1,11 +1,13 @@
+@use '@/styles/mixins' as mixins;
+
 .SpinnerWrapper {
   width: 100%;
-  height: 80px;
+  height: mixins.rem(80);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 40px 0;
+  margin: mixins.rem(40) 0;
 }
 
 .Spinner,
@@ -16,12 +18,12 @@
 .Spinner {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: mixins.rem(80);
+  height: mixins.rem(80);
 
   div {
     position: absolute;
-    border: 4px solid currentcolor;
+    border: mixins.rem(4) solid currentcolor;
     opacity: 1;
     border-radius: 50%;
     animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -34,34 +36,34 @@
 
 @keyframes ripple {
   0% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+    top: mixins.rem(36);
+    left: mixins.rem(36);
+    width: mixins.rem(8);
+    height: mixins.rem(8);
     opacity: 0;
   }
 
   4.9% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+    top: mixins.rem(36);
+    left: mixins.rem(36);
+    width: mixins.rem(8);
+    height: mixins.rem(8);
     opacity: 0;
   }
 
   5% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+    top: mixins.rem(36);
+    left: mixins.rem(36);
+    width: mixins.rem(8);
+    height: mixins.rem(8);
     opacity: 1;
   }
 
   100% {
     top: 0;
     left: 0;
-    width: 80px;
-    height: 80px;
+    width: mixins.rem(80);
+    height: mixins.rem(80);
     opacity: 0;
   }
 }

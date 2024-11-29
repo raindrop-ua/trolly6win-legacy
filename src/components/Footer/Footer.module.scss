@@ -1,19 +1,21 @@
+@use '@/styles/mixins' as mixins;
+
 .FooterSection {
   position: relative;
 }
 
 .Footer {
-  margin: 25px auto;
+  margin: mixins.rem(25) auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 12px;
+  gap: mixins.rem(12);
   font-size: 1rem;
   line-height: 1.25rem;
   text-align: left;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: mixins.rem(768)) {
     flex-direction: row;
     justify-content: flex-start;
   }

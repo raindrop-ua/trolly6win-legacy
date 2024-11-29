@@ -13,8 +13,8 @@ import TimeList from '@/components/TimeList'
 import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
 import TimeListFilter from '@/components/TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
-import styles from './ScheduleList.module.scss'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
+import styles from './ScheduleList.module.scss'
 
 const ScheduleList: React.FC = () => {
 	const { fetchScheduleData, scheduleData } = useScheduleStore()
