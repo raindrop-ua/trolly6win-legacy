@@ -6,7 +6,7 @@ import { QrCode } from 'lucide-react'
 import QRCode from 'react-qr-code'
 
 const WantToShare: React.FC = () => {
-	const [qrCodeVisible, setQrCodeVisible] = useState(false)
+	const [qrCodeVisible, setQrCodeVisible] = useState<boolean>(false)
 	return (
 		<div className={styles.WantToShare}>
 			{!qrCodeVisible ? (
