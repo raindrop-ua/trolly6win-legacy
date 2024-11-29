@@ -11,8 +11,8 @@ const Header: React.FC = () => {
 				<div className={styles.HeaderGeometry}>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
-						width='137'
-						height='60'
+						viewBox='0 0 137 60'
+						preserveAspectRatio='xMidYMid meet'
 						fill='none'
 					>
 						<path

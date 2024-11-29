@@ -6,9 +6,8 @@ const TrolleybusIcon: FC = () => {
 		<div className={styles.TrolleybusIcon}>
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
-				width='56'
-				height='84'
-				fill='none'
+				viewBox='0 0 56 84'
+				preserveAspectRatio='xMidYMid meet'
 			>
 				<path fill='#FFFFFF' d='M7.1 76h8.2v7H7v-7ZM40.7 76H49v7h-8.2v-7Z' />
 				<path

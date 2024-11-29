@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as mixins;
+
 .Section {
   margin: 0 auto;
   width: 100%;
@@ -6,7 +8,7 @@
 .SectionWrapper {
   margin: 0 auto;
   width: 100%;
-  min-width: 385px;
-  max-width: 767px;
-  padding: 0 1rem;
+  min-width: mixins.rem(385);
+  max-width: mixins.rem(768);
+  padding: 0 mixins.rem(16);
 }

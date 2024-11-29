@@ -18,9 +18,9 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 }) => {
 	const groupId = useId()
 	const IconsMap = {
-		Pridniprovsk: <House size={24} />,
-		Museum: <Landmark size={24} />,
-		Hospital: <Hospital size={24} />,
+		Pridniprovsk: <House />,
+		Museum: <Landmark />,
+		Hospital: <Hospital />,
 	}
 
 	return (

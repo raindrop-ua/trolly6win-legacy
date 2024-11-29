@@ -19,7 +19,7 @@ const CurrentTimeDisplay: React.FC = () => {
 			role='text'
 			aria-label={`Current time is ${formattedTime}`}
 		>
-			<Clock size={20} />
+			<Clock />
 			<span>{formattedTime}</span>
 		</div>
 	)

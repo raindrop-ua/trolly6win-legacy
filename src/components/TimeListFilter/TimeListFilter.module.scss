@@ -1,17 +1,24 @@
+@use '@/styles/mixins' as mixins;
+
 .TimeListFilter {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: mixins.rem(10);
+  margin-bottom: mixins.rem(12);
+
+  svg {
+    width: mixins.rem(24);
+    height: mixins.rem(24);
+  }
 
   .Items {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: mixins.rem(10);
     visibility: hidden;
 
     &:hover > :not(:hover) {
@@ -33,15 +40,15 @@
     font-size: 1rem;
     font-weight: 400;
     background-color: #28293E;
-    border-radius: 15px 10px 10px 0;
-    padding: 5px 20px;
-    min-height: 32px;
+    border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
+    padding: mixins.rem(5) mixins.rem(20);
+    min-height: mixins.rem(32);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     transition: all 0.1s ease-in-out;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
     border: 1px solid rgb(255 255 255 / 30%);
 
     .Caption {
@@ -49,17 +56,17 @@
     }
 
     &:focus-visible {
-      outline: 2px solid #EF6D58;
-      outline-offset: 2px;
-      border-radius: 8px 8px 8px 0;
+      outline: #{mixins.rem(2)} solid #EF6D58;
+      outline-offset: mixins.rem(2);
+      border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
     }
 
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-(mixins.rem(2)));
     }
 
     &:active {
-      transform: translateY(1px);
+      transform: translateY(mixins.rem(1));
     }
 
     &.Active {

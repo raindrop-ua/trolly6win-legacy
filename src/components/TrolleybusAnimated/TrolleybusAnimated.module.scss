@@ -1,3 +1,4 @@
+@use '@/styles/mixins' as mixins;
 
 @keyframes bus-bounce {
   0%, 100% {
@@ -5,7 +6,7 @@
   }
 
   50% {
-    transform: translateY(-1px);
+    transform: translateY(-(mixins.rem(1)));
   }
 }
 
@@ -15,22 +16,22 @@
   }
 
   50% {
-    transform: translateY(1px);
+    transform: translateY(mixins.rem(1));
   }
 }
 
 .BusContainer {
-  margin: 25px auto;
+  margin: mixins.rem(25) auto;
   position: relative;
-  width: 118px;
-  height: 88px;
+  width: mixins.rem(118);
+  height: mixins.rem(88);
   display: flex;
   align-items: flex-end;
 }
 
 .Bus {
-  width: 118px;
-  height: 88px;
+  width: mixins.rem(118);
+  height: mixins.rem(88);
   position: absolute;
   animation: bus-bounce 500ms infinite ease-in-out;
 
@@ -40,8 +41,8 @@
 }
 
 .Wheels {
-  width: 118px;
-  height: 88px;
+  width: mixins.rem(118);
+  height: mixins.rem(88);
   position: absolute;
   animation: wheel-bounce 500ms infinite ease-in-out;
 

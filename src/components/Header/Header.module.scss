@@ -1,22 +1,24 @@
+@use '@/styles/mixins' as mixins;
+
 .Header {
   position: relative;
   display: flex;
-  gap: 25px;
+  gap: mixins.rem(25);
   flex-direction: row;
   justify-items: center;
-  padding: 40px 0;
+  padding: mixins.rem(40) 0;
 
   h1 {
     display: flex;
-    gap: 0.5rem;
+    gap: mixins.rem(10);
 
     span {
       color: #F7CC47;
       font-weight: 700;
       border: 1px solid #3A3C56;
-      border-radius: 6px;
+      border-radius: mixins.rem(6);
       display: inline-block;
-      padding: 0 5px;
+      padding: 0 mixins.rem(5);
     }
   }
 
@@ -25,9 +27,9 @@
       color: #F7CC47;
       font-weight: 700;
       border: 1px solid #3A3C56;
-      border-radius: 6px;
+      border-radius: mixins.rem(6);
       display: inline-block;
-      padding: 0 5px;
+      padding: 0 mixins.rem(5);
     }
   }
 }
@@ -36,9 +38,14 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 137px;
-  height: 60px;
+  width: mixins.rem(137);
+  height: mixins.rem(60);
   z-index: -1;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 
   svg path {
     stroke: #1f79aa;
@@ -57,5 +64,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 5px;
+  gap: mixins.rem(5);
 }

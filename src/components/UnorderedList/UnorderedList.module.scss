@@ -1,9 +1,11 @@
+@use '@/styles/mixins' as mixins;
+
 .UnorderedList {
   list-style: none;
 }
 
 .ListItem {
-  margin: 0.25rem 0;
+  margin: mixins.rem(4) 0;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -14,9 +16,9 @@
     content: "";
     position: relative;
     display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    margin-right: 0.5rem;
+    width: mixins.rem(8);
+    height: mixins.rem(8);
+    margin-right: mixins.rem(8);
     background-color: #1f79aa;
     border-radius: 50%;
   }
