@@ -1,28 +1,35 @@
+@use '@/styles/mixins' as mixins;
+
 .NoteWrapper {
-  margin: 25px auto;
+  margin: mixins.rem(25) auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: mixins.rem(15);
   background-color: #32334C;
-  border-radius: 10px;
+  border-radius: mixins.rem(10);
   border: 1px solid #3A3C56;
   color: #fffef8;
-  padding: 15px 20px;
+  padding: mixins.rem(15) mixins.rem(20);
 
   .Note {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: mixins.rem(10);
     font-size: 1rem;
     line-height: 1.25rem;
     text-align: left;
   }
 
   .Icon {
-    min-width: 32px;
+    min-width: mixins.rem(32);
+
+    svg {
+      width: mixins.rem(32);
+      height: mixins.rem(32);
+    }
   }
 }

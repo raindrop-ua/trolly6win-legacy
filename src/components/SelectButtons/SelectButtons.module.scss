@@ -1,13 +1,15 @@
+@use '@/styles/mixins' as mixins;
+
 .ButtonGroupBlock {
   display: flex;
   flex-direction: column;
-  margin: 0 0 25px;
-  gap: 12px;
+  margin: 0 0 mixins.rem(25);
+  gap: mixins.rem(15);
 }
 
 .ButtonsGroup {
   display: flex;
-  gap: 10px;
+  gap: mixins.rem(10);
   visibility: hidden;
 
   &:hover > :not(:hover) {
@@ -23,17 +25,22 @@
   font-size: 1rem;
   font-weight: 400;
   background-color: #28293E;
-  border-radius: 15px 10px 10px 0;
-  padding: 10px 25px;
-  min-height: 50px;
+  border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
+  padding: mixins.rem(10) mixins.rem(25);
+  min-height: mixins.rem(50);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   transition: all .2s ease;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
   border: 1px solid rgb(255 255 255 / 30%);
   visibility: visible;
+
+  svg {
+    width: mixins.rem(24);
+    height: mixins.rem(24);
+  }
 
   .Caption {
     position: absolute;
@@ -48,17 +55,17 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #EF6D58;
-    outline-offset: 2px;
-    border-radius: 8px 8px 8px 0;
+    outline: #{mixins.rem(2)} solid #EF6D58;
+    outline-offset: mixins.rem(2);
+    border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
   }
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-(mixins.rem(2)));
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: translateY(mixins.rem(1));
   }
 
   &.Active {
@@ -85,7 +92,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
+  gap: mixins.rem(15);
   justify-content: flex-start;
 
   strong {
@@ -103,18 +110,18 @@
 
   &Text {
     visibility: hidden;
-    width: 100px;
+    width: mixins.rem(100);
     background-color: #32334C;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
+    padding: mixins.rem(5) 0;
+    border-radius: mixins.rem(6);
     position: absolute;
     z-index: 10;
-    top: calc(100% + 10px);
+    top: calc(100% + #{mixins.rem(10)});
     left: 50%;
-    margin-left: -50px;
-    box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
+    margin-left: -(mixins.rem(50));
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) rgb(0 0 0 / 15%);
   }
 
   &:hover &Text {
@@ -127,8 +134,8 @@
       position: absolute;
       bottom: 100%;
       left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
+      margin-left: -(mixins.rem(5));
+      border-width: mixins.rem(5);
       border-style: solid;
       border-color: transparent transparent #32334C;
     }

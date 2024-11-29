@@ -1,22 +1,24 @@
+@use '@/styles/mixins' as mixins;
+
 .TimeItems {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
+  gap: mixins.rem(4);
   visibility: hidden;
 
-  @media (min-width: 440px) {
+  @media (min-width: mixins.rem(440)) {
     grid-template-columns: repeat(6, 1fr);
   }
 
-  @media (min-width: 512px) {
+  @media (min-width: mixins.rem(512)) {
     grid-template-columns: repeat(7, 1fr);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: mixins.rem(640)) {
     grid-template-columns: repeat(8, 1fr);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: mixins.rem(768)) {
     grid-template-columns: repeat(9, 1fr);
   }
 
@@ -31,22 +33,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding: mixins.rem(12);
   margin: 0;
-  border-radius: 6px;
+  border-radius: mixins.rem(6);
   width: 100%;
   font-size: 1.25rem;
   color: #fff;
   background-color: #0d7db9;
   user-select: none;
   transition: all .2s ease;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
   visibility: visible;
 
   &:hover {
     transform: scale(1.2);
     z-index: 1;
-    box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) rgb(0 0 0 / 15%);
   }
 
   &.Past {

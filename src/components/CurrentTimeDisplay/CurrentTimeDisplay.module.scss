@@ -1,6 +1,8 @@
+@use '@/styles/mixins' as mixins;
+
 .CurrentTime {
   background-color: #32334C;
-  border-radius: 10px;
+  border-radius: mixins.rem(10);
   border: 1px solid #3A3C56;
   color: #fffef8;
   font-size: 1.25rem;
@@ -9,8 +11,13 @@
   flex-direction: row;
   align-items: center;
   margin: 0;
-  padding: 10px 15px;
-  gap: 10px;
+  padding: mixins.rem(10) mixins.rem(15);
+  gap: mixins.rem(10);
+
+  svg {
+    width: mixins.rem(24);
+    height: mixins.rem(24);
+  }
 
   span {
     line-height: 1.5rem;
