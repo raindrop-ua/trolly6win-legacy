@@ -1,7 +1,7 @@
 @use '@/styles/mixins' as mixins;
 
 .WantToShare {
-  margin: mixins.rem(25) auto;
+  margin: mixins.rem(40) auto mixins.rem(25) auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   .WantToShareInnerWrapper {
     width: mixins.rem(256);
     height: mixins.rem(256);
-    padding: mixins.rem(15);
+    padding: mixins.rem(20);
     background-color: white;
     border-radius: mixins.rem(20);
     box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
