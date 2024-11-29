@@ -7,9 +7,9 @@ const TrolleybusAnimated: React.FC = () => {
 			<div className={styles.Bus}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
-					width='118'
-					height='88'
 					fill='none'
+					viewBox='0 0 118 88'
+					preserveAspectRatio='xMidYMid meet'
 				>
 					<path fill='#ffffff' d='M66.4 3h7.8L57.6 23h-7.8L66.4 3Z' />
 					<path
@@ -24,9 +24,9 @@ const TrolleybusAnimated: React.FC = () => {
 			<div className={styles.Wheels}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
-					width='118'
-					height='88'
 					fill='none'
+					viewBox='0 0 118 88'
+					preserveAspectRatio='xMidYMid meet'
 				>
 					<path
 						fill='#ffffff'
