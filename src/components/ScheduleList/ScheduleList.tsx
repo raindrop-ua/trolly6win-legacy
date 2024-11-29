@@ -27,14 +27,14 @@ const ScheduleList: React.FC = () => {
 	useEffect(() => {
 		initializeTimeUpdates()
 		return () => clearTimeUpdates()
-	}, [initializeTimeUpdates, clearTimeUpdates])
+	})
 
 	useEffect(() => {
 		fetchScheduleData('6')
 	}, [fetchScheduleData])
 
-	const getTodaysSchedule = () => {
-		if (!scheduleData) return []
+	const getTodaysSchedule = (): { time: string; diff: number }[] => {
+		if (!scheduleData || !currentTime) return []
 
 		const isAutoWeekend = isWeekend()
 		const isWeekendDay =

@@ -1,4 +1,5 @@
 @use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
 
 .WantToShare {
   margin: mixins.rem(40) auto mixins.rem(25) auto;
@@ -28,24 +29,12 @@
   }
 
   .Button {
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
+    @include button-style;
+
     font-size: 1.25rem;
     font-weight: 400;
-    background-color: #28293E;
-    border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-    padding: mixins.rem(10) mixins.rem(25);
     min-height: mixins.rem(50);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     gap: mixins.rem(15);
-    transition: all 0.2s ease;
-    box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
-    border: 1px solid rgb(255 255 255 / 30%);
 
     svg {
       width: mixins.rem(24);
