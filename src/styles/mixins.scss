@@ -7,3 +7,15 @@
     @error 'Do not use units of measurement when working with the rem() function. Pass only numbers as arguments.';
   }
 }
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: rem(767)) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: rem(768)) and (max-width: rem(1231)) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1232px) { @content; }
+  } @else {
+    @error 'Invalid breakpoint: #{$breakpoint}. Use: mobile, tablet, desktop.';
+  }
+}
