@@ -3,9 +3,13 @@ import classNames from 'classnames'
 import styles from './BaselineButton.module.scss'
 
 interface BaselineButtonProps {
-	value: string
-	Icon?: ReactElement
-	selectedOption: string
+	className?: string
+	children?: React.ReactNode
+	label?: string
+	value?: string
+	icon?: ReactElement
+	isSelected?: boolean
+	size?: 'small' | 'medium' | 'large'
 	onClick: (option: string) => void
 }
 
@@ -17,10 +21,15 @@ type Ripple = {
 }
 
 const BaselineButton: React.FC<BaselineButtonProps> = ({
+	className,
+	children,
+	label,
 	value,
+	size,
 	onClick,
-	selectedOption,
-	Icon,
+	isSelected,
+	icon,
+	...props
 }) => {
 	const [ripples, setRipples] = useState<Ripple[]>([])
 
@@ -45,10 +54,18 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 
 	return (
 		<button
-			className={`${styles.Button} ${selectedOption === value ? styles.Active : ''}`}
-			onClick={() => onClick(value)}
+			{...props}
+			className={classNames(className, styles.Button, {
+				[styles.Active]: isSelected,
+				[styles.Small]: size === 'small',
+				[styles.Medium]: size === 'medium',
+				[styles.Large]: size === 'large',
+			})}
+			onClick={() => {
+				value && onClick(value)
+			}}
 			onMouseDown={handleMouseDown}
-			aria-pressed={selectedOption === value}
+			aria-pressed={isSelected}
 			aria-label={`Select ${value}`}
 		>
 			<div className={styles.RippleEffectWrapper}>
@@ -65,21 +82,23 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 					></span>
 				))}
 			</div>
-			{Icon ? (
+			{label && !children && !icon && (
 				<>
-					{Icon as ReactElement}
+					<span className={styles.SpaceHolder} aria-hidden={true}>
+						{label}
+					</span>
+					<span className={styles.Caption}>{label}</span>
+				</>
+			)}
+			{icon && !children && (
+				<>
+					{icon as ReactElement}
 					<div className={styles.Tooltip}>
 						<div className={styles.TooltipText}>{value}</div>
 					</div>
 				</>
-			) : (
-				<>
-					<span className={styles.SpaceHolder} aria-hidden={true}>
-						{value}
-					</span>
-					<span className={styles.Caption}>{value}</span>
-				</>
 			)}
+			{children && <span className={styles.BaselineContent}>{children}</span>}
 		</button>
 	)
 }

@@ -32,6 +32,18 @@
   font-weight: 400;
   min-height: mixins.rem(50);
 
+  &.Small {
+    min-height: mixins.rem(30);
+  }
+
+  &.Medium {
+    min-height: mixins.rem(50);
+  }
+
+  &.Large {
+    min-height: mixins.rem(70);
+  }
+
   svg {
     width: mixins.rem(24);
     height: mixins.rem(24);
@@ -47,6 +59,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  .BaselineContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
   &.Active {

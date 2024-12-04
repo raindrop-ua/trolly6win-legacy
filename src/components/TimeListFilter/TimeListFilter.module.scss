@@ -32,26 +32,4 @@
     visibility: visible;
     transition: all .2s ease;
   }
-
-  .Button {
-    @include button-style;
-
-    font-size: 1rem;
-    font-weight: 400;
-    min-height: mixins.rem(32);
-
-    .Caption {
-      font-weight: 400;
-    }
-
-    &.Active {
-      background-color: #1f79aa;
-      color: #fffef8;
-      border: 1px solid #1f79aa;
-
-      .Caption {
-        font-weight: 400;
-      }
-    }
-  }
 }

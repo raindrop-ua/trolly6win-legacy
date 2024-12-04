@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { useId } from 'react'
 import { House, Landmark, Hospital } from 'lucide-react'
+import BaselineButton from '@/components/Baseline/BaselineButton'
 import styles from './SelectButtons.module.scss'
 
 type SelectButtonsProps = {
@@ -36,29 +37,16 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 				{options.map((option) => {
 					const Icon = IconsMap[option as keyof typeof IconsMap]
 					return (
-						<button
+						<BaselineButton
+							label={option}
+							icon={Icon}
+							value={option}
+							isSelected={selectedOption === option}
 							key={option}
-							className={`${styles.Button} ${selectedOption === option ? styles.Active : ''}`}
 							onClick={() => setSelectedOption(option)}
 							aria-pressed={selectedOption === option}
 							aria-label={`Select ${option}`}
-						>
-							{Icon ? (
-								<>
-									{Icon as ReactElement}
-									<div className={styles.Tooltip}>
-										<div className={styles.TooltipText}>{option}</div>
-									</div>
-								</>
-							) : (
-								<>
-									<span className={styles.SpaceHolder} aria-hidden={true}>
-										{option}
-									</span>
-									<span className={styles.Caption}>{option}</span>
-								</>
-							)}
-						</button>
+						/>
 					)
 				})}
 			</div>
