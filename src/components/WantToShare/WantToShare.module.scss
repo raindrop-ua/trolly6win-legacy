@@ -27,32 +27,4 @@
       height: 100%;
     }
   }
-
-  .Button {
-    @include button-style;
-
-    font-size: 1.25rem;
-    font-weight: 400;
-    min-height: mixins.rem(50);
-    gap: mixins.rem(15);
-
-    svg {
-      width: mixins.rem(24);
-      height: mixins.rem(24);
-    }
-
-    &:focus-visible {
-      outline: #{mixins.rem(2)} solid #EF6D58;
-      outline-offset: mixins.rem(2);
-      border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
-    }
-
-    &:hover {
-      transform: translateY(-(mixins.rem(2)));
-    }
-
-    &:active {
-      transform: translateY(mixins.rem(1));
-    }
-  }
 }

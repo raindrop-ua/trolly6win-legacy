@@ -2,6 +2,7 @@ import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
 import { ListFilter } from 'lucide-react'
 import styles from './TimeListFilter.module.scss'
+import BaselineButton from '@/components/Baseline/BaselineButton'
 
 const TimeListFilter = () => {
 	const { filter, setFilter } = useScheduleStore()
@@ -11,24 +12,24 @@ const TimeListFilter = () => {
 			<ListFilter />
 			<ul className={styles.Items}>
 				<li className={styles.Item}>
-					<button
-						className={`${styles.Button} ${
-							filter === 'all' ? styles.Active : ''
-						}`}
+					<BaselineButton
+						className={`${filter === 'all' ? styles.Active : ''}`}
+						label={'Show all'}
+						value={'all'}
+						isSelected={filter === 'all'}
+						size={'small'}
 						onClick={() => setFilter('all')}
-					>
-						<span className={styles.Caption}>Show all</span>
-					</button>
+					/>
 				</li>
 				<li className={styles.Item}>
-					<button
-						className={`${styles.Button} ${
-							filter === 'upcoming' ? styles.Active : ''
-						}`}
+					<BaselineButton
+						className={`${filter === 'upcoming' ? styles.Active : ''}`}
+						label={'Show only upcoming'}
+						value={'upcoming'}
+						isSelected={filter === 'upcoming'}
+						size={'small'}
 						onClick={() => setFilter('upcoming')}
-					>
-						<span className={styles.Caption}>Show only upcoming</span>
-					</button>
+					/>
 				</li>
 			</ul>
 		</div>
