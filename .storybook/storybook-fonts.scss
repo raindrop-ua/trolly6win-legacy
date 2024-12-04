@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Dnipro City';
+  src: url('/fonts/dniprocity-regular-webfont.woff') format('woff'),
+  url('/fonts/dniprocity-bold-webfont.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+:root {
+  --font-dnipro-city: 'Dnipro City', sans-serif;
+}
