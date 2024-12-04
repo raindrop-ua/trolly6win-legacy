@@ -2,10 +2,10 @@ import React from 'react'
 import ScheduleList from '@/components/ScheduleList'
 import SectionWrapper from '../components/SectionWrapper'
 import ScheduleNote from '@/components/ScheduleNote'
-import styles from './page.module.scss'
 import { Metadata } from 'next'
 import Paragraph from '@/components/Paragraph'
 import WantToShare from '@/components/WantToShare'
+import styles from './page.module.scss'
 
 export const metadata: Metadata = {
 	title: 'TrollySix',
