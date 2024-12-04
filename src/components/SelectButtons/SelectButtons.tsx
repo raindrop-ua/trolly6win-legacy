@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { useId } from 'react'
 import { House, Landmark, Hospital } from 'lucide-react'
 import BaselineButton from '@/components/Baseline/BaselineButton'
