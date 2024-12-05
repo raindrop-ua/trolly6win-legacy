@@ -5,7 +5,7 @@
   display: flex;
   gap: mixins.rem(25);
   flex-direction: row;
-  justify-items: center;
+  place-items: flex-start center;
   padding: mixins.rem(40) 0;
 
   h1 {

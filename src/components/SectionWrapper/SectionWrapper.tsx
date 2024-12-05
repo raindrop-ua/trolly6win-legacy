@@ -1,16 +1,29 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styles from './SectionWrapper.module.scss'
+import classNames from 'classnames'
 
-type WrapperProps = {
-	children: ReactNode
+type ElementTag = keyof React.ReactHTML
+
+interface SectionWrapperProps {
+	as?: ElementTag
+	children: React.ReactNode
+	className?: string
+	useSection?: boolean
 }
 
-const SectionWrapper = ({ children }: WrapperProps) => {
-	return (
-		<section className={styles.Section}>
+const SectionWrapper: React.FC<SectionWrapperProps> = ({
+	as: Tag = 'div',
+	children,
+	className,
+	useSection = true,
+}) => {
+	const content = (
+		<Tag className={classNames(styles.Section, className)}>
 			<div className={styles.SectionWrapper}>{children}</div>
-		</section>
+		</Tag>
 	)
+
+	return useSection ? <section>{content}</section> : content
 }
 
 SectionWrapper.displayName = 'SectionWrapper'

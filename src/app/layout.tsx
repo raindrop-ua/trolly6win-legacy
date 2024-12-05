@@ -37,11 +37,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${dniproCity.variable}`}>
-				<SectionWrapper>
+				<SectionWrapper as={'header'} useSection={false}>
 					<Header />
 				</SectionWrapper>
 				{children}
-				<SectionWrapper>
+				<SectionWrapper as={'footer'} useSection={false}>
 					<Footer />
 				</SectionWrapper>
 				<div id='modal-root'></div>
