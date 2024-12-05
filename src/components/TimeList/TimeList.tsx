@@ -11,11 +11,18 @@ type TimeListProps = {
 	scheduleTimes: ScheduleTime[]
 }
 
+enum TimeDiff {
+	Past = 0,
+	VerySoon = 5,
+	Soon = 28,
+	Upcoming = 58,
+}
+
 const getTimeClass = (diff: number) => {
-	if (diff < 0) return styles.Past
-	if (diff <= 5) return styles.VerySoon
-	if (diff <= 28) return styles.Soon
-	if (diff <= 58) return styles.Upcoming
+	if (diff < TimeDiff.Past) return styles.Past
+	if (diff <= TimeDiff.VerySoon) return styles.VerySoon
+	if (diff <= TimeDiff.Soon) return styles.Soon
+	if (diff <= TimeDiff.Upcoming) return styles.Upcoming
 
 	return styles.UpcomingLater
 }
