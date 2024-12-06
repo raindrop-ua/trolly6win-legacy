@@ -13,7 +13,6 @@ const TimeListFilter = () => {
 			<ul className={styles.Items}>
 				<li className={styles.Item}>
 					<BaselineButton
-						className={`${filter === 'all' ? styles.Active : ''}`}
 						label={'Show all'}
 						value={'all'}
 						isSelected={filter === 'all'}
@@ -23,7 +22,6 @@ const TimeListFilter = () => {
 				</li>
 				<li className={styles.Item}>
 					<BaselineButton
-						className={`${filter === 'upcoming' ? styles.Active : ''}`}
 						label={'Show only upcoming'}
 						value={'upcoming'}
 						isSelected={filter === 'upcoming'}
