@@ -1,0 +1,76 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.UserBox {
+  width: mixins.rem(100);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  a {
+    @include button-style-basic;
+
+    width: 100px;
+    font-size: mixins.rem(16);
+    font-weight: 400;
+    min-height: mixins.rem(30);
+    background-color: #1f79aa;
+    color: #fffef8;
+    border: 1px solid #1f79aa;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .AvatarBlock {
+    position: relative;
+  }
+
+  .Avatar {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    width: mixins.rem(50);
+    height: mixins.rem(50);
+    background-color: #F7CC47;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: mixins.rem(32);
+    font-weight: 700;
+    color: #28293E;
+    cursor: pointer;
+  }
+
+  .AvatarMenu {
+    position: absolute;
+    bottom: mixins.rem(-30);
+    width: mixins.rem(110);
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      @include button-style;
+
+      width: mixins.rem(100);
+      height: mixins.rem(40);
+      padding: 0;
+      font-size: mixins.rem(16);
+      font-weight: 400;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+
+}

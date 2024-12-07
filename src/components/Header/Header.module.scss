@@ -1,12 +1,32 @@
 @use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
 
 .Header {
   position: relative;
-  display: flex;
-  gap: mixins.rem(25);
-  flex-direction: row;
-  place-items: flex-start center;
+  width: 100%;
   padding: mixins.rem(40) 0;
+
+  .HeaderWrapper {
+    display: flex;
+    gap: mixins.rem(25);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .HeaderLogo {
+    display: flex;
+    gap: mixins.rem(25);
+    flex-direction: row;
+    place-items: flex-start center;
+  }
+
+  .HeaderUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
 
   h1 {
     display: flex;
@@ -37,7 +57,7 @@
 .HeaderGeometry {
   position: absolute;
   top: 0;
-  right: 0;
+  right: mixins.rem(50);
   width: mixins.rem(137);
   height: mixins.rem(60);
   z-index: -1;

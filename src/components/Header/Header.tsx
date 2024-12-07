@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import TrolleybusIcon from '@/components/TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
+import UserBox from '@/components/UserBox'
 import styles from './Header.module.scss'
 
 const Header: React.FC = () => {
@@ -21,22 +22,29 @@ const Header: React.FC = () => {
 					/>
 				</svg>
 			</div>
-			<div className={styles.HeaderImage}>
-				<Link href={'/'} aria-label={'Home page'}>
-					<TrolleybusIcon />
-				</Link>
-			</div>
-			<div className={styles.HeaderText}>
-				<h1>
-					Trolly<span>Six</span>
-				</h1>
-				<h2>
-					Timetable for trolleybus route{' '}
-					<InlineNoWrap>
-						number <span>6</span> in
-					</InlineNoWrap>{' '}
-					the city of Dnipro.
-				</h2>
+			<div className={styles.HeaderWrapper}>
+				<div className={styles.HeaderLogo}>
+					<div className={styles.HeaderImage}>
+						<Link href={'/'} aria-label={'Home page'}>
+							<TrolleybusIcon />
+						</Link>
+					</div>
+					<div className={styles.HeaderText}>
+						<h1>
+							Trolly<span>Six</span>
+						</h1>
+						<h2>
+							Timetable for trolleybus route{' '}
+							<InlineNoWrap>
+								number <span>6</span> in
+							</InlineNoWrap>{' '}
+							the city of Dnipro.
+						</h2>
+					</div>
+				</div>
+				<div className={styles.HeaderUser}>
+					<UserBox />
+				</div>
 			</div>
 		</div>
 	)

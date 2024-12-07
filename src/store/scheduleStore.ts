@@ -31,7 +31,7 @@ const useScheduleStore = create<ScheduleState>((set) => ({
 	setFilter: (filter) => set(() => ({ filter })),
 	fetchScheduleData: async (routeId: string) => {
 		try {
-			const response = await fetch(`/api/route/${routeId}`, {
+			const response = await fetch(`http://localhost:4000/v1/schedule`, {
 				cache: 'no-store',
 			})
 			if (response.ok) {

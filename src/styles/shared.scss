@@ -1,6 +1,6 @@
 @use './mixins' as mixins;
 
-@mixin button-style {
+@mixin button-style-basic {
   position: relative;
   cursor: pointer;
   outline: none;
@@ -8,12 +8,7 @@
   background-color: #28293E;
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
   border: 1px solid rgb(255 255 255 / 30%);
-  padding: mixins.rem(10) mixins.rem(25);
   box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
   visibility: visible;
 
@@ -30,4 +25,12 @@
   &:active {
     transform: translateY(mixins.rem(1));
   }
+}
+
+@mixin button-style {
+  padding: mixins.rem(10) mixins.rem(25);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
