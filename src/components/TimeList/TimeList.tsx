@@ -4,17 +4,6 @@ import styles from './TimeList.module.scss'
 import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
 import ScheduleNote from '@/components/ScheduleNote'
 
-function formatTime(time: string): string {
-	const timeParts = time.split(':')
-
-	if (timeParts.length === 3 && timeParts.every((part) => /^\d+$/.test(part))) {
-		const [hours, minutes] = timeParts
-		return `${hours}:${minutes}`
-	}
-
-	return ''
-}
-
 const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
 	const { status } = departureTimeItem
 	const statusColorMap = {
@@ -59,7 +48,7 @@ const TimeList: React.FC = () => {
 						key={index}
 						className={`${styles.TimeItem} ${getTimeClass(item)}`}
 					>
-						<span>{formatTime(item.time)}</span>
+						<span>{item.time}</span>
 					</li>
 				)
 			})}
