@@ -1,0 +1,41 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.ToastContainer {
+  position: absolute;
+  bottom: mixins.rem(25);
+  right: mixins.rem(25);
+  width: mixins.rem(250);
+}
+
+.ToastItem {
+  width: 100%;
+  font-size: mixins.rem(16);
+  margin: mixins.rem(15) auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: mixins.rem(15);
+  background-color: #fffef8;
+  color: #1f2030;
+  padding: mixins.rem(10) mixins.rem(15);
+  border-radius: mixins.rem(15) 0 mixins.rem(10) mixins.rem(10);
+  border: 1px solid rgb(255 255 255 / 30%);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+
+  &.Success {
+    background-color: #179c41;
+    color: #fffef8;
+  }
+
+  &.Error {
+    background-color: #a85757;
+    color: #fffef8;
+  }
+
+  &.Info {
+    background-color: #1f79aa;
+    color: #fffef8;
+  }
+}

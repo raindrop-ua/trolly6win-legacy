@@ -5,13 +5,15 @@ interface IntervalManagerState {
 	clearDataUpdates: () => void
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
+
 const UPDATE_INTERVAL = 15_000
 let timeUpdateInterval: NodeJS.Timeout | null = null
 
 const useIntervalManager = create<IntervalManagerState>(() => {
 	const fetchScheduleData = async () => {
 		try {
-			const response = await fetch(`http://localhost:4000/v1/schedule`, {
+			const response = await fetch(`${API_BASE_URL}/schedule`, {
 				cache: 'no-store',
 			})
 			if (response.ok) {

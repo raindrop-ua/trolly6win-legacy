@@ -24,6 +24,7 @@ const LoginForm = ({ isFromModal = false }: LoginFormProps) => {
 	const [isLogin, setIsLogin] = useState(true)
 	const { setLoggedIn, isLoggedIn } = useAuthStore()
 	const { setUser } = useUserStore()
+
 	const triggerClose = useModalStore((state) => state.triggerClose) // Получаем функцию для отправки сигнала
 
 	const {

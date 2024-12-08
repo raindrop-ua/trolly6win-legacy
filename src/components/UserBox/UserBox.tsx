@@ -6,12 +6,22 @@ import { usePathname } from 'next/navigation'
 import styles from './UserBox.module.scss'
 import useAuthStore from '@/store/authStore'
 import useUserStore from '@/store/userStore'
+import useToastStore from '@/store/toastStore'
 
 const UserBox = () => {
 	const pathname = usePathname()
 	const [showMenu, setShowMenu] = React.useState(false)
 	const { isLoggedIn } = useAuthStore()
 	const { email } = useUserStore()
+	const { addToast } = useToastStore()
+
+	const showToast = () => {
+		addToast({
+			message: 'Success Success Success!',
+			type: 'success',
+			duration: 3000,
+		})
+	}
 
 	const handleAvatar = () => {
 		setShowMenu((prevState) => !prevState)
@@ -34,7 +44,7 @@ const UserBox = () => {
 					</button>
 					{showMenu && (
 						<div className={styles.AvatarMenu}>
-							<button>
+							<button onClick={showToast}>
 								<span>Log out</span>
 							</button>
 						</div>

@@ -2,7 +2,7 @@ import React from 'react'
 import SectionWrapper from '@/components/SectionWrapper'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
-import LoginForm from '@/components/LoginForm/LoginForm'
+import LoginForm from '@/components/LoginForm'
 
 export const metadata: Metadata = {
 	title: 'Login - TrollySix',

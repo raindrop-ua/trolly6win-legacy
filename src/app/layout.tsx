@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import SectionWrapper from '@/components/SectionWrapper'
 import Footer from '@/components/Footer'
 import IntervalInitializer from '@/components/IntervalInitializer'
+import Toast from '@/components/Toast'
 
 const dniproCity = localFont({
 	src: [
@@ -49,6 +50,7 @@ export default function RootLayout({
 					<Footer />
 				</SectionWrapper>
 				<IntervalInitializer />
+				<Toast />
 				<div id='modal-root'></div>
 			</body>
 		</html>

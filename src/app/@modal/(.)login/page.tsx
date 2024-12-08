@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from './page.module.scss'
 import Modal from '@/components/Modal/Modal'
-import LoginForm from '@/components/LoginForm/LoginForm'
+import LoginForm from '@/components/LoginForm'
 
 export default function LoginPage() {
 	return (
