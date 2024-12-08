@@ -61,10 +61,10 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 				[styles.Medium]: size === 'medium',
 				[styles.Large]: size === 'large',
 			})}
-			onClick={() => {
+			onClick={(e) => {
 				value && onClick(value)
+				handleMouseDown(e)
 			}}
-			onMouseDown={handleMouseDown}
 			aria-pressed={isSelected}
 			aria-label={`Select ${value}`}
 		>
