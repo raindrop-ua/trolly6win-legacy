@@ -10,6 +10,7 @@ import TimeListFilter from '@/components/TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import styles from './ScheduleList.module.scss'
+import classNames from 'classnames'
 
 const capitalizeString = (str: string | null): string => {
 	if (str === null) return ''
@@ -73,8 +74,9 @@ const ScheduleList: React.FC = () => {
 
 	return (
 		<div>
-			<div className={styles.ControlsBlock}>
+			<div className={classNames(styles.ControlsBlock)}>
 				<SelectButtons
+					className={styles.Schedule}
 					label={'Schedule for'}
 					options={availableDayTypesInternalNames}
 					labels={availableDayTypesNames}
@@ -82,15 +84,15 @@ const ScheduleList: React.FC = () => {
 					setSelectedOption={setDayTypeHandler}
 				/>
 				<SelectButtons
+					className={styles.Direction}
 					label={'Direction'}
 					options={availableDirectionsInternalNames}
 					labels={availableDirectionsNames}
 					selectedOption={directionType || ''}
 					setSelectedOption={setDirectionTypeHandler}
 				/>
-			</div>
-			<div className={styles.ControlsBlock}>
 				<SelectButtons
+					className={styles.Stops}
 					label={'Trolleybus stops'}
 					options={availableStopsInternalNames}
 					labels={availableStopsNames}

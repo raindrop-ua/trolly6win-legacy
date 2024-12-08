@@ -19,8 +19,8 @@ const UserBox = () => {
 
 	const showToast = () => {
 		addToast({
-			message: 'Success Success Success!',
-			type: 'success',
+			message: 'This stop has only forward direction.',
+			type: 'info',
 			duration: 3000,
 		})
 	}

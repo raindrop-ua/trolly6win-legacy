@@ -46,4 +46,22 @@ h2 {
   line-height: 1.25;
   margin: 0;
   padding: 0;
+
 }
+
+html .swiper {
+  padding: 0 10px;
+  width: unset;
+  max-width: 100%;
+  overflow: clip visible;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+html .swiper-wrapper {
+  padding: 3px 0;
+}
+
+
+
+

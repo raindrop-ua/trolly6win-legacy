@@ -1,16 +1,13 @@
 import React from 'react'
 import { useId } from 'react'
-import {
-	House,
-	Landmark,
-	Hospital,
-	ArrowBigRightDash,
-	ArrowBigLeftDash,
-} from 'lucide-react'
 import BaselineButton from '@/components/Baseline/BaselineButton'
 import styles from './SelectButtons.module.scss'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import classNames from 'classnames'
 
 type SelectButtonsProps = {
+	className?: string
 	label: string
 	options: string[]
 	labels: string[]
@@ -19,6 +16,7 @@ type SelectButtonsProps = {
 }
 
 const SelectButtons: React.FC<SelectButtonsProps> = ({
+	className,
 	label,
 	options,
 	labels,
@@ -27,13 +25,13 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 }) => {
 	const groupId = useId()
 	const IconsMap = {
-		forward: <ArrowBigRightDash />,
-		backward: <ArrowBigLeftDash />,
+		// forward: <ArrowBigRightDash />,
+		// backward: <ArrowBigLeftDash />,
 	}
 
 	return (
 		<div
-			className={styles.ButtonGroupBlock}
+			className={classNames(styles.ButtonGroupBlock, className)}
 			role='group'
 			aria-labelledby={`${groupId}-label`}
 		>
@@ -41,21 +39,31 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 				{label}:
 			</h3>
 			<div className={styles.ButtonsGroup}>
-				{options.map((option, index) => {
-					const Icon = IconsMap[option as keyof typeof IconsMap]
-					return (
-						<BaselineButton
-							label={labels[index]}
-							icon={Icon}
-							value={option}
-							isSelected={selectedOption === option}
-							key={option}
-							onClick={() => setSelectedOption(option)}
-							aria-pressed={selectedOption === option}
-							aria-label={`Select ${option}`}
-						/>
-					)
-				})}
+				<Swiper
+					slideToClickedSlide={true}
+					followFinger={true}
+					spaceBetween={8}
+					slidesPerView='auto'
+					freeMode={true}
+					centeredSlides={false}
+				>
+					{options.map((option, index) => {
+						const Icon = IconsMap[option as keyof typeof IconsMap]
+						return (
+							<SwiperSlide key={option} style={{ width: 'auto' }}>
+								<BaselineButton
+									label={labels[index]}
+									icon={Icon}
+									value={option}
+									isSelected={selectedOption === option}
+									onClick={() => setSelectedOption(option)}
+									aria-pressed={selectedOption === option}
+									aria-label={`Select ${option}`}
+								/>
+							</SwiperSlide>
+						)
+					})}
+				</Swiper>
 			</div>
 		</div>
 	)

@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.StopsListWrapper {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.StopsList {
+  list-style-type: none;
+  padding: 0;
+
+  .Item {
+    padding-bottom: 5px;
+  }
+}

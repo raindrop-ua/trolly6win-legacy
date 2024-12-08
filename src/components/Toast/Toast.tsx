@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import classNames from 'classnames'
 import useToastStore from '@/store/toastStore'
 import styles from './Toast.module.scss'
-import classNames from 'classnames'
 
 const Toast = () => {
 	const { toasts, removeToast } = useToastStore()

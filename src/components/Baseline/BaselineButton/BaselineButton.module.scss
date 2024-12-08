@@ -29,6 +29,7 @@
   @include button-style-basic;
   @include button-style;
 
+  padding: 0 mixins.rem(25);
   font-size: 1rem;
   font-weight: 400;
   min-height: mixins.rem(50);
@@ -51,6 +52,8 @@
   }
 
   .Caption {
+    white-space: nowrap;
+    flex-shrink: 0;
     position: absolute;
     top: 0;
     left: 0;
