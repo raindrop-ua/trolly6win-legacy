@@ -25,12 +25,14 @@ const TimeList: React.FC = () => {
 	const selectedStop = useScheduleStore((state) => state.selectedStop)
 
 	const scheduleSelected =
-		scheduleData?.stops
-			.find((item: Stop) => item.internalName === selectedStop)
-			?.directions.find((item: Direction) => item.direction === directionType)
-			?.departures[dayType]?.filter((item: DepartureTimeItem) => {
-				return !(filter === 'upcoming' && item.status === 'past')
-			}) || []
+		(dayType &&
+			scheduleData?.stops
+				.find((item: Stop) => item.internalName === selectedStop)
+				?.directions.find((item: Direction) => item.direction === directionType)
+				?.departures[dayType]?.filter((item: DepartureTimeItem) => {
+					return !(filter === 'upcoming' && item.status === 'past')
+				})) ||
+		[]
 
 	if (!scheduleSelected?.length) {
 		return (

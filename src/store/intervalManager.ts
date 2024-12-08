@@ -40,8 +40,6 @@ const useIntervalManager = create<IntervalManagerState>(() => {
 		}
 	}
 
-	initializeDataUpdate()
-
 	return {
 		initializeDataUpdate,
 		clearDataUpdates,
