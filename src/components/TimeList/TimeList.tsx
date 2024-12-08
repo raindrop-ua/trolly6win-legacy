@@ -1,46 +1,65 @@
 import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './TimeList.module.scss'
+import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
+import ScheduleNote from '@/components/ScheduleNote'
 
-type ScheduleTime = {
-	time: string
-	diff: number
+function formatTime(time: string): string {
+	const timeParts = time.split(':')
+
+	if (timeParts.length === 3 && timeParts.every((part) => /^\d+$/.test(part))) {
+		const [hours, minutes] = timeParts
+		return `${hours}:${minutes}`
+	}
+
+	return ''
 }
 
-type TimeListProps = {
-	scheduleTimes: ScheduleTime[]
+const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
+	const { status } = departureTimeItem
+	const statusColorMap = {
+		past: styles.Past,
+		verysoon: styles.VerySoon,
+		soon: styles.Soon,
+		upcoming: styles.Upcoming,
+		upcominglater: styles.UpcomingLater,
+		canceled: styles.Cancelled,
+	}
+	return statusColorMap[status as Status] || ''
 }
 
-enum TimeDiff {
-	Past = 0,
-	VerySoon = 5,
-	Soon = 28,
-	Upcoming = 58,
-}
-
-const getTimeClass = (diff: number) => {
-	if (diff < TimeDiff.Past) return styles.Past
-	if (diff <= TimeDiff.VerySoon) return styles.VerySoon
-	if (diff <= TimeDiff.Soon) return styles.Soon
-	if (diff <= TimeDiff.Upcoming) return styles.Upcoming
-
-	return styles.UpcomingLater
-}
-
-const TimeList: React.FC<TimeListProps> = ({ scheduleTimes }) => {
+const TimeList: React.FC = () => {
+	const { scheduleData } = useScheduleStore()
 	const { filter } = useScheduleStore()
+	const dayType = useScheduleStore((state) => state.dayType)
+	const directionType = useScheduleStore((state) => state.directionType)
+	const selectedStop = useScheduleStore((state) => state.selectedStop)
+
+	const scheduleSelected =
+		scheduleData?.stops
+			.find((item: Stop) => item.internalName === selectedStop)
+			?.directions.find((item: Direction) => item.direction === directionType)
+			?.departures[dayType]?.filter((item: DepartureTimeItem) => {
+				return !(filter === 'upcoming' && item.status === 'past')
+			}) || []
+
+	if (!scheduleSelected?.length) {
+		return (
+			<ScheduleNote isAlert>
+				There is no schedule available for this selection.
+			</ScheduleNote>
+		)
+	}
 
 	return (
 		<ul className={styles.TimeItems}>
-			{scheduleTimes.map(({ time, diff }, index) => {
-				if (filter === 'upcoming' && diff <= 0) return null
-
+			{scheduleSelected.map((item: DepartureTimeItem, index: number) => {
 				return (
 					<li
 						key={index}
-						className={`${styles.TimeItem} ${getTimeClass(diff)}`}
+						className={`${styles.TimeItem} ${getTimeClass(item)}`}
 					>
-						<span>{time}</span>
+						<span>{formatTime(item.time)}</span>
 					</li>
 				)
 			})}

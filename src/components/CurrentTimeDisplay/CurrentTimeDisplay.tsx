@@ -1,26 +1,23 @@
 import React from 'react'
-import { format } from 'date-fns'
 import { Clock } from 'lucide-react'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './CurrentTimeDisplay.module.scss'
 
 const CurrentTimeDisplay: React.FC = () => {
-	const currentTime = useScheduleStore((state) => state.currentTime)
+	const { scheduleData } = useScheduleStore()
 
-	if (!currentTime) {
+	if (!scheduleData) {
 		return <div className={styles.CurrentTime}>Loading...</div>
 	}
-
-	const formattedTime = format(currentTime, 'HH:mm')
 
 	return (
 		<div
 			className={styles.CurrentTime}
 			role='text'
-			aria-label={`Current time is ${formattedTime}`}
+			aria-label={`Current time is ${scheduleData.currentTime}`}
 		>
 			<Clock aria-hidden='true' />
-			<span>{formattedTime}</span>
+			<span>{scheduleData.currentTime}</span>
 		</div>
 	)
 }

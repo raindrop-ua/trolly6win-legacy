@@ -30,9 +30,12 @@ const Header: React.FC = () => {
 						</Link>
 					</div>
 					<div className={styles.HeaderText}>
-						<h1>
-							Trolly<span>Six</span>
-						</h1>
+						<div className={styles.HeaderTitle}>
+							<h1>
+								Trolly<span>Six</span>
+							</h1>
+							<UserBox />
+						</div>
 						<h2>
 							Timetable for trolleybus route{' '}
 							<InlineNoWrap>
@@ -41,9 +44,6 @@ const Header: React.FC = () => {
 							the city of Dnipro.
 						</h2>
 					</div>
-				</div>
-				<div className={styles.HeaderUser}>
-					<UserBox />
 				</div>
 			</div>
 		</div>

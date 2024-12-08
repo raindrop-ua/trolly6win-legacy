@@ -13,6 +13,11 @@
   color: #fffef8;
   padding: mixins.rem(15) mixins.rem(20);
 
+  &.Alert {
+    background-color: #4c3232;
+    border-color: #85372b;
+  }
+
   .Note {
     display: flex;
     flex-direction: column;

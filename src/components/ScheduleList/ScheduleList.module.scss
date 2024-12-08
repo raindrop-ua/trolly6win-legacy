@@ -39,8 +39,8 @@
   align-items: flex-start;
 
   @include mixins.respond-to(tablet) {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: mixins.rem(20);
   }
 }

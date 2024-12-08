@@ -1,12 +1,7 @@
 'use client'
 
 import React, { useCallback, useEffect } from 'react'
-import {
-	DayType,
-	getTimeDifference,
-	isWeekend,
-	StopType,
-} from '@/utils/scheduleUtils'
+import { DayType, DirectionType, Stop, StopType } from '@/types/types'
 import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '@/components/SelectButtons'
 import TimeList from '@/components/TimeList'
@@ -16,44 +11,27 @@ import { MapPinCheckInside } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import styles from './ScheduleList.module.scss'
 
+const capitalizeString = (str: string): string => {
+	return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const ScheduleList: React.FC = () => {
-	const { fetchScheduleData, scheduleData } = useScheduleStore()
-	const { initializeTimeUpdates, clearTimeUpdates } = useScheduleStore()
-	const { setDayType, setSelectedStop } = useScheduleStore()
+	const { scheduleData } = useScheduleStore()
+	const { setDayType, setSelectedStop, setDirectionType } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
+	const directionType = useScheduleStore((state) => state.directionType)
 	const selectedStop = useScheduleStore((state) => state.selectedStop)
-	const currentTime = useScheduleStore((state) => state.currentTime)
-
-	useEffect(() => {
-		initializeTimeUpdates()
-		return () => clearTimeUpdates()
-	})
-
-	useEffect(() => {
-		fetchScheduleData('6')
-	}, [fetchScheduleData])
-
-	const getTodaysSchedule = (): { time: string; diff: number }[] => {
-		if (!scheduleData || !currentTime) return []
-
-		const isAutoWeekend = isWeekend()
-		const isWeekendDay =
-			dayType === 'Weekend' || (dayType === 'Auto' && isAutoWeekend)
-		const scheduleTimes = isWeekendDay
-			? scheduleData[selectedStop.toLowerCase() as keyof typeof scheduleData]
-					.weekEnd
-			: scheduleData[selectedStop.toLowerCase() as keyof typeof scheduleData]
-					.weekDay
-
-		return scheduleTimes.map((time: string) => ({
-			time,
-			diff: getTimeDifference(time, currentTime),
-		}))
-	}
 
 	const setDayTypeHandler = useCallback(
 		(option: string) => setDayType(option as DayType),
 		[setDayType],
+	)
+
+	console.log(scheduleData)
+
+	const setDirectionTypeHandler = useCallback(
+		(option: string) => setDirectionType(option as DirectionType),
+		[setDirectionType],
 	)
 
 	const setSelectedStopHandler = useCallback(
@@ -61,18 +39,61 @@ const ScheduleList: React.FC = () => {
 		[setSelectedStop],
 	)
 
+	const selectedStopFullName =
+		scheduleData?.stops.find((item: Stop) => item.internalName === selectedStop)
+			?.name || capitalizeString(selectedStop)
+
+	const availableStopsNames =
+		scheduleData?.configuration.availableStops.map((item: Stop) => item.name) ||
+		[]
+
+	const availableStopsInternalNames =
+		scheduleData?.configuration.availableStops.map(
+			(item: Stop) => item.internalName,
+		) || []
+
+	const availableDirectionsInternalNames =
+		scheduleData?.configuration.availableDirections.map(
+			(item: Stop) => item.internalName,
+		) || []
+
+	const availableDirectionsNames =
+		scheduleData?.configuration.availableDirections.map(
+			(item: Stop) => item.name,
+		) || []
+
+	const availableDayTypesInternalNames =
+		scheduleData?.configuration.availableDays.map(
+			(item: Stop) => item.internalName,
+		) || []
+
+	const availableDayTypesNames =
+		scheduleData?.configuration.availableDays.map((item: Stop) => item.name) ||
+		[]
+
 	return (
 		<div>
 			<div className={styles.ControlsBlock}>
 				<SelectButtons
 					label={'Schedule for'}
-					options={['Auto', 'Weekdays', 'Weekend']}
+					options={availableDayTypesInternalNames}
+					labels={availableDayTypesNames}
 					selectedOption={dayType}
 					setSelectedOption={setDayTypeHandler}
 				/>
 				<SelectButtons
-					label={'Start point'}
-					options={['Pridniprovsk', 'Hospital', 'Museum']}
+					label={'Direction'}
+					options={availableDirectionsInternalNames}
+					labels={availableDirectionsNames}
+					selectedOption={directionType}
+					setSelectedOption={setDirectionTypeHandler}
+				/>
+			</div>
+			<div className={styles.ControlsBlock}>
+				<SelectButtons
+					label={'Trolleybus stops'}
+					options={availableStopsInternalNames}
+					labels={availableStopsNames}
 					selectedOption={selectedStop}
 					setSelectedOption={setSelectedStopHandler}
 				/>
@@ -80,16 +101,12 @@ const ScheduleList: React.FC = () => {
 			<h3 className={styles.CaptionStartPoint}>
 				<div>
 					<MapPinCheckInside />
-					<strong>{selectedStop}</strong>
+					<strong>{selectedStopFullName}</strong>
 				</div>
 				{scheduleData && <CurrentTimeDisplay />}
 			</h3>
 			<TimeListFilter />
-			{scheduleData ? (
-				<TimeList scheduleTimes={getTodaysSchedule()} />
-			) : (
-				<TrolleybusAnimated />
-			)}
+			{scheduleData ? <TimeList /> : <TrolleybusAnimated />}
 		</div>
 	)
 }

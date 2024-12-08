@@ -1,0 +1,8 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.Login {
+  h2 {
+    text-align: center;
+  }
+}

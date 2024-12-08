@@ -2,32 +2,40 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import styles from './UserBox.module.scss'
+import useAuthStore from '@/store/authStore'
+import useUserStore from '@/store/userStore'
 
 const UserBox = () => {
+	const pathname = usePathname()
 	const [showMenu, setShowMenu] = React.useState(false)
-	const isLoggedIn = false
+	const { isLoggedIn } = useAuthStore()
+	const { email } = useUserStore()
 
 	const handleAvatar = () => {
 		setShowMenu((prevState) => !prevState)
-		console.log(showMenu)
+	}
+
+	if (pathname === '/login') {
+		return null
 	}
 
 	return (
 		<div className={styles.UserBox}>
 			{!isLoggedIn ? (
-				<Link href={'./signin'}>
-					<span>Sign In</span>
+				<Link href={'/login'}>
+					<span>Log in</span>
 				</Link>
 			) : (
 				<div className={styles.AvatarBlock}>
 					<button className={styles.Avatar} onClick={handleAvatar}>
-						A
+						{email && email[0].toUpperCase()}
 					</button>
 					{showMenu && (
 						<div className={styles.AvatarMenu}>
 							<button>
-								<span>Sign Out</span>
+								<span>Log out</span>
 							</button>
 						</div>
 					)}

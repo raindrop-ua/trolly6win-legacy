@@ -1,60 +1,34 @@
 import { create } from 'zustand'
-import { DayType, StopType, FilterType } from '@/utils/scheduleUtils'
+import { DayType, StopType, FilterType, DirectionType } from '@/types/types'
 
 interface ScheduleState {
 	dayType: DayType
+	directionType: DirectionType
 	selectedStop: StopType
 	currentTime: Date
 	filter: FilterType
 	scheduleData: Record<string, any> | null
 	setDayType: (dayType: DayType) => void
+	setDirectionType: (directionType: DirectionType) => void
 	setSelectedStop: (stop: StopType) => void
-	updateCurrentTime: () => void
 	setFilter: (filter: FilterType) => void
-	initializeTimeUpdates: () => void
-	clearTimeUpdates: () => void
-	fetchScheduleData: (routeId: string) => Promise<void>
+	setScheduleData: (data: Record<string, any> | null) => void
+	setCurrentTime: (time: Date) => void
 }
 
-const UPDATE_INTERVAL = 15_000
-let timeUpdateInterval: NodeJS.Timeout | null = null
-
 const useScheduleStore = create<ScheduleState>((set) => ({
-	dayType: 'Auto',
-	selectedStop: 'Pridniprovsk',
+	dayType: 'weekday',
+	directionType: 'forward',
+	selectedStop: 'pridniprovsk',
 	currentTime: new Date(),
 	filter: 'all',
 	scheduleData: null,
 	setDayType: (dayType) => set(() => ({ dayType })),
+	setDirectionType: (directionType) => set(() => ({ directionType })),
 	setSelectedStop: (stop) => set(() => ({ selectedStop: stop })),
-	updateCurrentTime: () => set(() => ({ currentTime: new Date() })),
 	setFilter: (filter) => set(() => ({ filter })),
-	fetchScheduleData: async (routeId: string) => {
-		try {
-			const response = await fetch(`http://localhost:4000/v1/schedule`, {
-				cache: 'no-store',
-			})
-			if (response.ok) {
-				const data = await response.json()
-				set(() => ({ scheduleData: data }))
-			}
-		} catch (error) {
-			console.error('Error fetching schedule data:', error)
-		}
-	},
-	initializeTimeUpdates: () => {
-		if (!timeUpdateInterval) {
-			timeUpdateInterval = setInterval(() => {
-				set({ currentTime: new Date() })
-			}, UPDATE_INTERVAL)
-		}
-	},
-	clearTimeUpdates: () => {
-		if (timeUpdateInterval) {
-			clearInterval(timeUpdateInterval)
-			timeUpdateInterval = null
-		}
-	},
+	setScheduleData: (data) => set(() => ({ scheduleData: data })),
+	setCurrentTime: (time) => set(() => ({ currentTime: time })),
 }))
 
 export default useScheduleStore

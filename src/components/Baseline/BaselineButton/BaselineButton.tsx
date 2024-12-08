@@ -94,7 +94,7 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 				<>
 					{icon as ReactElement}
 					<div className={styles.Tooltip}>
-						<div className={styles.TooltipText}>{value}</div>
+						<div className={styles.TooltipText}>{label || value}</div>
 					</div>
 				</>
 			)}

@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import Header from '@/components/Header'
 import SectionWrapper from '@/components/SectionWrapper'
 import Footer from '@/components/Footer'
+import IntervalInitializer from '@/components/IntervalInitializer'
 
 const dniproCity = localFont({
 	src: [
@@ -31,12 +32,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	modal,
 }: Readonly<{
 	children: React.ReactNode
+	modal: React.ReactNode
 }>) {
 	return (
 		<html lang='en'>
 			<body className={`${dniproCity.variable}`}>
+				{modal}
 				<SectionWrapper as={'header'} useSection={false}>
 					<Header />
 				</SectionWrapper>
@@ -44,6 +48,7 @@ export default function RootLayout({
 				<SectionWrapper as={'footer'} useSection={false}>
 					<Footer />
 				</SectionWrapper>
+				<IntervalInitializer />
 				<div id='modal-root'></div>
 			</body>
 		</html>

@@ -7,25 +7,13 @@
   padding: mixins.rem(40) 0;
 
   .HeaderWrapper {
-    display: flex;
-    gap: mixins.rem(25);
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    width: 100%;
   }
 
   .HeaderLogo {
-    display: flex;
+    display: grid;
+    grid-template-columns: 56px 1fr;
     gap: mixins.rem(25);
-    flex-direction: row;
-    place-items: flex-start center;
-  }
-
-  .HeaderUser {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
   }
 
   h1 {
@@ -57,7 +45,7 @@
 .HeaderGeometry {
   position: absolute;
   top: 0;
-  right: mixins.rem(50);
+  right: mixins.rem(100);
   width: mixins.rem(137);
   height: mixins.rem(60);
   z-index: -1;
@@ -85,4 +73,12 @@
   justify-content: center;
   align-items: flex-start;
   gap: mixins.rem(5);
+}
+
+.HeaderTitle {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }

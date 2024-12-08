@@ -1,12 +1,19 @@
 import React from 'react'
 import { useId } from 'react'
-import { House, Landmark, Hospital } from 'lucide-react'
+import {
+	House,
+	Landmark,
+	Hospital,
+	ArrowBigRightDash,
+	ArrowBigLeftDash,
+} from 'lucide-react'
 import BaselineButton from '@/components/Baseline/BaselineButton'
 import styles from './SelectButtons.module.scss'
 
 type SelectButtonsProps = {
 	label: string
 	options: string[]
+	labels: string[]
 	selectedOption: string
 	setSelectedOption: (option: string) => void
 }
@@ -14,14 +21,14 @@ type SelectButtonsProps = {
 const SelectButtons: React.FC<SelectButtonsProps> = ({
 	label,
 	options,
+	labels,
 	selectedOption,
 	setSelectedOption,
 }) => {
 	const groupId = useId()
 	const IconsMap = {
-		Pridniprovsk: <House />,
-		Museum: <Landmark />,
-		Hospital: <Hospital />,
+		forward: <ArrowBigRightDash />,
+		backward: <ArrowBigLeftDash />,
 	}
 
 	return (
@@ -34,11 +41,11 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 				{label}:
 			</h3>
 			<div className={styles.ButtonsGroup}>
-				{options.map((option) => {
+				{options.map((option, index) => {
 					const Icon = IconsMap[option as keyof typeof IconsMap]
 					return (
 						<BaselineButton
-							label={option}
+							label={labels[index]}
 							icon={Icon}
 							value={option}
 							isSelected={selectedOption === option}

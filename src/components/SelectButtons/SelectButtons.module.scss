@@ -6,6 +6,10 @@
   flex-direction: column;
   margin: 0 0 mixins.rem(25);
   gap: mixins.rem(15);
+  border-left: mixins.rem(7) solid #0d7db9;
+  border-radius: mixins.rem(7) 0 0 mixins.rem(7);
+  padding: 0 mixins.rem(25) 0 mixins.rem(15);
+  min-height: mixins.rem(82);
 }
 
 .ButtonsGroup {
