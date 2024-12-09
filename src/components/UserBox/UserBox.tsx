@@ -4,18 +4,16 @@ import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './UserBox.module.scss'
-import useAuthStore from '@/store/authStore'
-import useUserStore from '@/store/userStore'
 import useToastStore from '@/store/toastStore'
+import useAuthStore from '@/store/authStore'
 
 const UserBox = () => {
 	const pathname = usePathname()
 	const [showMenu, setShowMenu] = React.useState(false)
-	const menuRef = useRef<HTMLDivElement>(null) // Реф для меню
-	const buttonRef = useRef<HTMLButtonElement>(null) // Реф для кнопки Avatar
-	const { isLoggedIn } = useAuthStore()
-	const { email } = useUserStore()
+	const menuRef = useRef<HTMLDivElement>(null)
+	const buttonRef = useRef<HTMLButtonElement>(null)
 	const { addToast } = useToastStore()
+	const { user } = useAuthStore()
 
 	const showToast = () => {
 		addToast({
@@ -57,7 +55,7 @@ const UserBox = () => {
 
 	return (
 		<div className={styles.UserBox}>
-			{!isLoggedIn ? (
+			{!1 ? (
 				<Link href={'/login'}>
 					<span>Log in</span>
 				</Link>
@@ -68,7 +66,7 @@ const UserBox = () => {
 						className={styles.Avatar}
 						onClick={handleAvatar}
 					>
-						{email && email[0].toUpperCase()}
+						{user?.email[0]?.toUpperCase()}
 					</button>
 					{showMenu && (
 						<div

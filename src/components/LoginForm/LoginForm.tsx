@@ -3,12 +3,11 @@
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import styles from './LoginForm.module.scss'
 import classNames from 'classnames'
 import useModalStore from '@/store/modalStore'
-import { UserCheck } from 'lucide-react'
 import useAuthStore from '@/store/authStore'
-import useUserStore from '@/store/userStore'
+import { UserCheck } from 'lucide-react'
+import styles from './LoginForm.module.scss'
 
 interface IFormInput {
 	email: string
@@ -20,144 +19,158 @@ interface LoginFormProps {
 	isFromModal?: boolean
 }
 
-const LoginForm = ({ isFromModal = false }: LoginFormProps) => {
+const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 	const [isLogin, setIsLogin] = useState(true)
-	const { setLoggedIn, isLoggedIn } = useAuthStore()
-	const { setUser } = useUserStore()
-
-	const triggerClose = useModalStore((state) => state.triggerClose) // Получаем функцию для отправки сигнала
+	const [error, setError] = useState<string | null>(null)
+	const [isSuccess, setIsSuccess] = useState(false)
+	const { setUser } = useAuthStore()
+	const triggerClose = useModalStore((state) => state.triggerClose)
+	const router = useRouter()
 
 	const {
 		register,
 		handleSubmit,
 		watch,
 		formState: { errors, isSubmitting },
-	} = useForm<IFormInput>({
-		mode: 'onTouched',
-	})
-	const router = useRouter()
+	} = useForm<IFormInput>({ mode: 'onTouched' })
 
 	const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-		if (!isLogin && data.password !== data.confirmPassword) {
-			alert('Passwords do not match')
-			return
-		}
+		setError(null)
+		const url = isLogin
+			? `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`
+			: `${process.env.NEXT_PUBLIC_API_BASE_URL}/users`
 
 		try {
-			console.log(`${isLogin ? 'Logging in' : 'Signing up'}:`, data)
-			await new Promise((resolve) => setTimeout(resolve, 2000))
-			console.log(isLogin ? 'Login successful!' : 'Sign up successful!')
-			setLoggedIn(true)
-			setUser(data.email, '100', '23')
+			const response = await fetch(url, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'include',
+				body: JSON.stringify({
+					email: data.email,
+					password: data.password,
+				}),
+			})
+
+			if (!response.ok) {
+				const errorData = await response.json()
+				throw new Error(errorData.message || 'Something went wrong')
+			}
+
+			const { email, id, access_token } = await response.json()
+
+			setUser({ id, email }, access_token)
+
+			setIsSuccess(true)
 
 			if (isFromModal) {
-				setTimeout(() => {
-					triggerClose()
-				}, 2000)
+				setTimeout(triggerClose, 2000)
 			} else {
-				setTimeout(() => {
-					router.push('/')
-				}, 2000)
+				setTimeout(() => router.push('/'), 2000)
 			}
-		} catch (error) {
-			console.error(isLogin ? 'Login failed:' : 'Sign up failed:', error)
+		} catch (err: any) {
+			setError(err.message || 'Failed to authenticate')
 		}
 	}
 
 	return (
 		<div className={styles.LoginForm}>
-			{!isLoggedIn ? (
-				<>
-					<form onSubmit={handleSubmit(onSubmit)}>
-						<h2>{isLogin ? 'Log in' : 'Sign up'}</h2>
-						<div className={styles.FormGroup}>
-							<label htmlFor='email'>Email:</label>
-							<input
-								id='email'
-								type='email'
-								{...register('email', {
-									required: 'Email is required',
-									pattern: {
-										value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-										message: 'Invalid email address',
-									},
-								})}
-								className={classNames({ [styles.Error]: errors.email })}
-							/>
-							{errors.email && (
-								<p className={styles.ErrorMessage}>{errors.email.message}</p>
-							)}
-						</div>
+			{!isSuccess ? (
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<h2>{isLogin ? 'Log in' : 'Sign up'}</h2>
 
-						<div className={styles.FormGroup}>
-							<label htmlFor='password'>Password:</label>
-							<input
-								id='password'
-								type='password'
-								{...register('password', {
-									required: 'Password is required',
-									minLength: {
-										value: 8,
-										message: 'Password must be at least 8 characters long',
-									},
-								})}
-								className={classNames({ [styles.Error]: errors.password })}
-							/>
-							{errors.password && (
-								<p className={styles.ErrorMessage}>{errors.password.message}</p>
-							)}
-						</div>
+					{error && <p className={styles.ErrorMessage}>{error}</p>}
 
-						{!isLogin && (
-							<div className={styles.FormGroup}>
-								<label htmlFor='confirmPassword'>Confirm Password:</label>
-								<input
-									id='confirmPassword'
-									type='password'
-									{...register('confirmPassword', {
-										required: 'Please confirm your password',
-										validate: (value) =>
-											value === watch('password') || 'Passwords do not match',
-									})}
-									className={classNames({
-										[styles.Error]: errors.confirmPassword,
-									})}
-								/>
-								{errors.confirmPassword && (
-									<p className={styles.ErrorMessage}>
-										{errors.confirmPassword.message}
-									</p>
-								)}
-							</div>
-						)}
-
-						<button
-							type='submit'
-							disabled={isSubmitting}
-							className={classNames(styles.Button, {
-								[styles.Submitting]: isSubmitting,
+					<div className={styles.FormGroup}>
+						<label htmlFor='email'>Email:</label>
+						<input
+							id='email'
+							type='email'
+							{...register('email', {
+								required: 'Email is required',
+								pattern: {
+									value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+									message: 'Invalid email address',
+								},
 							})}
-						>
-							{isSubmitting ? 'Submitting...' : isLogin ? 'Login' : 'Sign up'}
-						</button>
-					</form>
+							className={classNames({ [styles.Error]: errors.email })}
+						/>
+						{errors.email && (
+							<p className={styles.ErrorMessage}>{errors.email.message}</p>
+						)}
+					</div>
 
-					<p className={styles.DontHave}>
-						{isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
-						<button
-							type='button'
-							onClick={() => setIsLogin(!isLogin)}
-							className={classNames(styles.ButtonTransparent)}
-						>
-							{isLogin ? 'Sign up' : 'Log in'}
-						</button>
-					</p>
-				</>
+					<div className={styles.FormGroup}>
+						<label htmlFor='password'>Password:</label>
+						<input
+							id='password'
+							type='password'
+							{...register('password', {
+								required: 'Password is required',
+								minLength: {
+									value: 8,
+									message: 'Password must be at least 8 characters long',
+								},
+							})}
+							className={classNames({ [styles.Error]: errors.password })}
+						/>
+						{errors.password && (
+							<p className={styles.ErrorMessage}>{errors.password.message}</p>
+						)}
+					</div>
+
+					{!isLogin && (
+						<div className={styles.FormGroup}>
+							<label htmlFor='confirmPassword'>Confirm Password:</label>
+							<input
+								id='confirmPassword'
+								type='password'
+								{...register('confirmPassword', {
+									required: 'Please confirm your password',
+									validate: (value) =>
+										value === watch('password') || 'Passwords do not match',
+								})}
+								className={classNames({
+									[styles.Error]: errors.confirmPassword,
+								})}
+							/>
+							{errors.confirmPassword && (
+								<p className={styles.ErrorMessage}>
+									{errors.confirmPassword.message}
+								</p>
+							)}
+						</div>
+					)}
+
+					<button
+						type='submit'
+						disabled={isSubmitting}
+						className={classNames(styles.Button, {
+							[styles.Submitting]: isSubmitting,
+						})}
+					>
+						{isSubmitting ? 'Submitting...' : isLogin ? 'Login' : 'Sign up'}
+					</button>
+				</form>
 			) : (
 				<div className={styles.Success}>
 					<UserCheck />
-					<span>Success! {isFromModal ? '' : 'Redirecting to home...'}</span>
+					<span>
+						{isFromModal ? 'Success!' : 'Success! Redirecting to home...'}
+					</span>
 				</div>
+			)}
+
+			{!isSuccess && (
+				<p className={styles.DontHave}>
+					{isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
+					<button
+						type='button'
+						onClick={() => setIsLogin(!isLogin)}
+						className={styles.ButtonTransparent}
+					>
+						{isLogin ? 'Sign up' : 'Log in'}
+					</button>
+				</p>
 			)}
 		</div>
 	)

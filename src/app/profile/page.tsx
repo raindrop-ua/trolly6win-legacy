@@ -3,6 +3,7 @@ import SectionWrapper from '@/components/SectionWrapper'
 import ScheduleNote from '@/components/ScheduleNote'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
+import ProtectedLayout from '@/layouts/ProtectedLayout'
 
 export const metadata: Metadata = {
 	title: 'Profile - TrollySix',
@@ -14,10 +15,12 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<main className={styles.Main}>
-			<SectionWrapper>
-				<h2>Profile</h2>
-				<ScheduleNote>Some information</ScheduleNote>
-			</SectionWrapper>
+			<ProtectedLayout>
+				<SectionWrapper>
+					<h2>Profile</h2>
+					<ScheduleNote>Some information</ScheduleNote>
+				</SectionWrapper>
+			</ProtectedLayout>
 			<br />
 		</main>
 	)

@@ -11,6 +11,7 @@ import { MapPinCheckInside } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import styles from './ScheduleList.module.scss'
 import classNames from 'classnames'
+import useToastStore from '@/store/toastStore'
 
 const capitalizeString = (str: string | null): string => {
 	if (str === null) return ''
@@ -18,6 +19,7 @@ const capitalizeString = (str: string | null): string => {
 }
 
 const ScheduleList: React.FC = () => {
+	const { addToast } = useToastStore()
 	const { scheduleData } = useScheduleStore()
 	const { setDayType, setSelectedStop, setDirectionType } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
@@ -71,6 +73,19 @@ const ScheduleList: React.FC = () => {
 	const availableDayTypesNames =
 		scheduleData?.configuration.available.days.map((item: Stop) => item.name) ||
 		[]
+
+	const availableDirectionsForStop =
+		scheduleData?.configuration.available.stops.find(
+			(item: Stop) => item.internalName === selectedStop,
+		)?.directions || []
+
+	if (availableDirectionsForStop.length === 1) {
+		// addToast({
+		// 	message: availableDirectionsForStop[0],
+		// 	type: 'info',
+		// 	duration: 3000,
+		// })
+	}
 
 	return (
 		<div>
