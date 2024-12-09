@@ -18,6 +18,7 @@ export default function HomePage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
+				<h1>Schedule Board</h1>
 				<ScheduleList />
 				<ScheduleNote>
 					<span>
