@@ -1,20 +1,26 @@
 import React, { FC } from 'react'
 import styles from './StopCard.module.scss'
-import { ArrowUpDown } from 'lucide-react'
+import { ArrowUpDown, Check } from 'lucide-react'
 
 interface StopCardProps {
-	id: string
-	title: string
-	direction: string
+	itemData: {
+		id: string
+		name: string
+		directions?: string
+		isDefault?: boolean
+	}
 }
 
-const StopCard: FC<StopCardProps> = ({ id, title, direction }) => {
+const StopCard: FC<StopCardProps> = ({ itemData }) => {
+	const { id, name, directions, isDefault } = itemData
 	return (
 		<div className={styles.StopCard} data-id={id}>
 			<div className={styles.Information}>
-				<h3>{title}</h3>
+				<h3>
+					{name} {isDefault && <Check size={16} />}
+				</h3>
 				<div>
-					<span>{direction}</span>
+					<span>{directions}</span>
 				</div>
 			</div>
 			<div>

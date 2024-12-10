@@ -1,36 +1,69 @@
 'use client'
 
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
 import StopCard from '@/components/EditorComponents/StopCard/StopCard'
 import useToastStore from '@/store/toastStore'
+import { fetchStops, Stop, updateStopsOrder } from '@/services/stopsService'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
-	const [items, setItems] = useState([
-		{ id: '1', title: 'Pridniprovsk', direction: 'Forward' },
-		{ id: '2', title: 'Rotorna', direction: 'Forward / Backward' },
-		{ id: '3', title: 'Museum', direction: 'Backward' },
-	])
+	const [items, setItems] = useState<Stop[]>([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState<string | null>(null)
 
-	const handleOnDragEnd = (result: any) => {
+	useEffect(() => {
+		const loadStops = async () => {
+			try {
+				setLoading(true)
+				const stops = await fetchStops()
+				setItems(stops.sort((a, b) => a.sortIndex - b.sortIndex))
+			} catch (err: any) {
+				setError(err.message || 'Failed to load stops')
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		loadStops()
+	}, [])
+
+	const handleOnDragEnd = async (result: any) => {
 		if (!result.destination) return
 
 		const reorderedItems = Array.from(items)
 		const [removed] = reorderedItems.splice(result.source.index, 1)
 		reorderedItems.splice(result.destination.index, 0, removed)
 
-		setTimeout(() => {
+		setItems(reorderedItems)
+
+		const sortPayload = reorderedItems.map((item, index) => ({
+			id: item.id,
+			sortIndex: index * 10,
+		}))
+
+		try {
+			await updateStopsOrder(sortPayload)
 			addToast({
 				message: 'Order has been saved.',
-				type: 'info',
+				type: 'success',
 				duration: 3000,
 			})
-		}, 1000)
+		} catch (err: any) {
+			addToast({
+				message: 'Failed to save the new order.',
+				type: 'error',
+				duration: 3000,
+			})
+			console.error(err)
+		}
 
 		setItems(reorderedItems)
 	}
+
+	if (loading) return <p>Loading stops...</p>
+	if (error) return <p className={styles.ErrorMessage}>{error}</p>
 
 	return (
 		<div className={styles.StopsListWrapper}>
@@ -42,8 +75,8 @@ const StopsList = () => {
 							ref={provided.innerRef}
 							className={styles.StopsList}
 						>
-							{items.map(({ id, title, direction }, index) => (
-								<Draggable key={id} draggableId={id} index={index}>
+							{items.map((item, index) => (
+								<Draggable key={item.id} draggableId={item.id} index={index}>
 									{(provided) => (
 										<li
 											ref={provided.innerRef}
@@ -54,10 +87,10 @@ const StopsList = () => {
 												...provided.draggableProps.style,
 											}}
 											onClick={() => {
-												console.log('yo', id)
+												console.log(item.id)
 											}}
 										>
-											<StopCard id={id} title={title} direction={direction} />
+											<StopCard itemData={item} />
 										</li>
 									)}
 								</Draggable>
