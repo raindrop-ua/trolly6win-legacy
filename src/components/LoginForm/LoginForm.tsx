@@ -55,7 +55,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 
 			if (!response.ok) {
 				const errorData = await response.json()
-				throw new Error(errorData.message || 'Something went wrong')
+				addToast({
+					message: errorData.message,
+					type: 'error',
+					duration: 3000,
+				})
+				return
 			}
 
 			const { email, id, access_token } = await response.json()
@@ -75,8 +80,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				type: 'info',
 				duration: 3000,
 			})
-		} catch (err: any) {
-			setError(err.message || 'Failed to authenticate')
+		} catch (error: any) {
+			setError(error.message || 'Failed to authenticate')
 		}
 	}
 
