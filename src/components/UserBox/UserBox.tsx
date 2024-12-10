@@ -13,8 +13,9 @@ const UserBox = () => {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const buttonRef = useRef<HTMLButtonElement>(null)
 	const { addToast } = useToastStore()
-	const { user } = useAuthStore()
+	const { user, isAuthenticated } = useAuthStore()
 
+	console.log(user, isAuthenticated)
 	const showToast = () => {
 		addToast({
 			message: 'This stop has only forward direction.',
@@ -55,7 +56,7 @@ const UserBox = () => {
 
 	return (
 		<div className={styles.UserBox}>
-			{!1 ? (
+			{!isAuthenticated ? (
 				<Link href={'/login'}>
 					<span>Log in</span>
 				</Link>

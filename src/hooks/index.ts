@@ -1,1 +1,1 @@
-export { useMatchMedia } from './use-match-media'
+export { useMatchMedia } from './useMatchMedia'

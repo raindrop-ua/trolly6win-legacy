@@ -7,14 +7,24 @@ interface AuthState {
 	accessToken: string | null
 	isAuthenticated: boolean
 	setUser: (user: { id: string; email: string }, accessToken: string) => void
+	checkUser: () => void
 	clearAuth: () => void
 	refreshAccessToken: () => Promise<void>
 }
 
 const apiClient = axios.create({
 	baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4000/v1',
-	withCredentials: true, // Включаем передачу куков
+	withCredentials: true,
 })
+
+const isTokenExpired = (token: string) => {
+	try {
+		const payload = JSON.parse(atob(token.split('.')[1]))
+		return payload.exp * 1000 < Date.now()
+	} catch (error) {
+		return true
+	}
+}
 
 const useAuthStore = create<AuthState>()(
 	persist(
@@ -30,6 +40,10 @@ const useAuthStore = create<AuthState>()(
 				set({ user: null, accessToken: null, isAuthenticated: false }),
 
 			refreshAccessToken: async () => {
+				const { accessToken } = get()
+				if (accessToken && !isTokenExpired(accessToken)) {
+					return
+				}
 				try {
 					const response = await apiClient.post('/auth/refresh')
 					const { access_token } = response.data
@@ -38,6 +52,24 @@ const useAuthStore = create<AuthState>()(
 					console.error('Failed to refresh access token', error)
 					get().clearAuth()
 					throw error
+				}
+			},
+
+			checkUser: async () => {
+				const { accessToken } = get()
+				if (!accessToken) {
+					get().clearAuth()
+					return
+				}
+				try {
+					const response = await apiClient.get('/users/profile', {
+						headers: { Authorization: `Bearer ${accessToken}` },
+					})
+					const user = response.data
+					set({ user, isAuthenticated: true })
+				} catch (error) {
+					console.error('Failed to fetch user profile', error)
+					get().clearAuth()
 				}
 			},
 		}),

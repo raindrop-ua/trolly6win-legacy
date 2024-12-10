@@ -4,29 +4,40 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useAuthStore from '@/store/authStore'
 
-const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
-	const { isAuthenticated, refreshAccessToken, clearAuth } = useAuthStore()
+const ProtectedLayout = ({
+	children,
+	loadingComponent,
+}: {
+	children: React.ReactNode
+	loadingComponent?: React.ReactNode
+}) => {
+	const { isAuthenticated, refreshAccessToken, clearAuth, checkUser } =
+		useAuthStore()
 	const [loading, setLoading] = useState(true)
 	const router = useRouter()
 
 	useEffect(() => {
 		const checkAuth = async () => {
-			try {
-				if (!isAuthenticated) {
+			await checkUser()
+			if (!isAuthenticated) {
+				try {
 					await refreshAccessToken()
+				} catch (error) {
+					clearAuth()
+					router.push('/login')
 				}
-				setLoading(false)
-			} catch (error) {
-				clearAuth()
-				router.push('/login')
 			}
+			setLoading(false)
 		}
-
 		checkAuth()
-	}, [isAuthenticated, refreshAccessToken, clearAuth, router])
+	}, [isAuthenticated, refreshAccessToken, clearAuth, checkUser, router])
 
 	if (loading) {
-		return <p>Loading...</p>
+		return loadingComponent ? (
+			loadingComponent
+		) : (
+			<p style={{ textAlign: 'center' }}>Loading...</p>
+		)
 	}
 
 	return <>{children}</>

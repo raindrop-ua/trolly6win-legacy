@@ -7,6 +7,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: -15px;
 
   > a {
     @include button-style-basic;

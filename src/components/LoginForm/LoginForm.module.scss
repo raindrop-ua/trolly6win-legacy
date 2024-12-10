@@ -39,11 +39,12 @@
         border-color: #EF6D58;
       }
     }
+  }
 
-    .ErrorMessage {
-      color: #EF6D58;
-      margin-top: mixins.rem(10);
-    }
+  .ErrorMessage {
+    color: #EF6D58;
+    margin-top: mixins.rem(10);
+    margin-bottom: mixins.rem(10);
   }
 
   .Button {
