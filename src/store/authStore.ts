@@ -6,10 +6,13 @@ interface AuthState {
 	user: null | { id: string; email: string }
 	accessToken: string | null
 	isAuthenticated: boolean
+	isUserLoading: boolean
+	isCheckingUser: boolean
 	setUser: (user: { id: string; email: string }, accessToken: string) => void
 	checkUser: () => void
 	clearAuth: () => void
 	refreshAccessToken: () => Promise<void>
+	isHydrated: boolean
 }
 
 const apiClient = axios.create({
@@ -32,12 +35,20 @@ const useAuthStore = create<AuthState>()(
 			user: null,
 			accessToken: null,
 			isAuthenticated: false,
+			isUserLoading: false,
+			isCheckingUser: false,
+			isHydrated: false,
 
-			setUser: (user, accessToken) =>
+			setUser: (user: any, accessToken: any) =>
 				set({ user, accessToken, isAuthenticated: true }),
 
 			clearAuth: () =>
-				set({ user: null, accessToken: null, isAuthenticated: false }),
+				set({
+					user: null,
+					accessToken: null,
+					isAuthenticated: false,
+					isUserLoading: false,
+				}),
 
 			refreshAccessToken: async () => {
 				const { accessToken } = get()
@@ -56,20 +67,24 @@ const useAuthStore = create<AuthState>()(
 			},
 
 			checkUser: async () => {
-				const { accessToken } = get()
+				const { accessToken, isCheckingUser } = get()
+				if (isCheckingUser) return
 				if (!accessToken) {
 					get().clearAuth()
 					return
 				}
 				try {
+					set({ isCheckingUser: true, isUserLoading: true })
 					const response = await apiClient.get('/users/profile', {
 						headers: { Authorization: `Bearer ${accessToken}` },
 					})
 					const user = response.data
-					set({ user, isAuthenticated: true })
+					set({ user, isAuthenticated: true, isUserLoading: false })
 				} catch (error) {
 					console.error('Failed to fetch user profile', error)
 					get().clearAuth()
+				} finally {
+					set({ isCheckingUser: false })
 				}
 			},
 		}),
@@ -79,6 +94,11 @@ const useAuthStore = create<AuthState>()(
 				user: state.user,
 				accessToken: state.accessToken,
 			}),
+			onRehydrateStorage: (state: any) => {
+				if (state) {
+					state.isHydrated = true
+				}
+			},
 		},
 	),
 )

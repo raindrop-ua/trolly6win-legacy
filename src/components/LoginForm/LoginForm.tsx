@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation'
 import classNames from 'classnames'
 import useModalStore from '@/store/modalStore'
 import useAuthStore from '@/store/authStore'
-import { UserCheck } from 'lucide-react'
 import styles from './LoginForm.module.scss'
+import useToastStore from '@/store/toastStore'
 
 interface IFormInput {
 	email: string
@@ -23,8 +23,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 	const [isLogin, setIsLogin] = useState(true)
 	const [error, setError] = useState<string | null>(null)
 	const [isSuccess, setIsSuccess] = useState(false)
-	const { setUser } = useAuthStore()
+	const { setUser, isAuthenticated, isUserLoading, isCheckingUser } =
+		useAuthStore()
 	const triggerClose = useModalStore((state) => state.triggerClose)
+	const { addToast } = useToastStore()
 	const router = useRouter()
 
 	const {
@@ -63,18 +65,24 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 			setIsSuccess(true)
 
 			if (isFromModal) {
-				setTimeout(triggerClose, 2000)
+				setTimeout(triggerClose)
 			} else {
-				setTimeout(() => router.push('/'), 2000)
+				setTimeout(() => router.push('/'), 1500)
 			}
+
+			addToast({
+				message: isFromModal ? 'Success!' : 'Success! Redirecting to home...',
+				type: 'info',
+				duration: 3000,
+			})
 		} catch (err: any) {
 			setError(err.message || 'Failed to authenticate')
 		}
 	}
 
-	return (
+	return !isAuthenticated && !(isUserLoading || isCheckingUser) ? (
 		<div className={styles.LoginForm}>
-			{!isSuccess ? (
+			{!isSuccess && (
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<h2>{isLogin ? 'Log in' : 'Sign up'}</h2>
 
@@ -151,15 +159,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 						{isSubmitting ? 'Submitting...' : isLogin ? 'Login' : 'Sign up'}
 					</button>
 				</form>
-			) : (
-				<div className={styles.Success}>
-					<UserCheck />
-					<span>
-						{isFromModal ? 'Success!' : 'Success! Redirecting to home...'}
-					</span>
-				</div>
 			)}
-
 			{!isSuccess && (
 				<p className={styles.DontHave}>
 					{isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
@@ -173,7 +173,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				</p>
 			)}
 		</div>
-	)
+	) : null
 }
 
 export default LoginForm

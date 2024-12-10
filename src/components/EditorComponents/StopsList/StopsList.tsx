@@ -10,7 +10,7 @@ const StopsList = () => {
 	const { addToast } = useToastStore()
 	const [items, setItems] = useState([
 		{ id: '1', title: 'Pridniprovsk', direction: 'Forward' },
-		{ id: '2', title: 'Rotorna', direction: 'Forward' },
+		{ id: '2', title: 'Rotorna', direction: 'Forward / Backward' },
 		{ id: '3', title: 'Museum', direction: 'Backward' },
 	])
 

@@ -13,9 +13,21 @@ const UserBox = () => {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const buttonRef = useRef<HTMLButtonElement>(null)
 	const { addToast } = useToastStore()
-	const { user, isAuthenticated } = useAuthStore()
+	const {
+		user,
+		isAuthenticated,
+		isUserLoading,
+		isCheckingUser,
+		checkUser,
+		isHydrated,
+	} = useAuthStore()
 
-	console.log(user, isAuthenticated)
+	useEffect(() => {
+		if (isHydrated) {
+			checkUser()
+		}
+	}, [isHydrated, checkUser])
+
 	const showToast = () => {
 		addToast({
 			message: 'This stop has only forward direction.',
@@ -50,17 +62,22 @@ const UserBox = () => {
 		setShowMenu(false)
 	}
 
+	if (!isHydrated || isUserLoading || isCheckingUser) {
+		return null
+	}
+
 	if (pathname === '/login') {
 		return null
 	}
 
 	return (
 		<div className={styles.UserBox}>
-			{!isAuthenticated ? (
+			{!isAuthenticated && (
 				<Link href={'/login'}>
 					<span>Log in</span>
 				</Link>
-			) : (
+			)}
+			{isAuthenticated && (
 				<div className={styles.AvatarBlock}>
 					<button
 						ref={buttonRef}

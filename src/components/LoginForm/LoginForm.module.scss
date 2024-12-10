@@ -78,22 +78,4 @@
     text-align: center;
     margin-top: mixins.rem(20);
   }
-
-  .Success {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: mixins.rem(12);
-
-    svg {
-      stroke: #00bc3c;
-    }
-
-    span {
-      color: #00bc3c;
-      font-size: mixins.rem(16);
-      font-weight: 700;
-    }
-  }
 }

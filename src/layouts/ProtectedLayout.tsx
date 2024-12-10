@@ -40,7 +40,7 @@ const ProtectedLayout = ({
 		)
 	}
 
-	return <>{children}</>
+	return <>{isAuthenticated && children}</>
 }
 
 export default ProtectedLayout

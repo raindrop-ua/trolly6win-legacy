@@ -2,7 +2,7 @@
 @import '@/styles/shared';
 
 .ToastContainer {
-  position: absolute;
+  position: fixed;
   bottom: mixins.rem(25);
   right: mixins.rem(25);
   width: mixins.rem(320);
