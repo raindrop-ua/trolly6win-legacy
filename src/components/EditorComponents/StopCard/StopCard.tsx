@@ -16,12 +16,7 @@ const StopCard: FC<StopCardProps> = ({ itemData }) => {
 	return (
 		<div className={styles.StopCard} data-id={id}>
 			<div className={styles.Information}>
-				<h3>
-					{name} {isDefault && <Check size={16} />}
-				</h3>
-				<div>
-					<span>{directions}</span>
-				</div>
+				<h3>{name}</h3>
 			</div>
 			<div>
 				<ArrowUpDown />

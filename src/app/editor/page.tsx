@@ -5,6 +5,9 @@ import SectionWrapper from '@/components/SectionWrapper'
 import StopsList from '@/components/EditorComponents/StopsList'
 import ProtectedLayout from '@/layouts/ProtectedLayout'
 import AccessingLoader from '@/components/AccessingLoader/AccessingLoader'
+import EditorGrid from '@/components/EditorComponents/EditorGrid'
+import StopProperties from '@/components/EditorComponents/StopProperties'
+import ScheduleNote from '@/components/ScheduleNote'
 
 export const metadata: Metadata = {
 	title: 'Editor - TrollySix',
@@ -20,9 +23,14 @@ export default function EditorPage() {
 				<SectionWrapper>
 					<h1>Schedule Editor</h1>
 					<br />
-					<div>
-						<StopsList />
-					</div>
+					<EditorGrid>
+						<div>
+							<StopsList />
+						</div>
+						<div>
+							<StopProperties />
+						</div>
+					</EditorGrid>
 				</SectionWrapper>
 			</ProtectedLayout>
 			<br />

@@ -4,9 +4,9 @@
 .StopCard {
   font-size: mixins.rem(16);
   color: #fff;
-  background-color: #31324CFF;
+  background-color: #3A3C56;
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-  border: 1px solid #3A3C56;
+  border: 1px solid #4b4c5e;
   box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
   position: relative;
   padding: mixins.rem(15) mixins.rem(20);
@@ -16,15 +16,18 @@
   align-items: center;
   gap: mixins.rem(8);
 
-  h3 {
-    font-size: mixins.rem(21);
-  }
-
   .Information {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: mixins.rem(8);
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+
+    h3 {
+      font-size: mixins.rem(18);
+    }
   }
 }

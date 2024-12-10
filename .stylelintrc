@@ -4,9 +4,9 @@
   "plugins": ["stylelint-scss"],
   "rules": {
     "selector-class-pattern": [
-      "^[A-Z][a-zA-Z0-9]+$",
+      "^[A-Z][a-zA-Z0-9]+$|^[a-z][a-z0-9-]+$",
       {
-        "message": "Class names should follow PascalCase."
+        "message": "Class names should follow PascalCase or kebab-case."
       }
     ],
     "media-feature-range-notation": "prefix"

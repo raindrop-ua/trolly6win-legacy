@@ -3,12 +3,14 @@
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
 import { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
-import StopCard from '@/components/EditorComponents/StopCard/StopCard'
+import StopCard from '@/components/EditorComponents/StopCard'
 import useToastStore from '@/store/toastStore'
 import { fetchStops, Stop, updateStopsOrder } from '@/services/stopsService'
+import useEditorStore from '@/store/editorStore'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
+	const { setSelectedStop } = useEditorStore()
 	const [items, setItems] = useState<Stop[]>([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
@@ -40,7 +42,7 @@ const StopsList = () => {
 
 		const sortPayload = reorderedItems.map((item, index) => ({
 			id: item.id,
-			sortIndex: index * 10,
+			sortIndex: (index + 1) * 10,
 		}))
 
 		try {
@@ -60,6 +62,10 @@ const StopsList = () => {
 		}
 
 		setItems(reorderedItems)
+	}
+
+	const handleStopItemClick = (item: Stop) => {
+		setSelectedStop(item.id)
 	}
 
 	if (loading) return <p>Loading stops...</p>
@@ -86,9 +92,7 @@ const StopsList = () => {
 											style={{
 												...provided.draggableProps.style,
 											}}
-											onClick={() => {
-												console.log(item.id)
-											}}
+											onClick={() => handleStopItemClick(item)}
 										>
 											<StopCard itemData={item} />
 										</li>
