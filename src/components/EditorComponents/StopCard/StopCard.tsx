@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styles from './StopCard.module.scss'
-import { ArrowUpDown, Check } from 'lucide-react'
+import { ArrowUpDown } from 'lucide-react'
 
 interface StopCardProps {
 	itemData: {
@@ -12,13 +12,13 @@ interface StopCardProps {
 }
 
 const StopCard: FC<StopCardProps> = ({ itemData }) => {
-	const { id, name, directions, isDefault } = itemData
+	const { id, name } = itemData
 	return (
 		<div className={styles.StopCard} data-id={id}>
 			<div className={styles.Information}>
 				<h3>{name}</h3>
 			</div>
-			<div>
+			<div className={styles.Icon}>
 				<ArrowUpDown />
 			</div>
 		</div>

@@ -5,9 +5,19 @@ import styles from './StopProperties.module.scss'
 import useEditorStore from '@/store/editorStore'
 import { Stop } from '@/services/stopsService'
 import { fetchStop } from '@/services/stopService'
+import { formatToDateTime, formatToRelativeDate } from '@/utils/helpers'
+import useToastStore from '@/store/toastStore'
+import EditorButton from '@/components/EditorComponents/EditorButton'
+import { Plus } from 'lucide-react'
+import { useEditorModalStore } from '@/store/editorModalStore'
 
-const StopProperties: React.FC<{}> = (props) => {
+const StopProperties: React.FC<{}> = () => {
+	const { addToast } = useToastStore()
 	const { selectedStop } = useEditorStore()
+
+	const openModal = useEditorModalStore((state) => state.openModal)
+	const closeModal = useEditorModalStore((state) => state.closeModal)
+
 	const [item, setItem] = useState<Stop>()
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
@@ -16,8 +26,8 @@ const StopProperties: React.FC<{}> = (props) => {
 		const loadStop = async () => {
 			try {
 				setLoading(true)
-				const stops = await fetchStop(selectedStop)
-				setItem(stop)
+				const stop = await fetchStop(selectedStop)
+				stop && setItem(stop)
 			} catch (err: any) {
 				setError(err.message || 'Failed to load stops')
 			} finally {
@@ -28,8 +38,59 @@ const StopProperties: React.FC<{}> = (props) => {
 		selectedStop && loadStop()
 	}, [selectedStop])
 
+	const handleClick = async () => {
+		const handleOnSubmit = (e: any) => {
+			e.preventDefault()
+			const formData = new FormData(e.target as HTMLFormElement)
+			const data = Object.fromEntries(formData.entries())
+			closeModal(data)
+		}
+		const result = await openModal(
+			<form onSubmit={handleOnSubmit}>
+				<label>
+					Name:
+					<input name='name' type='text' required />
+				</label>
+				<button type='submit'>Submit</button>
+			</form>,
+			<div>Add direction</div>,
+		)
+
+		console.log('Data from modal:', result)
+	}
+
+	if (!item) {
+		return (
+			<div className={styles.StopProperties}>
+				<p>Please select a trolleybus stop from the list on the left.</p>
+				<p>
+					You can also drag and drop items to rearrange the order of stops
+					according to the route sequence.
+				</p>
+			</div>
+		)
+	}
+
 	return (
-		<div className={styles.StopProperties}>Stop Properties {selectedStop}</div>
+		<div className={styles.StopProperties}>
+			<h3>{item?.name}</h3>
+			<div className={styles.InternalName}>{item?.internalName}</div>
+			<div>
+				Last update{' '}
+				{item?.updatedAt && (
+					<span>
+						<span>{formatToRelativeDate(item?.createdAt)}</span>
+						<span>{formatToDateTime(item?.updatedAt)}</span>
+					</span>
+				)}
+			</div>
+			<div>
+				<EditorButton onClick={handleClick}>
+					<span>Add direction</span>
+					<Plus></Plus>
+				</EditorButton>
+			</div>
+		</div>
 	)
 }
 

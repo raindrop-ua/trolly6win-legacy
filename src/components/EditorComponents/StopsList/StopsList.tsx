@@ -7,6 +7,8 @@ import StopCard from '@/components/EditorComponents/StopCard'
 import useToastStore from '@/store/toastStore'
 import { fetchStops, Stop, updateStopsOrder } from '@/services/stopsService'
 import useEditorStore from '@/store/editorStore'
+import EditorButton from '@/components/EditorComponents/EditorButton'
+import { Plus } from 'lucide-react'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
@@ -20,7 +22,7 @@ const StopsList = () => {
 			try {
 				setLoading(true)
 				const stops = await fetchStops()
-				setItems(stops.sort((a, b) => a.sortIndex - b.sortIndex))
+				stops && setItems(stops.sort((a, b) => a.sortIndex - b.sortIndex))
 			} catch (err: any) {
 				setError(err.message || 'Failed to load stops')
 			} finally {
@@ -48,7 +50,7 @@ const StopsList = () => {
 		try {
 			await updateStopsOrder(sortPayload)
 			addToast({
-				message: 'Order has been saved.',
+				message: 'New stops order has been saved.',
 				type: 'success',
 				duration: 3000,
 			})
@@ -104,6 +106,12 @@ const StopsList = () => {
 					)}
 				</Droppable>
 			</DragDropContext>
+			<div className={styles.Controls}>
+				<EditorButton>
+					<span>Add new stop</span>
+					<Plus></Plus>
+				</EditorButton>
+			</div>
 		</div>
 	)
 }

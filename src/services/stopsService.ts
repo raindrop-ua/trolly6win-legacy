@@ -13,7 +13,7 @@ export interface SortPayload {
 	sortIndex: number
 }
 
-export const fetchStops = async (): Promise<Stop[]> => {
+export const fetchStops = async (): Promise<Stop[] | null> => {
 	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops`
 
 	try {
@@ -23,8 +23,10 @@ export const fetchStops = async (): Promise<Stop[]> => {
 		})
 
 		if (!response.ok) {
-			// eslint-disable-next-line no-throw-literal
-			throw new Error('Failed to fetch stops')
+			console.error(
+				`Failed to fetch stops: ${response.status} ${response.statusText}`,
+			)
+			return null
 		}
 
 		return response.json()
@@ -47,8 +49,10 @@ export const updateStopsOrder = async (
 		})
 
 		if (!response.ok) {
-			// eslint-disable-next-line no-throw-literal
-			throw new Error('Failed to update stops order')
+			console.error(
+				`Failed to update stops order: ${response.status} ${response.statusText}`,
+			)
+			return
 		}
 	} catch (error) {
 		console.error(error)

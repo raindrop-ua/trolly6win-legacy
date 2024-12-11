@@ -3,8 +3,11 @@
 
 .StopsListWrapper {
   position: relative;
-  max-width: 400px;
   width: 100%;
+
+  .Controls {
+    margin-top: mixins.rem(5);
+  }
 }
 
 .StopsList {
@@ -12,6 +15,6 @@
   padding: 0;
 
   .Item {
-    padding-bottom: 5px;
+    padding-bottom: mixins.rem(5);
   }
 }

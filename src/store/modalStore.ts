@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 
 interface ModalState {
-	closeSignal: boolean // Сигнал для закрытия
-	triggerClose: () => void // Отправка сигнала
-	resetSignal: () => void // Сброс сигнала
+	closeSignal: boolean
+	triggerClose: () => void
+	resetSignal: () => void
 }
 
 const useModalStore = create<ModalState>((set) => ({

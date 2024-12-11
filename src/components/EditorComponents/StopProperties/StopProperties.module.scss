@@ -2,18 +2,30 @@
 @import '@/styles/shared';
 
 .StopProperties {
-  font-size: mixins.rem(16);
+  font-size: mixins.rem(18);
+  line-height: mixins.rem(22);
   color: #fff;
   background-color: #31324C;
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
   border: 1px solid #3A3C56;
   box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
   position: relative;
-  padding: mixins.rem(15) mixins.rem(20);
+  padding: mixins.rem(20);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: mixins.rem(12);
-  height: calc(100% - 5px);
+  height: 100%;
+
+  h3 {
+    font-size: mixins.rem(24);
+  }
+
+  .InternalName {
+    border-radius: mixins.rem(10);
+    border: 1px solid #4b4c5e;
+    background-color: #3A3C56;
+    padding: mixins.rem(5) mixins.rem(10);
+  }
 }

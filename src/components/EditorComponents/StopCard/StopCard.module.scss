@@ -30,4 +30,11 @@
       font-size: mixins.rem(18);
     }
   }
+
+  .Icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }

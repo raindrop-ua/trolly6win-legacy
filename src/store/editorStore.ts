@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 
 interface EditorState {
-	selectedStop: string | null
+	selectedStop: string
 	setSelectedStop: (stopId: string) => void
 }
 
 const useEditorStore = create<EditorState>((set) => ({
-	selectedStop: null,
+	selectedStop: '',
 	setSelectedStop: (stopId) => set(() => ({ selectedStop: stopId })),
 }))
 
