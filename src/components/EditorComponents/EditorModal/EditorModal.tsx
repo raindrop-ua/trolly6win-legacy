@@ -3,6 +3,7 @@
 import styles from './EditorModal.module.scss'
 import { useEditorModalStore } from '@/store/editorModalStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
+import { X } from 'lucide-react'
 
 const EditorModal: React.FC = () => {
 	const { isOpen, modalContent, modalTitle, closeModal } = useEditorModalStore()
@@ -15,7 +16,7 @@ const EditorModal: React.FC = () => {
 				<div className={styles.ContentHeader}>
 					<div>{modalTitle}</div>
 					<EditorButton onClick={closeModal} className={styles.CloseButton}>
-						&times;
+						<X />
 					</EditorButton>
 				</div>
 				{modalContent}

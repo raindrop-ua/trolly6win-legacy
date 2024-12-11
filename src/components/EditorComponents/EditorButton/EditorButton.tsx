@@ -50,20 +50,22 @@ const EditorButton: React.FC<Props> = ({
 			onClick={onClick}
 			onMouseDown={handleMouseDown}
 		>
-			<div className={styles.RippleEffectWrapper}>
-				{ripples.map((ripple) => (
-					<span
-						key={ripple.id}
-						className={classNames(styles.RippleEffect)}
-						style={{
-							left: ripple.left,
-							top: ripple.top,
-							width: ripple.size,
-							height: ripple.size,
-						}}
-					></span>
-				))}
-			</div>
+			{ripples.length > 0 && (
+				<div className={styles.RippleEffectWrapper}>
+					{ripples.map((ripple) => (
+						<span
+							key={ripple.id}
+							className={classNames(styles.RippleEffect)}
+							style={{
+								left: ripple.left,
+								top: ripple.top,
+								width: ripple.size,
+								height: ripple.size,
+							}}
+						></span>
+					))}
+				</div>
+			)}
 			{children}
 		</button>
 	)

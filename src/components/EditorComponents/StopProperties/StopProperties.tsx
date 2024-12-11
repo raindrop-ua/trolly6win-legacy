@@ -5,7 +5,7 @@ import styles from './StopProperties.module.scss'
 import useEditorStore from '@/store/editorStore'
 import { Stop } from '@/services/stopsService'
 import { fetchStop } from '@/services/stopService'
-import { formatToDateTime, formatToRelativeDate } from '@/utils/helpers'
+import { formatToDateTime } from '@/utils/helpers'
 import useToastStore from '@/store/toastStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
@@ -79,7 +79,6 @@ const StopProperties: React.FC<{}> = () => {
 				Last update{' '}
 				{item?.updatedAt && (
 					<span>
-						<span>{formatToRelativeDate(item?.createdAt)}</span>
 						<span>{formatToDateTime(item?.updatedAt)}</span>
 					</span>
 				)}

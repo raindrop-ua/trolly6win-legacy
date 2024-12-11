@@ -36,8 +36,15 @@
 }
 
 html .CloseButton {
-  width: mixins.rem(32);
-  height: mixins.rem(32);
-  font-size: mixins.rem(32);
-  line-height: mixins.rem(32);
+  padding: 0 mixins.rem(15);
+
+  svg {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
 }
