@@ -62,7 +62,7 @@ const StopProperties: React.FC<{}> = () => {
 	if (!item) {
 		return (
 			<div className={styles.StopProperties}>
-				<p>Please select a trolleybus stop from the list on the left.</p>
+				<p>Please select a trolleybus stop from the list.</p>
 				<p>
 					You can also drag and drop items to rearrange the order of stops
 					according to the route sequence.
@@ -75,7 +75,7 @@ const StopProperties: React.FC<{}> = () => {
 		<div className={styles.StopProperties}>
 			<h3>{item?.name}</h3>
 			<div className={styles.InternalName}>{item?.internalName}</div>
-			<div>
+			<div className={styles.LastUpdate}>
 				Last update{' '}
 				{item?.updatedAt && (
 					<span>

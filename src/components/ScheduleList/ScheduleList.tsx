@@ -117,7 +117,7 @@ const ScheduleList: React.FC = () => {
 			</div>
 			<h3 className={styles.CaptionStartPoint}>
 				<div>
-					<MapPinCheckInside />
+					<MapPinCheckInside size={32} />
 					<strong>{selectedStopFullName}</strong>
 				</div>
 				{scheduleData && <CurrentTimeDisplay />}

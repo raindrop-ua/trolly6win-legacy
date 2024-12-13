@@ -2,7 +2,6 @@
 @import '@/styles/shared';
 
 .StopCard {
-  font-size: mixins.rem(16);
   color: #fff;
   background-color: #3A3C56;
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
@@ -17,6 +16,8 @@
   gap: mixins.rem(8);
 
   .Information {
+    font-size: mixins.rem(18);
+    line-height: mixins.rem(21);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -27,6 +28,7 @@
     width: 100%;
 
     h3 {
+      cursor: inherit;
       font-size: mixins.rem(18);
     }
   }

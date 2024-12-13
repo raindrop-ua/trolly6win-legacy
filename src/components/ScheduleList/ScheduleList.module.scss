@@ -15,8 +15,9 @@
   justify-content: space-between;
 
   svg {
-    width: mixins.rem(24);
-    height: mixins.rem(24);
+    min-width: mixins.rem(32);
+    width: mixins.rem(32);
+    height: mixins.rem(32);
   }
 
   strong {

@@ -23,9 +23,15 @@
   }
 
   .InternalName {
+    font-size: mixins.rem(14);
     border-radius: mixins.rem(10);
     border: 1px solid #4b4c5e;
     background-color: #3A3C56;
-    padding: mixins.rem(5) mixins.rem(10);
+    padding: mixins.rem(3) mixins.rem(10);
+  }
+
+  .LastUpdate {
+    color: #858699;
+    font-size: mixins.rem(14);
   }
 }

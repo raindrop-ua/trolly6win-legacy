@@ -14,7 +14,8 @@
   min-height: mixins.rem(104);
   background-color: rgb(49 50 76);
 
-  h3 {
+  .GroupCaption {
+    font-size: 1.125rem;
     margin-left: mixins.rem(10);
   }
 }
