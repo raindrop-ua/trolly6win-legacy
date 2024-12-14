@@ -28,6 +28,7 @@
     "react-dom": "18.3.1",
     "react-hook-form": "^7.54.0",
     "react-qr-code": "^2.0.15",
+    "react-resizable-panels": "^2.1.7",
     "reset-css": "^5.0.2",
     "sharp": "^0.33.3",
     "socket.io-client": "^4.8.1",
