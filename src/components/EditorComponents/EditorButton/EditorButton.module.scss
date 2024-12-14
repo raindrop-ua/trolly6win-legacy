@@ -29,7 +29,7 @@
   @include button-style-basic;
   @include button-style;
 
-  padding: 0 mixins.rem(25);
+  padding: 0 mixins.rem(20);
   font-size: mixins.rem(18);
   font-weight: 400;
   min-height: mixins.rem(40);

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus, ChevronDown, ChevronUp } from 'lucide-react'
 import styles from './SimpleTimePicker.module.scss'
+import useToastStore from '@/store/toastStore'
 
 interface Props {
 	initialTime?: string
@@ -13,6 +14,7 @@ const SimpleTimePicker: React.FC<Props> = ({
 	onSubmit,
 }) => {
 	const [time, setTime] = useState(initialTime)
+	const { addToast } = useToastStore()
 
 	const adjustTime = (type: 'hours' | 'minutes', amount: number) => {
 		const [hours, minutes] = time.split(':').map(Number)
@@ -33,6 +35,13 @@ const SimpleTimePicker: React.FC<Props> = ({
 
 	const handleSubmit = () => {
 		if (onSubmit) onSubmit(time)
+
+		addToast({
+			message: 'New time has been saved.',
+			type: 'success',
+			duration: 3000,
+		})
+
 		console.log('Selected time:', time)
 	}
 
