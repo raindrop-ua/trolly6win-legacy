@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
 import StopCard from '@/components/EditorComponents/StopCard'
 import useToastStore from '@/store/toastStore'
-import { fetchStops, Stop, updateStopsOrder } from '@/services/stopsService'
+import { fetchStops, updateStopsOrder } from '@/services/stopsService'
 import useEditorStore from '@/store/editorStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
 import classNames from 'classnames'
+import { Stop } from '@/types/types'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()

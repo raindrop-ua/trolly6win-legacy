@@ -3,14 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './StopProperties.module.scss'
 import useEditorStore from '@/store/editorStore'
-import { Stop } from '@/services/stopsService'
 import { fetchStop } from '@/services/stopService'
 import { formatToDateTime } from '@/utils/helpers'
 import useToastStore from '@/store/toastStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
 import { useEditorModalStore } from '@/store/editorModalStore'
-import { IDirection } from '@/types/types'
+import { IDirection, Stop } from '@/types/types'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()

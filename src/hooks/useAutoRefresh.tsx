@@ -9,7 +9,7 @@ const useAutoRefresh = () => {
 
 		const payload = JSON.parse(atob(accessToken.split('.')[1]))
 		const expTime = payload.exp * 1000
-		const timeLeft = expTime - Date.now() - 60000 // Обновить за 1 минуту до истечения
+		const timeLeft = expTime - Date.now() - 60000
 
 		const timer = setTimeout(() => {
 			refreshAccessToken().catch((error) => console.error(error))
