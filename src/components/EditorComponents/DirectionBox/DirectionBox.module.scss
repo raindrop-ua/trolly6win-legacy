@@ -1,0 +1,85 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.Direction {
+  width: 50%;
+
+  > button {
+    width: 100%;
+    text-transform: capitalize;
+  }
+
+  .DirectionTitle {
+    font-size: mixins.rem(18);
+    border-radius: mixins.rem(10);
+    border: 1px solid #4b4c5e;
+    background-color: #3A3C56;
+    padding: mixins.rem(8) mixins.rem(12);
+    text-transform: capitalize;
+    margin-bottom: mixins.rem(10);
+  }
+
+  .WeekBox {
+    font-size: mixins.rem(18);
+    margin-bottom: mixins.rem(10);
+    border-top: 1px solid #4b4c5e;
+    padding-top: mixins.rem(10);
+
+    .WeekBoxTitle {
+      font-size: mixins.rem(18);
+      border-radius: mixins.rem(10);
+      border: 1px solid #4b4c5e;
+      background-color: #3A3C56;
+      padding: mixins.rem(8) mixins.rem(12);
+      text-transform: capitalize;
+      margin-bottom: mixins.rem(10);
+    }
+
+    .Time {
+      cursor: default;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: mixins.rem(10);
+      margin: 0 0 mixins.rem(10) 0;
+      border-radius: mixins.rem(6);
+      width: 100%;
+      font-size: mixins.rem(22);
+      color: #fff;
+      background-color: #398378;
+      user-select: none;
+      transition: all .2s ease;
+      box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+
+      .DepartureControls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: mixins.rem(3);
+
+        .DepartureControlButton {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          background-color: rgb(255 255 255 / 30%);
+          border-radius: mixins.rem(6);
+          padding: mixins.rem(4);
+          border: none;
+          outline: none;
+        }
+      }
+
+    }
+
+    .AddTime {
+      width: 100%;
+    }
+  }
+}
+
+
+

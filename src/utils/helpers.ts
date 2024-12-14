@@ -7,3 +7,11 @@ export function formatToDateTime(isoDate: string): string {
 	const minutes = date.getMinutes().toString().padStart(2, '0')
 	return `${day}.${month}.${year} ${hours}:${minutes}`
 }
+
+export function formatTime(time: string): string {
+	const str = time.split(':')
+	if (str.length >= 2) {
+		return `${str[0]}:${str[1]}`
+	}
+	return time
+}

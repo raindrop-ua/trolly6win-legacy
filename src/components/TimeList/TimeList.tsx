@@ -3,6 +3,7 @@ import useScheduleStore from '@/store/scheduleStore'
 import styles from './TimeList.module.scss'
 import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
 import ScheduleNote from '@/components/ScheduleNote'
+import { formatTime } from '@/utils/helpers'
 
 const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
 	const { status } = departureTimeItem
@@ -50,7 +51,7 @@ const TimeList: React.FC = () => {
 						key={index}
 						className={`${styles.TimeItem} ${getTimeClass(item)}`}
 					>
-						<span>{item.time}</span>
+						<span>{formatTime(item.time)}</span>
 					</li>
 				)
 			})}

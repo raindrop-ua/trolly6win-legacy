@@ -2,7 +2,7 @@ export interface Stop {
 	id: string
 	internalName: string
 	name: string
-	directions: []
+	directions: IDirection[]
 	isDefault: boolean
 	sortIndex: number
 	createdAt: string

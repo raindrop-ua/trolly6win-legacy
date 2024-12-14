@@ -24,6 +24,7 @@
 
   .InternalName {
     font-size: mixins.rem(14);
+    color: #858699;
     border-radius: mixins.rem(10);
     border: 1px solid #4b4c5e;
     background-color: #3A3C56;
@@ -39,9 +40,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-
-    .Direction {
-      width: 50%;
-    }
+    gap: mixins.rem(15);
   }
 }
