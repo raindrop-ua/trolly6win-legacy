@@ -18,6 +18,7 @@ export interface ISchedule {
 	id: string
 	departureTime: string
 	typeOfDay: string
+	isPublished: boolean
 }
 
 export interface IDirection {
