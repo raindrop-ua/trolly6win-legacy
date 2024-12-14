@@ -1,3 +1,41 @@
+export interface Stop {
+	id: string
+	internalName: string
+	name: string
+	directions: []
+	isDefault: boolean
+	sortIndex: number
+	createdAt: string
+	updatedAt: string
+}
+
+export interface SortPayload {
+	id: string
+	sortIndex: number
+}
+
+export interface ISchedule {
+	id: string
+	departureTime: string
+	typeOfDay: string
+}
+
+export interface IDirection {
+	id: string
+	direction: string
+	schedules: ISchedule[]
+}
+
+export interface IStopCardProps {
+	itemData: {
+		id: string
+		name: string
+		directions?: IDirection[]
+		isDefault?: boolean
+	}
+	isSelected?: boolean
+}
+
 export enum Status {
 	Past = 'past',
 	VerySoon = 'verysoon',
@@ -24,12 +62,6 @@ export type Direction = {
 		weekend: DepartureTimeItem[]
 		holiday: DepartureTimeItem[]
 	}
-}
-
-export type Stop = {
-	name: string
-	internalName: string
-	directions: Direction[]
 }
 
 export type ScheduleData = {

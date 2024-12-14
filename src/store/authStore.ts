@@ -56,7 +56,7 @@ const useAuthStore = create<AuthState>()(
 					return
 				}
 				try {
-					const response = await apiClient.post('/auth/refresh')
+					const response = await apiClient.post('/auth/refresh-tokens')
 					const { access_token } = response.data
 					set({ accessToken: access_token, isAuthenticated: true })
 				} catch (error) {
@@ -67,7 +67,7 @@ const useAuthStore = create<AuthState>()(
 			},
 
 			checkUser: async () => {
-				const { accessToken, isCheckingUser } = get()
+				const { accessToken, isCheckingUser, user } = get()
 				if (isCheckingUser) return
 				if (!accessToken) {
 					get().clearAuth()
@@ -75,11 +75,11 @@ const useAuthStore = create<AuthState>()(
 				}
 				try {
 					set({ isCheckingUser: true, isUserLoading: true })
-					const response = await apiClient.get('/users/profile', {
+					const response = await apiClient.get(`/users/${user.id}`, {
 						headers: { Authorization: `Bearer ${accessToken}` },
 					})
-					const user = response.data
-					set({ user, isAuthenticated: true, isUserLoading: false })
+					const userData = response.data
+					set({ user: userData, isAuthenticated: true, isUserLoading: false })
 				} catch (error) {
 					console.error('Failed to fetch user profile', error)
 					get().clearAuth()

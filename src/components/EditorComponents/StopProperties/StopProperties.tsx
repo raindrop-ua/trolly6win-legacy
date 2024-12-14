@@ -10,6 +10,7 @@ import useToastStore from '@/store/toastStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
 import { useEditorModalStore } from '@/store/editorModalStore'
+import { IDirection } from '@/types/types'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()
@@ -82,6 +83,29 @@ const StopProperties: React.FC<{}> = () => {
 						<span>{formatToDateTime(item?.updatedAt)}</span>
 					</span>
 				)}
+			</div>
+			<div className={styles.Directions}>
+				{item.directions.map((direction: IDirection) => (
+					<div key={direction.id} className={styles.Direction}>
+						<div>{direction.direction}</div>
+						<div>
+							<span>Weekday</span>
+							{direction.schedules
+								.filter((i) => i.typeOfDay === 'weekday')
+								.map((schedule) => {
+									return <div key={schedule.id}>{schedule.departureTime}</div>
+								})}
+						</div>
+						<div>
+							<span>Weekend</span>
+							{direction.schedules
+								.filter((i) => i.typeOfDay === 'weekend')
+								.map((schedule) => {
+									return <div key={schedule.id}>{schedule.departureTime}</div>
+								})}
+						</div>
+					</div>
+				))}
 			</div>
 			<div>
 				<EditorButton onClick={handleClick}>

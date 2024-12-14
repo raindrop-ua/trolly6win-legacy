@@ -9,10 +9,11 @@ import { fetchStops, Stop, updateStopsOrder } from '@/services/stopsService'
 import useEditorStore from '@/store/editorStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
+import classNames from 'classnames'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
-	const { setSelectedStop } = useEditorStore()
+	const { selectedStop, setSelectedStop } = useEditorStore()
 	const [items, setItems] = useState<Stop[]>([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
@@ -90,13 +91,16 @@ const StopsList = () => {
 											ref={provided.innerRef}
 											{...provided.draggableProps}
 											{...provided.dragHandleProps}
-											className={styles.Item}
+											className={classNames(styles.Item)}
 											style={{
 												...provided.draggableProps.style,
 											}}
 											onClick={() => handleStopItemClick(item)}
 										>
-											<StopCard itemData={item} />
+											<StopCard
+												itemData={item}
+												isSelected={item.id === selectedStop}
+											/>
 										</li>
 									)}
 								</Draggable>
