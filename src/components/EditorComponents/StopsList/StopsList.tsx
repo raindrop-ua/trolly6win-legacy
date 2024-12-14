@@ -1,7 +1,7 @@
 'use client'
 
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
 import StopCard from '@/components/EditorComponents/StopCard'
 import useToastStore from '@/store/toastStore'
@@ -11,6 +11,7 @@ import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
 import classNames from 'classnames'
 import { Stop } from '@/types/types'
+import { useEditorModalStore } from '@/store/editorModalStore'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
@@ -18,6 +19,9 @@ const StopsList = () => {
 	const [items, setItems] = useState<Stop[]>([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
+
+	const openModal = useEditorModalStore((state) => state.openModal)
+	const closeModal = useEditorModalStore((state) => state.closeModal)
 
 	useEffect(() => {
 		const loadStops = async () => {
@@ -34,6 +38,27 @@ const StopsList = () => {
 
 		loadStops()
 	}, [])
+
+	const handleClick = async () => {
+		const handleOnSubmit = (e: any) => {
+			e.preventDefault()
+			const formData = new FormData(e.target as HTMLFormElement)
+			const data = Object.fromEntries(formData.entries())
+			closeModal(data)
+		}
+		const result = await openModal(
+			<form onSubmit={handleOnSubmit}>
+				<label>
+					Name:
+					<input name='name' type='text' required />
+				</label>
+				<button type='submit'>Submit</button>
+			</form>,
+			<div>Add direction</div>,
+		)
+
+		console.log('Data from modal:', result)
+	}
 
 	const handleOnDragEnd = async (result: any) => {
 		if (!result.destination) return
@@ -112,7 +137,7 @@ const StopsList = () => {
 				</Droppable>
 			</DragDropContext>
 			<div className={styles.Controls}>
-				<EditorButton>
+				<EditorButton onClick={handleClick}>
 					<span>Add new stop</span>
 					<Plus></Plus>
 				</EditorButton>

@@ -6,18 +6,13 @@ import useEditorStore from '@/store/editorStore'
 import { fetchStop } from '@/services/stopService'
 import { formatToDateTime } from '@/utils/helpers'
 import useToastStore from '@/store/toastStore'
-import EditorButton from '@/components/EditorComponents/EditorButton'
-import { Plus } from 'lucide-react'
-import { useEditorModalStore } from '@/store/editorModalStore'
-import { IDirection, Stop } from '@/types/types'
+import { Stop } from '@/types/types'
 import DirectionBox from '@/components/EditorComponents/DirectionBox'
+import EntityControls from '@/components/EditorComponents/EntityControls'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()
 	const { selectedStop } = useEditorStore()
-
-	const openModal = useEditorModalStore((state) => state.openModal)
-	const closeModal = useEditorModalStore((state) => state.closeModal)
 
 	const [item, setItem] = useState<Stop>()
 	const [loading, setLoading] = useState(true)
@@ -39,27 +34,6 @@ const StopProperties: React.FC<{}> = () => {
 		selectedStop && loadStop()
 	}, [selectedStop])
 
-	const handleClick = async () => {
-		const handleOnSubmit = (e: any) => {
-			e.preventDefault()
-			const formData = new FormData(e.target as HTMLFormElement)
-			const data = Object.fromEntries(formData.entries())
-			closeModal(data)
-		}
-		const result = await openModal(
-			<form onSubmit={handleOnSubmit}>
-				<label>
-					Name:
-					<input name='name' type='text' required />
-				</label>
-				<button type='submit'>Submit</button>
-			</form>,
-			<div>Add direction</div>,
-		)
-
-		console.log('Data from modal:', result)
-	}
-
 	if (!item) {
 		return (
 			<div className={styles.StopProperties}>
@@ -74,7 +48,11 @@ const StopProperties: React.FC<{}> = () => {
 
 	return (
 		<div className={styles.StopProperties}>
-			<h3>{item?.name}</h3>
+			<div className={styles.StopPropertiesTitle}>
+				<h3>{item?.name}</h3>
+				<EntityControls isPublished={true} />
+			</div>
+
 			<div className={styles.InternalName}>{item?.internalName}</div>
 			<div className={styles.LastUpdate}>
 				Last update{' '}

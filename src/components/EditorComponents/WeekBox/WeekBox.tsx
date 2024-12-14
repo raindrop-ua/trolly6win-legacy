@@ -1,16 +1,11 @@
 import React from 'react'
 import { formatTime } from '@/utils/helpers'
 import classNames from 'classnames'
-import {
-	HardDriveUpload,
-	Trash2,
-	Pencil,
-	HardDriveDownload,
-} from 'lucide-react'
-import SimpleTimePicker from '@/components/EditorComponents/SimpleTimePicker/SimpleTimePicker'
+import SimpleTimePicker from '@/components/EditorComponents/SimpleTimePicker'
 import styles from './WeekBox.module.scss'
 import { IDirection } from '@/types/types'
 import useToastStore from '@/store/toastStore'
+import EntityControls from '@/components/EditorComponents/EntityControls/EntityControls'
 
 interface WeekBoxProps {
 	directionData: IDirection
@@ -30,7 +25,9 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 
 	return (
 		<div className={styles.WeekBox}>
-			<div className={styles.WeekBoxTitle}>{dayType}</div>
+			<div className={styles.WeekBoxTitle}>
+				<span>{dayType}</span>
+			</div>
 			{directionData.schedules
 				.filter((i) => i.typeOfDay === dayType)
 				.map((schedule) => {
@@ -42,44 +39,7 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 							})}
 						>
 							<div>{formatTime(schedule.departureTime)}</div>
-							<div className={styles.DepartureControls}>
-								<button
-									className={classNames(
-										styles.DepartureControlButton,
-										styles.Edit,
-									)}
-								>
-									<Pencil size={18} />
-								</button>
-								{schedule.isPublished ? (
-									<button
-										className={classNames(
-											styles.DepartureControlButton,
-											styles.Publish,
-										)}
-									>
-										<HardDriveDownload size={18} />
-									</button>
-								) : (
-									<button
-										className={classNames(
-											styles.DepartureControlButton,
-											styles.Publish,
-										)}
-									>
-										<HardDriveUpload size={18} />
-									</button>
-								)}
-
-								<button
-									className={classNames(
-										styles.DepartureControlButton,
-										styles.Delete,
-									)}
-								>
-									<Trash2 size={18} />
-								</button>
-							</div>
+							<EntityControls isPublished={schedule.isPublished} />
 						</div>
 					)
 				})}
