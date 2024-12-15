@@ -3,13 +3,57 @@
 
 .Wrapper {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
   gap: mixins.rem(10);
   margin: mixins.rem(10) 0;
   padding: mixins.rem(10) 0 0;
   border-top: 1px solid #4b4c5e;
+  container-type: inline-size;
+
+  .AddButton {
+    width: mixins.rem(45);
+    cursor: pointer;
+    outline: none;
+    font-size: mixins.rem(18);
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: mixins.rem(10);
+    background-color: #28293E;
+    padding: mixins.rem(5);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    > svg {
+      width: 18px;
+      height: 18px;
+      stroke: rgb(255 255 255 / 70%);
+    }
+
+    &:active {
+      background-color: #3A3C56;
+    }
+  }
+
+  @container (max-width: 240px) {
+    & > :nth-child(4) {
+      flex-basis: 80%;
+      order: 1;
+    }
+
+    & > :nth-child(1),
+    & > :nth-child(2),
+    & > :nth-child(3) {
+      flex: 1 1 auto;
+    }
+  }
+
+  @container (max-width: 180px) {
+    column-gap: mixins.rem(5);
+  }
 }
 
 .TimeDisplay {
@@ -17,12 +61,18 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: mixins.rem(24);
+  font-size: mixins.rem(20);
   border-radius: mixins.rem(10);
   border: 1px solid #4b4c5e;
   background-color: #3A3C56;
-  padding: mixins.rem(5) mixins.rem(18);
+  padding: mixins.rem(5) mixins.rem(15);
   width: mixins.rem(90);
+  container-type: inline-size;
+
+  @container (max-width: 180px) {
+    padding: mixins.rem(5) mixins.rem(5);
+    width: mixins.rem(50);
+  }
 }
 
 .Controls {
@@ -31,7 +81,7 @@
   justify-content: center;
   align-items: center;
 
-  button {
+  .Button {
     cursor: pointer;
     outline: none;
     font-size: mixins.rem(18);
@@ -42,24 +92,29 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
 
-    svg {
+    & svg {
       width: 18px;
       height: 18px;
       stroke: rgb(255 255 255 / 70%);
     }
-  }
 
-  button:first-child {
-    border-radius: mixins.rem(10) mixins.rem(10) 0 0;
-    border-bottom: none;
-  }
+    &:first-child {
+      border-radius: mixins.rem(10) mixins.rem(10) 0 0;
+      border-bottom: none;
+    }
 
-  button:last-child {
-    border-radius: 0 0 mixins.rem(10) mixins.rem(10);
-  }
-}
+    &:last-child {
+      border-radius: 0 0 mixins.rem(10) mixins.rem(10);
+    }
 
-.SubmitButton {
-  width: 100%;
+    &:active {
+      background-color: #3A3C56;
+    }
+
+    @container (max-width: 175px) {
+      padding: 0 mixins.rem(1);
+    }
+  }
 }

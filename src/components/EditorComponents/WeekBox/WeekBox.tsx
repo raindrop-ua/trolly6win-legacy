@@ -5,7 +5,9 @@ import SimpleTimePicker from '@/components/EditorComponents/SimpleTimePicker'
 import styles from './WeekBox.module.scss'
 import { IDirection } from '@/types/types'
 import useToastStore from '@/store/toastStore'
-import EntityControls from '@/components/EditorComponents/EntityControls/EntityControls'
+import EntityControls, {
+	EntityControlAction,
+} from '@/components/EditorComponents/EntityControls/EntityControls'
 
 interface WeekBoxProps {
 	directionData: IDirection
@@ -21,6 +23,26 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 			type: 'success',
 			duration: 3000,
 		})
+	}
+
+	const handleAction = (action: EntityControlAction, id: string) => {
+		console.log(action, id)
+
+		switch (action) {
+			case EntityControlAction.Edit:
+				break
+			case EntityControlAction.Delete:
+				addToast({
+					message: `You have to unpublish departure time item before deleting it.`,
+					type: 'error',
+					duration: 3000,
+				})
+				break
+			case EntityControlAction.Publish:
+				break
+			case EntityControlAction.Unpublish:
+				break
+		}
 	}
 
 	return (
@@ -39,7 +61,12 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 							})}
 						>
 							<div>{formatTime(schedule.departureTime)}</div>
-							<EntityControls isPublished={schedule.isPublished} />
+							<EntityControls
+								onClick={(action) => {
+									handleAction(action, schedule.id)
+								}}
+								isPublished={schedule.isPublished}
+							/>
 						</div>
 					)
 				})}

@@ -28,7 +28,9 @@ const DirectionBox = ({ directions, direction }: DirectionBoxProps) => {
 	return (
 		<div key={directionData.id} className={styles.Direction}>
 			<div className={styles.DirectionTitle}>
-				<div>{directionData.direction}</div>
+				<div>
+					<div>{directionData.direction}</div>
+				</div>
 				<div>
 					<EntityControls isPublished={true} />
 				</div>

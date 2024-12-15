@@ -9,6 +9,7 @@ import useToastStore from '@/store/toastStore'
 import { Stop } from '@/types/types'
 import DirectionBox from '@/components/EditorComponents/DirectionBox'
 import EntityControls from '@/components/EditorComponents/EntityControls'
+import TabsBox from '@/components/EditorComponents/TabsBox'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()
@@ -52,16 +53,18 @@ const StopProperties: React.FC<{}> = () => {
 				<h3>{item?.name}</h3>
 				<EntityControls isPublished={true} />
 			</div>
-
-			<div className={styles.InternalName}>{item?.internalName}</div>
-			<div className={styles.LastUpdate}>
-				Last update{' '}
-				{item?.updatedAt && (
-					<span>
-						<span>{formatToDateTime(item?.updatedAt)}</span>
-					</span>
-				)}
+			<div className={styles.Info}>
+				<div className={styles.InternalName}>{item?.internalName}</div>
+				<div className={styles.LastUpdate}>
+					Last update{' '}
+					{item?.updatedAt && (
+						<span>
+							<span>{formatToDateTime(item?.updatedAt)}</span>
+						</span>
+					)}
+				</div>
 			</div>
+			<TabsBox />
 			<div className={styles.Directions}>
 				<DirectionBox directions={item.directions} direction={'forward'} />
 				<DirectionBox directions={item.directions} direction={'backward'} />

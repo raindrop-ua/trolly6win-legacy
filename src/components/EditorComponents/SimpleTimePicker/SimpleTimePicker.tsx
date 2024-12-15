@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import EditorButton from '@/components/EditorComponents/EditorButton'
+import React, { useEffect, useRef, useState } from 'react'
 import { Plus, ChevronDown, ChevronUp } from 'lucide-react'
 import styles from './SimpleTimePicker.module.scss'
 
@@ -13,6 +12,29 @@ const SimpleTimePicker: React.FC<Props> = ({
 	onSubmit,
 }) => {
 	const [time, setTime] = useState(initialTime)
+	const [width, setWidth] = useState(0)
+	const ref = useRef(null)
+
+	useEffect(() => {
+		const element = ref.current
+
+		const resizeObserver = new ResizeObserver((entries) => {
+			if (entries.length > 0) {
+				const { width } = entries[0].contentRect
+				setWidth(width)
+			}
+		})
+
+		if (element) {
+			resizeObserver.observe(element)
+		}
+
+		return () => {
+			if (element) {
+				resizeObserver.unobserve(element)
+			}
+		}
+	}, [])
 
 	const adjustTime = (type: 'hours' | 'minutes', amount: number) => {
 		const [hours, minutes] = time.split(':').map(Number)
@@ -37,7 +59,7 @@ const SimpleTimePicker: React.FC<Props> = ({
 
 	return (
 		<>
-			<div className={styles.Wrapper}>
+			<div className={styles.Wrapper} ref={ref} data-width={width}>
 				<div className={styles.Controls}>
 					<button
 						className={styles.Button}
@@ -69,11 +91,10 @@ const SimpleTimePicker: React.FC<Props> = ({
 						<ChevronDown />
 					</button>
 				</div>
+				<button className={styles.AddButton} onClick={handleSubmit}>
+					<Plus />
+				</button>
 			</div>
-			<EditorButton className={styles.SubmitButton} onClick={handleSubmit}>
-				<span>Add time</span>
-				<Plus></Plus>
-			</EditorButton>
 		</>
 	)
 }

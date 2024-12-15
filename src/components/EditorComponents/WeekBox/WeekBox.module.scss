@@ -28,10 +28,18 @@
     width: 100%;
     font-size: mixins.rem(22);
     color: #fff;
-    background-color: #398378;
+    background-color: #8e3d6a;
     user-select: none;
     transition: all .2s ease;
     box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+    container-type: inline-size;
+
+    @container (max-width: 175px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: mixins.rem(8);
+      padding: mixins.rem(12);
+    }
 
     &.Unpublished {
       background-color: #3A3C56;

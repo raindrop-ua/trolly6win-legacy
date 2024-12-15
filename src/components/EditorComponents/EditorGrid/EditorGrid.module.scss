@@ -8,6 +8,8 @@
     width: 5px;
     margin: 0 5px;
     border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.25s ease-in-out;
 
     &[data-resize-handle-state="inactive"] {
       background-color: #383a5a;
