@@ -1,16 +1,14 @@
-import useAuthStore from '@/store/authStore'
 import axios from 'axios'
 import { SortPayload, Stop } from '@/types/types'
 
 export const fetchStops = async (): Promise<Stop[] | null> => {
 	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops`
-	const token = useAuthStore.getState().accessToken
 
 	try {
 		const response = await axios.get<Stop[]>(url, {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${token}`,
+				//Authorization: `Bearer ${token}`,
 			},
 		})
 
@@ -31,7 +29,6 @@ export const updateStopsOrder = async (
 	payload: SortPayload[],
 ): Promise<void> => {
 	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops/sort`
-	const token = useAuthStore.getState().accessToken
 
 	try {
 		await axios.patch(
@@ -40,7 +37,7 @@ export const updateStopsOrder = async (
 			{
 				headers: {
 					'Content-Type': 'application/json',
-					Authorization: `Bearer ${token}`,
+					// Authorization: `Bearer ${token}`,
 				},
 			},
 		)

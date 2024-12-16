@@ -97,7 +97,8 @@ const StopsList = () => {
 		setSelectedStop(item.id)
 	}
 
-	if (loading) return <p>Loading stops...</p>
+	if (loading)
+		return <div className={styles.StopsListWrapper}>Loading stops...</div>
 	if (error) return <p className={styles.ErrorMessage}>{error}</p>
 
 	return (

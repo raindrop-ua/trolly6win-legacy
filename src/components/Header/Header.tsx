@@ -3,7 +3,6 @@ import Link from 'next/link'
 import TrolleybusIcon from '@/components/TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
 import styles from './Header.module.scss'
-import DynamicUserBox from '@/components/UserBox/DynamicUserBox'
 
 const Header: React.FC = () => {
 	return (
@@ -34,7 +33,6 @@ const Header: React.FC = () => {
 							<h1>
 								Trolly<span>Six</span>
 							</h1>
-							<DynamicUserBox />
 						</div>
 						<h2>
 							Timetable for trolleybus route{' '}

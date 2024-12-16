@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import classNames from 'classnames'
 import useModalStore from '@/store/modalStore'
-import useAuthStore from '@/store/authStore'
 import styles from './LoginForm.module.scss'
 import useToastStore from '@/store/toastStore'
 
@@ -23,8 +22,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 	const [isLogin, setIsLogin] = useState(true)
 	const [error, setError] = useState<string | null>(null)
 	const [isSuccess, setIsSuccess] = useState(false)
-	const { setUser, isAuthenticated, isUserLoading, isCheckingUser } =
-		useAuthStore()
 	const triggerClose = useModalStore((state) => state.triggerClose)
 	const { addToast } = useToastStore()
 	const router = useRouter()
@@ -63,9 +60,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				return
 			}
 
-			const { email, id, access_token } = await response.json()
+			// const { email, id, access_token } = await response.json()
 
-			setUser({ id, email }, access_token)
+			// setUser({ id, email }, access_token)
 
 			setIsSuccess(true)
 
@@ -85,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 		}
 	}
 
-	return !isAuthenticated && !(isUserLoading || isCheckingUser) ? (
+	return (
 		<div className={styles.LoginForm}>
 			{!isSuccess && (
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -178,7 +175,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				</p>
 			)}
 		</div>
-	) : null
+	)
 }
 
 export default LoginForm
