@@ -138,6 +138,22 @@ const StopsList = () => {
 				</Droppable>
 			</DragDropContext>
 			<div className={styles.Controls}>
+				<div>
+					<input
+						className={styles.StopNameInput}
+						type='text'
+						name='stop-name'
+						placeholder='Enter new stop name'
+					/>
+				</div>
+				<div>
+					<input
+						className={styles.StopNameInput}
+						type='text'
+						name='stop-internal-name'
+						placeholder='Enter new stop short internal name'
+					/>
+				</div>
 				<EditorButton onClick={handleClick}>
 					<span>Add new stop</span>
 					<Plus></Plus>
