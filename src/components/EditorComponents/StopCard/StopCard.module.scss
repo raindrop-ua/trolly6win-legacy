@@ -2,6 +2,7 @@
 @import '@/styles/shared';
 
 .StopCard {
+  cursor: grab;
   color: #fff;
   background-color: #3A3C56;
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
@@ -16,9 +17,26 @@
   gap: mixins.rem(8);
   transition: background-color 0.3s ease;
 
+  .Icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      stroke: #858699;
+    }
+  }
+
   &.Selected {
     background-color: #196c99;
     border: 1px solid #196c99;
+
+    .Icon {
+      svg {
+        stroke: #fffef8;
+      }
+    }
   }
 
   .Information {
@@ -39,10 +57,4 @@
     }
   }
 
-  .Icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
 }

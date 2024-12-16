@@ -7,7 +7,7 @@ import EditorGrid from '@/components/EditorComponents/EditorGrid'
 export const metadata: Metadata = {
 	title: 'Editor - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/editor',
+		canonical: 'https://trolly6.win/e',
 	},
 }
 
