@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import BaselineButton from '@/components/Baseline/BaselineButton'
+import BaselineButton from '@/components/ScheduleComponents/BaselineButton/index'
 
 import { House, Landmark } from 'lucide-react'
 

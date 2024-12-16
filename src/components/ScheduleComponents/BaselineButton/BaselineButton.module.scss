@@ -29,6 +29,7 @@
   @include button-style-basic;
   @include button-style;
 
+  -webkit-tap-highlight-color: transparent;
   padding: 0 mixins.rem(25);
   font-size: 1.125rem;
   font-weight: 400;
@@ -49,6 +50,15 @@
   svg {
     width: mixins.rem(24);
     height: mixins.rem(24);
+  }
+
+  .Favorite {
+    transform: translate(0.5rem, 0.12rem);
+
+    svg {
+      fill: #ae2e19;
+      stroke: #fffef888;
+    }
   }
 
   .Caption {

@@ -1,17 +1,16 @@
 'use client'
 
 import React, { useCallback } from 'react'
+import styles from './ScheduleList.module.scss'
 import { DayType, DirectionType, Stop, StopType } from '@/types/types'
 import useScheduleStore from '@/store/scheduleStore'
-import SelectButtons from '@/components/SelectButtons'
-import TimeList from '@/components/TimeList'
-import CurrentTimeDisplay from '@/components/CurrentTimeDisplay'
-import TimeListFilter from '@/components/TimeListFilter'
+import SelectButtons from '../SelectButtons'
+import TimeList from '../TimeList'
+import CurrentTimeDisplay from '../CurrentTimeDisplay'
+import TimeListFilter from '../TimeListFilter'
 import { MapPinCheckInside } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
-import styles from './ScheduleList.module.scss'
 import classNames from 'classnames'
-import useToastStore from '@/store/toastStore'
 
 const capitalizeString = (str: string | null): string => {
 	if (str === null) return ''
@@ -19,7 +18,6 @@ const capitalizeString = (str: string | null): string => {
 }
 
 const ScheduleList: React.FC = () => {
-	const { addToast } = useToastStore()
 	const { scheduleData } = useScheduleStore()
 	const { setDayType, setSelectedStop, setDirectionType } = useScheduleStore()
 	const dayType = useScheduleStore((state) => state.dayType)
@@ -79,20 +77,12 @@ const ScheduleList: React.FC = () => {
 			(item: Stop) => item.internalName === selectedStop,
 		)?.directions || []
 
-	if (availableDirectionsForStop.length === 1) {
-		// addToast({
-		// 	message: availableDirectionsForStop[0],
-		// 	type: 'info',
-		// 	duration: 3000,
-		// })
-	}
-
 	return (
 		<div>
 			<div className={classNames(styles.ControlsBlock)}>
 				<SelectButtons
 					className={styles.Schedule}
-					label={'Schedule for'}
+					label={'ScheduleComponents for'}
 					options={availableDayTypesInternalNames}
 					labels={availableDayTypesNames}
 					selectedOption={dayType || ''}

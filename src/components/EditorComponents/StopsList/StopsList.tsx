@@ -3,15 +3,15 @@
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
 import React, { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
-import StopCard from '@/components/EditorComponents/StopCard'
 import useToastStore from '@/store/toastStore'
-import { fetchStops, updateStopsOrder } from '@/services/stopsService'
 import useEditorStore from '@/store/editorStore'
+import useEditorModalStore from '@/store/editorModalStore'
+import { fetchStops, updateStopsOrder } from '@/services/stopsService'
+import StopCard from '@/components/EditorComponents/StopCard'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
 import classNames from 'classnames'
 import { Stop } from '@/types/types'
-import { useEditorModalStore } from '@/store/editorModalStore'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()

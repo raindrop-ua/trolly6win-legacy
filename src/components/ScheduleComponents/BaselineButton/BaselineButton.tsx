@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import classNames from 'classnames'
 import styles from './BaselineButton.module.scss'
+import { Heart } from 'lucide-react'
 
 interface BaselineButtonProps {
 	className?: string
@@ -9,6 +10,7 @@ interface BaselineButtonProps {
 	value?: string
 	icon?: ReactElement
 	isSelected?: boolean
+	isFavorite?: boolean
 	size?: 'small' | 'medium' | 'large'
 	onClick: (option: string) => void
 }
@@ -28,6 +30,7 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 	size,
 	onClick,
 	isSelected,
+	isFavorite,
 	icon,
 	...props
 }) => {
@@ -51,6 +54,12 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 			setRipples((prevRipples) => prevRipples.filter((r) => r.id !== rippleId))
 		}, 800)
 	}
+
+	const favoriteIcon = isFavorite && (
+		<span className={styles.Favorite}>
+			<Heart size={32} strokeWidth={1} />
+		</span>
+	)
 
 	return (
 		<button
@@ -85,9 +94,11 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 			{label && !children && !icon && (
 				<>
 					<span className={styles.SpaceHolder} aria-hidden={true}>
-						{label}
+						{label} {favoriteIcon}
 					</span>
-					<span className={styles.Caption}>{label}</span>
+					<span className={styles.Caption}>
+						{label} {favoriteIcon}
+					</span>
 				</>
 			)}
 			{icon && !children && (

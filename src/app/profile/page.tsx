@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionWrapper from '@/components/SectionWrapper'
-import ScheduleNote from '@/components/ScheduleNote'
+import ScheduleNote from '@/components/ScheduleComponents/ScheduleNote'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
 

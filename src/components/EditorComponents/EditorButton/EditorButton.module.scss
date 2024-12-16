@@ -29,6 +29,7 @@
   @include button-style-basic;
   @include button-style;
 
+  -webkit-tap-highlight-color: transparent;
   padding: 0 mixins.rem(20);
   font-size: mixins.rem(18);
   font-weight: 400;

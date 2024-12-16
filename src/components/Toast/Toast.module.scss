@@ -11,7 +11,7 @@
 .ToastItem {
   width: 100%;
   font-size: mixins.rem(16);
-  margin: mixins.rem(15) auto;
+  margin: mixins.rem(15) auto 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

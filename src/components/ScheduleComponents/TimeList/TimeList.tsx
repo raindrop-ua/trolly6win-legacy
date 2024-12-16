@@ -2,8 +2,9 @@ import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './TimeList.module.scss'
 import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
-import ScheduleNote from '@/components/ScheduleNote'
+import ScheduleNote from '../ScheduleNote'
 import { formatTime } from '@/utils/helpers'
+import { Heart } from 'lucide-react'
 
 const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
 	const { status } = departureTimeItem
@@ -46,12 +47,18 @@ const TimeList: React.FC = () => {
 	return (
 		<ul className={styles.TimeItems}>
 			{scheduleSelected.map((item: DepartureTimeItem, index: number) => {
+				const isFavorite = false
 				return (
 					<li
 						key={index}
 						className={`${styles.TimeItem} ${getTimeClass(item)}`}
 					>
 						<span>{formatTime(item.time)}</span>
+						{isFavorite && (
+							<span className={styles.Favorite}>
+								<Heart size={32} strokeWidth={1} />
+							</span>
+						)}
 					</li>
 				)
 			})}

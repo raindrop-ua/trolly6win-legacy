@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './EditorModal.module.scss'
-import { useEditorModalStore } from '@/store/editorModalStore'
+import useEditorModalStore from '@/store/editorModalStore'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { X } from 'lucide-react'
 

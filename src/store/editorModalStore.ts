@@ -12,7 +12,7 @@ interface ModalState {
 	closeModal: (result?: unknown) => void
 }
 
-export const useEditorModalStore = create<ModalState>((set, get) => ({
+const useEditorModalStore = create<ModalState>((set, get) => ({
 	isOpen: false,
 	modalTitle: null,
 	modalContent: null,
@@ -46,3 +46,5 @@ export const useEditorModalStore = create<ModalState>((set, get) => ({
 		})
 	},
 }))
+
+export default useEditorModalStore

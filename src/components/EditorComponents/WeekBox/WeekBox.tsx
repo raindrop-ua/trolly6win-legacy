@@ -26,8 +26,6 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 	}
 
 	const handleAction = (action: EntityControlAction, id: string) => {
-		console.log(action, id)
-
 		switch (action) {
 			case EntityControlAction.Edit:
 				break

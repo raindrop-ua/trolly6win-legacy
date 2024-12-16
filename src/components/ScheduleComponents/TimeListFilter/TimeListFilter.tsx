@@ -2,7 +2,7 @@ import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
 import { ListFilter } from 'lucide-react'
 import styles from './TimeListFilter.module.scss'
-import BaselineButton from '@/components/Baseline/BaselineButton'
+import BaselineButton from '../BaselineButton'
 
 const TimeListFilter = () => {
 	const { filter, setFilter } = useScheduleStore()

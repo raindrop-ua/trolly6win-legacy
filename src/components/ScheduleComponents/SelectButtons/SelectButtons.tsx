@@ -1,6 +1,6 @@
 import React from 'react'
 import { useId } from 'react'
-import BaselineButton from '@/components/Baseline/BaselineButton'
+import BaselineButton from '../BaselineButton'
 import styles from './SelectButtons.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -24,10 +24,6 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 	setSelectedOption,
 }) => {
 	const groupId = useId()
-	const IconsMap = {
-		// forward: <ArrowBigRightDash />,
-		// backward: <ArrowBigLeftDash />,
-	}
 
 	return (
 		<div
@@ -48,12 +44,10 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 					centeredSlides={false}
 				>
 					{options.map((option, index) => {
-						const Icon = IconsMap[option as keyof typeof IconsMap]
 						return (
 							<SwiperSlide key={option} style={{ width: 'auto' }}>
 								<BaselineButton
 									label={labels[index]}
-									icon={Icon}
 									value={option}
 									isSelected={selectedOption === option}
 									onClick={() => setSelectedOption(option)}
