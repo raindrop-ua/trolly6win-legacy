@@ -49,5 +49,13 @@
     &.Delete {
       background-color: rgb(225 15 15 / 75%);
     }
+
+    &.Disabled {
+      background-color: rgb(85 86 106);
+
+      svg {
+        opacity: 0.5;
+      }
+    }
   }
 }

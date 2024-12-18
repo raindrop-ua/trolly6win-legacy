@@ -39,26 +39,26 @@ const StopsList = () => {
 		loadStops()
 	}, [])
 
-	const handleClick = async () => {
-		const handleOnSubmit = (e: any) => {
-			e.preventDefault()
-			const formData = new FormData(e.target as HTMLFormElement)
-			const data = Object.fromEntries(formData.entries())
-			closeModal(data)
-		}
-		const result = await openModal(
-			<form onSubmit={handleOnSubmit}>
-				<label>
-					Name:
-					<input name='name' type='text' required />
-				</label>
-				<button type='submit'>Submit</button>
-			</form>,
-			<div>Add direction</div>,
-		)
-
-		console.log('Data from modal:', result)
-	}
+	// const handleClick = async () => {
+	// 	const handleOnSubmit = (e: any) => {
+	// 		e.preventDefault()
+	// 		const formData = new FormData(e.target as HTMLFormElement)
+	// 		const data = Object.fromEntries(formData.entries())
+	// 		closeModal(data)
+	// 	}
+	// 	const result = await openModal(
+	// 		<form onSubmit={handleOnSubmit}>
+	// 			<label>
+	// 				Name:
+	// 				<input name='name' type='text' required />
+	// 			</label>
+	// 			<button type='submit'>Submit</button>
+	// 		</form>,
+	// 		<div>Add direction</div>,
+	// 	)
+	//
+	// 	console.log('Data from modal:', result)
+	// }
 
 	const handleOnDragEnd = async (result: any) => {
 		if (!result.destination) return
@@ -94,6 +94,11 @@ const StopsList = () => {
 
 	const handleStopItemClick = (item: Stop) => {
 		setSelectedStop(item.id)
+	}
+
+	const handleSubmit = (e: any) => {
+		e.preventDefault()
+		console.log('add stop')
 	}
 
 	if (loading)
@@ -137,26 +142,28 @@ const StopsList = () => {
 				</Droppable>
 			</DragDropContext>
 			<div className={styles.Controls}>
-				<div>
-					<input
-						className={styles.StopNameInput}
-						type='text'
-						name='stop-name'
-						placeholder='Enter new stop name'
-					/>
-				</div>
-				<div>
-					<input
-						className={styles.StopNameInput}
-						type='text'
-						name='stop-internal-name'
-						placeholder='Enter new stop short internal name'
-					/>
-				</div>
-				<EditorButton onClick={handleClick}>
-					<span>Add new stop</span>
-					<Plus></Plus>
-				</EditorButton>
+				<form onSubmit={handleSubmit}>
+					<div>
+						<input
+							className={styles.StopNameInput}
+							type='text'
+							name='stop-name'
+							placeholder='Enter new stop name'
+						/>
+					</div>
+					<div>
+						<input
+							className={styles.StopNameInput}
+							type='text'
+							name='stop-internal-name'
+							placeholder='Enter new stop short internal name'
+						/>
+					</div>
+					<EditorButton type={'submit'}>
+						<span>Add new stop</span>
+						<Plus></Plus>
+					</EditorButton>
+				</form>
 			</div>
 		</div>
 	)

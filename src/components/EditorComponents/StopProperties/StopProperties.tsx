@@ -51,7 +51,7 @@ const StopProperties: React.FC<{}> = () => {
 		<div className={styles.StopProperties}>
 			<div className={styles.StopPropertiesTitle}>
 				<h3>{item?.name}</h3>
-				<EntityControls isPublished={true} />
+				<EntityControls isPublished={item.isPublished} />
 			</div>
 			<div className={styles.Info}>
 				<div className={styles.InternalName}>{item?.internalName}</div>

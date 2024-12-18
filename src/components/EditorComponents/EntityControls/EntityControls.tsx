@@ -48,7 +48,10 @@ const EntityControls: React.FC<EntityControlsProps> = ({
 			)}
 
 			<button
-				className={classNames(styles.ControlButton, styles.Delete)}
+				disabled={!isPublished}
+				className={classNames(styles.ControlButton, styles.Delete, {
+					[styles.Disabled]: isPublished,
+				})}
 				onClick={() => handleClick(EntityControlAction.Delete)}
 			>
 				<Trash2 size={18} />

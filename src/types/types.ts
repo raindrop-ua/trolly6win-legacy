@@ -4,6 +4,7 @@ export interface Stop {
 	name: string
 	directions: IDirection[]
 	isDefault: boolean
+	isPublished: boolean
 	sortIndex: number
 	createdAt: string
 	updatedAt: string

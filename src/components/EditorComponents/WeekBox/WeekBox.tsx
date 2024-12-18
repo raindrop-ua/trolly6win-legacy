@@ -32,7 +32,7 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 			case EntityControlAction.Delete:
 				addToast({
 					message: `You have to unpublish departure time item before deleting it.`,
-					type: 'error',
+					type: 'info',
 					duration: 3000,
 				})
 				break
