@@ -11,10 +11,9 @@ export interface Stop {
 
 export interface SortPayload {
 	id: string
-	sortIndex: number
 }
 
-export interface ISchedule {
+export interface IDeparture {
 	id: string
 	departureTime: string
 	typeOfDay: string
@@ -24,7 +23,7 @@ export interface ISchedule {
 export interface IDirection {
 	id: string
 	direction: string
-	schedules: ISchedule[]
+	departures: IDeparture[]
 }
 
 export interface IStopCardProps {

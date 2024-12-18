@@ -2,7 +2,7 @@ import { Stop } from '@/types/types'
 import axios from 'axios'
 
 export const fetchStop = async (id: string): Promise<Stop | null> => {
-	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops/${id}`
+	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/stops/${id}`
 
 	try {
 		const response = await axios.get<Stop>(url, {

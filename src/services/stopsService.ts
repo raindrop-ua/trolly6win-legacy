@@ -2,7 +2,7 @@ import axios from 'axios'
 import { SortPayload, Stop } from '@/types/types'
 
 export const fetchStops = async (): Promise<Stop[] | null> => {
-	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops`
+	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/stops`
 
 	try {
 		const response = await axios.get<Stop[]>(url, {
@@ -28,7 +28,7 @@ export const fetchStops = async (): Promise<Stop[] | null> => {
 export const updateStopsOrder = async (
 	payload: SortPayload[],
 ): Promise<void> => {
-	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/schedule/stops/sort`
+	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/stops/reorder`
 
 	try {
 		await axios.patch(

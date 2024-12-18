@@ -71,7 +71,6 @@ const StopsList = () => {
 
 		const sortPayload = reorderedItems.map((item, index) => ({
 			id: item.id,
-			sortIndex: (index + 1) * 10,
 		}))
 
 		try {

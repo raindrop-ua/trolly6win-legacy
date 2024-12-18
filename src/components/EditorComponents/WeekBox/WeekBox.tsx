@@ -48,22 +48,22 @@ const WeekBox: React.FC<WeekBoxProps> = ({ directionData, dayType }) => {
 			<div className={styles.WeekBoxTitle}>
 				<span>{dayType}</span>
 			</div>
-			{directionData.schedules
+			{directionData.departures
 				.filter((i) => i.typeOfDay === dayType)
-				.map((schedule) => {
+				.map((departure) => {
 					return (
 						<div
-							key={schedule.id}
+							key={departure.id}
 							className={classNames(styles.Time, {
-								[styles.Unpublished]: !schedule.isPublished,
+								[styles.Unpublished]: !departure.isPublished,
 							})}
 						>
-							<div>{formatTime(schedule.departureTime)}</div>
+							<div>{formatTime(departure.departureTime)}</div>
 							<EntityControls
 								onClick={(action) => {
-									handleAction(action, schedule.id)
+									handleAction(action, departure.id)
 								}}
-								isPublished={schedule.isPublished}
+								isPublished={departure.isPublished}
 							/>
 						</div>
 					)
