@@ -6,12 +6,7 @@
   margin: 0;
 }
 
-:root {
-  --background-color: #fff;
-  --text-color: #28293E;
-}
-
-[data-theme='dark'] {
+@mixin dark-theme {
   --background-color: #28293E;
   --text-color: rgb(255 255 255 / 87%);
   --primary-dark: #3A3C56;
@@ -58,6 +53,22 @@
   --dark-blue: #1f2030;
   --success-dark-green: #179c41;
   --warning-red: #a85757;
+}
+
+:root {
+  --background-color: #fff;
+  --text-color: #28293E;
+}
+
+[data-theme='dark']:root {
+  @include dark-theme;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-theme;
+  }
 }
 
 html,

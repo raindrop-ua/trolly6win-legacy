@@ -14,12 +14,6 @@ enum Theme {
 export default function ThemeSwitcher() {
 	const { theme, setTheme } = useThemeStore()
 
-	const handleToggle = () => {
-		const nextTheme =
-			theme === 'light' ? 'dark' : theme === 'dark' ? 'auto' : 'light'
-		setTheme(nextTheme)
-	}
-
 	const handleThemeSet = (theme: Theme) => {
 		setTheme(theme)
 	}

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useThemeStore } from '@/store/themeStore'
 
 export default function ThemeHandler() {
-	const { effectiveTheme, theme, initializeTheme } = useThemeStore()
+	const { effectiveTheme, initializeTheme } = useThemeStore()
 
 	useEffect(() => {
 		initializeTheme()
