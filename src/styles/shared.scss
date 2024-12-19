@@ -4,16 +4,16 @@
   position: relative;
   cursor: pointer;
   outline: none;
-  color: #fff;
-  background-color: #28293E;
+  color: var(--white);
+  background-color: var(--background-color);
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-  border: 1px solid rgb(255 255 255 / 30%);
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+  border: 1px solid var(--highlight-light);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
   transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
   visibility: visible;
 
   &:focus-visible {
-    outline: #{mixins.rem(2)} solid #EF6D58;
+    outline: #{mixins.rem(2)} solid var(--button-red);
     outline-offset: mixins.rem(2);
     border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
   }

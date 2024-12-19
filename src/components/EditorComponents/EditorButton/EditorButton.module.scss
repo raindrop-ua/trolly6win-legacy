@@ -11,7 +11,7 @@
   .RippleEffect {
     position: absolute;
     border-radius: 50%;
-    background: rgb(255 255 255 / 10%);
+    background: var(--overlay-light);
     transform: scale(0);
     animation: ripple-animation 0.8s linear;
     z-index: 0;

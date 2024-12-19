@@ -4,11 +4,11 @@
 .StopProperties {
   font-size: mixins.rem(18);
   line-height: mixins.rem(22);
-  color: #fff;
-  background-color: #31324C;
+  color: var(--white);
+  background-color: var(--background-secondary);
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-  border: 1px solid #3A3C56;
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+  border: 1px solid var(--primary-dark);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
   position: relative;
   padding: mixins.rem(20);
   display: flex;
@@ -54,10 +54,10 @@
 
   .InternalName {
     font-size: mixins.rem(14);
-    color: #858699;
+    color: var(--neutral-gray);
     border-radius: mixins.rem(10);
-    border: 1px solid #4b4c5e;
-    background-color: #3A3C56;
+    border: 1px solid var(--border-dark);
+    background-color: var(--primary-dark);
     padding: mixins.rem(3) mixins.rem(10);
     display: flex;
     flex-direction: row;
@@ -67,7 +67,7 @@
   }
 
   .LastUpdate {
-    color: #858699;
+    color: var(--neutral-gray);
     font-size: mixins.rem(14);
   }
 

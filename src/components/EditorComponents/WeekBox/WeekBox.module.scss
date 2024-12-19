@@ -4,13 +4,13 @@
 .WeekBox {
   font-size: mixins.rem(18);
   margin-bottom: mixins.rem(10);
-  border-top: 1px solid #4b4c5e;
+  border-top: 1px solid var(--border-dark);
   padding-top: mixins.rem(10);
 
   .WeekBoxTitle {
     font-size: mixins.rem(18);
     border-radius: mixins.rem(10);
-    background-color: #3A3C56;
+    background-color: var(--primary-dark);
     padding: mixins.rem(8) mixins.rem(12);
     text-transform: capitalize;
     margin-bottom: mixins.rem(10);
@@ -27,11 +27,11 @@
     border-radius: mixins.rem(6);
     width: 100%;
     font-size: mixins.rem(22);
-    color: #fff;
-    background-color: #8e3d6a;
+    color: var(--white);
+    background-color: var(--accent-purple);
     user-select: none;
     transition: all .2s ease;
-    box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
     container-type: inline-size;
 
     @container (max-width: 175px) {
@@ -42,7 +42,7 @@
     }
 
     &.Unpublished {
-      background-color: #3A3C56;
+      background-color: var(--primary-dark);
     }
   }
 

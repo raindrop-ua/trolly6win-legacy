@@ -12,17 +12,17 @@
     transition: all 0.25s ease-in-out;
 
     &[data-resize-handle-state="inactive"] {
-      background-color: #383a5a;
+      background-color: var(--secondary-dark);
       opacity: 0.5;
     }
 
     &[data-resize-handle-state="hover"] {
-      background-color: #383a5a;
-      border: 1px solid #424463;
+      background-color: var(--secondary-dark);
+      border: 1px solid var(--accent-dark);
     }
 
     &[data-resize-handle-state="drag"] {
-      background-color: #3A3C56;
+      background-color: var(--primary-dark);
     }
   }
 }

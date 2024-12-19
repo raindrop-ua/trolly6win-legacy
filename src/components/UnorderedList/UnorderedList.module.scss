@@ -19,7 +19,7 @@
     width: mixins.rem(8);
     height: mixins.rem(8);
     margin-right: mixins.rem(8);
-    background-color: #1f79aa;
+    background-color: var(--button-blue-hover);
     border-radius: 50%;
   }
 }

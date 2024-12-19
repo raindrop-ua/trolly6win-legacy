@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(31 32 48 / 75%);
+  background-color: var(--background-overlay);
   z-index: 1000;
 }
 
@@ -19,9 +19,9 @@
   max-width: 400px;
   width: 90%;
   padding: mixins.rem(25);
-  color: #fff;
-  background-color: #28293E;
+  color: var(--white);
+  background-color: var(--background-color);
   border-radius: mixins.rem(25) mixins.rem(25) mixins.rem(25) 0;
-  border: 1px solid rgb(255 255 255 / 30%);
-  box-shadow: mixins.rem(5) mixins.rem(5) mixins.rem(5) rgb(0 0 0 / 10%);
+  border: 1px solid var(--highlight-light);
+  box-shadow: mixins.rem(5) mixins.rem(5) mixins.rem(5) var(--shadow-light);
 }

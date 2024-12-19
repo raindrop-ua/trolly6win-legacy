@@ -11,7 +11,7 @@
   .RippleEffect {
     position: absolute;
     border-radius: 50%;
-    background: rgb(255 255 255 / 15%);
+    background: var(--overlay-muted);
     transform: scale(0);
     animation: ripple-animation 0.8s linear;
     z-index: 0;
@@ -56,8 +56,8 @@
     transform: translate(0.5rem, 0.12rem);
 
     svg {
-      fill: #ae2e19;
-      stroke: #fffef888;
+      fill: var(--error-dark);
+      stroke: var(--overlay-muted-light);
     }
   }
 
@@ -84,9 +84,9 @@
   }
 
   &.Active {
-    background-color: #1f79aa;
-    color: #fffef8;
-    border: 1px solid #1f79aa;
+    background-color: var(--button-blue-hover);
+    color: var(--background-light);
+    border: 1px solid var(--button-blue-hover);
 
     .Caption {
       font-weight: 700;
@@ -109,8 +109,8 @@
   &Text {
     visibility: hidden;
     width: mixins.rem(100);
-    background-color: #32334C;
-    color: #fff;
+    background-color: var(--dark-gray);
+    color: var(--white);
     text-align: center;
     padding: mixins.rem(5) 0;
     border-radius: mixins.rem(6);
@@ -119,7 +119,7 @@
     top: calc(100% + #{mixins.rem(10)});
     left: 50%;
     margin-left: -(mixins.rem(50));
-    box-shadow: 0 mixins.rem(5) mixins.rem(8) rgb(0 0 0 / 15%);
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--overlay-black);
   }
 
   &:hover &Text {
@@ -135,7 +135,7 @@
       margin-left: -(mixins.rem(5));
       border-width: mixins.rem(5);
       border-style: solid;
-      border-color: transparent transparent #32334C;
+      border-color: transparent transparent var(--dark-gray);
     }
   }
 }

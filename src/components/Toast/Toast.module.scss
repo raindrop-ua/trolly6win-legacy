@@ -17,25 +17,25 @@
   justify-content: space-between;
   align-items: center;
   gap: mixins.rem(15);
-  background-color: #fffef8;
-  color: #1f2030;
+  background-color: var(--background-light);
+  color: var(--dark-blue);
   padding: mixins.rem(10) mixins.rem(15);
   border-radius: mixins.rem(15) 0 mixins.rem(10) mixins.rem(10);
-  border: 1px solid rgb(255 255 255 / 30%);
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+  border: 1px solid var(--highlight-light);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
 
   &.Success {
-    background-color: #179c41;
-    color: #fffef8;
+    background-color: var(--success-dark-green);
+    color: var(--background-light);
   }
 
   &.Error {
-    background-color: #a85757;
-    color: #fffef8;
+    background-color: var(--warning-red);
+    color: var(--background-light);
   }
 
   &.Info {
-    background-color: #1f79aa;
-    color: #fffef8;
+    background-color: var(--button-blue-hover);
+    color: var(--background-light);
   }
 }

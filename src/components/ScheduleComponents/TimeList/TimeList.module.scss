@@ -42,18 +42,18 @@
   border-radius: mixins.rem(6);
   width: 100%;
   font-size: mixins.rem(24);
-  color: #fff;
-  background-color: #0d7db9;
+  color: var(--white);
+  background-color: var(--button-blue-active);
   user-select: none;
   transition: all .2s ease;
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 10%);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
   visibility: visible;
   position: relative;
 
   &:hover {
     transform: scale(1.2);
     z-index: 1;
-    box-shadow: 0 mixins.rem(5) mixins.rem(8) rgb(0 0 0 / 15%);
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--overlay-black);
   }
 
   .Favorite {
@@ -65,42 +65,42 @@
     z-index: 1;
 
     svg {
-      fill: #ae2e19;
-      stroke: #fffef8;
+      fill: var(--error-dark);
+      stroke: var(--background-light);
     }
   }
 
   &.Past {
-    background-color: #32334C;
+    background-color: var(--dark-gray);
 
     .Favorite {
       svg {
-        fill: #77281a;
-        stroke: #fffef855;
+        fill: var(--dark-brick);
+        stroke: var(--overlay-subtle);
       }
     }
   }
 
   &.VerySoon {
-    background-color: #EF6C57;
+    background-color: var(--button-hover-red);
   }
 
   &.Soon {
-    background-color: #F7CC47;
-    color: #1d1d1d;
+    background-color: var(--warning-yellow);
+    color: var(--background-dark);
   }
 
   &.Upcoming {
-    background-color: #398378;
+    background-color: var(--green-accent);
   }
 
   &.UpcomingLater {
-    background-color: #1f79aa;
+    background-color: var(--button-blue-hover);
   }
 
   &.Cancelled {
-    background-color: #32334C;
-    color: #EF6C57;
+    background-color: var(--dark-gray);
+    color: var(--button-hover-red);
   }
 
 }

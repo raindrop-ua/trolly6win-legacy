@@ -8,27 +8,27 @@
   .Controls {
     margin-top: mixins.rem(5);
     padding-top: mixins.rem(15);
-    border-top: 1px solid #4b4c5e;
+    border-top: 1px solid var(--border-dark);
 
     .StopNameInput {
       width: 100%;
       font-size: mixins.rem(18);
-      color: #fffef8;
+      color: var(--background-light);
       border-radius: mixins.rem(10);
-      border: 1px solid #4b4c5e;
-      background-color: #3A3C56;
+      border: 1px solid var(--border-dark);
+      background-color: var(--primary-dark);
       padding: mixins.rem(10) mixins.rem(10);
       margin-bottom: mixins.rem(5);
 
       &:focus {
-        outline: 2px solid #1f79aa;
+        outline: 2px solid var(--button-blue-hover);
         outline-offset: -(mixins.rem(2));
       }
 
       &::placeholder {
         font-weight: bold;
         opacity: 1;
-        color: #858699;
+        color: var(--neutral-gray);
         font-size: mixins.rem(14);
       }
 

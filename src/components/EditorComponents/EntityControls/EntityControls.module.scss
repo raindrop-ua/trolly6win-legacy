@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: rgb(255 255 255 / 30%);
-    box-shadow: 0 mixins.rem(2) mixins.rem(4) rgb(0 0 0 / 8%);
+    background-color: var(--highlight-light);
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--overlay-extra-light);
     border-radius: mixins.rem(6);
     padding: mixins.rem(4);
     border: none;
@@ -31,27 +31,27 @@
     opacity: 1;
 
     svg {
-      stroke: #fffef8;
+      stroke: var(--background-light);
     }
 
     &.Edit {
-      background-color: rgb(25 108 153 / 88%);
+      background-color: var(--primary-blue);
     }
 
     &.Publish {
-      background-color: rgb(0 255 42 / 30%);
+      background-color: var(--success-light);
     }
 
     &.Unpublish {
-      background-color: rgb(255 255 255 / 30%);
+      background-color: var(--highlight-light);
     }
 
     &.Delete {
-      background-color: rgb(225 15 15 / 75%);
+      background-color: var(--error-light);
     }
 
     &.Disabled {
-      background-color: rgb(85 86 106);
+      background-color: var(--secondary-gray);
 
       svg {
         opacity: 0.5;

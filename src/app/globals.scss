@@ -7,13 +7,57 @@
 }
 
 :root {
-  --background-color: #28293E;
-  --text-color: rgb(255 255 255 / 87%);
+  --background-color: #fff;
+  --text-color: #28293E;
 }
 
 [theme='dark'] {
   --background-color: #28293E;
   --text-color: rgb(255 255 255 / 87%);
+  --primary-dark: #3A3C56;
+  --overlay-light: rgb(255 255 255 / 10%);
+  --secondary-dark: #383a5a;
+  --accent-dark: #424463;
+  --overlay-dark: rgb(0 0 0 / 50%);
+  --background-secondary: #31324c;
+  --border-dark: #4b4c5e;
+  --highlight-light: rgb(255 255 255 / 30%);
+  --overlay-extra-light: rgb(0 0 0 / 8%);
+  --background-light: #fffef8;
+  --primary-blue: rgb(25 108 153 / 88%);
+  --success-light: rgb(0 255 42 / 30%);
+  --error-light: rgb(225 15 15 / 75%);
+  --secondary-gray: rgb(85 86 106);
+  --text-muted: rgb(255 255 255 / 70%);
+  --white: #fff;
+  --shadow-light: rgb(0 0 0 / 10%);
+  --neutral-gray: #858699;
+  --link-blue: #196c99;
+  --button-blue-hover: #1f79aa;
+  --accent-purple: #8e3d6a;
+  --warning-yellow: #F7CC47;
+  --button-red: #EF6D58;
+  --button-blue: #1183ff;
+  --background-overlay: rgb(31 32 48 / 75%);
+  --overlay-muted: rgb(255 255 255 / 15%);
+  --error-dark: #ae2e19;
+  --overlay-muted-light: #fffef888;
+  --dark-gray: #32334C;
+  --overlay-black: rgb(0 0 0 / 15%);
+  --dark-red: #4c3232;
+  --brick-red: #85372b;
+  --button-blue-active: #0d7db9;
+  --dark-background: rgb(49 50 76);
+  --transparent: rgb(0 212 255 / 0%);
+  --dark-brick: #77281a;
+  --overlay-subtle: #fffef855;
+  --button-hover-red: #EF6C57;
+  --background-dark: #1d1d1d;
+  --green-accent: #398378;
+  --text-highlight: #3d4067;
+  --dark-blue: #1f2030;
+  --success-dark-green: #179c41;
+  --warning-red: #a85757;
 }
 
 html,
@@ -37,8 +81,6 @@ body {
   overflow: hidden;
 }
 
-
-
 a {
   color: inherit;
   text-decoration: none;
@@ -58,7 +100,6 @@ h2 {
   line-height: 1.5rem;
   margin: 0;
   padding: 0;
-
 }
 
 html .swiper {

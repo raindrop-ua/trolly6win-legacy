@@ -1,10 +1,10 @@
 @use '@/styles/mixins' as mixins;
 
 .CurrentTime {
-  background-color: #32334C;
+  background-color: var(--dark-gray);
   border-radius: mixins.rem(10);
-  border: 1px solid #3A3C56;
-  color: #fffef8;
+  border: 1px solid var(--primary-dark);
+  color: var(--background-light);
   font-size: 1.25rem;
   line-height: 1.5rem;
   display: flex;

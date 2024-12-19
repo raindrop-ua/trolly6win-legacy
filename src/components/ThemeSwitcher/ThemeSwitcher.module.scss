@@ -8,8 +8,8 @@
   align-items: center;
   gap: mixins.rem(4);
   padding: mixins.rem(4);
-  border: 1px solid #28293E;
-  background-color: #31324c;
+  border: 1px solid var(--background-color);
+  background-color: var(--background-secondary);
   border-radius: 50px;
 
   .Button {
@@ -26,22 +26,22 @@
     transition: all 0.3s ease;
 
     &.Active {
-      border: 2px solid #3d4067;
+      border: 2px solid var(--text-highlight);
     }
 
     &.Light {
-      background-color: #F7CC47;
-      color: #1d1d1d;
+      background-color: var(--warning-yellow);
+      color: var(--background-dark);
     }
 
     &.Dark {
-      background-color: #383a5a;
-      color: #F7CC47;
+      background-color: var(--secondary-dark);
+      color: var(--warning-yellow);
     }
 
     &.Auto {
-      background-color: #0d7db9;
-      color: #fffef8;
+      background-color: var(--button-blue-active);
+      color: var(--background-light);
     }
 
   }

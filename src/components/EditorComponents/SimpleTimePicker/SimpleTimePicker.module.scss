@@ -9,7 +9,7 @@
   gap: mixins.rem(10);
   margin: mixins.rem(10) 0;
   padding: mixins.rem(10) 0 0;
-  border-top: 1px solid #4b4c5e;
+  border-top: 1px solid var(--border-dark);
   container-type: inline-size;
 
   .AddButton {
@@ -17,9 +17,9 @@
     cursor: pointer;
     outline: none;
     font-size: mixins.rem(18);
-    border: 1px solid rgb(255 255 255 / 30%);
+    border: 1px solid var(--highlight-light);
     border-radius: mixins.rem(10);
-    background-color: #28293E;
+    background-color: var(--background-color);
     padding: mixins.rem(5);
     display: flex;
     flex-direction: row;
@@ -30,11 +30,11 @@
     > svg {
       width: 18px;
       height: 18px;
-      stroke: rgb(255 255 255 / 70%);
+      stroke: var(--text-muted);
     }
 
     &:active {
-      background-color: #3A3C56;
+      background-color: var(--primary-dark);
     }
   }
 
@@ -63,8 +63,8 @@
   align-items: center;
   font-size: mixins.rem(20);
   border-radius: mixins.rem(10);
-  border: 1px solid #4b4c5e;
-  background-color: #3A3C56;
+  border: 1px solid var(--border-dark);
+  background-color: var(--primary-dark);
   padding: mixins.rem(5) mixins.rem(15);
   width: mixins.rem(90);
   container-type: inline-size;
@@ -85,8 +85,8 @@
     cursor: pointer;
     outline: none;
     font-size: mixins.rem(18);
-    border: 1px solid rgb(255 255 255 / 30%);
-    background-color: #28293E;
+    border: 1px solid var(--highlight-light);
+    background-color: var(--background-color);
     padding: 0 mixins.rem(4);
     display: flex;
     flex-direction: row;
@@ -97,7 +97,7 @@
     & svg {
       width: 18px;
       height: 18px;
-      stroke: rgb(255 255 255 / 70%);
+      stroke: var(--text-muted);
     }
 
     &:first-child {
@@ -110,7 +110,7 @@
     }
 
     &:active {
-      background-color: #3A3C56;
+      background-color: var(--primary-dark);
     }
 
     @container (max-width: 175px) {
