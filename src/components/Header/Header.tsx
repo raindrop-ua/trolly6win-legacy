@@ -3,6 +3,7 @@ import Link from 'next/link'
 import TrolleybusIcon from '@/components/TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
 import styles from './Header.module.scss'
+import ThemeSwitcher from '@/components/ThemeSwitcher'
 
 const Header: React.FC = () => {
 	return (
@@ -42,6 +43,11 @@ const Header: React.FC = () => {
 							the city of Dnipro.
 						</h2>
 					</div>
+				</div>
+				<div>
+					<ThemeSwitcher />
+					<br />
+					<Link href={'/login'}>Login</Link>
 				</div>
 			</div>
 		</div>

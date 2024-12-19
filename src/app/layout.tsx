@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import IntervalInitializer from '@/components/IntervalInitializer'
 import Toast from '@/components/Toast'
 import EditorModal from '@/components/EditorComponents/EditorModal'
+import ThemeHandler from '@/components/ThemeHandler'
 
 const dniproCity = localFont({
 	src: [
@@ -42,6 +43,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${dniproCity.variable}`}>
+				<ThemeHandler />
 				{modal}
 				<SectionWrapper as={'header'} useSection={false}>
 					<Header />

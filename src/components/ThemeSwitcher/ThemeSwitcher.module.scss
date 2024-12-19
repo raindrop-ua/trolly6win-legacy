@@ -1,0 +1,48 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.ThemeSwitcherWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: mixins.rem(4);
+  padding: mixins.rem(4);
+  border: 1px solid #28293E;
+  background-color: #31324c;
+  border-radius: 50px;
+
+  .Button {
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: mixins.rem(32);
+    height: mixins.rem(32);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: mixins.rem(10);
+    transition: all 0.3s ease;
+
+    &.Active {
+      border: 2px solid #3d4067;
+    }
+
+    &.Light {
+      background-color: #F7CC47;
+      color: #1d1d1d;
+    }
+
+    &.Dark {
+      background-color: #383a5a;
+      color: #F7CC47;
+    }
+
+    &.Auto {
+      background-color: #0d7db9;
+      color: #fffef8;
+    }
+
+  }
+}

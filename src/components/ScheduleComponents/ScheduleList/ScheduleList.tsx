@@ -82,7 +82,7 @@ const ScheduleList: React.FC = () => {
 			<div className={classNames(styles.ControlsBlock)}>
 				<SelectButtons
 					className={styles.Schedule}
-					label={'ScheduleComponents for'}
+					label={'Schedule for'}
 					options={availableDayTypesInternalNames}
 					labels={availableDayTypesNames}
 					selectedOption={dayType || ''}
