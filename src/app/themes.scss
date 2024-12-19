@@ -2,19 +2,13 @@
   /* General */
   --background-color: #f7f8fc;
   --text-color: #1F2030;
-
-  /* Header */
-  --header-logo-color: #1f79aa;
-  --header-text-color: #31324CFF;
-  --header-text-selected-color: #F7CC47;
-  --header-text-selected-border-color: #55566A;
-  --header-text-selected-background-color: #55566A;
 }
 
 @mixin dark-theme {
   /* General */
   --background-color: #28293E;
   --text-color: rgb(255 255 255 / 87%);
+  --overlay-muted: rgb(255 255 255 / 15%);
 
   /* Header */
   --header-logo-color: #1f79aa;
@@ -24,6 +18,18 @@
   --header-text-selected-background-color: #31324C;
 
   /* Schedule Board */
+  --schedule-board-left-border: #1F79AA;
+  --schedule-board-text-color: #FFF;
+  --schedule-board-background-color: #32334C;
+  --schedule-board-button-focus-visible: #EF6D58;
+  --schedule-board-button-ripple: rgb(255 255 255 / 15%);
+  --schedule-board-button-shadow: rgb(0 0 0 / 10%);
+  --schedule-board-button-color: #FFF;
+  --schedule-board-button-background-color: #32334C;
+  --schedule-board-button-border-color: #FFFFFF4C;
+  --schedule-board-button-active-color: #FFF;
+  --schedule-board-button-active-background-color: #1F79AA;
+  --schedule-board-button-active-border-color: #1F79AA;
 
   /* to review */
   --primary-dark: #31324c;
@@ -37,7 +43,6 @@
   --dark-blue: #1f2030;
   --overlay-extra-light: rgb(0 0 0 / 8%);
   --background-overlay: rgb(31 32 48 / 75%);
-  --overlay-muted: rgb(255 255 255 / 15%);
   --background-dark: #1d1d1d;
   --shadow-light: rgb(0 0 0 / 10%);
   --highlight-light: rgb(255 255 255 / 30%);

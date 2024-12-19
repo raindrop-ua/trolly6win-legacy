@@ -101,14 +101,6 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 					</span>
 				</>
 			)}
-			{icon && !children && (
-				<>
-					{icon as ReactElement}
-					<div className={styles.Tooltip}>
-						<div className={styles.TooltipText}>{label || value}</div>
-					</div>
-				</>
-			)}
 			{children && <span className={styles.BaselineContent}>{children}</span>}
 		</button>
 	)
