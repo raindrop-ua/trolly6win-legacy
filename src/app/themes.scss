@@ -21,15 +21,47 @@
   --schedule-board-left-border: #1F79AA;
   --schedule-board-text-color: #FFF;
   --schedule-board-background-color: #32334C;
+  --schedule-board-border-color: #424463;
   --schedule-board-button-focus-visible: #EF6D58;
   --schedule-board-button-ripple: rgb(255 255 255 / 15%);
   --schedule-board-button-shadow: rgb(0 0 0 / 10%);
   --schedule-board-button-color: #FFF;
   --schedule-board-button-background-color: #32334C;
-  --schedule-board-button-border-color: #FFFFFF4C;
+  --schedule-board-button-border-color: rgb(255 255 255 / 30%);
   --schedule-board-button-active-color: #FFF;
   --schedule-board-button-active-background-color: #1F79AA;
   --schedule-board-button-active-border-color: #1F79AA;
+  --schedule-board-departure-past-color: #FFF;
+  --schedule-board-departure-past-background-color: #424463;
+  --schedule-board-departure-very-soon-color: #FFF;
+  --schedule-board-departure-very-soon-background-color: #EF6C57;
+  --schedule-board-departure-soon-color: #1c1d2b;
+  --schedule-board-departure-soon-background-color: #F7CC47;
+  --schedule-board-departure-upcoming-color: #FFF;
+  --schedule-board-departure-upcoming-background-color: #398378;
+  --schedule-board-departure-upcoming-later-color: #FFF;
+  --schedule-board-departure-upcoming-later-background-color: #1F79AA;
+  --schedule-board-departure-cancelled-color: #FFF;
+  --schedule-board-departure-cancelled-background-color: #32334C;
+
+  /* Note */
+  --note-background-color: #32334C;
+  --note-border-color: #424463;
+  --note-text-color: #FFF;
+  --note-alert-background-color: #4C3232;
+  --note-alert-border-color: #85372B;
+  --note-alert-text-color: #FFF;
+
+  /* Entity Action Controls */
+  --entity-action-control-color: #FFF;
+  --entity-action-control-edit: rgb(25 108 153 / 88%);
+  --entity-action-control-publish: rgb(0 255 42 / 30%);
+  --entity-action-control-unpublish: rgb(255 255 255 / 30%);
+  --entity-action-control-delete: rgb(225 15 15 / 75%);
+  --entity-action-control-disabled: #55566A;
+  --entity-action-control-shadow: rgb(0 0 0 / 8%);
+
+
 
   /* to review */
   --primary-dark: #31324c;
@@ -48,9 +80,6 @@
   --highlight-light: rgb(255 255 255 / 30%);
   --neutral-gray: #858699;
   --background-light: #fffef8;
-  --primary-blue: rgb(25 108 153 / 88%);
-  --success-light: rgb(0 255 42 / 30%);
-  --error-light: rgb(225 15 15 / 75%);
   --text-muted: rgb(255 255 255 / 70%);
   --white: #fff;
   --accent-purple: #8e3d6a;

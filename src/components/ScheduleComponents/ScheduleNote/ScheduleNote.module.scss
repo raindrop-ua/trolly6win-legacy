@@ -7,15 +7,16 @@
   justify-content: space-between;
   align-items: center;
   gap: mixins.rem(15);
-  background-color: var(--dark-gray);
+  background-color: var(--note-background-color);
   border-radius: mixins.rem(10);
-  border: 1px solid var(--primary-dark);
-  color: var(--background-light);
+  border: 1px solid var(--note-border-color);
+  color: var(--note-text-color);
   padding: mixins.rem(15) mixins.rem(20);
 
   &.Alert {
-    background-color: var(--dark-red);
-    border-color: var(--brick-red);
+    background-color: var(--note-alert-background-color);
+    border-color: var(--note-alert-border-color);
+    color: var(--note-alert-text-color);
   }
 
   .Note {

@@ -71,36 +71,33 @@
   }
 
   &.Past {
-    background-color: var(--dark-gray);
-
-    .Favorite {
-      svg {
-        fill: var(--dark-brick);
-        stroke: var(--overlay-subtle);
-      }
-    }
+    color: var(--schedule-board-departure-past-color);
+    background-color: var(--schedule-board-departure-past-background-color);
   }
 
   &.VerySoon {
-    background-color: var(--departure-very-soon);
+    color: var(--schedule-board-departure-very-soon-color);
+    background-color: var(--schedule-board-departure-very-soon-background-color);
   }
 
   &.Soon {
-    background-color: var(--departure-soon);
-    color: var(--background-dark);
+    color: var(--schedule-board-departure-soon-color);
+    background-color: var(--schedule-board-departure-soon-background-color);
   }
 
   &.Upcoming {
-    background-color: var(--departure-upcoming);
+    color: var(--schedule-board-departure-upcoming-color);
+    background-color: var(--schedule-board-departure-upcoming-background-color);
   }
 
   &.UpcomingLater {
-    background-color: var(--departure-upcoming-later);
+    color: var(--schedule-board-departure-upcoming-later-color);
+    background-color: var(--schedule-board-departure-upcoming-later-background-color);
   }
 
   &.Cancelled {
-    background-color: var(--dark-gray);
-    color: var(--button-hover-red);
+    color: var(--schedule-board-departure-cancelled-color);
+    background-color: var(--schedule-board-departure-cancelled-background-color);
   }
 
 }

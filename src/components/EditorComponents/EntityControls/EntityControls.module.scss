@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: var(--highlight-light);
-    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--overlay-extra-light);
+    background-color: transparent;
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--entity-action-control-shadow);
     border-radius: mixins.rem(6);
     padding: mixins.rem(4);
     border: none;
@@ -31,27 +31,27 @@
     opacity: 1;
 
     svg {
-      stroke: var(--background-light);
+      stroke: var(--entity-action-control-color);
     }
 
     &.Edit {
-      background-color: var(--primary-blue);
+      background-color: var(--entity-action-control-edit);
     }
 
     &.Publish {
-      background-color: var(--success-light);
+      background-color: var(--entity-action-control-publish);
     }
 
     &.Unpublish {
-      background-color: var(--highlight-light);
+      background-color: var(--entity-action-control-unpublish);
     }
 
     &.Delete {
-      background-color: var(--error-light);
+      background-color: var(--entity-action-control-delete);
     }
 
     &.Disabled {
-      background-color: var(--secondary-gray);
+      background-color: var(--entity-action-control-disabled);
 
       svg {
         opacity: 0.5;
