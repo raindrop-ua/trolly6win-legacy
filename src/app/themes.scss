@@ -1,0 +1,81 @@
+@mixin light-theme {
+  /* General */
+  --background-color: #f7f8fc;
+  --text-color: #1F2030;
+
+  /* Header */
+  --header-logo-color: #1f79aa;
+  --header-text-color: #31324CFF;
+  --header-text-selected-color: #F7CC47;
+  --header-text-selected-border-color: #55566A;
+  --header-text-selected-background-color: #55566A;
+}
+
+@mixin dark-theme {
+  /* General */
+  --background-color: #28293E;
+  --text-color: rgb(255 255 255 / 87%);
+
+  /* Header */
+  --header-logo-color: #1f79aa;
+  --header-text-color: #fffef8;
+  --header-text-selected-color: #F7CC47;
+  --header-text-selected-border-color: #31324C;
+  --header-text-selected-background-color: #31324C;
+
+  /* Schedule Board */
+
+  /* to review */
+  --primary-dark: #31324c;
+  --overlay-light: rgb(255 255 255 / 10%);
+  --secondary-dark: #383a5a;
+  --accent-dark: #424463;
+  --overlay-dark: rgb(0 0 0 / 50%);
+  --border-dark: #4b4c5e;
+  --secondary-gray: #55566A;
+  --dark-gray: #32334C;
+  --dark-blue: #1f2030;
+  --overlay-extra-light: rgb(0 0 0 / 8%);
+  --background-overlay: rgb(31 32 48 / 75%);
+  --overlay-muted: rgb(255 255 255 / 15%);
+  --background-dark: #1d1d1d;
+  --shadow-light: rgb(0 0 0 / 10%);
+  --highlight-light: rgb(255 255 255 / 30%);
+  --neutral-gray: #858699;
+  --background-light: #fffef8;
+  --primary-blue: rgb(25 108 153 / 88%);
+  --success-light: rgb(0 255 42 / 30%);
+  --error-light: rgb(225 15 15 / 75%);
+  --text-muted: rgb(255 255 255 / 70%);
+  --white: #fff;
+  --accent-purple: #8e3d6a;
+  --warning-yellow: #F7CC47;
+  --button-red: #EF6D58;
+  --error-dark: #ae2e19;
+  --overlay-muted-light: #fffef888;
+  --dark-red: #4c3232;
+  --brick-red: #85372b;
+  --button-blue-active: #0d7db9;
+  --dark-brick: #77281a;
+  --overlay-subtle: #fffef855;
+  --departure-very-soon: #EF6C57;
+  --departure-soon: #F7CC47;
+  --departure-upcoming: #398378;
+  --departure-upcoming-later: #1f79aa;
+  --success-dark-green: #179c41;
+  --warning-red: #a85757;
+}
+
+:root {
+  @include light-theme;
+}
+
+[data-theme='dark']:root {
+  @include dark-theme;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']){
+    @include dark-theme;
+  }
+}

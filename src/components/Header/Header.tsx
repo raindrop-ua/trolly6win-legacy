@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import TrolleybusIcon from '@/components/TrolleybusIcon'
+import TrolleybusIcon from './TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
 import styles from './Header.module.scss'
 import ThemeSwitcher from '@/components/ThemeSwitcher'

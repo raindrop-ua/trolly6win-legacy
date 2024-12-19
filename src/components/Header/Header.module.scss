@@ -22,27 +22,31 @@
 
   h1 {
     display: flex;
-    gap: mixins.rem(10);
+    gap: mixins.rem(8);
+    color: var(--header-text-color);
 
     span {
-      color: var(--warning-yellow);
+      color: var(--header-text-selected-color);
       font-weight: 700;
-      border: 1px solid var(--primary-dark);
+      border: 1px solid var(--header-text-selected-border-color);
       border-radius: mixins.rem(6);
       display: inline-block;
       padding: 0 mixins.rem(5);
-      background-color: var(--background-color);
+      background-color: var(--header-text-selected-background-color);
     }
   }
 
   h2 {
+    color: var(--header-text-color);
+
     > span > span {
-      color:var(--warning-yellow);
+      color:var(--header-text-selected-color);
       font-weight: 700;
-      border: 1px solid var(--primary-dark);
+      border: 1px solid var(--header-text-selected-border-color);
       border-radius: mixins.rem(6);
       display: inline-block;
       padding: 0 mixins.rem(5);
+      background-color: var(--header-text-selected-background-color);
     }
   }
 }
@@ -61,7 +65,7 @@
   }
 
   svg path {
-    stroke: var(--departure-upcoming-later);
+    stroke: var(--header-logo-color);
   }
 }
 
