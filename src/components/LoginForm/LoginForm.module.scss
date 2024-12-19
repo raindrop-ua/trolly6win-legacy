@@ -1,6 +1,98 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
 
-LoginForm.module.scss
-     Missed semicolon  
+.LoginForm {
+  margin: 0 auto;
+  max-width: 400px;
 
-1 problem (, )
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: mixins.rem(20);
+  }
 
+  .FormGroup {
+    margin-bottom: mixins.rem(20);
+
+    label {
+      display: block;
+      margin-bottom: mixins.rem(10);
+      font-size: mixins.rem(16);
+    }
+
+    input {
+      width: 100%;
+      padding: mixins.rem(10);
+      background-color: var(--background-color);
+      border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
+      border: 1px solid var(--highlight-light);
+      font-size: mixins.rem(16);
+      color: var(--white);
+
+      &:focus-visible {
+        outline: #{mixins.rem(2)} solid var(--button-blue-hover);
+        outline-offset: mixins.rem(2);
+        border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
+      }
+
+      &.Error {
+        border-color:var(--button-red);
+      }
+    }
+
+    .ErrorMessage {
+      color: var(--button-red);
+      margin-top: mixins.rem(10);
+    }
+  }
+
+  .Button {
+    @include button-style-basic;
+    @include button-style;
+
+    width: 100%;
+    background-color: var(--button-blue-hover);
+    color: var(--background-light);
+    border: none;
+    cursor: pointer;
+    font-size: mixins.rem(16);
+
+    &.Submitting {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .ButtonTransparent {
+    background: none;
+    border: none;
+    color: var(--button-blue);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: mixins.rem(16);
+    font-weight: 700;
+  }
+
+  .DontHave {
+    text-align: center;
+    margin-top: mixins.rem(20);
+  }
+
+  .Success {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: mixins.rem(12);
+
+    svg {
+      stroke: var(--success-dark-green);
+    }
+
+    span {
+      color: var(--success-dark-green);
+      font-size: mixins.rem(16);
+      font-weight: 700;
+    }
+  }
+}

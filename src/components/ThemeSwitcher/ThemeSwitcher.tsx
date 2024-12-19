@@ -1,7 +1,7 @@
 'use client'
 
 import { useThemeStore } from '@/store/themeStore'
-import { Moon, Sun } from 'lucide-react'
+import { MonitorCog, Moon, Sun } from 'lucide-react'
 import styles from './ThemeSwitcher.module.scss'
 import classNames from 'classnames'
 
@@ -48,7 +48,7 @@ export default function ThemeSwitcher() {
 				})}
 				onClick={() => handleThemeSet(Theme.Auto)}
 			>
-				<span>Auto</span>
+				<MonitorCog size={16} />
 			</button>
 		</div>
 		// <button onClick={handleToggle}>

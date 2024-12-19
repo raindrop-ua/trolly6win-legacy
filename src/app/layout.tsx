@@ -9,6 +9,16 @@ import IntervalInitializer from '@/components/IntervalInitializer'
 import Toast from '@/components/Toast'
 import EditorModal from '@/components/EditorComponents/EditorModal'
 import ThemeHandler from '@/components/ThemeHandler'
+import { cookies } from 'next/headers'
+
+async function getThemeFromCookies(): Promise<'light' | 'dark' | 'auto'> {
+	const themeCookie = (await cookies()).get('theme')?.value
+	return themeCookie === 'light' ||
+		themeCookie === 'dark' ||
+		themeCookie === 'auto'
+		? themeCookie
+		: 'auto'
+}
 
 const dniproCity = localFont({
 	src: [
@@ -33,15 +43,17 @@ export const metadata: Metadata = {
 	publisher: 'Anton Sizov',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 	modal,
 }: Readonly<{
 	children: React.ReactNode
 	modal: React.ReactNode
 }>) {
+	const theme = await getThemeFromCookies()
+
 	return (
-		<html lang='en'>
+		<html lang='en' data-theme={theme === 'auto' ? undefined : theme}>
 			<body className={`${dniproCity.variable}`}>
 				<ThemeHandler />
 				{modal}

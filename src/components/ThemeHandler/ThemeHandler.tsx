@@ -4,12 +4,12 @@ import { useEffect } from 'react'
 import { useThemeStore } from '@/store/themeStore'
 
 export default function ThemeHandler() {
-	const { effectiveTheme, initializeTheme } = useThemeStore()
+	const { effectiveTheme, theme, initializeTheme } = useThemeStore()
 
 	useEffect(() => {
 		initializeTheme()
 
-		document.body.setAttribute('theme', effectiveTheme)
+		document.documentElement.setAttribute('data-theme', effectiveTheme)
 	}, [effectiveTheme, initializeTheme])
 
 	return null
