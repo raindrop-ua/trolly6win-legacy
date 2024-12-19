@@ -9,8 +9,8 @@ import { Stop } from '@/types/types'
 import DirectionBox from '@/components/EditorComponents/DirectionBox'
 import EntityControls from '@/components/EditorComponents/EntityControls'
 import TabsBox from '@/components/EditorComponents/TabsBox'
-import { EntityControlAction } from '@/components/EditorComponents/EntityControls/EntityControls'
-import { Tag } from 'lucide-react'
+import { EntityControlAction } from '@/components/EditorComponents/EntityControls'
+import { Star, Tag } from 'lucide-react'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()
@@ -51,7 +51,14 @@ const StopProperties: React.FC<{}> = () => {
 	return (
 		<div className={styles.StopProperties}>
 			<div className={styles.StopPropertiesTitle}>
-				<h3>{item?.name}</h3>
+				<h3>
+					{item?.name}
+					{item?.isDefault && (
+						<span>
+							<Star size={18} />
+						</span>
+					)}
+				</h3>
 				<EntityControls isPublished={item.isPublished} onClick={handleAction} />
 			</div>
 			<div className={styles.Info}>
