@@ -36,7 +36,7 @@
   animation: bus-bounce 500ms infinite ease-in-out;
 
   svg path {
-    fill: var(--button-blue-hover);
+    fill: var(--departure-upcoming-later);
   }
 }
 
@@ -47,6 +47,6 @@
   animation: wheel-bounce 500ms infinite ease-in-out;
 
   svg path {
-    fill: var(--button-blue-hover);
+    fill: var(--departure-upcoming-later);
   }
 }

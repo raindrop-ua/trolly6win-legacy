@@ -30,7 +30,7 @@
       color: var(--white);
 
       &:focus-visible {
-        outline: #{mixins.rem(2)} solid var(--button-blue-hover);
+        outline: #{mixins.rem(2)} solid var(--departure-upcoming-later);
         outline-offset: mixins.rem(2);
         border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
       }
@@ -51,7 +51,7 @@
     @include button-style;
 
     width: 100%;
-    background-color: var(--button-blue-hover);
+    background-color: var(--departure-upcoming-later);
     color: var(--background-light);
     border: none;
     cursor: pointer;
@@ -66,7 +66,7 @@
   .ButtonTransparent {
     background: none;
     border: none;
-    color: var(--button-blue);
+    color: var(--button-blue-active);
     text-decoration: underline;
     cursor: pointer;
     font-size: mixins.rem(16);

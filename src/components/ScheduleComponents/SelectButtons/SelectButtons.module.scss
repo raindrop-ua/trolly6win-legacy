@@ -12,7 +12,7 @@
   border-radius: mixins.rem(7);
   padding: mixins.rem(10) mixins.rem(5) mixins.rem(10) mixins.rem(5);
   min-height: mixins.rem(104);
-  background-color: var(--dark-background);
+  background-color: var(--dark-gray);
 
   .GroupCaption {
     font-size: 1.125rem;
@@ -32,7 +32,7 @@
     content: '';
     display: block;
     position: absolute;
-    background: var(--dark-background);
+    background: var(--dark-gray);
     width: mixins.rem(14);
     height: 100%;
     z-index: 100;
@@ -42,13 +42,13 @@
   &::before {
     top: 0;
     left: -1px;
-    background: linear-gradient(90deg, var(--dark-background) 0%, var(--transparent) 100%);
+    background: linear-gradient(90deg, var(--dark-gray) 0%, transparent 100%);
   }
 
   &::after {
     top: 0;
     right: -1px;
-    background: linear-gradient(90deg, var(--transparent) 0%, var(--dark-background) 100%);
+    background: linear-gradient(90deg, transparent 0%, var(--dark-gray) 100%);
   }
 
   &:hover  button:not(:hover) {

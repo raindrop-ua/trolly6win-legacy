@@ -53,7 +53,7 @@
   &:hover {
     transform: scale(1.2);
     z-index: 1;
-    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--overlay-black);
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--background-overlay);
   }
 
   .Favorite {
@@ -82,20 +82,20 @@
   }
 
   &.VerySoon {
-    background-color: var(--button-hover-red);
+    background-color: var(--departure-very-soon);
   }
 
   &.Soon {
-    background-color: var(--warning-yellow);
+    background-color: var(--departure-soon);
     color: var(--background-dark);
   }
 
   &.Upcoming {
-    background-color: var(--green-accent);
+    background-color: var(--departure-upcoming);
   }
 
   &.UpcomingLater {
-    background-color: var(--button-blue-hover);
+    background-color: var(--departure-upcoming-later);
   }
 
   &.Cancelled {

@@ -9,7 +9,7 @@
   gap: mixins.rem(4);
   padding: mixins.rem(4);
   border: 1px solid var(--background-color);
-  background-color: var(--background-secondary);
+  background-color: var(--primary-dark);
   border-radius: 50px;
 
   .Button {
@@ -26,7 +26,7 @@
     transition: all 0.3s ease;
 
     &.Active {
-      border: 2px solid var(--text-highlight);
+      border: 2px solid var(--secondary-dark);
     }
 
     &.Light {

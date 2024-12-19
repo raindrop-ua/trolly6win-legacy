@@ -21,7 +21,7 @@
       margin-bottom: mixins.rem(5);
 
       &:focus {
-        outline: 2px solid var(--button-blue-hover);
+        outline: 2px solid var(--departure-upcoming-later);
         outline-offset: -(mixins.rem(2));
       }
 

@@ -4,7 +4,7 @@
 .StopCard {
   cursor: grab;
   color: var(--white);
-  background-color: var(--primary-dark);
+  background-color: var(--accent-dark);
   border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
   border: 1px solid var(--border-dark);
   box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
@@ -29,12 +29,12 @@
   }
 
   &.Unpublished {
-    background-color: var(--background-secondary);
+    background-color: var(--primary-dark);
   }
 
   &.Selected {
-    background-color: var(--link-blue);
-    border: 1px solid var(--link-blue);
+    background-color: var(--departure-upcoming-later);
+    border: 1px solid var(--departure-upcoming-later);
 
     .Icon {
       svg {
