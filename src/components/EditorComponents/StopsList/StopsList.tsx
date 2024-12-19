@@ -5,8 +5,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './StopsList.module.scss'
 import useToastStore from '@/store/toastStore'
 import useEditorStore from '@/store/editorStore'
-import useEditorModalStore from '@/store/editorModalStore'
-import { fetchStops, updateStopsOrder } from '@/services/stopsService'
 import StopCard from '@/components/EditorComponents/StopCard'
 import EditorButton from '@/components/EditorComponents/EditorButton'
 import { Plus } from 'lucide-react'
@@ -15,58 +13,28 @@ import { Stop } from '@/types/types'
 
 const StopsList = () => {
 	const { addToast } = useToastStore()
-	const { selectedStop, setSelectedStop } = useEditorStore()
+	const {
+		selectedStop,
+		setSelectedStop,
+		stops,
+		fetchStops,
+		updateStopsOrder,
+		isLoading,
+		error,
+	} = useEditorStore()
 	const [items, setItems] = useState<Stop[]>([])
-	const [loading, setLoading] = useState(true)
-	const [error, setError] = useState<string | null>(null)
-
-	const openModal = useEditorModalStore((state) => state.openModal)
-	const closeModal = useEditorModalStore((state) => state.closeModal)
 
 	useEffect(() => {
-		const loadStops = async () => {
-			try {
-				setLoading(true)
-				const stops = await fetchStops()
-				stops && setItems(stops.sort((a, b) => a.sortIndex - b.sortIndex))
-			} catch (err: any) {
-				setError(err.message || 'Failed to load stops')
-			} finally {
-				setLoading(false)
-			}
-		}
-
-		loadStops()
-	}, [])
-
-	// const handleClick = async () => {
-	// 	const handleOnSubmit = (e: any) => {
-	// 		e.preventDefault()
-	// 		const formData = new FormData(e.target as HTMLFormElement)
-	// 		const data = Object.fromEntries(formData.entries())
-	// 		closeModal(data)
-	// 	}
-	// 	const result = await openModal(
-	// 		<form onSubmit={handleOnSubmit}>
-	// 			<label>
-	// 				Name:
-	// 				<input name='name' type='text' required />
-	// 			</label>
-	// 			<button type='submit'>Submit</button>
-	// 		</form>,
-	// 		<div>Add direction</div>,
-	// 	)
-	//
-	// 	console.log('Data from modal:', result)
-	// }
+		fetchStops()
+	}, [fetchStops])
 
 	const handleOnDragEnd = async (result: any) => {
 		if (!result.destination) return
 
-		const reorderedItems = Array.from(items)
+		const reorderedItems = Array.from(stops)
 		const [removed] = reorderedItems.splice(result.source.index, 1)
-		reorderedItems.splice(result.destination.index, 0, removed)
 
+		reorderedItems.splice(result.destination.index, 0, removed)
 		setItems(reorderedItems)
 
 		const sortPayload = reorderedItems.map((item, index) => ({
@@ -101,7 +69,7 @@ const StopsList = () => {
 		console.log('add stop')
 	}
 
-	if (loading)
+	if (isLoading)
 		return <div className={styles.StopsListWrapper}>Loading stops...</div>
 	if (error) return <p className={styles.ErrorMessage}>{error}</p>
 
@@ -115,7 +83,7 @@ const StopsList = () => {
 							ref={provided.innerRef}
 							className={styles.StopsList}
 						>
-							{items.map((item, index) => (
+							{stops.map((item, index) => (
 								<Draggable key={item.id} draggableId={item.id} index={index}>
 									{(provided) => (
 										<li

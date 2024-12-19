@@ -2,38 +2,39 @@
 
 import React, { useEffect, useState } from 'react'
 import styles from './StopProperties.module.scss'
-import useEditorStore from '@/store/editorStore'
-import { fetchStop } from '@/services/stopService'
 import { formatToDateTime } from '@/utils/helpers'
+import useEditorStore from '@/store/editorStore'
 import useToastStore from '@/store/toastStore'
 import { Stop } from '@/types/types'
 import DirectionBox from '@/components/EditorComponents/DirectionBox'
 import EntityControls from '@/components/EditorComponents/EntityControls'
 import TabsBox from '@/components/EditorComponents/TabsBox'
+import { EntityControlAction } from '@/components/EditorComponents/EntityControls/EntityControls'
+import { Tag } from 'lucide-react'
 
 const StopProperties: React.FC<{}> = () => {
 	const { addToast } = useToastStore()
-	const { selectedStop } = useEditorStore()
+	const { selectedStop, stops, deleteStop, publishStop } = useEditorStore()
 
 	const [item, setItem] = useState<Stop>()
-	const [loading, setLoading] = useState(true)
-	const [error, setError] = useState<string | null>(null)
 
 	useEffect(() => {
-		const loadStop = async () => {
-			try {
-				setLoading(true)
-				const stop = await fetchStop(selectedStop)
-				stop && setItem(stop)
-			} catch (err: any) {
-				setError(err.message || 'Failed to load stops')
-			} finally {
-				setLoading(false)
-			}
+		setItem(stops.find((stop) => stop.id === selectedStop))
+	}, [selectedStop, stops])
+
+	const handleAction = (value: EntityControlAction) => {
+		if (value === EntityControlAction.Delete) {
+			item?.id && deleteStop(item.id)
 		}
 
-		selectedStop && loadStop()
-	}, [selectedStop])
+		if (value === EntityControlAction.Publish) {
+			item?.id && publishStop(item.id, true)
+		}
+
+		if (value === EntityControlAction.Unpublish) {
+			item?.id && publishStop(item.id, false)
+		}
+	}
 
 	if (!item) {
 		return (
@@ -51,10 +52,13 @@ const StopProperties: React.FC<{}> = () => {
 		<div className={styles.StopProperties}>
 			<div className={styles.StopPropertiesTitle}>
 				<h3>{item?.name}</h3>
-				<EntityControls isPublished={item.isPublished} />
+				<EntityControls isPublished={item.isPublished} onClick={handleAction} />
 			</div>
 			<div className={styles.Info}>
-				<div className={styles.InternalName}>{item?.internalName}</div>
+				<div className={styles.InternalName}>
+					<Tag size={12} />
+					{item?.internalName}
+				</div>
 				<div className={styles.LastUpdate}>
 					Last update{' '}
 					{item?.updatedAt && (

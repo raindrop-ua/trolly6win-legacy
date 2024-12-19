@@ -48,7 +48,7 @@ const EntityControls: React.FC<EntityControlsProps> = ({
 			)}
 
 			<button
-				disabled={!isPublished}
+				disabled={isPublished}
 				className={classNames(styles.ControlButton, styles.Delete, {
 					[styles.Disabled]: isPublished,
 				})}

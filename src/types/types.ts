@@ -33,6 +33,7 @@ export interface IStopCardProps {
 		name: string
 		directions?: IDirection[]
 		isDefault?: boolean
+		isPublished?: boolean
 	}
 	isSelected?: boolean
 }
