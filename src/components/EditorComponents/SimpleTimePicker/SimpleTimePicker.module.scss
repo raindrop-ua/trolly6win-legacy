@@ -38,10 +38,17 @@
     }
   }
 
+  & .AddControls {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: mixins.rem(10)
+  }
+
   @container (max-width: 240px) {
     & > :nth-child(4) {
-      flex-basis: 80%;
-      order: 1;
+      flex: 1 1 auto;
     }
 
     & > :nth-child(1),

@@ -64,6 +64,22 @@
   --entity-action-control-disabled: #55566A;
   --entity-action-control-shadow: rgb(0 0 0 / 8%);
 
+  /* Admin Stops List */
+
+  /* Admin Stops List - Card */
+  --stop-list-card-border-color: #4B4C5EFF;
+  --stop-list-card-color: #fff;
+  --stop-list-card-background-color: #424463;
+  --stop-list-card-icon-color: #858699;
+  --stop-list-card-selected-border-color: #1F79AA;
+  --stop-list-card-selected-color: #fff;
+  --stop-list-card-selected-background-color: #1F79AA;
+  --stop-list-card-selected-icon-color: #fff;
+  --stop-list-card-unpublished-border-color: #4B4C5EFF;
+  --stop-list-card-unpublished-color: #fff;
+  --stop-list-card-unpublished-background-color: #31324C;
+  --stop-list-card-unpublished-icon-color: #858699;
+
 
 
   /* to review */
@@ -95,9 +111,6 @@
   --button-blue-active: #0d7db9;
   --dark-brick: #77281a;
   --overlay-subtle: #fffef855;
-  --departure-very-soon: #EF6C57;
-  --departure-soon: #F7CC47;
-  --departure-upcoming: #398378;
   --departure-upcoming-later: #1f79aa;
   --success-dark-green: #179c41;
   --warning-red: #a85757;

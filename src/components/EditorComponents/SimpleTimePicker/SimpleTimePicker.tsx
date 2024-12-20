@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Plus, ChevronDown, ChevronUp } from 'lucide-react'
+import { Plus, ChevronDown, ChevronUp, FileStack } from 'lucide-react'
 import styles from './SimpleTimePicker.module.scss'
 
 interface Props {
@@ -57,6 +57,10 @@ const SimpleTimePicker: React.FC<Props> = ({
 		if (onSubmit) onSubmit(time)
 	}
 
+	const handleBulk = () => {
+		console.log('Add bulk')
+	}
+
 	return (
 		<>
 			<div className={styles.Wrapper} ref={ref} data-width={width}>
@@ -91,9 +95,14 @@ const SimpleTimePicker: React.FC<Props> = ({
 						<ChevronDown />
 					</button>
 				</div>
-				<button className={styles.AddButton} onClick={handleSubmit}>
-					<Plus />
-				</button>
+				<div className={styles.AddControls}>
+					<button className={styles.AddButton} onClick={handleSubmit}>
+						<Plus />
+					</button>
+					<button className={styles.AddButton} onClick={handleBulk}>
+						<FileStack />
+					</button>
+				</div>
 			</div>
 		</>
 	)
