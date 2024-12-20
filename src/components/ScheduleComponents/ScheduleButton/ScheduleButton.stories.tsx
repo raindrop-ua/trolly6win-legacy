@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import BaselineButton from '@/components/ScheduleComponents/BaselineButton/index'
+import ScheduleButton from '@/components/ScheduleComponents/ScheduleButton'
 
 import { House, Landmark } from 'lucide-react'
 
 export default {
-	title: 'Components/BaselineButton',
-	component: BaselineButton,
+	title: 'Components/ScheduleButton',
+	component: ScheduleButton,
 	argTypes: {
 		value: { control: 'text' },
 		selectedOption: { control: 'text' },
@@ -24,7 +24,7 @@ const Template: StoryFn<any> = (args) => {
 	}
 
 	return (
-		<BaselineButton
+		<ScheduleButton
 			{...args}
 			selectedOption={selectedOption}
 			onClick={handleClick}

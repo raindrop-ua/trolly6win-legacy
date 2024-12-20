@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react'
 import classNames from 'classnames'
-import styles from './BaselineButton.module.scss'
+import styles from './ScheduleButton.module.scss'
 import { Heart } from 'lucide-react'
 
-interface BaselineButtonProps {
+interface ScheduleButtonProps {
 	className?: string
 	children?: React.ReactNode
 	label?: string
@@ -22,7 +22,7 @@ type Ripple = {
 	size: number
 }
 
-const BaselineButton: React.FC<BaselineButtonProps> = ({
+const ScheduleButton: React.FC<ScheduleButtonProps> = ({
 	className,
 	children,
 	label,
@@ -106,4 +106,4 @@ const BaselineButton: React.FC<BaselineButtonProps> = ({
 	)
 }
 
-export default BaselineButton
+export default ScheduleButton

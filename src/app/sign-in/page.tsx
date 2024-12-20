@@ -7,11 +7,11 @@ import LoginForm from '@/components/LoginForm'
 export const metadata: Metadata = {
 	title: 'Login - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/login',
+		canonical: 'https://trolly6.win/signin',
 	},
 }
 
-export default function LoginPage() {
+export default function SignInPage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>

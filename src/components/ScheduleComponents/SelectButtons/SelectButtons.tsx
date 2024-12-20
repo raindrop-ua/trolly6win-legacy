@@ -1,6 +1,6 @@
 import React from 'react'
 import { useId } from 'react'
-import BaselineButton from '../BaselineButton'
+import ScheduleButton from '../ScheduleButton'
 import styles from './SelectButtons.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -46,7 +46,7 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 					{options.map((option, index) => {
 						return (
 							<SwiperSlide key={option} style={{ width: 'auto' }}>
-								<BaselineButton
+								<ScheduleButton
 									label={labels[index]}
 									value={option}
 									isSelected={selectedOption === option}

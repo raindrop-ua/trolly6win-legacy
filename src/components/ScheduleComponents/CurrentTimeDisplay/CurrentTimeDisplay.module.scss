@@ -15,6 +15,7 @@
   gap: mixins.rem(10);
 
   svg {
+    min-width: mixins.rem(24);
     width: mixins.rem(24);
     height: mixins.rem(24);
   }

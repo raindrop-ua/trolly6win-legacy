@@ -4,17 +4,17 @@ import React, { useState } from 'react'
 import styles from './WantToShare.module.scss'
 import { QrCode } from 'lucide-react'
 import QRCode from 'react-qr-code'
-import BaselineButton from '../ScheduleComponents/BaselineButton'
+import ScheduleButton from '../ScheduleComponents/ScheduleButton'
 
 const WantToShare: React.FC = () => {
 	const [qrCodeVisible, setQrCodeVisible] = useState<boolean>(false)
 	return (
 		<div className={styles.WantToShare}>
 			{!qrCodeVisible ? (
-				<BaselineButton onClick={() => setQrCodeVisible(true)} value={'true'}>
+				<ScheduleButton onClick={() => setQrCodeVisible(true)} value={'true'}>
 					<span>Want to share this app?</span>
 					<QrCode />
-				</BaselineButton>
+				</ScheduleButton>
 			) : (
 				<div className={styles.WantToShareInnerWrapper}>
 					<div>

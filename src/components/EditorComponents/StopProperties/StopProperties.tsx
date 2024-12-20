@@ -52,7 +52,7 @@ const StopProperties: React.FC<{}> = () => {
 		<div className={styles.StopProperties}>
 			<div className={styles.StopPropertiesTitle}>
 				<h3>
-					{item?.name}
+					<span>{item?.name}</span>
 					{item?.isDefault && (
 						<span>
 							<Star size={18} />

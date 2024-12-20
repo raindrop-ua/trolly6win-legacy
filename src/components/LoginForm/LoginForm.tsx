@@ -36,8 +36,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 	const onSubmit: SubmitHandler<IFormInput> = async (data) => {
 		setError(null)
 		const url = isLogin
-			? `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`
-			: `${process.env.NEXT_PUBLIC_API_BASE_URL}/users`
+			? `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/sign-in`
+			: `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/sign-up`
 
 		try {
 			const response = await fetch(url, {
@@ -86,7 +86,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 		<div className={styles.LoginForm}>
 			{!isSuccess && (
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<h2>{isLogin ? 'Log in' : 'Sign up'}</h2>
+					<h2>{isLogin ? 'Sign In' : 'Sign Up'}</h2>
 
 					{error && <p className={styles.ErrorMessage}>{error}</p>}
 
@@ -158,7 +158,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 							[styles.Submitting]: isSubmitting,
 						})}
 					>
-						{isSubmitting ? 'Submitting...' : isLogin ? 'Login' : 'Sign up'}
+						{isSubmitting ? 'Submitting...' : isLogin ? 'Sign In' : 'Sign Up'}
 					</button>
 				</form>
 			)}
@@ -170,7 +170,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 						onClick={() => setIsLogin(!isLogin)}
 						className={styles.ButtonTransparent}
 					>
-						{isLogin ? 'Sign up' : 'Log in'}
+						{isLogin ? 'Sign Up' : 'Sign In'}
 					</button>
 				</p>
 			)}

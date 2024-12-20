@@ -4,6 +4,7 @@ import TrolleybusIcon from './TrolleybusIcon'
 import InlineNoWrap from '@/components/InlineNoWrap'
 import styles from './Header.module.scss'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
+import UserBox from '@/components/UserBox'
 
 const Header: React.FC = () => {
 	return (
@@ -47,7 +48,7 @@ const Header: React.FC = () => {
 				<div>
 					<ThemeSwitcher />
 					<br />
-					<Link href={'/login'}>Login</Link>
+					<UserBox />
 				</div>
 			</div>
 		</div>

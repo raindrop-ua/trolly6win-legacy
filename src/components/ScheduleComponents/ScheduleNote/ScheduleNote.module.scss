@@ -19,6 +19,12 @@
     color: var(--note-alert-text-color);
   }
 
+  &.Attention {
+    background-color: var(--note-attention-background-color);
+    border-color: var(--note-attention-border-color);
+    color: var(--note-attention-text-color);
+  }
+
   .Note {
     display: flex;
     flex-direction: column;
