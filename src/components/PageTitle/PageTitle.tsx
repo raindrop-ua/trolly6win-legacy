@@ -18,7 +18,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
 	return (
 		<div className={classNames(className, styles.PageTitle)}>
 			<Component>{children}</Component>
-			<TrolleybusIcon className={styles.TrolleybusIcon} />
+			<TrolleybusIcon className={styles.TrolleybusIcon} isReverse />
 		</div>
 	)
 }

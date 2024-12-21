@@ -15,6 +15,11 @@
   gap: mixins.rem(15);
   justify-content: space-between;
 
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   svg {
     min-width: mixins.rem(32);
     width: mixins.rem(32);
@@ -25,7 +30,7 @@
     font-weight: bold;
   }
 
-  > div {
+  .StopName {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

@@ -5,14 +5,14 @@
   border-radius: mixins.rem(10);
   border: 1px solid var(--schedule-board-border-color);
   color: var(--schedule-board-text-color);
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.25rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 0;
   padding: mixins.rem(10) mixins.rem(15);
-  gap: mixins.rem(10);
+  gap: mixins.rem(12);
 
   svg {
     min-width: mixins.rem(24);
@@ -21,6 +21,50 @@
   }
 
   span {
-    line-height: 1.5rem;
+    line-height: 1.25rem;
+    display: flex;
+    margin-bottom: -(mixins.rem(3));
+    font-weight: 700;
+  }
+
+  .TrolleybusIcon {
+    width: mixins.rem(22);
+    height: mixins.rem(28);
+
+    svg path {
+      fill: var(--schedule-board-text-color);
+    }
+
+    &.VerySoon {
+      svg path {
+        fill: var(--schedule-board-departure-very-soon-background-color);
+      }
+    }
+
+    &.Soon {
+      svg path {
+        fill: var(--schedule-board-departure-soon-background-color);
+      }
+    }
+
+    &.Upcoming {
+      svg path {
+        fill: var(--schedule-board-departure-upcoming-background-color);
+      }
+    }
+
+    &.UpcomingLater {
+      svg path {
+        fill: var(--schedule-board-departure-upcoming-later-background-color);
+      }
+    }
+  }
+
+  .CurrentTimeBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: mixins.rem(12);
   }
 } 
