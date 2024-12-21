@@ -45,24 +45,26 @@ const TimeList: React.FC = () => {
 	}
 
 	return (
-		<ul className={styles.TimeItems}>
-			{scheduleSelected.map((item: DepartureTimeItem, index: number) => {
-				const isFavorite = false
-				return (
-					<li
-						key={index}
-						className={`${styles.TimeItem} ${getTimeClass(item)}`}
-					>
-						<span>{formatTime(item.time)}</span>
-						{isFavorite && (
-							<span className={styles.Favorite}>
-								<Heart size={32} strokeWidth={1} />
-							</span>
-						)}
-					</li>
-				)
-			})}
-		</ul>
+		<>
+			<ul className={styles.TimeItems}>
+				{scheduleSelected.map((item: DepartureTimeItem, index: number) => {
+					const isFavorite = false
+					return (
+						<li
+							key={index}
+							className={`${styles.TimeItem} ${getTimeClass(item)}`}
+						>
+							<span>{formatTime(item.time)}</span>
+							{isFavorite && (
+								<span className={styles.Favorite}>
+									<Heart size={32} strokeWidth={1} />
+								</span>
+							)}
+						</li>
+					)
+				})}
+			</ul>
+		</>
 	)
 }
 
