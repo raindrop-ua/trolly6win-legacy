@@ -12,7 +12,7 @@ export default function About() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<PageTitle>404 - Page not found</PageTitle>
+				<PageTitle isPrimary>404 - Page not found</PageTitle>
 				<br />
 				<p>You seem lost... kinda like that one trolleybus on route six.</p>
 				<TrolleybusAnimated />
