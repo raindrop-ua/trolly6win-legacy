@@ -2,8 +2,9 @@
 @import '@/styles/shared';
 
 .HeaderWrapper {
+  position: relative;
   background-color: var(--header-background-color);
-  margin-bottom: mixins.rem(25);
+  margin-bottom: mixins.rem(40);
 }
 
 .HeaderTop {
@@ -44,6 +45,7 @@
   right: mixins.rem(100);
   width: mixins.rem(137);
   height: mixins.rem(60);
+  color: var(--header-logo-color);
   z-index: -1;
 
   svg {
@@ -51,8 +53,24 @@
     height: 100%;
   }
 
-  svg path {
-    stroke: var(--header-logo-color);
+  @media screen and (max-width: 767px) {
+    right: mixins.rem(50);
+  }
+}
+
+.HeaderBackground {
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  width: mixins.rem(720);
+  z-index: -1;
+  display: block;
+  font-size: 0;
+  color: #3e6ff40c;
+
+  @media screen and (max-width: 38rem) {
+    width: mixins.rem(600);
+    right: -10%;
   }
 }
 
@@ -114,7 +132,7 @@
         display: block;
         content: '';
         position: absolute;
-        bottom: -(mixins.rem(10));
+        bottom: mixins.rem(-10);
         left: 5%;
         width: 90%;
         height: mixins.rem(5);
@@ -123,7 +141,7 @@
 
         @media (max-width: 768px) {
           height: mixins.rem(3);
-          bottom: -(mixins.rem(5));
+          bottom: mixins.rem(-5);
         }
       }
 

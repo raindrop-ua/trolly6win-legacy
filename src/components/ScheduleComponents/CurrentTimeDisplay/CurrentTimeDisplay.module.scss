@@ -26,34 +26,23 @@
     background-color: var(--schedule-board-border-color);
     border-radius: 50%;
     padding: mixins.rem(7);
-    margin: -(mixins.rem(5)) 0;
-
-    svg path {
-      fill: var(--schedule-board-text-color);
-    }
+    margin: mixins.rem(-5) 0;
+    color: var(--schedule-board-text-color);
 
     &.VerySoon {
-      svg path {
-        fill: var(--schedule-board-departure-very-soon-background-color);
-      }
+      color: var(--schedule-board-departure-very-soon-background-color);
     }
 
     &.Soon {
-      svg path {
-        fill: var(--schedule-board-departure-soon-background-color);
-      }
+      color: var(--schedule-board-departure-soon-background-color);
     }
 
     &.Upcoming {
-      svg path {
-        fill: var(--schedule-board-departure-upcoming-background-color);
-      }
+      color: var(--schedule-board-departure-upcoming-background-color);
     }
 
     &.UpcomingLater {
-      svg path {
-        fill: var(--schedule-board-departure-upcoming-later-background-color);
-      }
+      color: var(--schedule-board-departure-upcoming-later-background-color);
     }
   }
 
@@ -68,7 +57,7 @@
       display: block;
       line-height: 1.25rem;
       min-width: mixins.rem(56);
-      margin-bottom: -(mixins.rem(3));
+      margin-bottom: mixins.rem(-3);
       font-weight: 700;
       text-align: center;
     }

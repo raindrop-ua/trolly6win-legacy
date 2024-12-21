@@ -3,8 +3,9 @@
 .PageTitle {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: mixins.rem(15);
   margin-bottom: mixins.rem(20);
 
   h1 {
@@ -26,7 +27,7 @@
   }
 
   .TrolleybusIcon {
-    width: mixins.rem(24);
+    width: mixins.rem(28);
     height: mixins.rem(40);
 
     path {

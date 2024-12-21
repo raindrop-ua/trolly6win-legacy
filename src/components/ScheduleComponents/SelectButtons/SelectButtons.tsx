@@ -5,6 +5,7 @@ import styles from './SelectButtons.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import classNames from 'classnames'
+import ScheduleSpinner from '../ScheduleSpinner'
 
 type SelectButtonsProps = {
 	className?: string
@@ -34,31 +35,35 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 			<h3 className={styles.GroupCaption} id={`${groupId}-label`}>
 				{label}:
 			</h3>
-			<div className={styles.ButtonsGroup}>
-				<Swiper
-					slideToClickedSlide={true}
-					followFinger={true}
-					spaceBetween={8}
-					slidesPerView='auto'
-					freeMode={true}
-					centeredSlides={false}
-				>
-					{options.map((option, index) => {
-						return (
-							<SwiperSlide key={option} style={{ width: 'auto' }}>
-								<ScheduleButton
-									label={labels[index]}
-									value={option}
-									isSelected={selectedOption === option}
-									onClick={() => setSelectedOption(option)}
-									aria-pressed={selectedOption === option}
-									aria-label={`Select ${option}`}
-								/>
-							</SwiperSlide>
-						)
-					})}
-				</Swiper>
-			</div>
+			{!options?.length ? (
+				<ScheduleSpinner />
+			) : (
+				<div className={styles.ButtonsGroup}>
+					<Swiper
+						slideToClickedSlide={true}
+						followFinger={true}
+						spaceBetween={8}
+						slidesPerView='auto'
+						freeMode={true}
+						centeredSlides={false}
+					>
+						{options.map((option, index) => {
+							return (
+								<SwiperSlide key={option} style={{ width: 'auto' }}>
+									<ScheduleButton
+										label={labels[index]}
+										value={option}
+										isSelected={selectedOption === option}
+										onClick={() => setSelectedOption(option)}
+										aria-pressed={selectedOption === option}
+										aria-label={`Select ${option}`}
+									/>
+								</SwiperSlide>
+							)
+						})}
+					</Swiper>
+				</div>
+			)}
 		</div>
 	)
 }

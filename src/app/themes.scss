@@ -1,4 +1,4 @@
-$color-01: #171823; // #28293E;
+$color-01: #171823;
 $color-02: rgb(255 255 255 / 87%);
 $color-03: rgb(255 255 255 / 15%);
 $color-04: #3e6ff426;
@@ -16,7 +16,7 @@ $color-15: #EF6C57;
 $color-16: rgb(0 0 0 / 10%);
 $color-17: #32334C;
 $color-18: #1c1d2b;
-$color-19: #398378;
+$color-19: #31a190;
 $color-20: rgb(255 255 255 / 30%);
 $color-21: #4C3232;
 $color-22: #85372B;
@@ -24,13 +24,31 @@ $color-23: #0d4f73;
 $color-24: #1F2030;
 $color-25: #179C41;
 $color-26: #A85757;
+$color-27: #721398;
+$color-28: #83499a;
+$color-29: #273474;
+$color-30: #5766b4;
+$color-31: #a06ba5;
+$color-32: #244bb526;
+$color-33: #3e6ff426; // header background light
+$color-34: #3e6ff4;
+$color-35: #16a34a;
+$color-36: #7484d9;
+
 
 @mixin light-theme {
   /* General */
   --background-color: #f7f8fc;
-  --background-dark-color: #f7f8fc;
   --text-color: #{$color-24};
   --overlay-muted: #{$color-03};
+
+  /* Header */
+  --header-background-color: #{$color-33};
+  --header-logo-color: #{$color-34};
+  --header-text-color: #{$color-12};
+  --header-text-selected-color: #{$color-07};
+  --header-text-selected-border-color: #{$color-08};
+  --header-text-selected-background-color: #{$color-34};
 }
 
 @mixin dark-theme {
@@ -40,12 +58,12 @@ $color-26: #A85757;
   --overlay-muted: #{$color-03};
 
   /* Header */
-  --header-background-color: #{$color-04};
+  --header-background-color: #{$color-32};
   --header-logo-color: #{$color-05};
   --header-text-color: #{$color-06};
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
-  --header-text-selected-background-color: #{$color-09};
+  --header-text-selected-background-color: #{$color-29};
 
   /* Theme Switcher */
   --theme-switcher-wrapper-background-color: #{$color-08};
@@ -56,19 +74,19 @@ $color-26: #A85757;
   --theme-switcher-dark-color: #{$color-07};
   --theme-switcher-dark-background-color: #{$color-09};
   --theme-switcher-auto-color: #{$color-06};
-  --theme-switcher-auto-background-color: #{$color-05};
+  --theme-switcher-auto-background-color: #{$color-30};
 
   /* Page Title */
   --title-color: #{$color-11};
-  --title-icon-color: #{$color-09};
-  --title-border-color: #{$color-09};
+  --title-icon-color: #{$color-29};
+  --title-border-color: #{$color-29};
 
   /* Schedule Board */
-  --schedule-board-left-border: #{$color-05};
+  --schedule-board-left-border: #{$color-29};
   --schedule-board-border: #{$color-13};
   --schedule-board-text-color: #{$color-11};
   --schedule-board-background-color: #{$color-14};
-  --schedule-board-border-color: #{$color-09};
+  --schedule-board-border-color: #{$color-13};
   --schedule-board-button-focus-visible: #{$color-15};
   --schedule-board-button-ripple: #{$color-03};
   --schedule-board-button-shadow: #{$color-16};
@@ -76,10 +94,10 @@ $color-26: #A85757;
   --schedule-board-button-background-color: #{$color-17};
   --schedule-board-button-border-color: #{$color-20};
   --schedule-board-button-active-color: #{$color-11};
-  --schedule-board-button-active-background-color: #{$color-05};
-  --schedule-board-button-active-border-color: #{$color-05};
+  --schedule-board-button-active-background-color: #{$color-29};
+  --schedule-board-button-active-border-color: #{$color-30};
   --schedule-board-departure-past-color: #{$color-11};
-  --schedule-board-departure-past-background-color: #{$color-09};
+  --schedule-board-departure-past-background-color: #{$color-17};
   --schedule-board-departure-very-soon-color: #{$color-11};
   --schedule-board-departure-very-soon-background-color: #{$color-15};
   --schedule-board-departure-soon-color: #{$color-18};
@@ -89,7 +107,7 @@ $color-26: #A85757;
   --schedule-board-departure-upcoming-later-color: #{$color-11};
   --schedule-board-departure-upcoming-later-background-color: #{$color-05};
   --schedule-board-departure-cancelled-color: #{$color-11};
-  --schedule-board-departure-cancelled-background-color: #{$color-17};
+  --schedule-board-departure-cancelled-background-color: #{$color-21};
 
   /* Note */
   --note-background-color: #{$color-17};
@@ -136,7 +154,7 @@ $color-26: #A85757;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']){
+  :root:not([data-theme='light']) {
     @include dark-theme;
   }
 }

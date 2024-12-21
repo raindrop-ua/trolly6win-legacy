@@ -6,7 +6,7 @@
   }
 
   50% {
-    transform: translateY(-(mixins.rem(1)));
+    transform: translateY(mixins.rem(-1));
   }
 }
 
@@ -34,10 +34,7 @@
   height: mixins.rem(88);
   position: absolute;
   animation: bus-bounce 500ms infinite ease-in-out;
-
-  svg path {
-    fill: var(--departure-upcoming-later);
-  }
+  color: var(--departure-upcoming-later);
 }
 
 .Wheels {
@@ -45,8 +42,5 @@
   height: mixins.rem(88);
   position: absolute;
   animation: wheel-bounce 500ms infinite ease-in-out;
-
-  svg path {
-    fill: var(--departure-upcoming-later);
-  }
+  color: var(--departure-upcoming-later);
 }

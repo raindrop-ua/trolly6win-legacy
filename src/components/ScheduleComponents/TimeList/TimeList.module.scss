@@ -57,8 +57,8 @@
   }
 
   .Favorite {
-    top: -(mixins.rem(8));
-    right: -(mixins.rem(5));
+    top: mixins.rem(-8);
+    right: mixins.rem(-5);
     position: absolute;
     width: mixins.rem(32);
     height: mixins.rem(32);

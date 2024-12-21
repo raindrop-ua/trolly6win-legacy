@@ -8,11 +8,11 @@
   flex-direction: column;
   margin: 0;
   gap: mixins.rem(10);
-  border-left: mixins.rem(7) solid var(--schedule-board-left-border);
+  border-left: mixins.rem(10) solid var(--schedule-board-left-border);
   border-top: 1px solid var(--schedule-board-border);
   border-right: 1px solid var(--schedule-board-border);
   border-bottom: 1px solid var(--schedule-board-border);
-  border-radius: mixins.rem(7);
+  border-radius: mixins.rem(10);
   padding: mixins.rem(10) mixins.rem(5) mixins.rem(10) mixins.rem(5);
   min-height: mixins.rem(104);
   background-color: var(--schedule-board-background-color);

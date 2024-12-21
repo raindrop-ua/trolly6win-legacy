@@ -12,11 +12,6 @@ import { MapPinCheckInside } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import classNames from 'classnames'
 
-const capitalizeString = (str: string | null): string => {
-	if (str === null) return ''
-	return str.charAt(0).toUpperCase() + str.slice(1)
-}
-
 const ScheduleList: React.FC = () => {
 	const { scheduleData } = useScheduleStore()
 	const { setDayType, setSelectedStop, setDirectionType } = useScheduleStore()
@@ -41,7 +36,7 @@ const ScheduleList: React.FC = () => {
 
 	const selectedStopFullName =
 		scheduleData?.stops.find((item: Stop) => item.internalName === selectedStop)
-			?.name || capitalizeString(selectedStop)
+			?.name || ''
 
 	const availableStopsNames =
 		scheduleData?.configuration.available.stops.map(

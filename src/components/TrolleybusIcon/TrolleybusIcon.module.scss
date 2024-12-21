@@ -7,13 +7,10 @@
   align-items: center;
   width: mixins.rem(56);
   height: mixins.rem(84);
+  color: var(--header-logo-color);
 
   svg {
     width: 100%;
     height: 100%;
-  }
-
-  svg path {
-    fill: var(--header-logo-color);
   }
 }
