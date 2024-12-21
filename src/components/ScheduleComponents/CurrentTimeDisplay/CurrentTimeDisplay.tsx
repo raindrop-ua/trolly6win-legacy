@@ -20,26 +20,22 @@ const CurrentTimeDisplay: React.FC = () => {
 	const stop = scheduleData.stops.find(
 		(item: Stop) => item.internalName === selectedStop,
 	)
-
 	const direction = stop?.directions.find(
 		(item: IDirection) => item.direction === directionType,
 	)
-
 	const dayDepartures = direction?.departures[dayType || 'weekday']
-
-	const closestDeparture = dayDepartures?.filter(
-		(item: DepartureTimeItem) => item.status !== 'past',
+	const closestDeparture = dayDepartures?.find(
+		(item: DepartureTimeItem) => item.status !== Status.Past,
 	)
 
-	const closestDepartureStatus = closestDeparture?.[0].status || ''
-	const closestDepartureTime = closestDeparture?.[0].time || ''
-	console.log(closestDeparture && closestDeparture[0].status)
+	const closestDepartureStatus = closestDeparture?.status || ''
+	const closestDepartureTime = closestDeparture?.time || '—'
 
 	return (
 		<div
 			className={classNames(styles.CurrentTime)}
 			role='text'
-			aria-label={`Current time is ${scheduleData.currentTime}, closest departure is ${formatTime(closestDepartureTime)}`}
+			aria-label={`Current time is ${scheduleData.currentTime}${closestDepartureStatus && `, closest departure is ${formatTime(closestDepartureTime)}`}`}
 		>
 			<div className={styles.CurrentTimeBlock}>
 				<Clock size={24} aria-hidden='true' />
@@ -52,8 +48,6 @@ const CurrentTimeDisplay: React.FC = () => {
 						[styles.Soon]: closestDepartureStatus === Status.Soon,
 						[styles.VerySoon]: closestDepartureStatus === Status.VerySoon,
 						[styles.Upcoming]: closestDepartureStatus === Status.Upcoming,
-						[styles.UpcomingLater]:
-							closestDepartureStatus === Status.UpcomingLater,
 					})}
 					aria-hidden='true'
 				/>

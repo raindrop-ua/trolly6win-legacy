@@ -10,7 +10,9 @@ const Header: React.FC = () => {
 	return (
 		<>
 			<div className={styles.HeaderTop}>
-				<div>Thank you for riding the trolleybus!</div>
+				<div>
+					Don’t worry, if you miss this one, life’s full of second chances!
+				</div>
 				<div>
 					<ThemeSwitcher />
 				</div>
@@ -45,10 +47,7 @@ const Header: React.FC = () => {
 							</div>
 							<p className={styles.Subtitle}>
 								Timetable for trolleybus route{' '}
-								<InlineNoWrap>
-									number <span className={styles.Note}>6</span> in
-								</InlineNoWrap>{' '}
-								the city of Dnipro.
+								<InlineNoWrap>number 6 in</InlineNoWrap> the city of Dnipro.
 							</p>
 						</div>
 					</div>
