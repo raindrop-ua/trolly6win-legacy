@@ -7,7 +7,7 @@ interface IntervalManagerState {
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
-const UPDATE_INTERVAL = 15_000
+const UPDATE_INTERVAL = 30_000
 let timeUpdateInterval: NodeJS.Timeout | null = null
 
 const useIntervalManager = create<IntervalManagerState>(() => {

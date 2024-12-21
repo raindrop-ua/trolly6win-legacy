@@ -22,10 +22,12 @@ export default function HomePage() {
 				<ScheduleNote isAttention={true}>
 					<span>
 						We are proud to introduce Version 2 of our web application. This is
-						a completely redesigned and reimagined application. We spent several
-						months thoroughly rethinking and enhancing the user experience. In
-						the near future, we will be adding new features and various
-						stability improvements. Stay tuned!
+						a completely redesigned and reimagined application.
+					</span>
+					<span>
+						We spent several months thoroughly rethinking and enhancing the user
+						experience. In the near future, we will be adding new features and
+						various stability improvements. Stay tuned!
 					</span>
 				</ScheduleNote>
 				<ScheduleList />

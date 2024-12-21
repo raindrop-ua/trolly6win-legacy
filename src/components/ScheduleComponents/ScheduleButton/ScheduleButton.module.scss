@@ -45,6 +45,8 @@
   font-size: 1.125rem;
   font-weight: 400;
   min-height: mixins.rem(50);
+  -webkit-touch-callout: none;
+  user-select: none;
 
   &:focus-visible {
     outline: #{mixins.rem(2)} solid var(--schedule-board-button-focus-visible);

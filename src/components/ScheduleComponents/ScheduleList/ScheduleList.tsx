@@ -98,7 +98,7 @@ const ScheduleList: React.FC = () => {
 				/>
 				<SelectButtons
 					className={styles.Stops}
-					label={'Trolleybus stops'}
+					label={'Trolleybus stop'}
 					options={availableStopsInternalNames}
 					labels={availableStopsNames}
 					selectedOption={selectedStop || ''}
