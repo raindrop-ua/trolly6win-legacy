@@ -45,9 +45,5 @@ export default function ThemeSwitcher() {
 				<MonitorCog size={16} />
 			</button>
 		</div>
-		// <button onClick={handleToggle}>
-		// 	Switch to{' '}
-		// 	{theme === 'light' ? <Moon /> : theme === 'dark' ? 'Auto' : <Sun />} mode
-		// </button>
 	)
 }

@@ -2,10 +2,11 @@ import { create } from 'zustand'
 import { setThemeCookie } from '@/utils/cookies'
 
 type Theme = 'light' | 'dark' | 'auto'
+type EffectiveTheme = Omit<Theme, 'auto'>
 
 interface ThemeStore {
-	theme: Theme
-	effectiveTheme: 'light' | 'dark'
+	theme: Theme | null
+	effectiveTheme: EffectiveTheme | null
 	setTheme: (theme: Theme) => void
 	initializeTheme: () => void
 }
@@ -24,8 +25,8 @@ export const useThemeStore = create<ThemeStore>((set) => {
 	}
 
 	return {
-		theme: 'auto',
-		effectiveTheme: 'light',
+		theme: null, // 'auto',
+		effectiveTheme: null, // 'light',
 		setTheme: (theme) => {
 			setThemeCookie(theme)
 			set({ theme })

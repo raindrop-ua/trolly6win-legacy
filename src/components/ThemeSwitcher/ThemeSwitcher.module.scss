@@ -7,9 +7,9 @@
   justify-content: center;
   align-items: center;
   gap: mixins.rem(4);
-  padding: mixins.rem(4);
-  border: 1px solid var(--background-color);
-  background-color: var(--primary-dark);
+  padding: mixins.rem(8);
+  border: 1px solid var(--theme-switcher-wrapper-border-color);
+  background-color: var(--theme-switcher-wrapper-background-color);
   border-radius: 50px;
 
   .Button {
@@ -24,24 +24,26 @@
     cursor: pointer;
     font-size: mixins.rem(10);
     transition: all 0.3s ease;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 
     &.Active {
-      border: 2px solid var(--white);
+      border: 2px solid var(--theme-switcher-active-border-color);
     }
 
     &.Light {
-      background-color: var(--warning-yellow);
-      color: var(--background-dark);
+      color: var(--theme-switcher-light-color);
+      background-color: var(--theme-switcher-light-background-color);
     }
 
     &.Dark {
-      background-color: var(--secondary-dark);
-      color: var(--warning-yellow);
+      color: var(--theme-switcher-dark-color);
+      background-color: var(--theme-switcher-dark-background-color);
     }
 
     &.Auto {
-      background-color: var(--button-blue-active);
-      color: var(--background-light);
+      color: var(--theme-switcher-auto-color);
+      background-color: var(--theme-switcher-auto-background-color);
     }
 
   }

@@ -1,0 +1,36 @@
+@use '@/styles/mixins' as mixins;
+
+.PageTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: mixins.rem(20);
+
+  h1 {
+    color: var(--title-color);
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid var(--title-border-color);
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: normal;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .TrolleybusIcon {
+    width: mixins.rem(24);
+    height: mixins.rem(40);
+
+    path {
+      fill: var(--title-icon-color);
+    }
+  }
+}

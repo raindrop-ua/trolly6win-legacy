@@ -1,21 +1,39 @@
 @mixin light-theme {
   /* General */
   --background-color: #f7f8fc;
+  --background-dark-color: #f7f8fc;
   --text-color: #1F2030;
 }
 
 @mixin dark-theme {
   /* General */
   --background-color: #28293E;
+  --background-dark-color: #28293E;
   --text-color: rgb(255 255 255 / 87%);
   --overlay-muted: rgb(255 255 255 / 15%);
+
+  /* Page Title */
+  --title-color: #fff;
+  --title-icon-color: #424463;
+  --title-border-color: #424463;
+
+  /* Theme Switcher */
+  --theme-switcher-wrapper-background-color: #31324C;
+  --theme-switcher-wrapper-border-color: #28293E;
+  --theme-switcher-active-border-color: #fff;
+  --theme-switcher-light-color: #1D1D1D;
+  --theme-switcher-light-background-color: #F7CC47;
+  --theme-switcher-dark-color: #F7CC47;
+  --theme-switcher-dark-background-color: #424463;
+  --theme-switcher-auto-color: #FFFEF8;
+  --theme-switcher-auto-background-color: #0D7DB9;
 
   /* Header */
   --header-logo-color: #1f79aa;
   --header-text-color: #fffef8;
   --header-text-selected-color: #F7CC47;
   --header-text-selected-border-color: #31324C;
-  --header-text-selected-background-color: #31324C;
+  --header-text-selected-background-color: #424463;
 
   /* Schedule Board */
   --schedule-board-left-border: #1F79AA;

@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import ScheduleList from '@/components/ScheduleComponents/ScheduleList'
 import SectionWrapper from '@/components/SectionWrapper'
 import ScheduleNote from '@/components/ScheduleComponents/ScheduleNote'
+import PageTitle from '@/components/PageTitle'
 import Paragraph from '@/components/Paragraph'
 import WantToShare from '@/components/WantToShare'
 import styles from './page.module.scss'
@@ -18,18 +19,18 @@ export default function HomePage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<h1>Schedule Board</h1>
-				<ScheduleNote isAttention={true}>
-					<span>
-						We are proud to introduce Version 2 of our web application. This is
-						a completely redesigned and reimagined application.
-					</span>
-					<span>
-						We spent several months thoroughly rethinking and enhancing the user
-						experience. In the near future, we will be adding new features and
-						various stability improvements. Stay tuned!
-					</span>
-				</ScheduleNote>
+				<PageTitle isPrimary>Schedule Board</PageTitle>
+				{/*<ScheduleNote isAttention={true}>*/}
+				{/*	<span>*/}
+				{/*		We are proud to introduce Version 2 of our web application. This is*/}
+				{/*		a completely redesigned and reimagined application.*/}
+				{/*	</span>*/}
+				{/*	<span>*/}
+				{/*		We spent several months thoroughly rethinking and enhancing the user*/}
+				{/*		experience. In the near future, we will be adding new features and*/}
+				{/*		various stability improvements. Stay tuned!*/}
+				{/*	</span>*/}
+				{/*</ScheduleNote>*/}
 				<ScheduleList />
 				<ScheduleNote>
 					<span>

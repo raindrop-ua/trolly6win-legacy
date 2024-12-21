@@ -3,6 +3,7 @@ import SectionWrapper from '@/components/SectionWrapper'
 import ScheduleNote from '@/components/ScheduleComponents/ScheduleNote'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
+import PageTitle from '@/components/PageTitle'
 
 export const metadata: Metadata = {
 	title: 'Profile - TrollySix',
@@ -15,7 +16,7 @@ export default function ProfilePage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<h1>Profile</h1>
+				<PageTitle isPrimary>Profile</PageTitle>
 				<ScheduleNote>Some information</ScheduleNote>
 			</SectionWrapper>
 			<br />

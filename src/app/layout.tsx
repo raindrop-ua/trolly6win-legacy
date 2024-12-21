@@ -7,7 +7,6 @@ import SectionWrapper from '@/components/SectionWrapper'
 import Footer from '@/components/Footer'
 import IntervalInitializer from '@/components/IntervalInitializer'
 import Toast from '@/components/Toast'
-import EditorModal from '@/components/EditorComponents/EditorModal'
 import ThemeHandler from '@/components/ThemeHandler'
 import { cookies } from 'next/headers'
 
@@ -64,9 +63,9 @@ export default async function RootLayout({
 				<SectionWrapper as={'footer'} useSection={false}>
 					<Footer />
 				</SectionWrapper>
-				<EditorModal />
 				<IntervalInitializer />
 				<Toast />
+				<div className='gradient'></div>
 			</body>
 		</html>
 	)

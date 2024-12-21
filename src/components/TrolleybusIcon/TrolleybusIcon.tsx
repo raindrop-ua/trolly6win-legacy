@@ -1,9 +1,14 @@
 import { FC } from 'react'
 import styles from './TrolleybusIcon.module.scss'
+import classNames from 'classnames'
 
-const TrolleybusIcon: FC = () => {
+interface TrolleybusIconProps {
+	className?: string
+}
+
+const TrolleybusIcon: FC<TrolleybusIconProps> = ({ className }) => {
 	return (
-		<div className={styles.TrolleybusIcon}>
+		<div className={classNames(className, styles.TrolleybusIcon)}>
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
 				viewBox='0 0 56 84'

@@ -42,10 +42,10 @@
   align-items: center;
   justify-content: center;
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   font-size: 1.125rem;
   font-weight: 400;
   min-height: mixins.rem(50);
-  -webkit-touch-callout: none;
   user-select: none;
 
   &:focus-visible {
