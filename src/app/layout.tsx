@@ -56,9 +56,7 @@ export default async function RootLayout({
 			<body className={`${dniproCity.variable}`}>
 				<ThemeHandler />
 				{modal}
-				<SectionWrapper as={'header'} useSection={false}>
-					<Header />
-				</SectionWrapper>
+				<Header />
 				{children}
 				<SectionWrapper as={'footer'} useSection={false}>
 					<Footer />

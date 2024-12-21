@@ -1,137 +1,130 @@
+$color-01: #171823; // #28293E;
+$color-02: rgb(255 255 255 / 87%);
+$color-03: rgb(255 255 255 / 15%);
+$color-04: #3e6ff426;
+$color-05: #1f79aa;
+$color-06: #fffef8;
+$color-07: #F7CC47;
+$color-08: #31324C;
+$color-09: #424463;
+$color-10: #28293E;
+$color-11: #fff;
+$color-12: #1d1d1d;
+$color-13: #3b3f4f;
+$color-14: #242533;
+$color-15: #EF6C57;
+$color-16: rgb(0 0 0 / 10%);
+$color-17: #32334C;
+$color-18: #1c1d2b;
+$color-19: #398378;
+$color-20: rgb(255 255 255 / 30%);
+$color-21: #4C3232;
+$color-22: #85372B;
+$color-23: #0d4f73;
+$color-24: #1F2030;
+$color-25: #179C41;
+$color-26: #A85757;
+
 @mixin light-theme {
   /* General */
   --background-color: #f7f8fc;
   --background-dark-color: #f7f8fc;
-  --text-color: #1F2030;
+  --text-color: #{$color-24};
+  --overlay-muted: #{$color-03};
 }
 
 @mixin dark-theme {
   /* General */
-  --background-color: #28293E;
-  --background-dark-color: #28293E;
-  --text-color: rgb(255 255 255 / 87%);
-  --overlay-muted: rgb(255 255 255 / 15%);
-
-  /* Page Title */
-  --title-color: #fff;
-  --title-icon-color: #424463;
-  --title-border-color: #424463;
-
-  /* Theme Switcher */
-  --theme-switcher-wrapper-background-color: #31324C;
-  --theme-switcher-wrapper-border-color: #28293E;
-  --theme-switcher-active-border-color: #fff;
-  --theme-switcher-light-color: #1D1D1D;
-  --theme-switcher-light-background-color: #F7CC47;
-  --theme-switcher-dark-color: #F7CC47;
-  --theme-switcher-dark-background-color: #424463;
-  --theme-switcher-auto-color: #FFFEF8;
-  --theme-switcher-auto-background-color: #0D7DB9;
+  --background-color: #{$color-01};
+  --text-color: #{$color-02};
+  --overlay-muted: #{$color-03};
 
   /* Header */
-  --header-logo-color: #1f79aa;
-  --header-text-color: #fffef8;
-  --header-text-selected-color: #F7CC47;
-  --header-text-selected-border-color: #31324C;
-  --header-text-selected-background-color: #424463;
+  --header-background-color: #{$color-04};
+  --header-logo-color: #{$color-05};
+  --header-text-color: #{$color-06};
+  --header-text-selected-color: #{$color-07};
+  --header-text-selected-border-color: #{$color-08};
+  --header-text-selected-background-color: #{$color-09};
+
+  /* Theme Switcher */
+  --theme-switcher-wrapper-background-color: #{$color-08};
+  --theme-switcher-wrapper-border-color: #{$color-10};
+  --theme-switcher-active-border-color: #{$color-11};
+  --theme-switcher-light-color: #{$color-12};
+  --theme-switcher-light-background-color: #{$color-07};
+  --theme-switcher-dark-color: #{$color-07};
+  --theme-switcher-dark-background-color: #{$color-09};
+  --theme-switcher-auto-color: #{$color-06};
+  --theme-switcher-auto-background-color: #{$color-05};
+
+  /* Page Title */
+  --title-color: #{$color-11};
+  --title-icon-color: #{$color-09};
+  --title-border-color: #{$color-09};
 
   /* Schedule Board */
-  --schedule-board-left-border: #1F79AA;
-  --schedule-board-text-color: #FFF;
-  --schedule-board-background-color: #32334C;
-  --schedule-board-border-color: #424463;
-  --schedule-board-button-focus-visible: #EF6D58;
-  --schedule-board-button-ripple: rgb(255 255 255 / 15%);
-  --schedule-board-button-shadow: rgb(0 0 0 / 10%);
-  --schedule-board-button-color: #FFF;
-  --schedule-board-button-background-color: #32334C;
-  --schedule-board-button-border-color: rgb(255 255 255 / 30%);
-  --schedule-board-button-active-color: #FFF;
-  --schedule-board-button-active-background-color: #1F79AA;
-  --schedule-board-button-active-border-color: #1F79AA;
-  --schedule-board-departure-past-color: #FFF;
-  --schedule-board-departure-past-background-color: #424463;
-  --schedule-board-departure-very-soon-color: #FFF;
-  --schedule-board-departure-very-soon-background-color: #EF6C57;
-  --schedule-board-departure-soon-color: #1c1d2b;
-  --schedule-board-departure-soon-background-color: #F7CC47;
-  --schedule-board-departure-upcoming-color: #FFF;
-  --schedule-board-departure-upcoming-background-color: #398378;
-  --schedule-board-departure-upcoming-later-color: #FFF;
-  --schedule-board-departure-upcoming-later-background-color: #1F79AA;
-  --schedule-board-departure-cancelled-color: #FFF;
-  --schedule-board-departure-cancelled-background-color: #32334C;
+  --schedule-board-left-border: #{$color-05};
+  --schedule-board-border: #{$color-13};
+  --schedule-board-text-color: #{$color-11};
+  --schedule-board-background-color: #{$color-14};
+  --schedule-board-border-color: #{$color-09};
+  --schedule-board-button-focus-visible: #{$color-15};
+  --schedule-board-button-ripple: #{$color-03};
+  --schedule-board-button-shadow: #{$color-16};
+  --schedule-board-button-color: #{$color-11};
+  --schedule-board-button-background-color: #{$color-17};
+  --schedule-board-button-border-color: #{$color-20};
+  --schedule-board-button-active-color: #{$color-11};
+  --schedule-board-button-active-background-color: #{$color-05};
+  --schedule-board-button-active-border-color: #{$color-05};
+  --schedule-board-departure-past-color: #{$color-11};
+  --schedule-board-departure-past-background-color: #{$color-09};
+  --schedule-board-departure-very-soon-color: #{$color-11};
+  --schedule-board-departure-very-soon-background-color: #{$color-15};
+  --schedule-board-departure-soon-color: #{$color-18};
+  --schedule-board-departure-soon-background-color: #{$color-07};
+  --schedule-board-departure-upcoming-color: #{$color-11};
+  --schedule-board-departure-upcoming-background-color: #{$color-19};
+  --schedule-board-departure-upcoming-later-color: #{$color-11};
+  --schedule-board-departure-upcoming-later-background-color: #{$color-05};
+  --schedule-board-departure-cancelled-color: #{$color-11};
+  --schedule-board-departure-cancelled-background-color: #{$color-17};
 
   /* Note */
-  --note-background-color: #32334C;
-  --note-border-color: #424463;
-  --note-text-color: #FFF;
-  --note-alert-background-color: #4C3232;
-  --note-alert-border-color: #85372B;
-  --note-alert-text-color: #FFF;
-  --note-attention-background-color: #1F79AA;
-  --note-attention-border-color: #0d4f73;
-  --note-attention-text-color: #fff;
+  --note-background-color: #{$color-17};
+  --note-border-color: #{$color-09};
+  --note-text-color: #{$color-11};
+  --note-alert-background-color: #{$color-21};
+  --note-alert-border-color: #{$color-22};
+  --note-alert-text-color: #{$color-11};
+  --note-attention-background-color: #{$color-05};
+  --note-attention-border-color: #{$color-23};
+  --note-attention-text-color: #{$color-11};
 
-  /* Entity Action Controls */
-  --entity-action-control-color: #FFF;
-  --entity-action-control-edit: rgb(25 108 153 / 88%);
-  --entity-action-control-publish: rgb(0 255 42 / 30%);
-  --entity-action-control-unpublish: rgb(255 255 255 / 30%);
-  --entity-action-control-delete: rgb(225 15 15 / 75%);
-  --entity-action-control-disabled: #55566A;
-  --entity-action-control-shadow: rgb(0 0 0 / 8%);
-
-  /* Admin Stops List */
-
-  /* Admin Stops List - Card */
-  --stop-list-card-border-color: #4B4C5EFF;
-  --stop-list-card-color: #fff;
-  --stop-list-card-background-color: #424463;
-  --stop-list-card-icon-color: #858699;
-  --stop-list-card-selected-border-color: #1F79AA;
-  --stop-list-card-selected-color: #fff;
-  --stop-list-card-selected-background-color: #1F79AA;
-  --stop-list-card-selected-icon-color: #fff;
-  --stop-list-card-unpublished-border-color: #4B4C5EFF;
-  --stop-list-card-unpublished-color: #fff;
-  --stop-list-card-unpublished-background-color: #31324C;
-  --stop-list-card-unpublished-icon-color: #858699;
-
-
+  /* Toast */
+  --toast-default-color: #{$color-24};
+  --toast-default-background-color: #{$color-06};
+  --toast-success-color: #{$color-06};
+  --toast-success-background-color: #{$color-25};
+  --toast-error-color: #{$color-06};
+  --toast-error-background-color: #{$color-26};
+  --toast-info-color: #{$color-06};
+  --toast-info-background-color: #{$color-05};
 
   /* to review */
-  --primary-dark: #31324c;
-  --overlay-light: rgb(255 255 255 / 10%);
-  --secondary-dark: #383a5a;
-  --accent-dark: #424463;
-  --overlay-dark: rgb(0 0 0 / 50%);
-  --border-dark: #4b4c5e;
-  --secondary-gray: #55566A;
-  --dark-gray: #32334C;
-  --dark-blue: #1f2030;
-  --overlay-extra-light: rgb(0 0 0 / 8%);
   --background-overlay: rgb(31 32 48 / 75%);
-  --background-dark: #1d1d1d;
-  --shadow-light: rgb(0 0 0 / 10%);
-  --highlight-light: rgb(255 255 255 / 30%);
-  --neutral-gray: #858699;
-  --background-light: #fffef8;
-  --text-muted: rgb(255 255 255 / 70%);
-  --white: #fff;
-  --accent-purple: #8e3d6a;
-  --warning-yellow: #F7CC47;
-  --button-red: #EF6D58;
+  --background-dark: #{$color-12};
+  --shadow-light: #{$color-16};
+  --highlight-light: #{$color-20};
+  --background-light: #{$color-06};
+  --white: #{$color-11};
+  --button-red: #{$color-15};
   --error-dark: #ae2e19;
   --overlay-muted-light: #fffef888;
-  --dark-red: #4c3232;
-  --brick-red: #85372b;
   --button-blue-active: #0d7db9;
-  --dark-brick: #77281a;
-  --overlay-subtle: #fffef855;
-  --departure-upcoming-later: #1f79aa;
-  --success-dark-green: #179c41;
-  --warning-red: #a85757;
+  --departure-upcoming-later: #{$color-05};
+  --success-dark-green: #{$color-25};
 }
 
 :root {

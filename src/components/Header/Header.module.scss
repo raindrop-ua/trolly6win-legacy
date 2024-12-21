@@ -1,6 +1,11 @@
 @use '@/styles/mixins' as mixins;
 @import '@/styles/shared';
 
+.HeaderWrapper {
+  background-color: var(--header-background-color);
+  margin-bottom: mixins.rem(25);
+}
+
 .HeaderTop {
   position: relative;
   width: 100%;
@@ -18,7 +23,7 @@
   width: 100%;
   padding: mixins.rem(30) 0 mixins.rem(30);
 
-  .HeaderWrapper {
+  .HeaderInnerWrapper {
     width: 100%;
     display: flex;
     flex-direction: row;

@@ -17,25 +17,25 @@
   justify-content: space-between;
   align-items: center;
   gap: mixins.rem(15);
-  background-color: var(--background-light);
-  color: var(--dark-blue);
+  background-color: var(--toast-default-background-color);
+  color: var(--toast-default-color);
   padding: mixins.rem(10) mixins.rem(15);
   border-radius: mixins.rem(15) 0 mixins.rem(10) mixins.rem(10);
   border: 1px solid var(--highlight-light);
   box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
 
   &.Success {
-    background-color: var(--success-dark-green);
-    color: var(--background-light);
+    background-color: var(--toast-success-background-color);
+    color: var(--toast-success-color);
   }
 
   &.Error {
-    background-color: var(--warning-red);
-    color: var(--background-light);
+    background-color: var(--toast-error-background-color);
+    color: var(--toast-error-color);
   }
 
   &.Info {
-    background-color: var(--departure-upcoming-later);
-    color: var(--background-light);
+    background-color: var(--toast-info-background-color);
+    color: var(--toast-info-color);
   }
 }
