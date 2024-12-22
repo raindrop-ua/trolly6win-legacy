@@ -5,9 +5,9 @@ import styles from './page.module.scss'
 import LoginForm from '@/components/LoginForm'
 
 export const metadata: Metadata = {
-	title: 'Login - TrollySix',
+	title: 'Sign In - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/signin',
+		canonical: 'https://trolly6.win/sign-in',
 	},
 }
 
