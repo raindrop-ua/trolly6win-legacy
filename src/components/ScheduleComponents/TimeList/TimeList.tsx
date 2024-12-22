@@ -5,6 +5,7 @@ import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
 import ScheduleNote from '../ScheduleNote'
 import { formatTime } from '@/utils/helpers'
 import { Heart } from 'lucide-react'
+import classNames from 'classnames'
 
 const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
 	const { status } = departureTimeItem
@@ -52,7 +53,7 @@ const TimeList: React.FC = () => {
 					return (
 						<li
 							key={index}
-							className={`${styles.TimeItem} ${getTimeClass(item)}`}
+							className={classNames(styles.TimeItem, getTimeClass(item))}
 						>
 							<span>{formatTime(item.time)}</span>
 							{isFavorite && (

@@ -17,6 +17,15 @@
   min-height: mixins.rem(104);
   background-color: var(--schedule-board-background-color);
 
+  .TrolleybusIcon {
+    position: absolute;
+    top: mixins.rem(5);
+    right: mixins.rem(5);
+    width: 18px;
+    height: 24px;
+    color: var(--schedule-board-border);
+  }
+
   .GroupCaption {
     font-size: 1.125rem;
     margin-left: mixins.rem(10);

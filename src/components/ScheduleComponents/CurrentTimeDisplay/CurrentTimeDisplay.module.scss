@@ -2,6 +2,7 @@
 
 .CurrentTime {
   background-color: var(--schedule-board-background-color);
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC44' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   border-radius: mixins.rem(15);
   border: 1px solid var(--schedule-board-border-color);
   color: var(--schedule-board-text-color);
@@ -12,7 +13,7 @@
   align-items: center;
   margin: 0;
   padding: mixins.rem(10) mixins.rem(20);
-  gap: mixins.rem(12);
+  gap: mixins.rem(15);
 
   svg {
     min-width: mixins.rem(24);

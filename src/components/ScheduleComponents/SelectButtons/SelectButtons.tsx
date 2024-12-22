@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import classNames from 'classnames'
 import ScheduleSpinner from '../ScheduleSpinner'
+import TrolleybusIcon from '@/components/TrolleybusIcon'
 
 type SelectButtonsProps = {
 	className?: string
@@ -35,6 +36,7 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 			<h3 className={styles.GroupCaption} id={`${groupId}-label`}>
 				{label}:
 			</h3>
+			<TrolleybusIcon className={styles.TrolleybusIcon}></TrolleybusIcon>
 			{!options?.length ? (
 				<ScheduleSpinner />
 			) : (

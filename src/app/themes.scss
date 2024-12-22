@@ -1,27 +1,27 @@
 $color-01: #171823;
-$color-02: rgb(255 255 255 / 87%);
-$color-03: rgb(255 255 255 / 15%);
+$color-02: #FFFD;
+$color-03: #FFFFFF26;
 $color-04: #3e6ff426;
 $color-05: #1f79aa;
 $color-06: #fffef8;
 $color-07: #F7CC47;
-$color-08: #31324C;
 $color-09: #424463;
+$color-17: #32334C;
+$color-08: #31324C;
 $color-10: #28293E;
+$color-14: #242533;
+$color-24: #1F2030;
+$color-13: #3b3f4f;
 $color-11: #fff;
 $color-12: #1d1d1d;
-$color-13: #3b3f4f;
-$color-14: #242533;
-$color-15: #EF6C57;
-$color-16: rgb(0 0 0 / 10%);
-$color-17: #32334C;
+$color-16: #00000019;
 $color-18: #1c1d2b;
+$color-15: #d84831; // #EF6C57;
 $color-19: #31a190;
-$color-20: rgb(255 255 255 / 30%);
+$color-20: #FFFFFF4C;
 $color-21: #4C3232;
 $color-22: #85372B;
 $color-23: #0d4f73;
-$color-24: #1F2030;
 $color-25: #179C41;
 $color-26: #A85757;
 $color-27: #721398;
@@ -30,25 +30,28 @@ $color-29: #273474;
 $color-30: #5766b4;
 $color-31: #a06ba5;
 $color-32: #244bb526;
-$color-33: #3e6ff426; // header background light
+$color-33: #3e6ff426;
 $color-34: #3e6ff4;
 $color-35: #16a34a;
 $color-36: #7484d9;
+$color-37: #2654d1;
+$color-38: #1f32ad;
+$color-39: #f59e0b;
 
 
 @mixin light-theme {
   /* General */
-  --background-color: #f7f8fc;
+  --background-color: #e2e4e9;
   --text-color: #{$color-24};
   --overlay-muted: #{$color-03};
 
   /* Header */
   --header-background-color: #{$color-33};
-  --header-logo-color: #{$color-34};
+  --header-logo-color: #{$color-37};
   --header-text-color: #{$color-12};
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
-  --header-text-selected-background-color: #{$color-34};
+  --header-text-selected-background-color: #{$color-37};
 }
 
 @mixin dark-theme {
@@ -59,14 +62,14 @@ $color-36: #7484d9;
 
   /* Header */
   --header-background-color: #{$color-32};
-  --header-logo-color: #{$color-05};
+  --header-logo-color: #{$color-34};
   --header-text-color: #{$color-06};
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
   --header-text-selected-background-color: #{$color-29};
 
   /* Theme Switcher */
-  --theme-switcher-wrapper-background-color: #{$color-08};
+  --theme-switcher-wrapper-background-color: #{$color-32};
   --theme-switcher-wrapper-border-color: #{$color-10};
   --theme-switcher-active-border-color: #{$color-11};
   --theme-switcher-light-color: #{$color-12};
