@@ -21,8 +21,8 @@
   color: var(--toast-default-color);
   padding: mixins.rem(10) mixins.rem(15);
   border-radius: mixins.rem(15) 0 mixins.rem(10) mixins.rem(10);
-  border: 1px solid var(--highlight-light);
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
+  border: 1px solid var(--toast-border-color);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--toast-shadow-color);
 
   &.Success {
     background-color: var(--toast-success-background-color);

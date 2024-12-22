@@ -5,8 +5,8 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import classNames from 'classnames'
 import useModalStore from '@/store/modalStore'
-import styles from './LoginForm.module.scss'
 import useToastStore from '@/store/toastStore'
+import styles from './LoginForm.module.scss'
 
 interface IFormInput {
 	email: string

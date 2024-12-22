@@ -13,10 +13,10 @@
     width: mixins.rem(256);
     height: mixins.rem(256);
     padding: mixins.rem(20);
-    background-color: white;
+    background-color: var(--want-to-share-background-color);
     border-radius: mixins.rem(20);
-    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
-    border: 1px solid var(--highlight-light);
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--want-to-share-shadow-color);
+    border: 1px solid var(--want-to-share-shadow-color);
 
     > div {
       display: flex;

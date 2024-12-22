@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-overlay);
+  background-color: var(--modal-overlay-background-color);
   z-index: 1000;
 }
 
@@ -19,9 +19,8 @@
   max-width: 400px;
   width: 90%;
   padding: mixins.rem(25);
-  color: var(--white);
-  background-color: var(--background-color);
   border-radius: mixins.rem(25) mixins.rem(25) mixins.rem(25) 0;
-  border: 1px solid var(--highlight-light);
-  box-shadow: mixins.rem(5) mixins.rem(5) mixins.rem(5) var(--shadow-light);
+  border: 1px solid var(--modal-border-color);
+  background-color: var(--modal-background-color);
+  box-shadow: mixins.rem(5) mixins.rem(5) mixins.rem(5) var(--modal-background-shadow-color);
 }

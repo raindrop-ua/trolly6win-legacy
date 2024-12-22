@@ -37,6 +37,9 @@ $color-36: #7484d9;
 $color-37: #2654d1;
 $color-38: #1f32ad;
 $color-39: #f59e0b;
+$color-40: rgb(31 32 48 / 75%);
+$color-41: #ae2e19;
+$color-42: #fffef888;
 
 
 @mixin light-theme {
@@ -113,6 +116,10 @@ $color-39: #f59e0b;
   --schedule-board-departure-upcoming-later-background-color: #{$color-05};
   --schedule-board-departure-cancelled-color: #{$color-11};
   --schedule-board-departure-cancelled-background-color: #{$color-21};
+  --schedule-board-departure-shadow-color: #{$color-16};
+  --schedule-board-departure-hover-shadow-color: #{$color-40};
+  --schedule-board-departure-favorite-icon-color: #{$color-41};
+  --schedule-board-departure-favorite-icon-border-color: #{$color-42};
 
   /* Note */
   --note-background-color: #{$color-17};
@@ -126,6 +133,8 @@ $color-39: #f59e0b;
   --note-attention-text-color: #{$color-11};
 
   /* Toast */
+  --toast-border-color: #{$color-20};
+  --toast-shadow-color: #{$color-16};
   --toast-default-color: #{$color-24};
   --toast-default-background-color: #{$color-06};
   --toast-success-color: #{$color-06};
@@ -135,19 +144,32 @@ $color-39: #f59e0b;
   --toast-info-color: #{$color-06};
   --toast-info-background-color: #{$color-05};
 
-  /* to review */
-  --background-overlay: rgb(31 32 48 / 75%);
-  --background-dark: #{$color-12};
-  --shadow-light: #{$color-16};
-  --highlight-light: #{$color-20};
-  --background-light: #{$color-06};
-  --white: #{$color-11};
-  --button-red: #{$color-15};
-  --error-dark: #ae2e19;
-  --overlay-muted-light: #fffef888;
-  --button-blue-active: #0d7db9;
-  --departure-upcoming-later: #{$color-05};
-  --success-dark-green: #{$color-25};
+  /* Modal */
+  --modal-border-color: #{$color-20};
+  --modal-overlay-background-color: #{$color-40};
+  --modal-background-color: #{$color-14};
+  --modal-background-shadow-color: #{$color-16};
+
+  /* Login Form */
+  --login-form-background-color: #{$color-01};
+  --login-form-input-color: #{$color-06};
+  --login-form-input-border-color: #{$color-20};
+  --login-form-input-focus-border-color: #{$color-05};
+  --login-form-input-error-border-color: #{$color-15};
+  --login-form-button-color: #{$color-06};
+  --login-form-button-shadow-color: #{$color-16};
+  --login-form-button-background-color: #{$color-05};
+  --login-form-button-focus-visible-color: #{$color-15};
+  --login-form-transparent-button: #{$color-05};
+  --login-form-success-color: #{$color-25};
+
+  /* Trolleybus Animated Icon */
+  --trolleybus-animated-icon-color: #{$color-05};
+
+  /* Want to shared */
+  --want-to-share-background-color: #{$color-06};
+  --want-to-share-border-color: #{$color-14};
+  --want-to-share-shadow-color: #{$color-06};
 }
 
 :root {

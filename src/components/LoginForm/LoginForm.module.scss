@@ -23,39 +23,57 @@
     input {
       width: 100%;
       padding: mixins.rem(10);
-      background-color: var(--background-color);
+      background-color: var(--login-form-background-color);
       border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-      border: 1px solid var(--highlight-light);
+      border: 1px solid var(--login-form-input-border-color);
       font-size: mixins.rem(16);
-      color: var(--white);
+      color: var(--login-form-input-color);
 
       &:focus-visible {
-        outline: #{mixins.rem(2)} solid var(--departure-upcoming-later);
+        outline: #{mixins.rem(2)} solid var(--login-form-input-focus-border-color);
         outline-offset: mixins.rem(2);
         border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
       }
 
       &.Error {
-        border-color:var(--button-red);
+        border-color:var(--login-form-input-error-border-color);
       }
     }
 
     .ErrorMessage {
-      color: var(--button-red);
+      color: var(--login-form-input-error-border-color);
       margin-top: mixins.rem(10);
     }
   }
 
   .Button {
-    @include button-style-basic;
     @include button-style;
 
+    position: relative;
     width: 100%;
-    background-color: var(--departure-upcoming-later);
-    color: var(--background-light);
+    outline: none;
+    border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
+    box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--login-form-button-shadow-color);
+    transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
+    background-color: var(--login-form-button-background-color);
+    color: var(--login-form-button-color);
     border: none;
     cursor: pointer;
     font-size: mixins.rem(16);
+
+    &:focus-visible {
+      outline: #{mixins.rem(2)} solid var(--login-form-button-focus-visible-color);
+      outline-offset: mixins.rem(2);
+      border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
+    }
+
+    &:hover {
+      transform: translateY(-#{mixins.rem(2)});
+    }
+
+    &:active {
+      transform: translateY(mixins.rem(1));
+    }
 
     &.Submitting {
       opacity: 0.5;
@@ -66,7 +84,7 @@
   .ButtonTransparent {
     background: none;
     border: none;
-    color: var(--button-blue-active);
+    color: var(--login-form-transparent-button);
     text-decoration: underline;
     cursor: pointer;
     font-size: mixins.rem(16);
@@ -86,11 +104,11 @@
     gap: mixins.rem(12);
 
     svg {
-      stroke: var(--success-dark-green);
+      stroke: var(--login-form-success-color);
     }
 
     span {
-      color: var(--success-dark-green);
+      color: var(--login-form-success-color);
       font-size: mixins.rem(16);
       font-weight: 700;
     }

@@ -44,18 +44,18 @@
   border-radius: mixins.rem(6);
   width: 100%;
   font-size: mixins.rem(24);
-  color: var(--white);
-  background-color: var(--button-blue-active);
+  color: var(--schedule-board-departure-past-color);
+  background-color: var(--schedule-board-departure-past-background-color);
   user-select: none;
   transition: all .2s ease;
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
+  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--schedule-board-departure-shadow-color);
   visibility: visible;
   position: relative;
 
   &:hover {
     transform: scale(1.2);
     z-index: 1;
-    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--background-overlay);
+    box-shadow: 0 mixins.rem(5) mixins.rem(8) var(--schedule-board-departure-hover-shadow-color);
   }
 
   .Favorite {
@@ -67,8 +67,8 @@
     z-index: 1;
 
     svg {
-      fill: var(--error-dark);
-      stroke: var(--background-light);
+      fill: var(--schedule-board-departure-favorite-icon-color);
+      stroke: var(--schedule-board-departure-favorite-icon-border-color);
     }
   }
 

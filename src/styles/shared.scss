@@ -1,32 +1,5 @@
 @use './mixins' as mixins;
 
-@mixin button-style-basic {
-  position: relative;
-  cursor: pointer;
-  outline: none;
-  color: var(--white);
-  background-color: var(--background-color);
-  border-radius: mixins.rem(15) mixins.rem(10) mixins.rem(10) 0;
-  border: 1px solid var(--highlight-light);
-  box-shadow: 0 mixins.rem(2) mixins.rem(4) var(--shadow-light);
-  transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
-  visibility: visible;
-
-  &:focus-visible {
-    outline: #{mixins.rem(2)} solid var(--button-red);
-    outline-offset: mixins.rem(2);
-    border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
-  }
-
-  &:hover {
-    transform: translateY(-#{mixins.rem(2)});
-  }
-
-  &:active {
-    transform: translateY(mixins.rem(1));
-  }
-}
-
 @mixin button-style {
   padding: mixins.rem(10) mixins.rem(20);
   display: flex;
