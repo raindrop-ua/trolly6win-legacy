@@ -63,7 +63,9 @@
     background: linear-gradient(90deg, transparent 0%, var(--schedule-board-background-color) 100%);
   }
 
-  &:hover  button:not(:hover) {
-    opacity: 0.5;
+  @media (hover: hover) {
+    &:hover  button:not(:hover) {
+      opacity: 0.5;
+    }
   }
 }

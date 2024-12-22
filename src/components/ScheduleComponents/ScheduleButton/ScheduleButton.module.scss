@@ -54,8 +54,10 @@
     border-radius: mixins.rem(8) mixins.rem(8) mixins.rem(8) 0;
   }
 
-  &:hover {
-    transform: translateY(-#{mixins.rem(2)});
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-#{mixins.rem(2)});
+    }
   }
 
   &:active {

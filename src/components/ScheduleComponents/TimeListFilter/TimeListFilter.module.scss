@@ -22,8 +22,10 @@
     gap: mixins.rem(10);
     visibility: hidden;
 
-    &:hover > :not(:hover) {
-      opacity: 0.5;
+    @media (hover: hover) {
+      &:hover > :not(:hover) {
+        opacity: 0.5;
+      }
     }
   }
 
