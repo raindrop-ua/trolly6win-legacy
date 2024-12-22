@@ -40,6 +40,11 @@ $color-39: #f59e0b;
 $color-40: rgb(31 32 48 / 75%);
 $color-41: #ae2e19;
 $color-42: #fffef888;
+$color-43: #aaa;
+$color-44: #c9d2ea;
+$color-45: #e4e4e4;
+$color-46: #adadc2;
+$color-47: #cdcdcd;
 
 
 @mixin light-theme {
@@ -56,6 +61,105 @@ $color-42: #fffef888;
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
   --header-text-selected-background-color: #{$color-37};
+
+  /* Theme Switcher */
+  --theme-switcher-wrapper-background-color: #{$color-32};
+  --theme-switcher-wrapper-border-color: transparent;
+  --theme-switcher-active-border-color: #{$color-11};
+  --theme-switcher-light-color: #{$color-12};
+  --theme-switcher-light-background-color: #{$color-07};
+  --theme-switcher-dark-color: #{$color-07};
+  --theme-switcher-dark-background-color: #{$color-09};
+  --theme-switcher-auto-color: #{$color-06};
+  --theme-switcher-auto-background-color: #{$color-30};
+
+  /* Page Title */
+  --title-color: #{$color-12};
+  --title-icon-color: #{$color-38};
+  --title-border-color: #{$color-38};
+
+  /* Schedule Board */
+  --schedule-board-left-border: #{$color-38};
+  --schedule-board-border: #{$color-43};
+  --schedule-board-text-color: #{$color-08};
+  --schedule-board-background-color: #{$color-45};
+  --schedule-board-border-color: #{$color-43};
+  --schedule-board-button-focus-visible: #{$color-15};
+  --schedule-board-button-ripple: #{$color-03};
+  --schedule-board-button-shadow: #{$color-16};
+  --schedule-board-button-color: #{$color-12};
+  --schedule-board-button-background-color: #c3cdeb;
+  --schedule-board-button-border-color: #{$color-37};
+  --schedule-board-button-active-color: #{$color-11};
+  --schedule-board-button-active-background-color: #{$color-37};
+  --schedule-board-button-active-border-color: #{$color-37};
+  --schedule-board-departure-past-color: #{$color-08};
+  --schedule-board-departure-past-background-color: #{$color-46};
+  --schedule-board-departure-very-soon-color: #{$color-11};
+  --schedule-board-departure-very-soon-background-color: #{$color-15};
+  --schedule-board-departure-soon-color: #{$color-18};
+  --schedule-board-departure-soon-background-color: #{$color-39};
+  --schedule-board-departure-upcoming-color: #{$color-11};
+  --schedule-board-departure-upcoming-background-color: #{$color-19};
+  --schedule-board-departure-upcoming-later-color: #{$color-11};
+  --schedule-board-departure-upcoming-later-background-color: #{$color-05};
+  --schedule-board-departure-cancelled-color: #{$color-11};
+  --schedule-board-departure-cancelled-background-color: #{$color-21};
+  --schedule-board-departure-shadow-color: #{$color-16};
+  --schedule-board-departure-hover-shadow-color: #{$color-40};
+  --schedule-board-departure-favorite-icon-color: #{$color-41};
+  --schedule-board-departure-favorite-icon-border-color: #{$color-42};
+  --schedule-board-departure-time-color: #{$color-09};
+
+  /* Note */
+  --note-background-color: #{$color-17};
+  --note-border-color: #{$color-09};
+  --note-text-color: #{$color-11};
+  --note-alert-background-color: #{$color-21};
+  --note-alert-border-color: #{$color-22};
+  --note-alert-text-color: #{$color-11};
+  --note-attention-background-color: #{$color-05};
+  --note-attention-border-color: #{$color-23};
+  --note-attention-text-color: #{$color-11};
+
+  /* Toast */
+  --toast-border-color: #{$color-20};
+  --toast-shadow-color: #{$color-16};
+  --toast-default-color: #{$color-24};
+  --toast-default-background-color: #{$color-06};
+  --toast-success-color: #{$color-06};
+  --toast-success-background-color: #{$color-25};
+  --toast-error-color: #{$color-06};
+  --toast-error-background-color: #{$color-26};
+  --toast-info-color: #{$color-06};
+  --toast-info-background-color: #{$color-05};
+
+  /* Modal */
+  --modal-border-color: #{$color-20};
+  --modal-overlay-background-color: #{$color-40};
+  --modal-background-color: #{$color-06};
+  --modal-background-shadow-color: #{$color-16};
+
+  /* Login Form */
+  --login-form-background-color: #{$color-06};
+  --login-form-input-color: #{$color-29};
+  --login-form-input-border-color: #{$color-29};
+  --login-form-input-focus-border-color: #{$color-05};
+  --login-form-input-error-border-color: #{$color-15};
+  --login-form-button-color: #{$color-06};
+  --login-form-button-shadow-color: #{$color-16};
+  --login-form-button-background-color: #{$color-05};
+  --login-form-button-focus-visible-color: #{$color-15};
+  --login-form-transparent-button: #{$color-05};
+  --login-form-success-color: #{$color-25};
+
+  /* Trolleybus Animated Icon */
+  --trolleybus-animated-icon-color: #{$color-29};
+
+  /* Want to shared */
+  --want-to-share-background-color: #{$color-06};
+  --want-to-share-border-color: #{$color-14};
+  --want-to-share-shadow-color: #{$color-16};
 }
 
 @mixin dark-theme {
@@ -120,6 +224,7 @@ $color-42: #fffef888;
   --schedule-board-departure-hover-shadow-color: #{$color-40};
   --schedule-board-departure-favorite-icon-color: #{$color-41};
   --schedule-board-departure-favorite-icon-border-color: #{$color-42};
+  --schedule-board-departure-time-color: #{$color-13};
 
   /* Note */
   --note-background-color: #{$color-17};
@@ -169,7 +274,7 @@ $color-42: #fffef888;
   /* Want to shared */
   --want-to-share-background-color: #{$color-06};
   --want-to-share-border-color: #{$color-14};
-  --want-to-share-shadow-color: #{$color-06};
+  --want-to-share-shadow-color: #{$color-16};
 }
 
 :root {

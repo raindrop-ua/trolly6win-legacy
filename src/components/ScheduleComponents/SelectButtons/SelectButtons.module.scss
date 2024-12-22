@@ -45,7 +45,7 @@
     content: '';
     display: block;
     position: absolute;
-    width: mixins.rem(14);
+    width: mixins.rem(12);
     height: 100%;
     z-index: 100;
     visibility: visible;
@@ -65,7 +65,7 @@
 
   @media (hover: hover) {
     &:hover  button:not(:hover) {
-      opacity: 0.5;
+      opacity: 0.75;
     }
   }
 }
