@@ -21,7 +21,7 @@ export function formatTime(time: string): string {
 	return time
 }
 
-export const capitalizeString = (str: string | null): string => {
+export function capitalizeString(str: string | null): string {
 	if (str === null) return ''
 	return str.charAt(0).toUpperCase() + str.slice(1)
 }

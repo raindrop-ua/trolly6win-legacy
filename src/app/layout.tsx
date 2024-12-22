@@ -2,13 +2,13 @@ import React from 'react'
 import './globals.scss'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { cookies } from 'next/headers'
+import IntervalInitializer from '@/components/IntervalInitializer'
 import Header from '@/components/Header'
+import ThemeHandler from '@/components/ThemeHandler'
 import SectionWrapper from '@/components/SectionWrapper'
 import Footer from '@/components/Footer'
-import IntervalInitializer from '@/components/IntervalInitializer'
 import Toast from '@/components/Toast'
-import ThemeHandler from '@/components/ThemeHandler'
-import { cookies } from 'next/headers'
 
 async function getThemeFromCookies(): Promise<'light' | 'dark' | 'auto'> {
 	const themeCookie = (await cookies()).get('theme')?.value
@@ -63,7 +63,6 @@ export default async function RootLayout({
 				</SectionWrapper>
 				<IntervalInitializer />
 				<Toast />
-				<div className='gradient'></div>
 			</body>
 		</html>
 	)

@@ -1,11 +1,12 @@
 import React from 'react'
-import { ArrowRight, Clock } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './CurrentTimeDisplay.module.scss'
-import TrolleybusIcon from '@/components/TrolleybusIcon'
 import { DepartureTimeItem, IDirection, Status, Stop } from '@/types/types'
 import classNames from 'classnames'
 import { formatTime } from '@/utils/helpers'
+import TrolleybusIcon from '@/components/TrolleybusIcon'
+import ClockIcon from '../ClockIcon'
 
 const CurrentTimeDisplay: React.FC = () => {
 	const { scheduleData } = useScheduleStore()
@@ -38,7 +39,11 @@ const CurrentTimeDisplay: React.FC = () => {
 			aria-label={`Current time is ${scheduleData.currentTime}${closestDepartureStatus && `, closest departure is ${formatTime(closestDepartureTime)}`}`}
 		>
 			<div className={styles.CurrentTimeBlock}>
-				<Clock size={24} aria-hidden='true' />
+				<ClockIcon
+					time={formatTime(scheduleData.currentTime)}
+					size={28}
+					aria-hidden='true'
+				/>
 				<span>{formatTime(scheduleData.currentTime)}</span>
 			</div>
 			<ArrowRight size={24} aria-hidden='true' />
