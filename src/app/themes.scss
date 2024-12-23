@@ -45,6 +45,7 @@ $color-44: #c9d2ea;
 $color-45: #e4e4e4;
 $color-46: #adadc2;
 $color-47: #cdcdcd;
+$color-48: #33449d;
 
 
 @mixin light-theme {
@@ -61,6 +62,9 @@ $color-47: #cdcdcd;
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
   --header-text-selected-background-color: #{$color-37};
+  --header-link-button-color: #{$color-02};
+  --header-link-button-background-color: #{$color-48};
+  --header-link-button-hover-background-color: #{$color-29};
 
   /* Theme Switcher */
   --theme-switcher-wrapper-background-color: #{$color-32};
@@ -176,6 +180,9 @@ $color-47: #cdcdcd;
   --header-text-selected-color: #{$color-07};
   --header-text-selected-border-color: #{$color-08};
   --header-text-selected-background-color: #{$color-29};
+  --header-link-button-color: #{$color-02};
+  --header-link-button-background-color: #{$color-48};
+  --header-link-button-hover-background-color: #{$color-29};
 
   /* Theme Switcher */
   --theme-switcher-wrapper-background-color: #{$color-32};

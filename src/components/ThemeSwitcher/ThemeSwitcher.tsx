@@ -1,7 +1,7 @@
 'use client'
 
 import { useThemeStore } from '@/store/themeStore'
-import { MonitorCog, Moon, Sun } from 'lucide-react'
+import { LuMonitorCog, LuMoon, LuSun } from 'react-icons/lu'
 import styles from './ThemeSwitcher.module.scss'
 import classNames from 'classnames'
 
@@ -26,7 +26,7 @@ export default function ThemeSwitcher() {
 				})}
 				onClick={() => handleThemeSet(Theme.Light)}
 			>
-				<Sun size={16} />
+				<LuSun size={16} />
 			</button>
 			<button
 				className={classNames(styles.Button, styles.Dark, {
@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
 				})}
 				onClick={() => handleThemeSet(Theme.Dark)}
 			>
-				<Moon size={16} />
+				<LuMoon size={16} />
 			</button>
 			<button
 				className={classNames(styles.Button, styles.Auto, {
@@ -42,7 +42,7 @@ export default function ThemeSwitcher() {
 				})}
 				onClick={() => handleThemeSet(Theme.Auto)}
 			>
-				<MonitorCog size={16} />
+				<LuMonitorCog size={16} />
 			</button>
 		</div>
 	)

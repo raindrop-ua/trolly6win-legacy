@@ -8,9 +8,14 @@ import SelectButtons from '../SelectButtons'
 import TimeList from '../TimeList'
 import CurrentTimeDisplay from '../CurrentTimeDisplay'
 import TimeListFilter from '../TimeListFilter'
-import { CalendarFold, MapPinCheckInside, Milestone } from 'lucide-react'
+import {
+	LuCalendarFold,
+	LuMapPinCheckInside,
+	LuMilestone,
+} from 'react-icons/lu'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import classNames from 'classnames'
+import { TbBusStop } from 'react-icons/tb'
 
 const ScheduleList: React.FC = () => {
 	const { scheduleData } = useScheduleStore()
@@ -67,10 +72,10 @@ const ScheduleList: React.FC = () => {
 		scheduleData?.configuration.available.days.map((item: Stop) => item.name) ||
 		[]
 
-	const availableDirectionsForStop =
-		scheduleData?.configuration.available.stops.find(
-			(item: Stop) => item.internalName === selectedStop,
-		)?.directions || []
+	// const availableDirectionsForStop =
+	// 	scheduleData?.configuration.available.stops.find(
+	// 		(item: Stop) => item.internalName === selectedStop,
+	// 	)?.directions || []
 
 	return (
 		<div>
@@ -82,7 +87,7 @@ const ScheduleList: React.FC = () => {
 					labels={availableDayTypesNames}
 					selectedOption={dayType || ''}
 					setSelectedOption={setDayTypeHandler}
-					icon={<CalendarFold size={20} />}
+					icon={<LuCalendarFold size={20} />}
 				/>
 				<SelectButtons
 					className={styles.Direction}
@@ -91,7 +96,7 @@ const ScheduleList: React.FC = () => {
 					labels={availableDirectionsNames}
 					selectedOption={directionType || ''}
 					setSelectedOption={setDirectionTypeHandler}
-					icon={<Milestone size={20} />}
+					icon={<LuMilestone size={20} />}
 				/>
 				<SelectButtons
 					className={styles.Stops}
@@ -100,11 +105,12 @@ const ScheduleList: React.FC = () => {
 					labels={availableStopsNames}
 					selectedOption={selectedStop || ''}
 					setSelectedOption={setSelectedStopHandler}
+					icon={<TbBusStop size={22} />}
 				/>
 			</div>
 			<h3 className={styles.CaptionStartPoint}>
 				<div className={styles.StopName}>
-					<MapPinCheckInside size={32} />
+					<LuMapPinCheckInside size={32} />
 					<strong>{selectedStopFullName}</strong>
 				</div>
 				{scheduleData && <CurrentTimeDisplay />}

@@ -35,6 +35,7 @@
     gap: mixins.rem(8);
     justify-content: flex-start;
     align-items: center;
+    min-height: mixins.rem(22);
   }
 }
 

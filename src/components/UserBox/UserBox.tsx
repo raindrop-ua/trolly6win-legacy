@@ -1,13 +1,13 @@
 import styles from './UserBox.module.scss'
-import { CircleUserRound } from 'lucide-react'
+import { LuCircleUserRound } from 'react-icons/lu'
 import Link from 'next/link'
 import React from 'react'
 
 const UserBox = () => {
 	return (
 		<div className={styles.UserBox}>
-			<Link className={styles.UserLink} href={'/sign-in'}>
-				<CircleUserRound size={48} strokeWidth={1} />
+			<Link className={styles.UserLink} href={'/profile'}>
+				<LuCircleUserRound size={48} strokeWidth={1} />
 			</Link>
 		</div>
 	)

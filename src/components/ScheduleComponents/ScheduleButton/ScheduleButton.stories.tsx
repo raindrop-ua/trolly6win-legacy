@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import ScheduleButton from '@/components/ScheduleComponents/ScheduleButton'
 
-import { House, Landmark } from 'lucide-react'
+import { LuHouse, LuLandmark } from 'react-icons/lu'
 
 export default {
 	title: 'Components/ScheduleButton',
@@ -41,13 +41,13 @@ Default.args = {
 export const WithIcon = Template.bind({})
 WithIcon.args = {
 	value: 'House',
-	Icon: <House />,
+	Icon: <LuHouse />,
 	selectedOption: '',
 }
 
 export const Selected = Template.bind({})
 Selected.args = {
 	value: 'Landmark',
-	Icon: <Landmark />,
+	Icon: <LuLandmark />,
 	selectedOption: 'Landmark',
 }

@@ -12,8 +12,21 @@ const Header: React.FC = () => {
 		<div className={styles.HeaderWrapper}>
 			<SectionWrapper as={'header'} useSection={false}>
 				<div className={styles.HeaderTop}>
-					<div>
-						Don’t worry, if you miss this one, life’s full of second chances!
+					<div className={styles.LinksWrapper}>
+						<div className={styles.Links}>
+							<Link className={styles.Link} href={'/'}>
+								Schedule
+							</Link>{' '}
+							<Link className={styles.Link} href={'/about'}>
+								About
+							</Link>
+							<Link className={styles.Link} href={'/blog'}>
+								Blog
+							</Link>
+						</div>
+						<div className={styles.Info}>
+							Don’t worry, if you miss this one, life’s full of second chances!
+						</div>
 					</div>
 					<div>
 						<ThemeSwitcher />

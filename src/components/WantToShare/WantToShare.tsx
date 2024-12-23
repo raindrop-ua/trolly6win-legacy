@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import styles from './WantToShare.module.scss'
-import { QrCode } from 'lucide-react'
+import { LuQrCode } from 'react-icons/lu'
 import QRCode from 'react-qr-code'
 import ScheduleButton from '../ScheduleComponents/ScheduleButton'
 
@@ -13,7 +13,7 @@ const WantToShare: React.FC = () => {
 			{!qrCodeVisible ? (
 				<ScheduleButton onClick={() => setQrCodeVisible(true)} value={'true'}>
 					<span>Want to share this app?</span>
-					<QrCode />
+					<LuQrCode />
 				</ScheduleButton>
 			) : (
 				<div className={styles.WantToShareInnerWrapper}>

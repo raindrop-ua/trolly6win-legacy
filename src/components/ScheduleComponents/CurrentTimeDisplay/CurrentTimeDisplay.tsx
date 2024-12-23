@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import { LuArrowRight } from 'react-icons/lu'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './CurrentTimeDisplay.module.scss'
 import { DepartureTimeItem, IDirection, Status, Stop } from '@/types/types'
@@ -46,7 +46,7 @@ const CurrentTimeDisplay: React.FC = () => {
 				/>
 				<span>{formatTime(scheduleData.currentTime)}</span>
 			</div>
-			<ArrowRight size={24} aria-hidden='true' />
+			<LuArrowRight size={24} aria-hidden='true' />
 			<div className={styles.CurrentTimeBlock}>
 				<TrolleybusIcon
 					className={classNames(styles.TrolleybusIcon, {

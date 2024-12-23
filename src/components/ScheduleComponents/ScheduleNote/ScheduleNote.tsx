@@ -1,9 +1,9 @@
 import React from 'react'
 import {
-	BadgeInfo,
-	MessageCircleWarning,
-	TriangleAlertIcon,
-} from 'lucide-react'
+	LuBadgeInfo,
+	LuMessageCircleWarning,
+	LuTriangleAlert,
+} from 'react-icons/lu'
 import styles from './ScheduleNote.module.scss'
 import classNames from 'classnames'
 
@@ -30,9 +30,9 @@ const ScheduleNote: React.FC<ScheduleNoteProps> = ({
 		>
 			<div className={styles.Note}>{children}</div>
 			<div className={styles.Icon}>
-				{isAlert && <TriangleAlertIcon />}
-				{isAttention && <BadgeInfo />}
-				{!isAlert && !isAttention && <MessageCircleWarning />}
+				{isAlert && <LuTriangleAlert />}
+				{isAttention && <LuBadgeInfo />}
+				{!isAlert && !isAttention && <LuMessageCircleWarning />}
 			</div>
 		</div>
 	)

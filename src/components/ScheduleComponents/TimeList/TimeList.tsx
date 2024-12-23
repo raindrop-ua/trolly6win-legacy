@@ -4,7 +4,7 @@ import styles from './TimeList.module.scss'
 import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
 import ScheduleNote from '../ScheduleNote'
 import { formatTime } from '@/utils/helpers'
-import { Heart } from 'lucide-react'
+import { LuHeart } from 'react-icons/lu'
 import classNames from 'classnames'
 
 const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
@@ -58,7 +58,7 @@ const TimeList: React.FC = () => {
 							<span>{formatTime(item.time)}</span>
 							{isFavorite && (
 								<span className={styles.Favorite}>
-									<Heart size={32} strokeWidth={1} />
+									<LuHeart size={32} strokeWidth={1} />
 								</span>
 							)}
 						</li>

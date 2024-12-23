@@ -4,23 +4,19 @@ import ScheduleNote from '@/components/ScheduleComponents/ScheduleNote'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
 import PageTitle from '@/components/PageTitle'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Profile - TrollySix',
+	title: 'About - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/profile',
+		canonical: 'https://trolly6.win/about',
 	},
 }
 
-export default function ProfilePage() {
+export default function AboutPage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<PageTitle isPrimary>Profile</PageTitle>
-				<Link className={styles.UserLink} href={'/sign-in'}>
-					Sign In
-				</Link>
+				<PageTitle isPrimary>About</PageTitle>
 				<ScheduleNote>Some information</ScheduleNote>
 			</SectionWrapper>
 			<br />

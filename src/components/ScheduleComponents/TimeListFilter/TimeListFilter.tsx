@@ -1,6 +1,6 @@
 import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
-import { ListFilter } from 'lucide-react'
+import { LuListFilter } from 'react-icons/lu'
 import styles from './TimeListFilter.module.scss'
 import ScheduleButton from '../ScheduleButton'
 
@@ -9,7 +9,7 @@ const TimeListFilter = () => {
 
 	return (
 		<div className={styles.TimeListFilter}>
-			<ListFilter />
+			<LuListFilter />
 			<ul className={styles.Items}>
 				<li className={styles.Item}>
 					<ScheduleButton

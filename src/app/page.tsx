@@ -20,17 +20,17 @@ export default function HomePage() {
 		<main className={styles.Main}>
 			<SectionWrapper>
 				<PageTitle isPrimary>Schedule Board</PageTitle>
-				{/*<ScheduleNote isAttention={true}>*/}
-				{/*	<span>*/}
-				{/*		We are proud to introduce Version 2 of our web application. This is*/}
-				{/*		a completely redesigned and reimagined application.*/}
-				{/*	</span>*/}
-				{/*	<span>*/}
-				{/*		We spent several months thoroughly rethinking and enhancing the user*/}
-				{/*		experience. In the near future, we will be adding new features and*/}
-				{/*		various stability improvements. Stay tuned!*/}
-				{/*	</span>*/}
-				{/*</ScheduleNote>*/}
+				<ScheduleNote>
+					<span>
+						We are proud to introduce Version 2 of our web application. This is
+						a completely redesigned and reimagined application.
+					</span>
+					<span>
+						We spent several months thoroughly rethinking and enhancing the user
+						experience. In the near future, we will be adding new features and
+						various stability improvements. Stay tuned!
+					</span>
+				</ScheduleNote>
 				<ScheduleList />
 				<ScheduleNote>
 					<span>

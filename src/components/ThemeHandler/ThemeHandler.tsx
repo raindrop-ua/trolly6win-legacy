@@ -9,7 +9,9 @@ export default function ThemeHandler() {
 	useEffect(() => {
 		initializeTheme()
 
-		document.documentElement.setAttribute('data-theme', effectiveTheme)
+		if (typeof effectiveTheme !== 'object') {
+			document.documentElement.setAttribute('data-theme', effectiveTheme)
+		}
 	}, [effectiveTheme, initializeTheme])
 
 	return null

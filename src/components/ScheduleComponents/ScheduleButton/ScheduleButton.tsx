@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import classNames from 'classnames'
 import styles from './ScheduleButton.module.scss'
-import { Heart } from 'lucide-react'
+import { LuHeart } from 'react-icons/lu'
 
 interface ScheduleButtonProps {
 	className?: string
@@ -57,7 +57,7 @@ const ScheduleButton: React.FC<ScheduleButtonProps> = ({
 
 	const favoriteIcon = isFavorite && (
 		<span className={styles.Favorite}>
-			<Heart size={32} strokeWidth={1} />
+			<LuHeart size={32} strokeWidth={1} />
 		</span>
 	)
 
