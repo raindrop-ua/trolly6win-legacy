@@ -16,12 +16,12 @@ const Header: React.FC = () => {
 						<div className={styles.Links}>
 							<Link className={styles.Link} href={'/'}>
 								Schedule
-							</Link>{' '}
-							<Link className={styles.Link} href={'/about'}>
-								About
 							</Link>
 							<Link className={styles.Link} href={'/blog'}>
 								Blog
+							</Link>
+							<Link className={styles.Link} href={'/about'}>
+								About
 							</Link>
 						</div>
 						<div className={styles.Info}>

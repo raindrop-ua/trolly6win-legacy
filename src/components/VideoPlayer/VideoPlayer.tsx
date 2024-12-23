@@ -15,7 +15,7 @@ const VideoPlayer = () => {
 				muted={false}
 				volume={1}
 				controls={true}
-				playing={true}
+				playing={false}
 				width='100%'
 				height='100%'
 				pip={false}

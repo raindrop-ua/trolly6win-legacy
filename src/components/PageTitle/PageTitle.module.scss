@@ -10,18 +10,18 @@
 
   h1 {
     color: var(--title-color);
-    font-size: 2em;
+    font-size: mixins.rem(32);
     font-weight: normal;
-    line-height: 2.25rem;
+    line-height: mixins.rem(40);
     margin: 0;
     padding: 0;
     border-bottom: 3px solid var(--title-border-color);
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: mixins.rem(28);
     font-weight: normal;
-    line-height: 2rem;
+    line-height: mixins.rem(32);
     margin: 0;
     padding: 0;
   }
