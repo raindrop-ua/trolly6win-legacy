@@ -30,6 +30,11 @@
     font-size: 1.125rem;
     margin-left: mixins.rem(10);
     color: var(--schedule-board-text-color);
+    display: flex;
+    flex-direction: row;
+    gap: mixins.rem(8);
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 

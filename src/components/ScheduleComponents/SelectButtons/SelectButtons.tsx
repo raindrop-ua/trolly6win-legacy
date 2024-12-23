@@ -15,6 +15,7 @@ type SelectButtonsProps = {
 	labels: string[]
 	selectedOption: string
 	setSelectedOption: (option: string) => void
+	icon?: React.ReactNode
 }
 
 const SelectButtons: React.FC<SelectButtonsProps> = ({
@@ -24,6 +25,7 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 	labels,
 	selectedOption,
 	setSelectedOption,
+	icon = null,
 }) => {
 	const groupId = useId()
 
@@ -34,7 +36,7 @@ const SelectButtons: React.FC<SelectButtonsProps> = ({
 			aria-labelledby={`${groupId}-label`}
 		>
 			<h3 className={styles.GroupCaption} id={`${groupId}-label`}>
-				{label}:
+				{icon} <span>{label}:</span>
 			</h3>
 			<TrolleybusIcon className={styles.TrolleybusIcon}></TrolleybusIcon>
 			{!options?.length ? (

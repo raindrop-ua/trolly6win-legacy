@@ -8,7 +8,7 @@ import SelectButtons from '../SelectButtons'
 import TimeList from '../TimeList'
 import CurrentTimeDisplay from '../CurrentTimeDisplay'
 import TimeListFilter from '../TimeListFilter'
-import { MapPinCheckInside } from 'lucide-react'
+import { CalendarFold, MapPinCheckInside, Milestone } from 'lucide-react'
 import TrolleybusAnimated from '@/components/TrolleybusAnimated'
 import classNames from 'classnames'
 
@@ -82,6 +82,7 @@ const ScheduleList: React.FC = () => {
 					labels={availableDayTypesNames}
 					selectedOption={dayType || ''}
 					setSelectedOption={setDayTypeHandler}
+					icon={<CalendarFold size={20} />}
 				/>
 				<SelectButtons
 					className={styles.Direction}
@@ -90,6 +91,7 @@ const ScheduleList: React.FC = () => {
 					labels={availableDirectionsNames}
 					selectedOption={directionType || ''}
 					setSelectedOption={setDirectionTypeHandler}
+					icon={<Milestone size={20} />}
 				/>
 				<SelectButtons
 					className={styles.Stops}
