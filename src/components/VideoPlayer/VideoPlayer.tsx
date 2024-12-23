@@ -1,22 +1,24 @@
 'use client'
 
 import React from 'react'
+import styles from './VideoPlayer.module.scss'
 import dynamic from 'next/dynamic'
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 const VideoPlayer = () => {
 	return (
-		<div>
+		<div className={styles.VidePlayer}>
 			<ReactPlayer
+				className={styles.Player}
 				loop={false}
 				muted={false}
-				volume={100}
+				volume={1}
 				controls={true}
 				playing={true}
 				width='100%'
 				height='100%'
-				style={{ cursor: 'pointer', objectFit: 'cover' }}
+				pip={false}
 				config={{
 					file: {
 						attributes: {
@@ -25,7 +27,7 @@ const VideoPlayer = () => {
 						},
 					},
 				}}
-				url='https://www.youtube.com/watch?v=LXb3EKWsInQ'
+				url='/video/presentation.mp4'
 			/>
 		</div>
 	)

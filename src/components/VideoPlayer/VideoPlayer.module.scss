@@ -1,0 +1,19 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.VidePlayer {
+  border-radius: mixins.rem(16);
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  padding-top: 56.25%;
+
+  & .Player {
+    cursor: pointer;
+    object-fit: cover;
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
