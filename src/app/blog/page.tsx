@@ -4,6 +4,7 @@ import ScheduleNote from '@/components/ScheduleComponents/ScheduleNote'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
 import PageTitle from '@/components/PageTitle'
+import VideoPlayer from '@/components/VideoPlayer/VideoPlayer'
 
 export const metadata: Metadata = {
 	title: 'Blog - TrollySix',
@@ -17,6 +18,7 @@ export default function BlogPage() {
 		<main className={styles.Main}>
 			<SectionWrapper>
 				<PageTitle isPrimary>Blog</PageTitle>
+				<VideoPlayer />
 				<ScheduleNote>Some information</ScheduleNote>
 			</SectionWrapper>
 			<br />
