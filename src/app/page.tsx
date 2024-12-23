@@ -19,7 +19,6 @@ export default function HomePage() {
 	return (
 		<main className={styles.Main}>
 			<SectionWrapper>
-				<PageTitle isPrimary>Schedule Board</PageTitle>
 				<ScheduleNote>
 					<span>
 						We are proud to introduce Version 2 of our web application. This is
@@ -31,6 +30,7 @@ export default function HomePage() {
 						various stability improvements. Stay tuned!
 					</span>
 				</ScheduleNote>
+				<PageTitle isPrimary>Schedule Board</PageTitle>
 				<ScheduleList />
 				<ScheduleNote>
 					<span>
