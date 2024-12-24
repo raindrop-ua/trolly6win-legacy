@@ -7,6 +7,7 @@ import PageTitle from '@/components/PageTitle'
 import Paragraph from '@/components/Paragraph'
 import WantToShare from '@/components/WantToShare'
 import styles from './page.module.scss'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
 	title: 'TrollySix',
@@ -28,6 +29,10 @@ export default function HomePage() {
 						We spent several months thoroughly rethinking and enhancing the user
 						experience. In the near future, we will be adding new features and
 						various stability improvements. Stay tuned!
+					</span>
+					<span>
+						<Link href={'/about'}>About</Link>
+						<Link href={'/blog'}>Blog</Link>
 					</span>
 				</ScheduleNote>
 				<PageTitle isPrimary>Schedule Board</PageTitle>

@@ -34,6 +34,23 @@
     font-size: 1rem;
     line-height: 1.25rem;
     text-align: left;
+
+    a {
+      font-size: mixins.rem(16);
+      line-height: mixins.rem(16);
+      display: inline-block;
+      padding: mixins.rem(5) mixins.rem(10) mixins.rem(4);
+      text-decoration: none;
+      color: var(--header-link-button-color);
+      background-color: var(--header-logo-color);
+      border-radius: mixins.rem(6);
+      transition: background-color .3s ease;
+      margin-right: mixins.rem(10);
+
+      &:hover {
+        background-color: var(--header-link-button-background-color);
+      }
+    }
   }
 
   .Icon {
@@ -44,4 +61,6 @@
       height: mixins.rem(32);
     }
   }
+
+
 }
