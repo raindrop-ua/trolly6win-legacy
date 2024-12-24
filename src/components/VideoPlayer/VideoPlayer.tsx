@@ -11,7 +11,7 @@ const VideoPlayer = () => {
 		<div className={styles.VidePlayer}>
 			<ReactPlayer
 				className={styles.Player}
-				loop={false}
+				loop={true}
 				muted={false}
 				volume={1}
 				controls={true}

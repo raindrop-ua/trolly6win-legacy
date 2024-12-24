@@ -8,6 +8,19 @@
   gap: mixins.rem(15);
   margin-bottom: mixins.rem(20);
 
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: mixins.rem(5);
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
   h1 {
     color: var(--title-color);
     font-size: mixins.rem(32);

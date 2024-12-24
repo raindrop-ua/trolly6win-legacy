@@ -1,0 +1,125 @@
+@use '@/styles/mixins' as mixins;
+@import '@/styles/shared';
+
+.BlogPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: mixins.rem(16);
+  padding: mixins.rem(16) 0;
+  margin: mixins.rem(16) 0;
+
+  & .Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: mixins.rem(16);
+
+    h2 {
+      font-size: mixins.rem(28);
+    }
+
+    .HeaderInfo {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: mixins.rem(16);
+
+      > div {
+        border: 1px solid #303b71;
+        padding: 8px 12px 6px;
+        border-radius: 6px;
+        background-color: #1c254c;
+        color: #fff;
+      }
+    }
+  }
+
+  & .Content {
+    position: relative;
+    font-size: mixins.rem(20);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: mixins.rem(10);
+
+    h3 {
+      margin-top: mixins.rem(6);
+      font-size: mixins.rem(24);
+    }
+
+    h4 {
+      margin-top: mixins.rem(6);
+      font-size: mixins.rem(20);
+    }
+
+    h5 {
+      margin-top: mixins.rem(6);
+      font-size: mixins.rem(22);
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: mixins.rem(6);
+      font-size: mixins.rem(18);
+      line-height: mixins.rem(21);
+
+      li {
+        position: relative;
+        padding-left: mixins.rem(20);
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: mixins.rem(6);
+          height: mixins.rem(6);
+          border-radius: 50%;
+          background-color: var(--header-logo-color);
+          left: mixins.rem(3);
+          top: mixins.rem(6);
+        }
+      }
+    }
+  }
+
+  & .Image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: mixins.rem(16);
+    font-size: 0;
+
+    & img {
+      width: 100%;
+      object-fit: contain;
+      height: auto;
+    }
+  }
+
+  & .Footer {
+    a {
+      font-size: mixins.rem(16);
+      line-height: mixins.rem(16);
+      display: inline-block;
+      padding: mixins.rem(10) mixins.rem(12) mixins.rem(8);
+      text-decoration: none;
+      color: var(--header-link-button-color);
+      background-color: var(--header-logo-color);
+      border-radius: mixins.rem(6);
+      transition: background-color .3s ease;
+
+      &:hover {
+        background-color: var(--header-link-button-background-color);
+      }
+    }
+  }
+}
