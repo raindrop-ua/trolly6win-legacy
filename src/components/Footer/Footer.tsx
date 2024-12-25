@@ -5,7 +5,7 @@ const Footer = () => {
 	return (
 		<div className={styles.FooterSection}>
 			<div className={styles.Footer}>
-				<div>V2.0.4 &copy; 2024-2025.</div>
+				<div>V2.1.4 &copy; 2024-2025.</div>
 				<div>
 					Coded with <LuHeart size={16} className={styles.Heart} /> for the Web
 					and trolleybuses.

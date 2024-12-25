@@ -21,7 +21,7 @@ const WantToShare: React.FC = () => {
 						<QRCode
 							size={256}
 							style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-							value={'https://trolly6.win/'}
+							value={'https://trolly6.com/'}
 							viewBox={`0 0 256 256`}
 						/>
 					</div>

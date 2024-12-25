@@ -7,7 +7,7 @@ import LoginForm from '@/components/LoginForm'
 export const metadata: Metadata = {
 	title: 'Sign In - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/sign-in',
+		canonical: 'https://trolly6.com/sign-in',
 	},
 }
 

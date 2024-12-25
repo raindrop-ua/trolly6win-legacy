@@ -9,7 +9,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 export const metadata: Metadata = {
 	title: 'About - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/about',
+		canonical: 'https://trolly6.com/about',
 	},
 }
 

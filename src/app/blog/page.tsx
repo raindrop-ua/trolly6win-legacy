@@ -9,7 +9,7 @@ import BlogPost from '@/components/BlogPost'
 export const metadata: Metadata = {
 	title: 'Blog - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/blog',
+		canonical: 'https://trolly6.com/blog',
 	},
 }
 

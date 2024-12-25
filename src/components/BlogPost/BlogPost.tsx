@@ -13,13 +13,21 @@ const BlogPost = ({
 	post: IBlogPost
 	isShort?: boolean
 }) => {
+	const postType = {
+		news: 'News',
+		'release-note': 'Release note',
+		article: 'Article',
+		video: 'Video',
+		photo: 'Photo',
+	}[post.postType]
+
 	return (
 		<div className={styles.BlogPost}>
 			<div className={styles.Header}>
 				<h2>{post.title}</h2>
 				<div className={styles.HeaderInfo}>
 					<div>Posted at: {formatISODate(post.createdAt)}</div>
-					<div>{post.postType}</div>
+					<div>{postType}</div>
 				</div>
 			</div>
 			{post.imageUrl && (
@@ -29,7 +37,7 @@ const BlogPost = ({
 						width={992}
 						height={436}
 						alt={post.title}
-						quality={65}
+						quality={60}
 						priority={false}
 						placeholder={'blur'}
 						blurDataURL={'/assets/blur.jpg'}
@@ -45,9 +53,11 @@ const BlogPost = ({
 					<div className={styles.Content}>
 						<ReactMarkdown>{post.shortContent}</ReactMarkdown>
 					</div>
-					<div className={styles.Footer}>
-						<Link href={`/blog/${post.slug}`}>Read More</Link>
-					</div>
+					{post.content && (
+						<div className={styles.Footer}>
+							<Link href={`/blog/${post.slug}`}>Read more</Link>
+						</div>
+					)}
 				</>
 			)}
 		</div>

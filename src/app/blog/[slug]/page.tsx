@@ -10,7 +10,7 @@ import { LuArrowBigLeftDash } from 'react-icons/lu'
 export const metadata: Metadata = {
 	title: 'Blog - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/blog',
+		canonical: 'https://trolly6.com/blog',
 	},
 }
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 // 	return {
 // 		title: 'Blog - TrollySix',
 // 		alternates: {
-// 			canonical: 'https://trolly6.win/blog',
+// 			canonical: 'https://trolly6.com/blog',
 // 		},
 // 		description: `Welcome to the blog! Currently, we have ${posts.data.length} articles available.`,
 // 	}

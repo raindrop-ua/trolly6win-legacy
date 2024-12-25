@@ -9,7 +9,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
 	title: 'Profile - TrollySix',
 	alternates: {
-		canonical: 'https://trolly6.win/profile',
+		canonical: 'https://trolly6.com/profile',
 	},
 }
 
