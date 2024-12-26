@@ -60,7 +60,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				return
 			}
 
-			// const { email, id, access_token } = await response.json()
+			const {
+				data: { accessToken, refreshToken },
+			} = await response.json()
+
+			console.log(accessToken, refreshToken)
 
 			// setUser({ id, email }, access_token)
 
