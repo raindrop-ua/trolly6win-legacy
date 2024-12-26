@@ -165,6 +165,13 @@ $color-48: #33449d;
   --want-to-share-background-color: #{$color-06};
   --want-to-share-border-color: #{$color-14};
   --want-to-share-shadow-color: #{$color-16};
+
+  /* Blog */
+  --blog-post-border-color: #{$color-38};
+  --blog-list-dots-color: #{$color-37};
+  --blog-info-border-color: #9babdb;
+  --blog-info-background-color: #c3cdeb;
+  --blog-info-color: #{$color-12};
 }
 
 @mixin dark-theme {
@@ -284,6 +291,12 @@ $color-48: #33449d;
   --want-to-share-background-color: #{$color-06};
   --want-to-share-border-color: #{$color-14};
   --want-to-share-shadow-color: #{$color-16};
+
+  /* Blog */
+  --blog-list-dots-color: #{$color-37};
+  --blog-info-border-color: #{$color-48};
+  --blog-info-background-color: #{$color-29};
+  --blog-info-color: #{$color-06};
 }
 
 :root {

@@ -1,10 +1,10 @@
 import React from 'react'
 import SectionWrapper from '@/components/SectionWrapper'
+import PageTitle from '@/components/PageTitle'
+import BlogPost from '@/components/BlogPost'
 import { Metadata } from 'next'
 import { IBlogPost } from '@/types/blog-post'
 import styles from './page.module.scss'
-import PageTitle from '@/components/PageTitle'
-import BlogPost from '@/components/BlogPost'
 
 export const metadata: Metadata = {
 	title: 'Blog - TrollySix',

@@ -23,6 +23,19 @@ const BlogPost = ({
 
 	return (
 		<div className={styles.BlogPost}>
+			<div className={styles.PostDecoration}>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					viewBox='0 0 303 177'
+					preserveAspectRatio='xMidYMid meet'
+					fill='none'
+				>
+					<path
+						fill='currentColor'
+						d='M65.7 0 .7 176.6h78.9L144.6 0h-79ZM223.5 0l-65 176.6h78.9L302.4 0h-79Z'
+					/>
+				</svg>
+			</div>
 			<div className={styles.Header}>
 				<h2>{post.title}</h2>
 				<div className={styles.HeaderInfo}>
@@ -37,7 +50,7 @@ const BlogPost = ({
 						width={992}
 						height={436}
 						alt={post.title}
-						quality={60}
+						quality={50}
 						priority={false}
 						placeholder={'blur'}
 						blurDataURL={'/assets/blur.jpg'}
