@@ -32,7 +32,7 @@
     align-items: flex-start;
     gap: mixins.rem(10);
     font-size: mixins.rem(18);
-    line-height: 1.25rem;
+    line-height: mixins.rem(24);
     text-align: left;
 
     a {

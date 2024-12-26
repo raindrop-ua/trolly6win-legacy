@@ -13,17 +13,23 @@ const Header: React.FC = () => {
 			<SectionWrapper as={'header'} useSection={false}>
 				<div className={styles.HeaderTop}>
 					<div className={styles.LinksWrapper}>
-						<div className={styles.Links}>
-							<Link className={styles.Link} href={'/'}>
-								Schedule
-							</Link>
-							<Link className={styles.Link} href={'/blog'}>
-								Blog
-							</Link>
-							<Link className={styles.Link} href={'/about'}>
-								About
-							</Link>
-						</div>
+						<menu className={styles.Links}>
+							<li>
+								<Link className={styles.Link} href={'/'}>
+									Schedule
+								</Link>
+							</li>
+							<li>
+								<Link className={styles.Link} href={'/blog'}>
+									Blog
+								</Link>
+							</li>
+							<li>
+								<Link className={styles.Link} href={'/about'}>
+									About
+								</Link>
+							</li>
+						</menu>
 						<div className={styles.Info}>
 							Don’t worry, if you miss this one, life’s full of second chances!
 						</div>

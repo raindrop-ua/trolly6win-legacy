@@ -20,30 +20,38 @@ export default function ThemeSwitcher() {
 
 	return (
 		<div className={styles.ThemeSwitcherWrapper}>
-			<button
-				className={classNames(styles.Button, styles.Light, {
-					[styles.Active]: theme === Theme.Light,
-				})}
-				onClick={() => handleThemeSet(Theme.Light)}
-			>
-				<LuSun size={16} />
-			</button>
-			<button
-				className={classNames(styles.Button, styles.Dark, {
-					[styles.Active]: theme === Theme.Dark,
-				})}
-				onClick={() => handleThemeSet(Theme.Dark)}
-			>
-				<LuMoon size={16} />
-			</button>
-			<button
-				className={classNames(styles.Button, styles.Auto, {
-					[styles.Active]: theme === Theme.Auto,
-				})}
-				onClick={() => handleThemeSet(Theme.Auto)}
-			>
-				<LuMonitorCog size={16} />
-			</button>
+			<ul>
+				<li>
+					<button
+						className={classNames(styles.Button, styles.Light, {
+							[styles.Active]: theme === Theme.Light,
+						})}
+						onClick={() => handleThemeSet(Theme.Light)}
+					>
+						<LuSun size={16} />
+					</button>
+				</li>
+				<li>
+					<button
+						className={classNames(styles.Button, styles.Dark, {
+							[styles.Active]: theme === Theme.Dark,
+						})}
+						onClick={() => handleThemeSet(Theme.Dark)}
+					>
+						<LuMoon size={16} />
+					</button>
+				</li>
+				<li>
+					<button
+						className={classNames(styles.Button, styles.Auto, {
+							[styles.Active]: theme === Theme.Auto,
+						})}
+						onClick={() => handleThemeSet(Theme.Auto)}
+					>
+						<LuMonitorCog size={16} />
+					</button>
+				</li>
+			</ul>
 		</div>
 	)
 }
