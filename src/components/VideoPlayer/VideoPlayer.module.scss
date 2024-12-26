@@ -1,5 +1,5 @@
 @use '@/styles/mixins' as mixins;
-@import '@/styles/shared';
+@use '@/styles/shared';
 
 .VidePlayer {
   border-radius: mixins.rem(16);

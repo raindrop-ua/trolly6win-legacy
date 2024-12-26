@@ -77,8 +77,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				type: 'info',
 				duration: 3000,
 			})
-		} catch (error: any) {
-			setError(error.message || 'Failed to authenticate')
+		} catch (error) {
+			if (error instanceof Error) {
+				addToast({
+					message: 'Failed to save the new order.',
+					type: 'error',
+					duration: 3000,
+				})
+				setError(error.message || 'Failed to authenticate')
+				console.error(error.message)
+			}
 		}
 	}
 

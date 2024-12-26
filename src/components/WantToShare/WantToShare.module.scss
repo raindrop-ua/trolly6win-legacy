@@ -1,5 +1,5 @@
 @use '@/styles/mixins' as mixins;
-@import '@/styles/shared';
+@use '@/styles/shared';
 
 .WantToShare {
   margin: mixins.rem(40) auto mixins.rem(25) auto;

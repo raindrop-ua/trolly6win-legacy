@@ -1,13 +1,19 @@
 import React from 'react'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './TimeList.module.scss'
-import { DepartureTimeItem, Direction, Status, Stop } from '@/types/types'
+import {
+	FilterType,
+	IDepartureTimeItem,
+	IDirection,
+	IStatus,
+	IStop,
+} from '@/types/types'
 import ScheduleNote from '../ScheduleNote'
 import { formatTime } from '@/utils/helpers'
 import { LuHeart } from 'react-icons/lu'
 import classNames from 'classnames'
 
-const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
+const getTimeClass = (departureTimeItem: IDepartureTimeItem) => {
 	const { status } = departureTimeItem
 	const statusColorMap = {
 		past: styles.Past,
@@ -17,7 +23,7 @@ const getTimeClass = (departureTimeItem: DepartureTimeItem) => {
 		upcominglater: styles.UpcomingLater,
 		canceled: styles.Cancelled,
 	}
-	return statusColorMap[status as Status] || ''
+	return statusColorMap[status as IStatus] || ''
 }
 
 const TimeList: React.FC = () => {
@@ -30,10 +36,14 @@ const TimeList: React.FC = () => {
 	const scheduleSelected =
 		(dayType &&
 			scheduleData?.stops
-				.find((item: Stop) => item.internalName === selectedStop)
-				?.directions.find((item: Direction) => item.direction === directionType)
-				?.departures[dayType]?.filter((item: DepartureTimeItem) => {
-					return !(filter === 'upcoming' && item.status === 'past')
+				.find((item: IStop) => item.internalName === selectedStop)
+				?.directions.find(
+					(item: IDirection) => item.direction === directionType,
+				)
+				?.departures[dayType]?.filter((item: IDepartureTimeItem) => {
+					return !(
+						filter === FilterType.Upcoming && item.status === IStatus.Past
+					)
 				})) ||
 		[]
 
@@ -48,7 +58,7 @@ const TimeList: React.FC = () => {
 	return (
 		<>
 			<ul className={styles.TimeItems}>
-				{scheduleSelected.map((item: DepartureTimeItem, index: number) => {
+				{scheduleSelected.map((item: IDepartureTimeItem, index: number) => {
 					const isFavorite = false
 					return (
 						<li

@@ -3,6 +3,7 @@ import useScheduleStore from '@/store/scheduleStore'
 import { LuListFilter } from 'react-icons/lu'
 import styles from './TimeListFilter.module.scss'
 import ScheduleButton from '../ScheduleButton'
+import { FilterType } from '@/types/types'
 
 const TimeListFilter = () => {
 	const { filter, setFilter } = useScheduleStore()
@@ -17,7 +18,7 @@ const TimeListFilter = () => {
 						value={'all'}
 						isSelected={filter === 'all'}
 						size={'small'}
-						onClick={() => setFilter('all')}
+						onClick={() => setFilter(FilterType.All)}
 					/>
 				</li>
 				<li className={styles.Item}>
@@ -26,7 +27,7 @@ const TimeListFilter = () => {
 						value={'upcoming'}
 						isSelected={filter === 'upcoming'}
 						size={'small'}
-						onClick={() => setFilter('upcoming')}
+						onClick={() => setFilter(FilterType.Upcoming)}
 					/>
 				</li>
 			</ul>

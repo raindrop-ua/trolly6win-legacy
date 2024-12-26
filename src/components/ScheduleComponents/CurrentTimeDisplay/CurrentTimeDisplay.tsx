@@ -2,7 +2,13 @@ import React from 'react'
 import { LuArrowRight } from 'react-icons/lu'
 import useScheduleStore from '@/store/scheduleStore'
 import styles from './CurrentTimeDisplay.module.scss'
-import { DepartureTimeItem, IDirection, Status, Stop } from '@/types/types'
+import {
+	DayType,
+	IDepartureTimeItem,
+	IDirection,
+	IStatus,
+	IStop,
+} from '@/types/types'
 import classNames from 'classnames'
 import { formatTime } from '@/utils/helpers'
 import TrolleybusIcon from '@/components/TrolleybusIcon'
@@ -19,14 +25,14 @@ const CurrentTimeDisplay: React.FC = () => {
 	}
 
 	const stop = scheduleData.stops.find(
-		(item: Stop) => item.internalName === selectedStop,
+		(item: IStop) => item.internalName === selectedStop,
 	)
 	const direction = stop?.directions.find(
 		(item: IDirection) => item.direction === directionType,
 	)
-	const dayDepartures = direction?.departures[dayType || 'weekday']
+	const dayDepartures = direction?.departures[dayType || DayType.Weekday]
 	const closestDeparture = dayDepartures?.find(
-		(item: DepartureTimeItem) => item.status !== Status.Past,
+		(item: IDepartureTimeItem) => item.status !== IStatus.Past,
 	)
 
 	const closestDepartureStatus = closestDeparture?.status || ''
@@ -50,9 +56,12 @@ const CurrentTimeDisplay: React.FC = () => {
 			<div className={styles.CurrentTimeBlock}>
 				<TrolleybusIcon
 					className={classNames(styles.TrolleybusIcon, {
-						[styles.Soon]: closestDepartureStatus === Status.Soon,
-						[styles.VerySoon]: closestDepartureStatus === Status.VerySoon,
-						[styles.Upcoming]: closestDepartureStatus === Status.Upcoming,
+						[styles.Soon]: closestDepartureStatus === IStatus.Soon,
+						[styles.VerySoon]: closestDepartureStatus === IStatus.VerySoon,
+						[styles.Upcoming]: closestDepartureStatus === IStatus.Upcoming,
+						[styles.UpcomingLater]:
+							closestDepartureStatus === IStatus.UpcomingLater,
+						[styles.Canceled]: closestDepartureStatus === IStatus.Canceled,
 					})}
 					aria-hidden='true'
 				/>

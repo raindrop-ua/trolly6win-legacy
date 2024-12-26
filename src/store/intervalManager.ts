@@ -18,7 +18,7 @@ const useIntervalManager = create<IntervalManagerState>(() => {
 			})
 			if (response.ok) {
 				const data = await response.json()
-				const useScheduleStore = require('./scheduleStore').default
+				const { default: useScheduleStore } = await import('./scheduleStore')
 				useScheduleStore.getState().setScheduleData(data)
 			}
 		} catch (error) {

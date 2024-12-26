@@ -71,7 +71,9 @@ const ScheduleButton: React.FC<ScheduleButtonProps> = ({
 				[styles.Large]: size === 'large',
 			})}
 			onClick={(e) => {
-				value && onClick(value)
+				if (value) {
+					onClick(value)
+				}
 				handleMouseDown(e)
 			}}
 			aria-pressed={isSelected}

@@ -1,27 +1,27 @@
 import { create } from 'zustand'
-import { DayType, StopType, FilterType, DirectionType } from '@/types/types'
+import { DayType, DirectionType, FilterType, ScheduleData } from '@/types/types'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 interface ScheduleState {
 	dayType: DayType | null
 	directionType: DirectionType | null
-	selectedStop: StopType | null
+	selectedStop: string | null
 	filter: FilterType
-	scheduleData: Record<string, any> | null
+	scheduleData: ScheduleData | null
 	loadDefaults: () => Promise<void>
 	setDayType: (dayType: DayType) => void
 	setDirectionType: (directionType: DirectionType) => void
-	setSelectedStop: (stop: StopType) => void
+	setSelectedStop: (stop: string) => void
 	setFilter: (filter: FilterType) => void
-	setScheduleData: (data: Record<string, any> | null) => void
+	setScheduleData: (data: ScheduleData | null) => void
 }
 
 const useScheduleStore = create<ScheduleState>((set) => ({
 	dayType: null,
 	directionType: null,
 	selectedStop: null,
-	filter: 'all',
+	filter: FilterType.All,
 	scheduleData: null,
 
 	loadDefaults: async () => {

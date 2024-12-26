@@ -2,7 +2,7 @@
 
 import React, { useCallback } from 'react'
 import styles from './ScheduleList.module.scss'
-import { DayType, DirectionType, Stop, StopType } from '@/types/types'
+import { DayType, DirectionType, IStop } from '@/types/types'
 import useScheduleStore from '@/store/scheduleStore'
 import SelectButtons from '../SelectButtons'
 import TimeList from '../TimeList'
@@ -35,42 +35,44 @@ const ScheduleList: React.FC = () => {
 	)
 
 	const setSelectedStopHandler = useCallback(
-		(option: string) => setSelectedStop(option as StopType),
+		(option: string) => setSelectedStop(option),
 		[setSelectedStop],
 	)
 
 	const selectedStopFullName =
-		scheduleData?.stops.find((item: Stop) => item.internalName === selectedStop)
-			?.name || ''
+		scheduleData?.stops.find(
+			(item: IStop) => item.internalName === selectedStop,
+		)?.name || ''
 
 	const availableStopsNames =
 		scheduleData?.configuration.available.stops.map(
-			(item: Stop) => item.name,
+			(item: IStop) => item.name,
 		) || []
 
 	const availableStopsInternalNames =
 		scheduleData?.configuration.available.stops.map(
-			(item: Stop) => item.internalName,
+			(item: IStop) => item.internalName,
 		) || []
 
 	const availableDirectionsInternalNames =
 		scheduleData?.configuration.available.directions.map(
-			(item: Stop) => item.internalName,
+			(item: IStop) => item.internalName,
 		) || []
 
 	const availableDirectionsNames =
 		scheduleData?.configuration.available.directions.map(
-			(item: Stop) => item.name,
+			(item: IStop) => item.name,
 		) || []
 
 	const availableDayTypesInternalNames =
 		scheduleData?.configuration.available.days.map(
-			(item: Stop) => item.internalName,
+			(item: IStop) => item.internalName,
 		) || []
 
 	const availableDayTypesNames =
-		scheduleData?.configuration.available.days.map((item: Stop) => item.name) ||
-		[]
+		scheduleData?.configuration.available.days.map(
+			(item: IStop) => item.name,
+		) || []
 
 	// const availableDirectionsForStop =
 	// 	scheduleData?.configuration.available.stops.find(

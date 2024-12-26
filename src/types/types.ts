@@ -1,4 +1,4 @@
-export interface Stop {
+export interface IStop {
 	id: string
 	internalName: string
 	name: string
@@ -10,10 +10,6 @@ export interface Stop {
 	updatedAt: string
 }
 
-export interface SortPayload {
-	id: string
-}
-
 export interface IDeparture {
 	id: string
 	departureTime: string
@@ -21,53 +17,55 @@ export interface IDeparture {
 	isPublished: boolean
 }
 
-export interface IDirection {
-	id: string
-	direction: string
-	departures: IDeparture[]
-}
-
-export interface IStopCardProps {
-	itemData: {
-		id: string
-		name: string
-		directions?: IDirection[]
-		isDefault?: boolean
-		isPublished?: boolean
-	}
-	isSelected?: boolean
-}
-
-export enum Status {
+export enum IStatus {
 	Past = 'past',
 	VerySoon = 'verysoon',
 	Soon = 'soon',
 	Upcoming = 'upcoming',
 	UpcomingLater = 'upcominglater',
-	Cancelled = 'canceled',
+	Canceled = 'canceled',
 }
 
-export interface DepartureTimeItem {
+export enum DayType {
+	Weekday = 'weekday',
+	Weekend = 'weekend',
+	Holiday = 'holiday',
+}
+
+export enum DirectionType {
+	Forward = 'forward',
+	Backward = 'backward',
+}
+
+export enum FilterType {
+	All = 'all',
+	Upcoming = 'upcoming',
+}
+
+export interface IDepartureTimeItem {
 	time: string
-	status: Status
+	status: IStatus
 }
 
-export type DayType = 'weekday' | 'weekend'
-export type DirectionType = 'forward' | 'backward'
-export type StopType = 'pridniprovsk' | 'museum' | 'hospital'
-export type FilterType = 'all' | 'upcoming'
-
-export type Direction = {
-	direction: 'forward' | 'backward'
+export type IDirection = {
+	direction: DirectionType
 	departures: {
-		weekday: DepartureTimeItem[]
-		weekend: DepartureTimeItem[]
-		holiday: DepartureTimeItem[]
+		weekday: IDepartureTimeItem[]
+		weekend: IDepartureTimeItem[]
+		holiday: IDepartureTimeItem[]
 	}
 }
 
 export type ScheduleData = {
 	currentTime: string
-	currentDay: 'weekday' | 'weekend' | 'holiday'
-	stops: Stop[]
+	stops: IStop[]
+	departures: IDeparture[]
+	currentDay: DayType
+	configuration: {
+		available: {
+			stops: IStop[]
+			directions: IStop[]
+			days: IStop[]
+		}
+	}
 }
