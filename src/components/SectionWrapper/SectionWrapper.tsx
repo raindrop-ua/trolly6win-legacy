@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { JSX } from 'react'
 import styles from './SectionWrapper.module.scss'
 import classNames from 'classnames'
 
-type ElementTag = keyof React.ReactHTML
+type ElementTag = keyof JSX.IntrinsicElements
 
 interface SectionWrapperProps {
-	as?: ElementTag
+	asElement?: ElementTag
 	children: React.ReactNode
 	className?: string
 	useSection?: boolean
 }
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({
-	as: Tag = 'div',
+	asElement: Tag = 'div',
 	children,
 	className,
 	useSection = true,

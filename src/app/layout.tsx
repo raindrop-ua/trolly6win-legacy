@@ -58,7 +58,7 @@ export default async function RootLayout({
 				{modal}
 				<Header />
 				{children}
-				<SectionWrapper as={'footer'} useSection={false}>
+				<SectionWrapper asElement={'footer'} useSection={false}>
 					<Footer />
 				</SectionWrapper>
 				<IntervalInitializer />

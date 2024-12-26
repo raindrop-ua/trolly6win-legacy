@@ -10,7 +10,7 @@ import SectionWrapper from '@/components/SectionWrapper'
 const Header: React.FC = () => {
 	return (
 		<div className={styles.HeaderWrapper}>
-			<SectionWrapper as={'header'} useSection={false}>
+			<SectionWrapper asElement={'header'} useSection={false}>
 				<div className={styles.HeaderTop}>
 					<div className={styles.LinksWrapper}>
 						<menu className={styles.Links}>

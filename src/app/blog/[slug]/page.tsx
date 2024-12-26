@@ -29,11 +29,12 @@ export const metadata: Metadata = {
 // }
 
 export default async function BlogPostPage({
-	params,
+	params: rawParams,
 }: {
-	params: { slug: string }
+	params: Promise<{ slug: string }>
 }) {
-	const { slug } = await params
+	const params = await rawParams
+	const { slug } = params
 
 	const post = await fetch(
 		`${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/${slug}`,
