@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import classNames from 'classnames'
 import useModalStore from '@/store/modalStore'
 import useToastStore from '@/store/toastStore'
+import useAuthStore from '@/store/authStore'
 import styles from './LoginForm.module.scss'
 
 interface IFormInput {
@@ -64,9 +65,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isFromModal = false }) => {
 				data: { accessToken, refreshToken },
 			} = await response.json()
 
-			console.log(accessToken, refreshToken)
-
-			// setUser({ id, email }, access_token)
+			useAuthStore.getState().setTokens(accessToken, refreshToken)
 
 			setIsSuccess(true)
 
