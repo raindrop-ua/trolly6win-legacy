@@ -1,4 +1,4 @@
-# trolly6.win
+# trolly6.win (legacy version)
 
 ## Timetable for trolleybus route number 6 in the city of Dnipro.
 
